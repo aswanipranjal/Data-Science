@@ -11,10 +11,14 @@ programming = [5, 0, 5, 20, 2]
 slices = [7, 2, 5, 8, 2];
 activities = ['sleeping', 'eating', 'working', 'playing', 'programming'];
 colors = ['c', 'm', 'r', 'b', 'k'];
-plt.pie(slices, labels=activities, colors=colors);
+# startangle, shadow are pretty obvious
+# explodes accepts a list of arguments whose length is equal to the length of the activities list, 
+# and 'brings out' a particular piece of it
+# the autopct calculates the percentage each slice occupies
+plt.pie(slices, labels=activities, colors=colors, startangle=90, shadow=True, explode=(0, 0.1, 0, 0, 0), autopct='%1.1f%%');
 
-plt.xlabel('x')
-plt.ylabel('y')
-plt.legend()
+# plt.xlabel('x')
+# plt.ylabel('y')
+# plt.legend()
 plt.title('Interesting graph')
 plt.show()
