@@ -27,3 +27,4 @@ def animate(i):
 # ani stores the reference to the FuncAnimation method instance of the animation class of matplotlib.
 # Arguments(where?, function_to_animate, interval_to_animate)
 ani = animation.FuncAnimation(fig, animate, interval=1000)
+plt.show();
