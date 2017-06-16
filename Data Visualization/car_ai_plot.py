@@ -29,17 +29,19 @@ def animate_genetic_data(i):
 	graph_data = open('C:\\Users\\Aman Deep Singh\\Documents\\Unity-2\\Car AI GA\\Assets\\Data\\data.txt', 'r').read()
 	lines = graph_data.split('\n')
 	xs = []
-	ys = []
+	msas = []
+	tss = []
 	for line in lines:
 		if len(line) > 1:
-			l = line.split(',')
-			x, y = l[0], l[1:]
+			x, msa, ts, mmt, mbt, com, m, sl, ssa, wd4, wb4, wt4, s2nwd, s, bc1, bc2, am, l2sa, tspd, e = line.split(',')
 			xs.append(x)
-			ys.append(y)
-
+			msas.append(msa)
+			tss.append(ts)
+	
 	ax2.clear()
-	ax2.plot(xs, ys)
-
+	ax2.plot(xs, msas, '--', label='Max Steer Angle')
+	ax2.plot(xs, tss, 'b-', label='Top Speed')
+	ax2.legend()
 # ani stores the reference to the FuncAnimation method instance of the animation class of matplotlib.
 # Arguments(where?, function_to_animate, interval_to_animate)
 ani1 = animation.FuncAnimation(fig, animate_track_record_data, interval=1000)
