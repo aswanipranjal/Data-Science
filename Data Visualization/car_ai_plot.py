@@ -6,8 +6,8 @@ import numpy as np
 style.use('ggplot')
 
 fig = plt.figure()
-ax1 = fig.add_subplot(1, 2, 1) # similar to octave's subplotting system
-ax2 = fig.add_subplot(1, 2, 2)
+ax1 = fig.add_subplot(1, 1, 1) # similar to octave's subplotting system
+ax2 = plt.figure().add_subplot(1, 1, 1)
 
 # An animation function is like a draw loop. It'll keep running and animating the plot
 def animate_track_record_data(i):
