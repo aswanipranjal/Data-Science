@@ -1,8 +1,14 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib import style
+import os
+import platform
 
 style.use('ggplot')
+
+userhome = os.path.expanduser('~')
+filepath = userhome + '\\Desktop\\GA\\data.txt'
+# for teesting use filepath as C:\\Users\\Aman Deep Singh\\Documents\\Unity-2\\Assets\\Data\\data.txt
 
 fig = plt.figure()
 ax1 = fig.add_subplot(231)
@@ -13,7 +19,7 @@ ax5 = fig.add_subplot(235)
 ax6 = fig.add_subplot(236)
 
 def animate(i):
-	graph_data = open('C:\\Users\\Aman Deep Singh\\Documents\\Unity-2\\Car AI GA\\Assets\\Data\\data.txt', 'r').read()
+	graph_data = open(filepath, 'r').read()
 	lines = graph_data.split('\n')
 	xs = []
 	msas = []
