@@ -71,7 +71,7 @@ def animate(i):
 	ax3.plot(xs, coms, 'b-', label='Center Of Mass-y')
 	ax3.plot(xs, ms, 'c-', label='Mass')
 	ax4.plot(xs, sls, 'g-', label='Sensor Length')
-	ax4.plot(xs, ssas, 'y-.', label='Sensor Skew Angle')
+	ax4.plot(xs, ssas, 'k-', label='Sensor Skew Angle')
 	ax5.plot(xs, wd4s, 'r-', label='Four wheel drive')
 	ax5.plot(xs, wb4s, 'k-', label='Four wheel brake')
 	ax5.plot(xs, wt4s, 'c-', label='Four wheel turn')
