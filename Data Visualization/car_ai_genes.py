@@ -7,7 +7,7 @@ import platform
 style.use('ggplot')
 
 userhome = os.path.expanduser('~')
-filepath = userhome + '\\Desktop\\GA\\data.txt'
+filepath = userhome + '\\Desktop\\GAmine\\data.txt'
 # for teesting use filepath as C:\\Users\\Aman Deep Singh\\Documents\\Unity-2\\Assets\\Data\\data.txt
 
 fig = plt.figure()

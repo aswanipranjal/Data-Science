@@ -7,7 +7,7 @@ import os
 style.use('ggplot')
 
 userhome = os.path.expanduser('~')
-filepath = userhome + "\\Desktop\\GA\\fitness.txt"
+filepath = userhome + "\\Desktop\\GAmine\\fitness.txt"
 # For debugging, use filepath 'C:\\Users\\Aman Deep Singh\\Documents\\Unity-2\\Car AI GA\\Assets\\Data\\fitness.txt'
 
 fig = plt.figure()
@@ -99,6 +99,20 @@ def animate(i):
 	# ax2.legend()
 # ani stores the reference to the FuncAnimation method instance of the animation class of matplotlib.
 # Arguments(where?, function_to_animate, interval_to_animate)
+minimum = '120000'
+graph_data = open(filepath, 'r').read()
+lines = graph_data.split('\n')
+xs = []
+ys = []
+for line in lines:
+	if len(line) > 1:
+		x, y = line.split(',')
+		xs.append(x)
+		ys.append(y)
+		if (y < minimum):
+			minimum = y
+print(minimum)
+
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 # ani2 = animation.FuncAnimation(fig, animate_genetic_data, interval=2000)
 plt.show();
