@@ -15,6 +15,8 @@ ax1 = fig.add_subplot(1, 1, 1) # similar to octave's subplotting system
 # ax2 = plt.figure().add_subplot(1, 1, 1)
 
 # An animation function is like a draw loop. It'll keep running and animating the plot
+# minimum = 0;
+# times = []
 def animate(i):
 	graph_data = open(filepath, 'r').read()
 	lines = graph_data.split('\n')
@@ -25,11 +27,13 @@ def animate(i):
 			x, y = line.split(',')
 			xs.append(x)
 			ys.append(y)
-
+	# times = [int(num) for num in ys]
 	# clearing doesn't cost much but is better
 	ax1.clear()
 	ax1.plot(xs, ys)
+	# minimum = min(times)
 
+# print(times)
 # def animate_genetic_data(i):
 	# graph_data = open('C:\\Users\\Aman Deep Singh\\Documents\\Unity-2\\Car AI GA\\Assets\\Data\\data.txt', 'r').read()
 	# lines = graph_data.split('\n')
