@@ -21,6 +21,6 @@ ax = fig.add_subplot(111, projection='3d')
 
 x, y, z = axes3d.get_test_data(0.05)
 # rstride: how often are we going to draw a line, delta: how often are we going to compute a line
-ax.plot_wireframe(x, y, z, rstride=10, cstride=10)
+ax.plot_wireframe(x, y, z, rstride=2, cstride=2)
 
 plt.show()
