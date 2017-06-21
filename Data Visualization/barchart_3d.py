@@ -7,7 +7,8 @@ ax1 = fig.add_subplot(111, projection='3d')
 
 xpos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ypos = [2, 3, 4, 5, 1, 6, 2, 1, 7, 2]
-zpos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+# zpos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+zpos = np.zeros(10)
 
 dx = np.ones(10)
 dy = np.ones(10)
