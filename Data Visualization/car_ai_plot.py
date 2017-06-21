@@ -7,7 +7,7 @@ import os
 style.use('ggplot')
 
 userhome = os.path.expanduser('~')
-filepath = userhome + "\\Desktop\\GAmine\\fitness.txt"
+filepath = userhome + "\\Desktop\\GAmine\\fitness_38.txt"
 # For debugging, use filepath 'C:\\Users\\Aman Deep Singh\\Documents\\Unity-2\\Car AI GA\\Assets\\Data\\fitness.txt'
 
 fig = plt.figure()
