@@ -1,7 +1,7 @@
 import pandas as pd
 # index_col=0 sets the first column as the index column
-df = pd.read_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006.csv', index_col=0)
-print(df.head())
+# df = pd.read_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006.csv', index_col=0)
+# print(df.head())
 
 # df.set_index('Date', inplace=True)
 # df.to_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v2.csv')
@@ -19,5 +19,8 @@ print(df.head())
 # df.to_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.csv', header=False)
 
 # To read csv files that have no headers
-df = pd.read_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.csv', names=['Date', 'Austin_HPI'])
+df = pd.read_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.csv', names=['Date', 'Austin_HPI'], index_col=0)
 print(df.head())
+
+# We can use pandas as a converter of data formats
+df.to_html('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.html')
