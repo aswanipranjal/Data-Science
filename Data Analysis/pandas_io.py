@@ -13,3 +13,7 @@ print(df.head())
 # HPI: House Price Index
 df.columns = ['Austin_HPI']
 print(df.head())
+# df.to_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v3.csv')
+
+# To remove headers (column names) in saved csv files
+df.to_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.csv', header=False)
