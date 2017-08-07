@@ -30,4 +30,8 @@ print(concat)
 # print(df4)
 
 # Pandas is not a Database management system. It wasn't built to make dynamic tables and databases. It was built for analysis
-# and manipulation of data
+# and manipulation of data, so adding a new entry is not as efficient and is a bit of a chore
+s = pd.Series([80, 2, 50], index=['HPI', 'Int_rate', 'US_GDP_Thousands'])
+
+df4 = df1.append(s, ignore_index=True)
+print(df4)
