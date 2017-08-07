@@ -13,4 +13,22 @@ web_stats = {'Day':[1, 2, 3, 4, 5, 6],
 # Create DataFrame
 df = pd.DataFrame(web_stats)
 # We print the head to be sure if the dataframe has been created
+# An index is automatically generated
+# print(df.head())
+# Prints last 5 columns
+# print(df.tail())
+# Prints last 2 columns
+# print(df.tail(2))
+
+# To set an index
+# This returns a new dataframe. Doesn't modify the original dataframe
+# print(df.set_index('Day'))
+# print(df.head())
+
+# To workaround this, one way is
+# df = df.set_index('Day')
+# print(df.head())
+
+# A better way is
+df.set_index('Day', inplace=True)
 print(df.head())
