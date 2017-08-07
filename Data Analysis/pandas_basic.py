@@ -52,5 +52,5 @@ df = pd.DataFrame(web_stats)
 # Use numpy arrays instead
 # print(np.array(df[['Visitors', 'Bounce_Rate']]))
 
-df2 = pd.DataFrame(np.array(df[['Visitors', 'Bounce_Rate']]))
-print(df2)
+# df2 = pd.DataFrame(np.array(df[['Visitors', 'Bounce_Rate']]))
+# print(df2)
