@@ -30,5 +30,16 @@ df = pd.DataFrame(web_stats)
 # print(df.head())
 
 # A better way is
-df.set_index('Day', inplace=True)
-print(df.head())
+# df.set_index('Day', inplace=True)
+# print(df.head())
+
+# To get a specific column
+# Used with datasets which have column names with spaces
+print(df['Visitors'])
+
+# Another way to do the same thing
+# Used more often
+print(df.Visitors)
+
+# To print specific columns
+print(df[['Visitors', 'Bounce_Rate']])
