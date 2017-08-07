@@ -49,5 +49,8 @@ df = pd.DataFrame(web_stats)
 # print(df.Visitors.tolist())
 
 # Even though multi-dimensional lists are valid, converting multiple columns to n-dimensional lists is not allowed
-# Use numpy instead
-print(np.array(df[['Visitors', 'Bounce_Rate']]))
+# Use numpy arrays instead
+# print(np.array(df[['Visitors', 'Bounce_Rate']]))
+
+df2 = pd.DataFrame(np.array(df[['Visitors', 'Bounce_Rate']]))
+print(df2)
