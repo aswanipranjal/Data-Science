@@ -13,10 +13,10 @@ fifty_states = pd.read_html('https://simple.wikipedia.org/wiki/List_of_U.S._stat
 # We find that its the 0th element
 
 # This is a dataframe
-print(fifty_states[0])
+# print(fifty_states[0])
 
 # This is a column
-print(fifty_states[0][0])
+# print(fifty_states[0][0])
 
 for abbv in fifty_states[0][0][1:]:
 	print('FMAC/HPI_' + str(abbv))
