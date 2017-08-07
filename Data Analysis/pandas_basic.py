@@ -35,11 +35,14 @@ df = pd.DataFrame(web_stats)
 
 # To get a specific column
 # Used with datasets which have column names with spaces
-print(df['Visitors'])
+# print(df['Visitors'])
 
 # Another way to do the same thing
 # Used more often
-print(df.Visitors)
+# print(df.Visitors)
 
 # To print specific columns
 print(df[['Visitors', 'Bounce_Rate']])
+
+# To convert to a list
+print(df.Visitors.tolist())
