@@ -11,9 +11,13 @@ print(df.head())
 # To rename every single column
 # Now, df.columns does not include the 'Date' column. It is now an index. Indexes and columns are different
 # HPI: House Price Index
-df.columns = ['Austin_HPI']
-print(df.head())
+# df.columns = ['Austin_HPI']
+# print(df.head())
 # df.to_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v3.csv')
 
 # To remove headers (column names) in saved csv files
-df.to_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.csv', header=False)
+# df.to_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.csv', header=False)
+
+# To read csv files that have no headers
+df = pd.read_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.csv', names=['Date', 'Austin_HPI'])
+print(df.head())
