@@ -2,6 +2,7 @@
 # Pandas is easier than Python + Numpy
 # A dataframe is like a Python dictionary
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import style
 style.use('ggplot')
@@ -42,7 +43,11 @@ df = pd.DataFrame(web_stats)
 # print(df.Visitors)
 
 # To print specific columns
-print(df[['Visitors', 'Bounce_Rate']])
+# print(df[['Visitors', 'Bounce_Rate']])
 
 # To convert to a list
-print(df.Visitors.tolist())
+# print(df.Visitors.tolist())
+
+# Even though multi-dimensional lists are valid, converting multiple columns to n-dimensional lists is not allowed
+# Use numpy instead
+print(np.array(df[['Visitors', 'Bounce_Rate']]))
