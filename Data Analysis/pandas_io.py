@@ -19,8 +19,14 @@ import pandas as pd
 # df.to_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.csv', header=False)
 
 # To read csv files that have no headers
-df = pd.read_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.csv', names=['Date', 'Austin_HPI'], index_col=0)
-print(df.head())
+# df = pd.read_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.csv', names=['Date', 'Austin_HPI'], index_col=0)
+# print(df.head())
 
 # We can use pandas as a converter of data formats
-df.to_html('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.html')
+# df.to_html('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.html')
+
+df = pd.read_csv('C:\\Users\\Aman Deep Singh\\Documents\\Python\\Data Science\\Data Analysis\\housing77006_v4.csv', names=['Date', 'Austin_HPI'])
+print(df.head())
+
+df.rename(columns={'Austin_HPI':'77006_HPI'}, inplace=True)
+print(df.head())
