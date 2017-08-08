@@ -1,5 +1,5 @@
 # Merging and joining dataframes
-import pandas as py
+import pandas as pd
 
 df1 = pd.DataFrame({'HPI':[80, 85, 88, 85],
 					'Int_rate':[2, 3, 2, 2], 
@@ -15,3 +15,6 @@ df3 = pd.DataFrame({'HPI':[80, 85, 88, 85],
 					'Unemployment':[7, 8, 9, 6], 
 					'Low_tier_HPI':[50, 52, 0, 53]},
 					index=[2001, 2002, 2003, 2004])
+
+# Merging kind of ignores the whole notion of index
+print(pd.merge(df1, df2, on=['HPI', 'Int_rate']))
