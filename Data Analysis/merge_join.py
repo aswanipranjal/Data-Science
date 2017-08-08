@@ -21,7 +21,7 @@ df3 = pd.DataFrame({'HPI':[80, 85, 88, 85],
 
 # Joining dataframes
 df1.set_index('HPI', inplace=True)
-df2.set_index('HPI', inplace=True)
+df3.set_index('HPI', inplace=True)
 # Now they are sharing index but no columns (which is important)
 
 joined = df1.join(df3)
