@@ -39,4 +39,19 @@ class Dataset:
 		delta = max_data - min_data
 		return np.float32([(d - min_data).total_seconds() / delta.total_seconds() for d in  array])
 
-	
+	@staticmethod
+	def normalize_cord(latitude, longitude):
+		'''
+		Normalize GPS cord array, assuming the earth is spherical
+		:param latitude: latitude array to normalize
+		:param longitude: longitude array to normalize
+		:return: normalized arrays (np.array)
+		'''
+		rad_lat = np.deg2rad(latitude)
+		rad_lon = np.deg2rad(longitude)
+
+		x = np.cos(rad_lat) * np.cos(rad_lon)
+		y = np.cos(rad_lat) * np.sin(rad_lon)
+		z = np.sin(rad_lat)
+
+		return x, y, z
