@@ -217,3 +217,29 @@ if __name__ == "__main__":
 
 			syn1 += momentum_syn1
 			syn0 += momentum_syn0
+
+		# evaluate model
+		current_error = 0
+		for batch in Generator.get_batch(10, evalX, evalY):
+			# feed forward
+			l0 = batch[0]
+			l1 = Math.sigmoid(np.dot(l0, syn0))
+			l2 = Math.relu(np.dot(l1, syn1))
+
+			current_error += np.sum(np.abs(batch[1] - l2))
+		current_error /= eval_set_size
+
+		print(f"error: {current_error}\n")
+
+		if current_error < best_error:
+			best_error = current_error
+			best_learning_rate_log = learning_rate_log
+			best_momentum = momentum
+			best_batch_size = batch_size
+			best_max_epochs_log = max_epochs_log
+
+	print(f"best error: {best_error}")
+	print(f"best learning rate log: {best_learning_rate_log}")
+	print(f"best momentum: {best_momentum}")
+	print(f"best batch size: {best_batch_size}")
+	print(f"best max epochs log: {best_max_epochs_log}")
