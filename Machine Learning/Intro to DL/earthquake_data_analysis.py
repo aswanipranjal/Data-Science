@@ -55,3 +55,15 @@ class Dataset:
 		z = np.sin(rad_lat)
 
 		return x, y, z
+
+	@staticmethod
+	def vectorize(date, latitude, longitude):
+		'''
+		Transform given array in vectors to feed NN
+		:param date: date array
+		:param latitude: latitude array
+		:param longitude: longitude array
+		:return: np.array
+		'''
+		return np.concatenate(Dataset.normalize_cord(latitude, longitude) + (Dataset.normalize_date(date),)).reshape((4, len(date))).swapaxes(0, 1)
+
