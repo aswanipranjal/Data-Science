@@ -93,3 +93,25 @@ class Math:
 			return np.ones_like(x) * (x > 0)
 
 		return x * (x > 0)
+
+	@staticmethod
+	def new_parameters(x, x_min, x_max, radius):
+		'''
+		Generate new random parameters in the sphere of center and radius given
+		:param x: center on the sphere
+		:param x_min: minimum value returned
+		:param x_max: maximum value returned
+		:param radius: radius
+		:return: new parameter
+		'''
+		alpha = 2 * np.random.random() - 1
+		new_x = x + radius * alpha
+
+		if new_x < x_min:
+			return x_min
+
+		elif new_x > x_max:
+			return x_max
+
+		return new_x
+
