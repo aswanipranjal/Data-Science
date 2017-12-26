@@ -149,7 +149,7 @@ class Generator:
 			yield X[i * batch_size:(i + 1) * batch_size], Y[i * batch_size:(i + 1) * batch_size]
 
 if __name__ == "__main__":
-	date, latitude, longitude, magnitude = Dataset.load_from_file("earthquake_database.csv")
+	date, latitude, longitude, magnitude = Dataset.load_from_file("C:/Users/Aman Deep Singh/Documents/Python/Data Science/Machine Learning/Intro to DL/earthquake_database.csv")
 	data_size = len(date)
 	vectorsX, vectorsY = Dataset.vectorize(date, latitude, longitude), magnitude.reshape((data_size, 1))
 	eval_set_size = int(0.1 * data_size)
