@@ -149,4 +149,71 @@ class Generator:
 			yield X[i * batch_size:(i + 1) * batch_size], Y[i * batch_size:(i + 1) * batch_size]
 
 if __name__ == "__main__":
-	
+	date, latitude, longitude, magnitude = Dataset.load_from_file("earthquake_database.csv")
+	data_size = len(date)
+	vectorsX, vectorsY = Dataset.vectorize(date, latitude, longitude), magnitude.reshape((data_size, 1))
+	eval_set_size = int(0.1 * data_size)
+	index = np.arange(data_size)
+	np.random.shuffle(index)
+	trainX, trainY = vectorsX[index[eval_set_size:]], vectorsY[index[eval_set_size:]]
+	evalX, evalY = vectorsX[index[:eval_set_size]], vectorsY[index[:eval_set_size]]
+
+	syn0_origin = 2 * np.random.random((trainX.shape[1], 32)) - 1
+	syn1_origin = 2 * np.random.random((32, trainY.shape[1])) - 1
+
+	best_error = 9999
+	best_learning_rate_log = -3
+	best_momentum = 0.9
+	best_batch_size = 64
+	best_max_epochs_log = 4
+	learning_rate_log = None
+	momentum = None
+	batch_size = None
+	max_epochs_log = None
+
+	for i in range(50):
+		# Hyperparameters
+		learning_rate_log = Math.new_parameters(best_learning_rate_log, -5, -1, 0.5) 	# log range from 0.0001 to 0.1
+		momentum = Math.new_parameters(best_momentum, 0.5, 0.95, 0.1) 					# linear range from 0.5 to 0.9
+		batch_size = np.int64(Math.new_parameters(best_batch_size, 10, 128, 10)) 		# linear range from 10 to 128
+		max_epochs_log = Math.new_parameters(best_max_epochs_log, 3, 5, 0.5)			# log range from 1000 to 100000
+		learning_rate = np.power(10, learning_rate_log)
+		max_epochs = np.int64(np.power(10,  max_epochs_log))
+		# display hyperparameters
+		print(f"iteration: {i}")
+		print(f"learning rate: {learning_rate}")
+		print(f"momentum: {momentum}")
+		print(f"batch size: {batch_size}")
+		print(f"max epochs: {max_epochs}")
+
+		syn0 = copy.deepcopy(syn0_origin)
+		syn1 = copy.deepcopy(syn1_origin)
+
+		momentum_syn0 = np.zeros_like(syn0)
+		momentum_syn1 = np.zeros_like(syn1)
+
+		batch_gen = Generator.gen_random_batch(batch_size, trainX, trainY)
+
+		for j in range(max_epochs):
+			# get batch
+			batch = next(batch_gen)
+
+			# feed forward
+			l0 = batch[0]
+			l1 = Math.sigmoid(np.dot(l0, syn0))
+			l2 = Math.relu(np.dot(l1, syn1))
+
+			# l2 error and delta
+			l2_error = batch[1] - l2
+			l2_delta = l2_error * Math.relu(l2, deriv=True)
+
+			# l1 error and delta
+			l1_error = l2_delta.dot(syn1.T)
+			l1_delta = l1_error * Math.sigmoid(l1, deriv=True)
+
+			# momentum
+			momentum_syn1 = momentum * momentum_syn1 + l1.T.dot(l2_delta) * learning_rate
+			momentum_syn0 = momentum * momentum_syn0 + l0.T.dot(l1_delta) * learning_rate
+
+			syn1 += momentum_syn1
+			syn0 += momentum_syn0
