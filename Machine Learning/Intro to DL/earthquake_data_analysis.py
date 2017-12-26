@@ -67,3 +67,29 @@ class Dataset:
 		'''
 		return np.concatenate(Dataset.normalize_cord(latitude, longitude) + (Dataset.normalize_date(date),)).reshape((4, len(date))).swapaxes(0, 1)
 
+class Math:
+	@staticmethod
+	def sigmoid(x, deriv=False):
+		'''
+		Sigmoid function
+		:param x: np.array
+		:param deriv: derivate wanted ?
+		:return:
+		'''
+		if deriv:
+			return x * (1 - x)
+
+		return 1 / (1 + np.exp(-x))
+
+	@staticmethod
+	def relu(x, deriv=False):
+		'''
+		Rectifier function
+		:param x: np.array
+		:param deriv: derivate wanted ?
+		:return:
+		'''
+		if deriv:
+			return np.ones_like(x) * (x > 0)
+
+		return x * (x > 0)
