@@ -97,6 +97,7 @@ def predict_sequence_full(model, data, window_size):
 def predict_sequences_multiple(model, data, window_size, prediction_len):
     #Predict sequence of 50 steps before shifting prediction run forward by 50 steps
     prediction_seqs = []
+    # print(temp_var, temp_var.dtype)
     for i in range(len(data)/prediction_len):
         curr_frame = data[i*prediction_len]
         predicted = []
