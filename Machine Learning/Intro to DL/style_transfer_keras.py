@@ -22,7 +22,7 @@ from scipy.misc import imsave
 height = 360
 width = 640
 
-content_image_path = 'images/log1.jpg'
+content_image_path = 'C:/Users/Aman Deep Singh/Documents/Python/Data Science/Machine Learning/Intro to DL/images/log1.jpg'
 content_image = Image.open(content_image_path)
 content_image = content_image.resize((width, height))
 content_image
@@ -30,7 +30,7 @@ content_image
 
 # In[3]:
 
-style_image_path = 'images/starry_night.jpg'
+style_image_path = 'C:/Users/Aman Deep Singh/Documents/Python/Data Science/Machine Learning/Intro to DL/images/starry_night.jpg'
 style_image = Image.open(style_image_path)
 style_image = style_image.resize((width, height))
 style_image
