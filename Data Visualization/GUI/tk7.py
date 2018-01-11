@@ -13,7 +13,10 @@ class generic_class:
 		self.quit_button = Button(m_frame, text='Quit', command=m_frame.quit)
 		self.quit_button.pack(side=LEFT)
 
-	
+	def print_message(self):
+		print('Random message')
+
 
 root = Tk()
+g_c = generic_class(root)
 root.mainloop()
