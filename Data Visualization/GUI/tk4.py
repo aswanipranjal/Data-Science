@@ -13,4 +13,7 @@ label_2.grid(row=1, sticky=E)
 entry_1.grid(row=0, column=1)
 entry_2.grid(row=1, column=1)
 
+c_box = Checkbutton(root, text='Keep me logged in')
+c_box.grid(columnspan=2)
+
 root.mainloop()
