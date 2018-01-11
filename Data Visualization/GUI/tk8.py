@@ -12,4 +12,8 @@ sub_menu.add_command(label='New Project', command=do_nothing)
 sub_menu.add_command(label='New', command=do_nothing)
 sub_menu.add_separator()
 sub_menu.add_command(label='Exit', command=do_nothing)
+
+edit_menu = Menu(menu)
+menu.add_cascade(label='Edit', menu=edit_menu)
+edit_menu.add_command(label='Redo', command=do_nothing)
 root.mainloop()
