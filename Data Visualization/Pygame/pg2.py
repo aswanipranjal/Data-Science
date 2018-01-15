@@ -82,6 +82,13 @@ def game_loop():
 			o_y = 0 - o_h
 			o_x = random.randrange(0, display_width)
 
+		if y < o_y + o_h:
+			print('y crossover')
+
+			if x > o_x and x < o_x + o_w or x + car_width > o_x and x + car_width < o_x + o_w:
+				print('x crossover')
+				crash()
+
 		pygame.display.update()
 		clock.tick(60)
 
