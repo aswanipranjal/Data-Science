@@ -71,7 +71,11 @@ def game_intro():
 		else:
 			pygame.draw.rect(game_display, green, (150, 450, 100, 50))
 		
-		pygame.draw.rect(game_display, red, (550, 450, 100, 50))
+
+		if 550 + 100 > mouse[0] > 550 and 450 + 50 > mouse[1] > 450:
+			pygame.draw.rect(game_display, bright_red, (550, 450, 100, 50))
+		else:
+			pygame.draw.rect(game_display, red, (550, 450, 100, 50))
 
 		pygame.display.update()
 		clock.tick(15)
