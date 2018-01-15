@@ -48,6 +48,10 @@ def crash():
 	message_display('You Crashed')
 	game_loop()
 
+def quit_game():
+	pygame.quit()
+	quit()
+
 def button(msg, x, y, w, h, i_color, a_color, action=None):
 	'''
 	msg: message to be displayed
@@ -90,8 +94,8 @@ def game_intro():
 		m_text_rect.center = ((display_width/2), (display_height/2))
 		game_display.blit(m_text_surface, m_text_rect)
 
-		button('GO!', 100, 450, 100, 50, green, bright_green)
-		button('Exit', 550, 450, 100, 50, red, bright_red)
+		button('GO!', 100, 450, 100, 50, green, bright_green, game_loop)
+		button('Exit', 550, 450, 100, 50, red, bright_red, quit_game)
 
 		pygame.display.update()
 		clock.tick(15)
@@ -145,10 +149,10 @@ def game_loop():
 			o_w += (dodged * 1.2)
 
 		if y < o_y + o_h:
-			print('y crossover')
+			# print('y crossover')
 
 			if x > o_x and x < o_x + o_w or x + car_width > o_x and x + car_width < o_x + o_w:
-				print('x crossover')
+				# print('x crossover')
 				crash()
 
 		pygame.display.update()
