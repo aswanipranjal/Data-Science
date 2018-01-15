@@ -41,17 +41,21 @@ def text_objects(text, font):
 	text_surface = font.render(text, True, black)
 	return text_surface, text_surface.get_rect()
 
-def message_display(text):
-	large_text = pygame.font.Font('freesansbold.ttf', 115)
-	m_text_surface, m_text_rect = text_objects(text, large_text)
-	m_text_rect.center = ((display_width/2), (display_height/2))
-	game_display.blit(m_text_surface, m_text_rect)
-	pygame.display.update()
-	time.sleep(2)
+# def message_display(text):
+# 	large_text = pygame.font.Font('freesansbold.ttf', 115)
+# 	m_text_surface, m_text_rect = text_objects(text, large_text)
+# 	m_text_rect.center = ((display_width/2), (display_height/2))
+# 	game_display.blit(m_text_surface, m_text_rect)
+# 	pygame.display.update()
+# 	time.sleep(2)
 
 def quitgame():
 	pygame.quit()
 	quit()
+
+def unpause():
+	global pause
+	pause = False
 
 def crash():
 	# message_display('You Crashed')
@@ -59,6 +63,7 @@ def crash():
 	m_text_surface, m_text_rect = text_objects('You Crashed', large_text)
 	m_text_rect.center = ((display_width/2), (display_height/2))
 	game_display.blit(m_text_surface, m_text_rect)
+	
 	while True:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
