@@ -19,7 +19,7 @@ car_img = pygame.image.load('C:/Users/Aman Deep Singh/Documents/Python/Data Scie
 
 def objects_dodged(count):
 	font = pygame.font.SysFont(None, 25)
-	text = font.render('Dodged: ' + str(cont), True, black)
+	text = font.render('Dodged: ' + str(count), True, black)
 	game_display.blit(text, (0, 0))
 
 def objects(x, y, w, h, col):
