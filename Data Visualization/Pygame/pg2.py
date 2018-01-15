@@ -48,7 +48,7 @@ def crash():
 	message_display('You Crashed')
 	game_loop()
 
-def button(msg, x, y, w, h, i_color, a_color):
+def button(msg, x, y, w, h, i_color, a_color, action=None):
 	'''
 	msg: message to be displayed
 	x: starting x-coordinate
@@ -59,9 +59,13 @@ def button(msg, x, y, w, h, i_color, a_color):
 	a_color: active color
 	'''
 	mouse = pygame.mouse.get_pos()
+	click = pygame.mouse.get_pressed()
+	print(click)
 
 	if x + w > mouse[0] > x and y + h > mouse[1] > y:
 		pygame.draw.rect(game_display, a_color, (x, y, w, h))
+		if click[0] == 1 and action != None:
+			action()
 	else:
 		pygame.draw.rect(game_display, i_color, (x, y, w, h))
 
