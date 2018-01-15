@@ -44,12 +44,16 @@ def message_display(text):
 	pygame.display.update()
 	time.sleep(2)
 
+def quitgame():
+	pygame.quit()
+	quit()
+
 def crash():
 	message_display('You Crashed')
 	while True:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
-				pygame.QUIT()
+				pygame.quit()
 				quit()
 
 	button('Play Again', 150, 450, 100, 50, green, bright_green, game_loop)
