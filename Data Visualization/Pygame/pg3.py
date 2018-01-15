@@ -11,7 +11,7 @@ blue = (0, 0, 255)
 game_display = pygame.display.set_mode((800,600))
 game_display.fill(black)
 
-# converting the game_displayinto a pixel array
+# converting the game_display into a pixel array
 pix_ar = pygame.PixelArray(game_display)
 pix_ar[10][20] = green
 
