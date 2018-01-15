@@ -66,11 +66,16 @@ def game_intro():
 
 		mouse = pygame.mouse.get_pos()
 
+		# 'Go' button
 		if 150 + 100 > mouse[0] > 150 and 450 + 50 > mouse[1] > 450:
 			pygame.draw.rect(game_display, bright_green, (150, 450, 100, 50))
 		else:
 			pygame.draw.rect(game_display, green, (150, 450, 100, 50))
 		
+		small_text = pygame.font.Font('freesansbold.ttf', 20)
+		m_text_surface, m_text_rect = text_objects('GO!', small_text)
+		m_text_rect.center = ((150+(100/2)), (450+(50/2)))
+		game_display.blit(m_text_surface, m_text_rect)
 
 		if 550 + 100 > mouse[0] > 550 and 450 + 50 > mouse[1] > 450:
 			pygame.draw.rect(game_display, bright_red, (550, 450, 100, 50))
