@@ -13,6 +13,7 @@ red = (200, 0, 0)
 green = (0, 200, 0)
 bright_red = (255, 0, 0)
 bright_green = (0, 255, 0)
+block_color = (53, 115, 255)
 
 car_width = 73
 
@@ -20,6 +21,10 @@ game_display = pygame.display.set_mode((display_width, display_height))
 pygame.display.set_caption('Smart Rockets')
 clock = pygame.time.Clock()
 car_img = pygame.image.load('C:/Users/Aman Deep Singh/Documents/Python/Data Science/Data Visualization/Pygame/racecar.png')
+game_icon = pygame.image.load('C:/Users/Aman Deep Singh/Documents/Python/Data Science/Data Visualization/Pygame/racecar.png')
+pygame.display.set_icon(game_icon)
+
+pause = False
 
 def objects_dodged(count):
 	font = pygame.font.SysFont(None, 25)
