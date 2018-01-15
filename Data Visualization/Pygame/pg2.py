@@ -58,7 +58,11 @@ def game_intro():
 		large_text = pygame.font.Font('freesansbold.ttf', 115)
 		m_text_surface, m_text_rect = text_objects('Smart Rockets', large_text)
 		m_text_rect.center = ((display_width/2), (display_height/2))
-		game_display.blit(m_text_surface,  m_text_rect)
+		game_display.blit(m_text_surface, m_text_rect)
+
+		pygame.draw.rect(game_display, green, (150, 450, 100, 50))
+		pygame.draw.rect(game_display, red, (550, 450, 100, 50))
+		
 		pygame.display.update()
 		clock.tick(15)
 
