@@ -1,6 +1,6 @@
 import cx_Freeze
 
-executables = [cx_Freeze.Executable('pg2.py')]
+executables = [cx_Freeze.Executable('C:/Users/Aman Deep Singh/Documents/Python/Data Science/Data Visualization/Pygame/pg2.py')]
 
 cx_Freeze.setup(
 	name='Smart Rockets',
