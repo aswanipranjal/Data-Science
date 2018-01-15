@@ -144,6 +144,7 @@ def game_intro():
 
 def game_loop():
 	# starting points for our car
+	global pause
 	x = (display_width * 0.45)
 	y = (display_height * 0.8)
 	crashed = False
