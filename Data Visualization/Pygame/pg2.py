@@ -1,5 +1,6 @@
 import pygame
 import time
+import random
 
 pygame.init()
 
@@ -16,6 +17,9 @@ car_width = 73
 
 clock = pygame.time.Clock()
 car_img = pygame.image.load('C:/Users/Aman Deep Singh/Documents/Python/Data Science/Data Visualization/Pygame/racecar.png')
+
+def objects(x, y, w, h, col):
+	pygame.draw.rect(game_display, col, [x, y, w, h])
 
 def car(x, y):
 	game_display.blit(car_img, (x, y))
@@ -42,6 +46,11 @@ def game_loop():
 	y = (display_height * 0.8)
 	crashed = False
 	x_change = 0
+	o_x = random.randrange(0, display_width)
+	o_y = -600
+	o_speed = 7
+	o_w = 100
+	o_h = 100
 
 	while not crashed:
 		for event in pygame.event.get():
@@ -61,10 +70,17 @@ def game_loop():
 
 		x += x_change
 		game_display.fill(white)
+
+		objects(o_x, o_y, o_w, o_h, black)
+		o_y += o_speed
 		car(x, y)
 
 		if x > display_width - car_width or x < 0:
 			crash()
+
+		if o_y > display_height:
+			o_y = 0 - o_h
+			o_x = random.randrange(0, display_width)
 
 		pygame.display.update()
 		clock.tick(60)
