@@ -19,6 +19,22 @@ car_img = pygame.image.load('C:/Users/Aman Deep Singh/Documents/Python/Data Scie
 def car(x, y):
 	game_display.blit(car_img, (x, y))
 
+def text_objects(text, font):
+	text_surface = font.render(text, True, black)
+	return text_surface, text_surface.get_rect()
+
+def message_display(text):
+	large_text = pygame.font.Font('freesansbold.ttf', 115)
+	m_text_surface, m_text_rect = text_objects(text, large_text)
+	m_text_rect.center = ((display_width/2), (display_height/2))
+	game_display.blit(m_text_surface, m_text_rect)
+	pygame.display.update()
+	time.sleep(2)
+	game_loop()
+
+def crash():
+	message_display('You Crashed')
+
 def game_loop():
 	# starting points for our car
 	x = (display_width * 0.45)
@@ -29,7 +45,8 @@ def game_loop():
 	while not crashed:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
-				crashed = True
+				pygame.quit()
+				quit()
 
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_LEFT:
@@ -46,7 +63,7 @@ def game_loop():
 		car(x, y)
 
 		if x > display_width - car_width or x < 0:
-			crashed = True
+			crash()
 
 		pygame.display.update()
 		clock.tick(60)
