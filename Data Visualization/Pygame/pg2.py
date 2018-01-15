@@ -49,15 +49,19 @@ def quitgame():
 	quit()
 
 def crash():
-	message_display('You Crashed')
+	# message_display('You Crashed')
+	large_text = pygame.font.Font('freesansbold.ttf', 115)
+	m_text_surface, m_text_rect = text_objects('You Crashed', large_text)
+	m_text_rect.center = ((display_width/2), (display_height/2))
+	game_display.blit(m_text_surface, m_text_rect)
 	while True:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				quit()
 
-	button('Play Again', 150, 450, 100, 50, green, bright_green, game_loop)
-	button('Quit', 550, 450,  100, 50, red, bright_red, quitgame)
+		button('Play Again', 150, 450, 100, 50, green, bright_green, game_loop)
+		button('Quit', 550, 450,  100, 50, red, bright_red, quitgame)
 
 	pygame.display.update()
 	clock.tick(15)
