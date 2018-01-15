@@ -48,6 +48,28 @@ def crash():
 	message_display('You Crashed')
 	game_loop()
 
+def button(msg, x, y, w, h, i_color, a_color):
+	'''
+	msg: message to be displayed
+	x: starting x-coordinate
+	y: starting y-coordinate
+	w: width
+	h: height
+	i_color: inactive color
+	a_color: active color
+	'''
+	mouse = pygame.mouse.get_pos()
+
+	if x + w > mouse[0] > x and y + h > mouse[1] > y:
+		pygame.draw.rect(game_display, a_color, (x, y, w, h))
+	else:
+		pygame.draw.rect(game_display, i_color, (x, y, w, h))
+
+	small_text = pygame.font.Font('freesansbold.ttf', 20)
+	m_text_surface, m_text_rect = text_objects(msg, small_text)
+	m_text_rect.center = ((x + (w / 2)), (y + (h / 2)))
+	game_display.blit(m_text_surface, m_text_rect)
+
 def game_intro():
 	intro = True
 
@@ -64,29 +86,8 @@ def game_intro():
 		m_text_rect.center = ((display_width/2), (display_height/2))
 		game_display.blit(m_text_surface, m_text_rect)
 
-		mouse = pygame.mouse.get_pos()
-
-		# 'Go' button
-		if 150 + 100 > mouse[0] > 150 and 450 + 50 > mouse[1] > 450:
-			pygame.draw.rect(game_display, bright_green, (150, 450, 100, 50))
-		else:
-			pygame.draw.rect(game_display, green, (150, 450, 100, 50))
-		
-		small_text = pygame.font.Font('freesansbold.ttf', 20)
-		m_text_surface, m_text_rect = text_objects('GO!', small_text)
-		m_text_rect.center = ((150+(100/2)), (450+(50/2)))
-		game_display.blit(m_text_surface, m_text_rect)
-
-		# 'Exit' button
-		if 550 + 100 > mouse[0] > 550 and 450 + 50 > mouse[1] > 450:
-			pygame.draw.rect(game_display, bright_red, (550, 450, 100, 50))
-		else:
-			pygame.draw.rect(game_display, red, (550, 450, 100, 50))
-
-		small_text = pygame.font.Font('freesansbold.ttf', 20)
-		m_text_surface, m_text_rect = text_objects('Exit', small_text)
-		m_text_rect.center = ((550+(100/2)), (450+(50/2)))
-		game_display.blit(m_text_surface, m_text_rect)
+		button('GO!', 100, 450, 100, 50, green, bright_green)
+		button('Exit', 550, 450, 100, 50, red, bright_red)
 
 		pygame.display.update()
 		clock.tick(15)
