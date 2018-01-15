@@ -48,7 +48,7 @@ def game_intro():
 	intro = True
 
 	while intro:
-		for event in pygame.event,get():
+		for event in pygame.event.get():
 			print(event)
 			if event.type == pygame.QUIT:
 				pygame.quit()
@@ -120,6 +120,7 @@ def game_loop():
 		pygame.display.update()
 		clock.tick(60)
 
+game_intro()
 game_loop()
 pygame.quit()
 quit()
