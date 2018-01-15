@@ -31,10 +31,10 @@ def message_display(text):
 	game_display.blit(m_text_surface, m_text_rect)
 	pygame.display.update()
 	time.sleep(2)
-	game_loop()
 
 def crash():
 	message_display('You Crashed')
+	game_loop()
 
 def game_loop():
 	# starting points for our car
