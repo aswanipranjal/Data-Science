@@ -77,10 +77,16 @@ def game_intro():
 		m_text_rect.center = ((150+(100/2)), (450+(50/2)))
 		game_display.blit(m_text_surface, m_text_rect)
 
+		# 'Exit' button
 		if 550 + 100 > mouse[0] > 550 and 450 + 50 > mouse[1] > 450:
 			pygame.draw.rect(game_display, bright_red, (550, 450, 100, 50))
 		else:
 			pygame.draw.rect(game_display, red, (550, 450, 100, 50))
+
+		small_text = pygame.font.Font('freesansbold.ttf', 20)
+		m_text_surface, m_text_rect = text_objects('Exit', small_text)
+		m_text_rect.center = ((550+(100/2)), (450+(50/2)))
+		game_display.blit(m_text_surface, m_text_rect)
 
 		pygame.display.update()
 		clock.tick(15)
