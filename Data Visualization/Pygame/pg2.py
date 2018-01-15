@@ -9,7 +9,11 @@ display_height = 600
 
 black = (0, 0, 0)
 white = (255, 255, 255)
-red = (255, 0, 0)
+red = (200, 0, 0)
+green = (0, 200, 0)
+bright_red = (255, 0, 0)
+bright_green = (0, 255, 0)
+
 car_width = 73
 
 game_display = pygame.display.set_mode((display_width, display_height))
@@ -60,9 +64,15 @@ def game_intro():
 		m_text_rect.center = ((display_width/2), (display_height/2))
 		game_display.blit(m_text_surface, m_text_rect)
 
-		pygame.draw.rect(game_display, green, (150, 450, 100, 50))
-		pygame.draw.rect(game_display, red, (550, 450, 100, 50))
+		mouse = pygame.mouse.get_pos()
+
+		if 150 + 100 > mouse[0] > 150 and 450 + 50 > mouse[1] > 450:
+			pygame.draw.rect(game_display, bright_green, (150, 450, 100, 50))
+		else:
+			pygame.draw.rect(game_display, green, (150, 450, 100, 50))
 		
+		pygame.draw.rect(game_display, red, (550, 450, 100, 50))
+
 		pygame.display.update()
 		clock.tick(15)
 
