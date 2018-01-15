@@ -1,3 +1,10 @@
+# go to the folder where the script resides and run cmd
+# run the following command:
+# "C:\Users\aman Deep Singh\Anaconda3\python" setup.py build
+# to build as exe, and
+# "C:\Users\aman Deep Singh\Anaconda3\python" setup.py bdist_msi
+# to build msi installer
+
 import cx_Freeze
 import sys
 import os
