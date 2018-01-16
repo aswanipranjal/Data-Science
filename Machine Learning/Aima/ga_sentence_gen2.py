@@ -16,13 +16,13 @@ def fitness_fn(_list):
 	for i in range(len(phrase)):
 		if target[i] == phrase[i]:
 			fitness += 1
-	return fitness/len(target)
+	return fitness
 
 def select(r, population, fitness_fn, mating_pool):
 	fitnesses = list(map(fitness_fn, population))
 	for i in range(len(population)):
-		mating_pool.extend(10 * int(fitnesses[i]) * [population[i]])
-	print(mating_pool)
+		mating_pool.extend(10 * fitnesses[i] * [population[i]])
+	# print(mating_pool)
 	# print(len(list(fitnesses)))
 	selection = random.sample(mating_pool, r)
 	return selection
