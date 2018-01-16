@@ -30,10 +30,12 @@ def select(r, population, fitness_fn, mating_pool):
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
 	mating_pool = []
-	for _ in range(100):
+	for _ in range(1000):
 		new_population = [search.mutate(search.recombine(*select(2, population, fitness_fn, mating_pool)), gene_pool, mutation_rate)]
 		fittest_individual = argmax(new_population, key=fitness_fn)
 		current_best = ''.join(fittest_individual)
+		if current_best == target:
+			return
 		print(current_best)
 		population = new_population
 
