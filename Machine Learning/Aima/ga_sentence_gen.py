@@ -19,7 +19,7 @@ target = 'To be or not to be.'
 max_population = 500
 mutation_rate = 0.01
 # possible genes
-gene_pool = [str(x) for x in range(65, 91)]
+gene_pool = [chr(x) for x in range(65, 91)]
 
 def loop():
 	crashed = False
