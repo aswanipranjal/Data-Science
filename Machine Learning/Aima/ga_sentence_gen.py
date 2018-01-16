@@ -16,7 +16,7 @@ game_display = pygame.display.set_mode((display_width, display_height))
 pygame.display.set_caption('Phrase Generator')
 clock = pygame.time.Clock()
 
-target = 'To be'
+target = 'To be or not'
 max_population = 500
 mutation_rate = 0.1
 f_thres = len(target)
@@ -41,21 +41,22 @@ def loop():
 	i = 0
 	large_text = pygame.font.Font('freesansbold.ttf', 115)
 	population = search.init_population(max_population, gene_pool, len(target))
-	while i < 50:
+	while i < 500:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				return
 
-		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate)]
+		new_population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate)]
 		# fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
-		fittest_individual = argmax(population, key=fitness_fn)
+		fittest_individual = argmax(new_population, key=fitness_fn)
 		current_best = ''.join(fittest_individual)
 		game_display.fill(white)
 		text_surface, text_rect = text_objects(current_best, large_text)
 		text_rect.center = ((display_width/2), (display_height/2))
 		game_display.blit(text_surface, text_rect)
-		time.sleep(20)
+		population = new_population
+		# time.sleep(20)
 		pygame.display.update()
 		clock.tick(60)
 		i += 1
