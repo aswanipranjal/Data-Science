@@ -1,4 +1,5 @@
 import search
+import random
 from utils import argmax
 
 target = 'To be'
@@ -21,7 +22,7 @@ def select(r, population, fitness_fn):
 	fitnesses = list(map(fitness_fn, population))
 	mating_pool = []
 	selection = []
-	for i in range(max_population):
+	for i in range(len(population)):
 		mating_pool.extend(fitnesses[i] * [population[i]])
 	# print(len(list(fitnesses)))
 	for i in range(r):
