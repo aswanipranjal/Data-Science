@@ -22,8 +22,6 @@ def select(r, population, fitness_fn, mating_pool):
 	fitnesses = list(map(fitness_fn, population))
 	for i in range(len(population)):
 		mating_pool.extend(10 * fitnesses[i] * [population[i]])
-	# print(mating_pool)
-	# print(len(list(fitnesses)))
 	selection = random.sample(mating_pool, r)
 	return selection
 
