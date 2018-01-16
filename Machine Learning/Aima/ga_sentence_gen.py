@@ -32,7 +32,8 @@ def loop():
 		pygame.display.update()
 		clock.tick(60)
 
-print(gene_pool)
+# print(gene_pool)
+print(init_population(1, gene_pool, len(target)))
 loop()
 pygame.quit()
 quit()
