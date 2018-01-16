@@ -35,7 +35,6 @@ def loop():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
-				quit()
 
 		pygame.display.update()
 		clock.tick(60)
@@ -46,4 +45,3 @@ first_sample_phrase = ''.join(first_sample_test)
 print(first_sample_phrase)
 loop()
 pygame.quit()
-quit()
