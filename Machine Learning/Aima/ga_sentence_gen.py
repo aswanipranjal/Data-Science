@@ -1,6 +1,7 @@
 import pygame
 import time
 import random
+import search
 
 pygame.init()
 
@@ -15,6 +16,10 @@ pygame.display.set_caption('Phrase Generator')
 clock = pygame.time.Clock()
 
 target = 'To be or not to be.'
+max_population = 500
+mutation_rate = 0.01
+# possible genes
+gene_pool = [char(x) for x in range(65, 91)]
 
 def loop():
 	crashed = False
@@ -27,6 +32,7 @@ def loop():
 		pygame.display.update()
 		clock.tick(60)
 
+print(gene_pool)
 loop()
 pygame.quit()
 quit()
