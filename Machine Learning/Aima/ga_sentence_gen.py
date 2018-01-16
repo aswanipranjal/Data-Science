@@ -96,5 +96,6 @@ def loop():
 # print(max_of_gen_1)
 # loop()
 first_population = search.init_population(max_population, gene_pool, len(target))
+print(first_population, end='\n')
 print(select(2, first_population, fitness_fn))
 pygame.quit()
