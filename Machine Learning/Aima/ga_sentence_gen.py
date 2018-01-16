@@ -19,7 +19,9 @@ target = 'To be or not to be.'
 max_population = 500
 mutation_rate = 0.01
 # possible genes
-gene_pool = [chr(x) for x in range(65, 91)]
+u_case = [chr(x) for x in range(65, 91)]
+l_case = [chr(x) for x in range(97, 123)]
+u_case.append(l_case)
 
 def loop():
 	crashed = False
@@ -32,7 +34,7 @@ def loop():
 		pygame.display.update()
 		clock.tick(60)
 
-print(gene_pool)
+print(u_case)
 loop()
 pygame.quit()
 quit()
