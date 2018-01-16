@@ -54,7 +54,8 @@ def loop():
 		game_display.fill(white)
 		text_surface, text_rect = text_objects(current_best, large_text)
 		text_rect.center = ((display_width/2), (display_height/2))
-		game_display.blit(text_surface,  text_rect)
+		game_display.blit(text_surface, text_rect)
+		time.sleep(20)
 		pygame.display.update()
 		clock.tick(60)
 		i += 1
