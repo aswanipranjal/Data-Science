@@ -2,6 +2,7 @@ import pygame
 import time
 import random
 import search
+from utils import argmax
 
 pygame.init()
 
@@ -47,7 +48,8 @@ def loop():
 				return
 
 		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate)]
-		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+		# fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+		fittest_individual = argmax(population, key=fitness_fn)
 		current_best = ''.join(fittest_individual)
 		game_display.fill(white)
 		text_surface, text_rect = text_objects(current_best, large_text)
