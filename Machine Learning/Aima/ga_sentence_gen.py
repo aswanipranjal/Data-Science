@@ -62,5 +62,8 @@ def loop():
 # 	print(''.join(selections[i]))
 # 	print(fitness_fn(selections[i]))
 # # print(first_sample_phrase)
+first_population = search.init_population(max_population, gene_pool, len(target))
+max_of_gen_1 = search.genetic_algorithm(first_population, fitness_fn, gene_pool, 5, 1)
+print(max_of_gen_1)
 loop()
 pygame.quit()
