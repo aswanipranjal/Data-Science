@@ -15,7 +15,7 @@ game_display = pygame.display.set_mode((display_width, display_height))
 pygame.display.set_caption('Phrase Generator')
 clock = pygame.time.Clock()
 
-target = 'To be or not to be.'
+target = 'To be'
 max_population = 500
 mutation_rate = 0.01
 # possible genes
@@ -45,9 +45,22 @@ def loop():
 first_population = search.init_population(max_population, gene_pool, len(target))
 first_sample_test = first_population[0]
 first_sample_phrase = ''.join(first_sample_test)
-selections = search.select(2, first_population, fitness_fn)
+selections = search.select(10, first_population, fitness_fn)
 # first_sample_selection = ''.join(selections[0])
-# print(fitness_fn(first_sample_selection))
-print(first_sample_phrase)
+print('First population')
+for i in range(10):
+	print(''.join(first_population[i]))
+	print(fitness_fn(first_population[i]))
+print('\n\nSecond population')
+for i in range(10):
+	print(''.join(selections[i]))
+	print(fitness_fn(selections[i]))
+print('\n\nThird population')
+second_population = selections
+selections = search.select(10, second_population, fitness_fn)
+for i in range(10):
+	print(''.join(selections[i]))
+	print(fitness_fn(selections[i]))
+# print(first_sample_phrase)
 loop()
 pygame.quit()
