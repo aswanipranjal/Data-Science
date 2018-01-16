@@ -22,6 +22,9 @@ mutation_rate = 0.01
 gene_pool = [chr(x) for x in range(33, 127)]
 gene_pool.append(' ')
 
+def fitness_fn():
+
+
 def loop():
 	crashed = False
 	while not crashed:
@@ -34,7 +37,7 @@ def loop():
 		clock.tick(60)
 
 # print(gene_pool)
-print(search.init_population(1, gene_pool, len(target))[0])
+print(search.init_population(max_population, gene_pool, len(target))[0])
 loop()
 pygame.quit()
 quit()
