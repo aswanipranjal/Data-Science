@@ -37,12 +37,12 @@ def fitness_fn(_list):
 	return fitness
 
 def select(r, population, fitness_fn):
-	fitnesses = map(fitness_fn, population)
-	# mating_pool = []
-	# for i in range(max_population):
-		# mating_pool.extend(fitnesses[i] * population[i])
-	print(len(list(fitnesses)))
-	return list(fitnesses)
+	fitnesses = list(map(fitness_fn, population))
+	mating_pool = []
+	for i in range(max_population):
+		mating_pool.extend(fitnesses[i] * population[i])
+	# print(len(list(fitnesses)))
+	return mating_pool
 
 def loop():
 	# crashed = False
