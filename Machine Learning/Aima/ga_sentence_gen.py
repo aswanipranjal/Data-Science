@@ -44,7 +44,9 @@ def loop():
 first_population = search.init_population(max_population, gene_pool, len(target))
 first_sample_test = first_population[0]
 first_sample_phrase = ''.join(first_sample_test)
-selections = ''.join(search.select(1, first_population, fitness_fn))
+selections = search.select(1, first_population, fitness_fn)
+# first_sample_selection = ''.join(selections[0])
+# print(fitness_fn(first_sample_selection))
 print(first_sample_phrase)
 loop()
 pygame.quit()
