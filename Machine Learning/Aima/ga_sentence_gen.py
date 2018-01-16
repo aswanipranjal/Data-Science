@@ -38,10 +38,11 @@ def fitness_fn(_list):
 
 def select(r, population, fitness_fn):
 	fitnesses = map(fitness_fn, population)
-	mating_pool = []
-	for i in range(max_population):
-		mating_pool.extend(fitnesses[i] * population[i])
-	return mating_pool
+	# mating_pool = []
+	# for i in range(max_population):
+		# mating_pool.extend(fitnesses[i] * population[i])
+	print(len(list(fitnesses)))
+	return list(fitnesses)
 
 def loop():
 	# crashed = False
@@ -95,5 +96,5 @@ def loop():
 # print(max_of_gen_1)
 # loop()
 first_population = search.init_population(max_population, gene_pool, len(target))
-select(2, first_population, fitness_fn)
+print(select(2, first_population, fitness_fn))
 pygame.quit()
