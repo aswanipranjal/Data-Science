@@ -18,10 +18,8 @@ def fitness_fn(_list):
 			fitness += 1
 	return fitness
 
-def select(r, population, fitness_fn):
+def select(r, population, fitness_fn, mating_pool):
 	fitnesses = list(map(fitness_fn, population))
-	mating_pool = []
-	selection = []
 	for i in range(len(population)):
 		mating_pool.extend(fitnesses[i] * [population[i]])
 	print(mating_pool)
@@ -31,15 +29,16 @@ def select(r, population, fitness_fn):
 
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
-	for _ in range(100):
-		new_population = [search.mutate(search.recombine(*select(2, population, fitness_fn)), gene_pool, mutation_rate)]
+	mating_pool = []
+	for _ in range(10):
+		new_population = [search.mutate(search.recombine(*select(2, population, fitness_fn, mating_pool)), gene_pool, mutation_rate)]
 		fittest_individual = argmax(new_population, key=fitness_fn)
 		current_best = ''.join(fittest_individual)
 		print(current_best)
 		population = new_population
 
-population = search.init_population(max_population, gene_pool, len(target))
-selection = select(2, population, fitness_fn)
-print(selection)
+# population = search.init_population(max_population, gene_pool, len(target))
+# selection = select(2, population, fitness_fn)
 # print(selection)
-# main()
+# print(selection)
+main()
