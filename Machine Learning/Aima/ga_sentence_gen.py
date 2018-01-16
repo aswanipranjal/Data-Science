@@ -35,13 +35,16 @@ def loop():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
+				return
 
 		pygame.display.update()
 		clock.tick(60)
 
 # print(gene_pool)
-first_sample_test = search.init_population(max_population, gene_pool, len(target))[0]
+first_population = search.init_population(max_population, gene_pool, len(target))
+first_sample_test = first_population[0]
 first_sample_phrase = ''.join(first_sample_test)
+selections = search.select(2, first_population, fitness_fn)
 print(first_sample_phrase)
 loop()
 pygame.quit()
