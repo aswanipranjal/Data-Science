@@ -22,8 +22,9 @@ mutation_rate = 0.01
 gene_pool = [chr(x) for x in range(33, 127)]
 gene_pool.append(' ')
 
-def fitness_fn(phrase):
+def fitness_fn(_list):
 	fitness = 0
+	phrase = ''.join(_list)
 	for i in range(len(phrase)):
 		if target[i] == phrase[i]:
 			fitness += 1
@@ -44,7 +45,7 @@ def loop():
 first_population = search.init_population(max_population, gene_pool, len(target))
 first_sample_test = first_population[0]
 first_sample_phrase = ''.join(first_sample_test)
-selections = search.select(1, first_population, fitness_fn)
+selections = search.select(2, first_population, fitness_fn)
 # first_sample_selection = ''.join(selections[0])
 # print(fitness_fn(first_sample_selection))
 print(first_sample_phrase)
