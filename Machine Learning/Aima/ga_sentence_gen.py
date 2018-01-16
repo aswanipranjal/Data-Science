@@ -39,7 +39,7 @@ def loop():
 	# crashed = False
 	i = 0
 	large_text = pygame.font.Font('freesansbold.ttf', 115)
-	first_population = search.init_population(max_population, gene_pool, len(target))
+	population = search.init_population(max_population, gene_pool, len(target))
 	while i < 50:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
