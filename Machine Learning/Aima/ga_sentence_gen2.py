@@ -40,5 +40,6 @@ def main():
 
 population = search.init_population(max_population, gene_pool, len(target))
 selection = select(2, population, fitness_fn)
+print(selection)
 # print(selection)
 # main()
