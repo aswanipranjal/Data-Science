@@ -30,13 +30,12 @@ def select(r, population, fitness_fn):
 	return selection
 
 def main():
-	for _ in range()
+	population = search.init_population(max_population, gene_pool, len(target))
+	for _ in range(100):
 		new_population = [search.mutate(search.recombine(*select(2, population, fitness_fn)), gene_pool, mutation_rate)]
-		# fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 		fittest_individual = argmax(new_population, key=fitness_fn)
 		current_best = ''.join(fittest_individual)
-		game_display.fill(white)
-		text_surface, text_rect = text_objects(current_best, large_text)
-		text_rect.center = ((display_width/2), (display_height/2))
-		game_display.blit(text_surface, text_rect)
+		print(current_best)
 		population = new_population
+
+main()
