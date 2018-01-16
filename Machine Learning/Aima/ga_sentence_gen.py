@@ -44,7 +44,7 @@ def select(r, population, fitness_fn):
 		mating_pool.extend(fitnesses[i] * [population[i]])
 	# print(len(list(fitnesses)))
 	for i in range(r):
-		ix = random.range(len(mating_pool))
+		ix = random.randint(0, len(mating_pool))
 		selection.append(mating_pool[ix])
 	return selection
 
@@ -111,5 +111,5 @@ first_population = search.init_population(max_population, gene_pool, len(target)
 # print('Pool')
 # print(pool)
 
-print(select(2, first_population, fitness_fn))
+print(*select(2, first_population, fitness_fn), end='\n')
 pygame.quit()
