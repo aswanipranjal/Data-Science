@@ -22,6 +22,10 @@ mutation_rate = 0.01
 gene_pool = [chr(x) for x in range(33, 127)]
 gene_pool.append(' ')
 
+def text_objects(text, font):
+	text_surface = font.render(text, True, black)
+	return text_surface, text_surface.get_rect()
+
 def fitness_fn(_list):
 	fitness = 0
 	phrase = ''.join(_list)
@@ -32,12 +36,14 @@ def fitness_fn(_list):
 
 def loop():
 	crashed = False
+	large_text = pygame.font.Font('freesansbold.ttf', 115)
 	while not crashed:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 				return
 
+		text_surface, text_rect = text_objects
 		pygame.display.update()
 		clock.tick(60)
 
@@ -63,7 +69,7 @@ def loop():
 # 	print(fitness_fn(selections[i]))
 # # print(first_sample_phrase)
 first_population = search.init_population(max_population, gene_pool, len(target))
-max_of_gen_1 = search.genetic_algorithm(first_population, fitness_fn, gene_pool, 5, 1)
+max_of_gen_1 = search.genetic_algorithm(first_population, fitness_fn, gene_pool, 5, 10)
 print(max_of_gen_1)
 loop()
 pygame.quit()
