@@ -98,8 +98,7 @@ def loop():
 # first_population = search.init_population(max_population, gene_pool, len(target))
 # max_of_gen_1 = search.genetic_algorithm(first_population, fitness_fn, gene_pool, 5, 10)
 # print(max_of_gen_1)
-# loop()
-first_population = search.init_population(max_population, gene_pool, len(target))
+# first_population = search.init_population(max_population, gene_pool, len(target))
 # print(first_population)
 # pool = []
 # print(2 * [first_population[0]])
@@ -111,5 +110,6 @@ first_population = search.init_population(max_population, gene_pool, len(target)
 # print('Pool')
 # print(pool)
 
-print(*select(2, first_population, fitness_fn), end='\n')
+# print(*select(2, first_population, fitness_fn), end='\n')
+loop()
 pygame.quit()
