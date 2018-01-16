@@ -16,7 +16,7 @@ game_display = pygame.display.set_mode((display_width, display_height))
 pygame.display.set_caption('Phrase Generator')
 clock = pygame.time.Clock()
 
-target = 'To be or not'
+target = 'To be'
 max_population = 500
 mutation_rate = 0.1
 f_thres = len(target)
@@ -36,6 +36,13 @@ def fitness_fn(_list):
 			fitness += 1
 	return fitness
 
+def select(r, population, fitness_fn):
+	fitnesses = map(fitness_fn, population)
+	mating_pool = []
+	for i in range(max_population):
+		mating_pool.extend(fitnesses[i] * population[i])
+	return mating_pool
+
 def loop():
 	# crashed = False
 	i = 0
@@ -47,7 +54,7 @@ def loop():
 				pygame.quit()
 				return
 
-		new_population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate)]
+		new_population = [search.mutate(search.recombine(*select(2, population, fitness_fn)), gene_pool, mutation_rate)]
 		# fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 		fittest_individual = argmax(new_population, key=fitness_fn)
 		current_best = ''.join(fittest_individual)
@@ -86,5 +93,7 @@ def loop():
 # first_population = search.init_population(max_population, gene_pool, len(target))
 # max_of_gen_1 = search.genetic_algorithm(first_population, fitness_fn, gene_pool, 5, 10)
 # print(max_of_gen_1)
-loop()
+# loop()
+first_population = search.init_population(max_population, gene_pool, len(target))
+select(2, first_population, fitness_fn)
 pygame.quit()
