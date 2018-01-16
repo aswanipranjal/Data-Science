@@ -16,12 +16,12 @@ def fitness_fn(_list):
 	for i in range(len(phrase)):
 		if target[i] == phrase[i]:
 			fitness += 1
-	return fitness
+	return fitness/len(target)
 
 def select(r, population, fitness_fn, mating_pool):
 	fitnesses = list(map(fitness_fn, population))
 	for i in range(len(population)):
-		mating_pool.extend(fitnesses[i] * [population[i]])
+		mating_pool.extend(10 * int(fitnesses[i]) * [population[i]])
 	print(mating_pool)
 	# print(len(list(fitnesses)))
 	selection = random.sample(mating_pool, r)
@@ -30,7 +30,7 @@ def select(r, population, fitness_fn, mating_pool):
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
 	mating_pool = []
-	for _ in range(10):
+	for _ in range(100):
 		new_population = [search.mutate(search.recombine(*select(2, population, fitness_fn, mating_pool)), gene_pool, mutation_rate)]
 		fittest_individual = argmax(new_population, key=fitness_fn)
 		current_best = ''.join(fittest_individual)
