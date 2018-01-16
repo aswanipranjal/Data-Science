@@ -22,7 +22,12 @@ mutation_rate = 0.01
 gene_pool = [chr(x) for x in range(33, 127)]
 gene_pool.append(' ')
 
-# def fitness_fn():
+def fitness_fn(phrase):
+	fitness = 0
+	for i in range(len(phrase)):
+		if target[i] == phrase[i]:
+			fitness += 1
+	return fitness
 
 def loop():
 	crashed = False
@@ -37,7 +42,7 @@ def loop():
 
 # print(gene_pool)
 first_sample_test = search.init_population(max_population, gene_pool, len(target))[0]
-first_sample_phrase = str.join(first_sample_test)
+first_sample_phrase = ''.join(first_sample_test)
 print(first_sample_phrase)
 loop()
 pygame.quit()
