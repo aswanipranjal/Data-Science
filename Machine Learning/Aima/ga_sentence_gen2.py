@@ -24,6 +24,7 @@ def select(r, population, fitness_fn):
 	selection = []
 	for i in range(len(population)):
 		mating_pool.extend(fitnesses[i] * [population[i]])
+	print(mating_pool)
 	# print(len(list(fitnesses)))
 	for i in range(r):
 		ix = random.randint(0, len(mating_pool))
@@ -39,4 +40,7 @@ def main():
 		print(current_best)
 		population = new_population
 
+population = search.init_population(max_population, gene_pool, len(target))
+selection = select(2, population, fitness_fn)
+print(selection)
 main()
