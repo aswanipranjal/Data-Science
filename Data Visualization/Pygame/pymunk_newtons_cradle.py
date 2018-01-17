@@ -13,3 +13,12 @@ A screensaver version of Newton's Cradle with an interactive mode
 if len(sys.argv) < 2:
 	print(description)
 	sys.exit()
+
+is_interactive = False
+display_flags = 0
+if sys.argv[1] == "/p": # preview mode
+	os.environ['SDL_VIDEODRIVER'] = 'windib'
+	os.environ['SDL_WINDOWID'] = sys.argv[2]
+	display_size = (100, 100)
+	is_interactive = False
+
