@@ -103,3 +103,9 @@ def main():
 				flying_arrows.append(arrow_body)
 				arrow_body, arrow_shape = create_arrow()
 				space.add(arrow_shape)
+
+		keys = pygame.key.get_pressed()
+
+		speed = 2.5
+		if (keys[K_UP]):
+			cannon_body.position += 
