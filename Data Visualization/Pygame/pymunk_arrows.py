@@ -79,4 +79,6 @@ def main():
 	space.add(arrow_shape)
 
 	flying_arrows = []
-	
+	handler = space.add_collision_handler(0, 1)
+	handler.data["flying_arrows"] = flying_arrows
+	handler.post_solve = post_solve_arrow_hit
