@@ -108,4 +108,10 @@ def main():
 
 		speed = 2.5
 		if (keys[K_UP]):
-			cannon_body.position += 
+			cannon_body.position += Vec2d(0, 1) * speed
+		if (keys[K_DOWN]):
+			cannon_body.position += Vec2d(0, -1) * speed
+		if (keys[K_LEFT]):
+			cannon_body.position += Vec2d(-1, 0) * speed
+		if (keys[K_RIGHT]):
+			cannon_body.position += Vec2d(1, 0) * speed
