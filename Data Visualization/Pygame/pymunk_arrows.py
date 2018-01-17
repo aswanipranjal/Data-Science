@@ -45,7 +45,7 @@ def main():
 	screen = pygame.display.set_mode((width, height))
 	clock = pygame.time.Clock()
 	running = True
-	font = pygame.font.Sysfont('Arial', 16)
+	font = pygame.font.SysFont('Arial', 16)
 
 	# physics
 	space = pymunk.Space()
