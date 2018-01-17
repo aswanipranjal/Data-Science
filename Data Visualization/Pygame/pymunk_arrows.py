@@ -82,3 +82,24 @@ def main():
 	handler = space.add_collision_handler(0, 1)
 	handler.data["flying_arrows"] = flying_arrows
 	handler.post_solve = post_solve_arrow_hit
+
+	while running:
+		for event in pygame.event.get():
+			if event.type == QUIT or event.type == KEYDOWN and (event.key in [K_ESCAPE, K_q]):
+				running = False
+			elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+				start_time = pygame.time.get_ticks()
+			elif event.type == KEYDOWN and event.key == K_p:
+				pygame.image.save(screen, "arrows.png")
+			elif event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+				end_time = pygame.time.get_ticks()
+
+				diff = end_time - start_time
+				power = max(min(diff, 1000), 10) * 1.5
+				impulse = power * Vec2d(1, 0)
+				impulse.rotate(arrow_body.angle)
+				arrow_body.apply_impulse_at_world_point(impulse, arrow_body.position)
+				space.add(arrow_body)
+				flying_arrows.append(arrow_body)
+				arrow_body, arrow_shape = create_arrow()
+				space.add(arrow_shape)
