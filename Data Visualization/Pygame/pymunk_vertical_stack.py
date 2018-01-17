@@ -74,3 +74,6 @@ class Main(pyglet.window.Window):
 		self.fps_display.draw()
 		self.space.debug_draw(self.draw_options)
 
+if __name__ == '__main__':
+	main = Main()
+	pyglet.app.run()
