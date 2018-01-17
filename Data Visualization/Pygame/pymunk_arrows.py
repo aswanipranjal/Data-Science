@@ -137,4 +137,22 @@ def main():
 		screen.fill(pygame.color.THECOLORS['black'])
 		space.debug_draw(draw_options)
 
-		
+		if pygame.mouse.get_pressed()[0]:
+			current_time = pygame.time.get_ticks()
+			diff = current_time - start_time
+			power = max(min(diff, 1000), 10)
+			h = power / 2
+			pygame.draw.line(screen, pygame.color.THECOLORS['red'], (30, 550), (30, 550-h), 10)
+
+		screen.blit(font.render('fps: ' + str(clock.get_fps()), 1, THECOLORS['white']), (0, 0))
+		screen.blit(font.render('Aim with mouse, hold LMB to powerup, release to fire', 1, THECOLORS['darkgrey']), (5, height - 35))
+		screen.blit(font.render('Press ESC orQ ti quit', 1, THECOLORS['darkgrey']), (5, height - 20))
+		pygame.display.flip()
+
+		fps = 60
+		dt = 1./fps
+		space.step(dt)
+		clock.tick(fps)
+
+if __name__ == '__main__':
+	sys.exit(main())
