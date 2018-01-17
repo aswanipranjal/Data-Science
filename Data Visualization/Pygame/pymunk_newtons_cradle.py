@@ -105,3 +105,17 @@ def main():
 	if not is_interactive:
 		pygame.time.set_timer(USEREVENT+1, 70000) # apply force
 		pygame.time.set_timer(USEREVENT+2, 120000) # reset
+		pygame.event.post(pygame.event.Event(USEREVENT+1))
+		pygame.mouse.set_visible(False)
+
+	while running:
+		for event in pygame.event.get():
+			if event.type == QUIT:
+				running = False
+			elif event.type == KEYDOWN and event.key == K_p:
+				pygame.image.save(screen, 'newtons_cradle.png')
+			if event.type == pygame.USEREVENT+1:
+				r = random.randint(1, 4)
+				for body in bodies[0:r]:
+					body.apply_impulse_at_local_point((-6000, 0))
+			
