@@ -50,4 +50,20 @@ class Main(pyglet.window.Window):
 			x += step_dt
 			self.space.step(step_dt)
 
-	
+	def on_key_press(self, symbol, modifiers):
+		if symbol == key.SPACE:
+			mass = 100
+			r = 15
+			moment = pymunk.moment_for_circle(mass, 0, r, (0, 0))
+			body = pymunk.Body(mass, moment)
+			body.position = (0, 165)
+			shape = pymunk.Circle(body, r, (0, 0))
+			shape.friction = 0.3
+			shape.color = (255, 150, 150, 255)
+			self.space.add(body, shape)
+			f = 200000
+			body.apply_impulse_at_local_point((f, 0), (0, 0))
+		elif symbol == key.ESCAPE:
+			pyglet.app.exit()
+		elif symbol == pyglet.window.key.P:
+			pyglet.image.get_buffer_manager().get_color_buffer().save('box2d_vertical_stack.png')
