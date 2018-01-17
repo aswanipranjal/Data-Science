@@ -39,3 +39,22 @@ def post_solve_arrow_hit(arbiter, space, data):
 		arrow_body = b.body
 		space.add_post_step_callback(stick_arrow_to_target, arrow_body, other_body, position, data["flying_arrows"])
 
+width, height = 690, 600
+def main():
+	pygame.init()
+	screen = pygame.display.set_mode((width, height))
+	clock = pygame.time.Clock()
+	running = True
+	font = pygame.font.Sysfont('Arial', 16)
+
+	# physics
+	space = pymunk.Space()
+	space.gravity = 0, -1000
+	draw_options = pymunk.pygame_util.DrawOptions(screen)
+
+	# walls
+	static = [pymunk.Segment(space.static_body, (50, 50), (50, 550), 5),
+			  pymunk.Segment(space.static_body, (50, 550), (650, 660), 5),
+			  pymunk.Segment(space.static_body, (650, 550), (650, 50), 5),
+			  pymunk.Segment(space.static_body, (50, 50), (650, 50), 5)]
+			  
