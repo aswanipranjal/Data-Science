@@ -128,4 +128,26 @@ def main():
 				r = random.randint(1, 4)
 				for body in bodies[0:r]:
 					body.apply_impulse_at_local_point((-6000, 0))
-			
+
+			elif event.type == MOUSEBUTTONDOWN and is_interactive:
+				if selected != None:
+					space.remove(selected)
+				p = from_pygame(Vec2d(event.pos))
+				hit = space.point_query_nearest(p, 0, pm.ShapeFilter())
+				if hit != None:
+					shape = hit.shape
+					rest_length = mouse_body.position.get_distance(shape.body.position)
+					ds = pm.DampedSpring(mouse_body, shape.body, (0, 0), (0, 0), rest_length, 1000, 10)
+					space.add(ds)
+					selected = ds
+
+			elif event.type == MOUSEBUTTONUP and is_interactive:
+				if selected != None:
+					space.remove(selected)
+					selected = None
+
+			elif event.type == KEYDOWN:
+				running = False
+
+			elif event.type == MOUSEBUTTONDOWN:
+				running = False
