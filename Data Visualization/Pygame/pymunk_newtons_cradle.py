@@ -80,3 +80,28 @@ def main():
 	# physics
 	space = pm.Space()
 	space.gravity = (0.0, -1900.0)
+	space.damping = 0.999 # to prevent it from blowing up
+	mouse_body = pm.Body(body_type=pm.Body.KINEMATIC)
+
+	bodies = []
+	for x in range(-100, 150, 50):
+		x += width / 2
+		offset_y = height / 2
+		mass = 10
+		radius = 25
+		moment = pm.moment_for_circle(mass, 0, radius, (0, 0))
+		body = pm.Body(mass, moment)
+		body.position = (x, -125 + offset_y)
+		body.start_position = Vec2d(body.position)
+		shape = pm.Circle(body, radius)
+		shape.elasticity = 0.9999999
+		bodies.append(body)
+		pj = pm.PinJoint(space.static_body, body, (x, 125 + offset_y), (0, 0))
+		space.add(pj)
+
+	reset_bodies(space)
+	selected = None
+
+	if not is_interactive:
+		pygame.time.set_timer(USEREVENT+1, 70000) # apply force
+		pygame.time.set_timer(USEREVENT+2, 120000) # reset
