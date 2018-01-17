@@ -151,3 +151,18 @@ def main():
 
 			elif event.type == MOUSEBUTTONDOWN:
 				running = False
+
+		mpos = pygame.mouse.get_pos()
+		p = from_pygame(Vec2d(mpos))
+		mouse_body.position = p
+
+		# clear screen
+		screen.fill(THECOLORS['black'])
+
+		# draw
+		for c in space.constraints:
+			pv1 = c.a.position + c.anchor_a
+			pv2 = c.b.position + c.anchor_b
+			p1 = to_pygame(pv1)
+			p2 = to_pygame(pv2)
+			pygame.draw.aalines(screen, THECOLORS['lightgray'], False, [p1, p2])
