@@ -22,3 +22,15 @@ if sys.argv[1] == "/p": # preview mode
 	display_size = (100, 100)
 	is_interactive = False
 
+import pygame
+from pygame.locals import *
+from pygame.color import *
+
+if sys.argv[1] == "/s": # fullscreen screensaver mode
+	display_size = (0, 0)
+	is_interactive = False
+	display_flags = display_flags | FULLSCREEN # FULLSCREEN | DOUBLEBUF | HWSURFACE
+elif sys.argv[1] == "/i": # interactive
+	display_size = (600, 600)
+	is_interactive = True
+
