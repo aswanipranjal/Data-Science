@@ -28,4 +28,17 @@ class Main(pyglet.window.Window):
 		static_lines = [pymunk.Segment(self.space.static_body, Vec2d(20, 55), Vec2d(600, 55), 1),
 						pymunk.Segment(self.space.static_body, Vec2d(550, 55), Vec2d(550, 400), 1)]
 
-		
+		for l in static_lines:
+			l.friction = 0.3
+		self.space.add(static_lines)
+
+		for x in range(5):
+			for y in range(10):
+				size = 20
+				mass = 10.0
+				moment = pymunk.moment_for_box(mass, (size, size))
+				body = pymunk.Body(mass, moment)
+				body.position = Vec2d(300 + x * 50, 105 + y * (size + .1))
+				shape = pymunk.Poly.create_box(body, (size, size))
+				shape.friction = 0.3
+				self.space.add(body, shape)
