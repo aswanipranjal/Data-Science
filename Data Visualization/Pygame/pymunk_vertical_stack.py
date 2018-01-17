@@ -42,3 +42,12 @@ class Main(pyglet.window.Window):
 				shape = pymunk.Poly.create_box(body, (size, size))
 				shape.friction = 0.3
 				self.space.add(body, shape)
+
+	def update(self, dt):
+		step_dt = 1/250.
+		x = 0
+		while x < dt:
+			x += step_dt
+			self.space.step(step_dt)
+
+	
