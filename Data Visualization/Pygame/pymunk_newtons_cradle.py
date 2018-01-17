@@ -182,7 +182,7 @@ def main():
 		if is_interactive:
 			screen.blit(font.render('fps: ' + str(clock.get_fps()), 1, THECOLORS['white']), (0, 0))
 			screen.blit(font.render('Press left mouse button and drag to interact', 1, THECOLORS['darkgrey']), (5, height - 35))
-			screen.blit(font.render('Press R to reset,any other key to quit', 1, THECOLORS['darkgrey']), (5, height - 20))
+			screen.blit(font.render('Press R to reset, any other key to quit', 1, THECOLORS['darkgrey']), (5, height - 20))
 
 		pygame.display.flip()
 		clock.tick(fps)
