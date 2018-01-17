@@ -57,4 +57,12 @@ def main():
 			  pymunk.Segment(space.static_body, (50, 550), (650, 660), 5),
 			  pymunk.Segment(space.static_body, (650, 550), (650, 50), 5),
 			  pymunk.Segment(space.static_body, (50, 50), (650, 50), 5)]
-			  
+
+	b2 = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
+	static.append(pymunk.Circle(b2, 30))
+	b2.position = 300, 400
+
+	for s in static:
+		s.friction = 1.
+		s.group = 1
+	space.add(static)
