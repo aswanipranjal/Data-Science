@@ -66,3 +66,17 @@ def main():
 		s.friction = 1.
 		s.group = 1
 	space.add(static)
+
+	# cannon
+	cannon_body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
+	cannon_shape = pymunk.Circle(cannon_body, 25)
+	cannon_shape.sensor = True
+	cannon_shape.color = (255, 50, 50)
+	cannon_body.position = 100, 100
+	space.add(cannon_shape)
+
+	arrow_body, arrow_shape = create_arrow()
+	space.add(arrow_shape)
+
+	flying_arrows = []
+	
