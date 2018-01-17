@@ -17,6 +17,7 @@ def create_arrow():
 	arrow_shape = pymunk.Poly(arrow_body, vs)
 	arrow_shape.friction = .5
 	arrow_shape.collision_type = 1
+	return arrow_body, arrow_shape
 
 def stick_arrow_to_target(space, arrow_body, target_body, position, flying_arrows):
 	pivot_joint = pymunk.PivotJoint(arrow_body, target_body, position)
