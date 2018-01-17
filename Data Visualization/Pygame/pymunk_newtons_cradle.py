@@ -166,3 +166,7 @@ def main():
 			p1 = to_pygame(pv1)
 			p2 = to_pygame(pv2)
 			pygame.draw.aalines(screen, THECOLORS['lightgray'], False, [p1, p2])
+
+		for ball in space.shapes:
+			p = to_pygame(ball.body.position)
+			drawcircle(screen, ball.color, p, int(ball.radius), 0)
