@@ -19,3 +19,13 @@ class Main(pyglet.window.Window):
 		self.create_world()
 		self.draw_options = pymunk.pyglet_util.DrawOptions()
 		self.draw_options.flags = self.draw_options.DRAW_SHAPES
+
+	def create_world(self):
+		self.space = pymunk.Space()
+		self.space.gravity = Vec2d(0., -900.)
+		self.space.sleep_time_threshold = 0.3
+
+		static_lines = [pymunk.Segment(self.space.static_body, Vec2d(20, 55), Vec2d(600, 55), 1),
+						pymunk.Segment(self.space.static_body, Vec2d(550, 55), Vec2d(550, 400), 1)]
+
+		
