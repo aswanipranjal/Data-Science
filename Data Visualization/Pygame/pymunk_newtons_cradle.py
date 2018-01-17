@@ -34,3 +34,18 @@ elif sys.argv[1] == "/i": # interactive
 	display_size = (600, 600)
 	is_interactive = True
 
+import pymunk as pm
+from pymunk import Vec2d
+
+def drawcircle(image, color, origin, radius, width=0):
+	if width == 0:
+		pygame.draw.circle(image, color, origin, int(radius))
+	else:
+		if radius > 65534/5:
+			radius = 65534/5
+		circle = pygame.Surface([radius*2 + width, radius*2 + width]).convert_alpha()
+		circle.fill([0, 0, 0])
+		pygame.draw.circle(circle, color, [circle.get_width()/2, circle.get_height()/2], radius+(width/2))
+		if int(radius - (width/2)) > 0:
+			pygame.draw.circle(circle, [0, 0, 0, 0], [circle.get_width()/2, circle.get_height()/2], abs(int(radius-(width/2))))
+		image.blit(circle, [origin[0] - (circle.get_width()/2), origin[1] - (circle.get_height()/2)])
