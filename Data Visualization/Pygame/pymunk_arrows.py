@@ -28,3 +28,14 @@ def stick_arrow_to_target(space, arrow_body, target_body, position, flying_arrow
 		flying_arrows.remove(arrow_body)
 	except:
 		pass
+
+def post_solve_arrow_hit(arbiter, space, data):
+	if arbiter.total_impulse.length > 300:
+		a, b = arbiter.shapes
+		position = arbiter.contact_point_set.points[0].point_a
+		b.collision_type = 0
+		b.group = 1
+		other_body = a.body
+		arrow_body = b.body
+		space.add_post_step_callback(stick_arrow_to_target, arrow_body, other_body, position, data["flying_arrows"])
+
