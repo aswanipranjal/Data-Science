@@ -60,3 +60,17 @@ def reset_bodies(space):
 	color = random.choice(list(THECOLORS.values()))
 	for shape in space.shapes:
 		shape.color = color
+
+def main():
+	pygame.init()
+	screen = pygame.display.set_mode(display_size, display_flags)
+	width, height= screen.get_size()
+
+	def to_pygame(p):
+		'''A hacky way to convert pymunk to pygame coordinates'''
+		return int(p.x), int(-p.y + height)
+
+	def from_pygame(p):
+		return to_pygame(p)
+
+	
