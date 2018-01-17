@@ -42,4 +42,5 @@ def main():
 		for x in range(1):
 			space.step(1/50.0)
 
-	
+if __name__ == '__main__':
+	sys.exit(main())
