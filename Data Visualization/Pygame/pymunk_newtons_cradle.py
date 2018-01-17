@@ -49,3 +49,14 @@ def drawcircle(image, color, origin, radius, width=0):
 		if int(radius - (width/2)) > 0:
 			pygame.draw.circle(circle, [0, 0, 0, 0], [circle.get_width()/2, circle.get_height()/2], abs(int(radius-(width/2))))
 		image.blit(circle, [origin[0] - (circle.get_width()/2), origin[1] - (circle.get_height()/2)])
+
+def reset_bodies(space):
+	for body in space.bodies:
+		body.position = Vec2d(body.start_position)
+		body.force = 0, 0
+		body.torque = 0
+		body.velocity = 0, 0
+		body.angular_velocity = 0
+	color = random.choice(list(THECOLORS.values()))
+	for shape in space.shapes:
+		shape.color = color
