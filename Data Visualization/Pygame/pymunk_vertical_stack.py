@@ -67,3 +67,10 @@ class Main(pyglet.window.Window):
 			pyglet.app.exit()
 		elif symbol == pyglet.window.key.P:
 			pyglet.image.get_buffer_manager().get_color_buffer().save('box2d_vertical_stack.png')
+
+	def on_draw(self):
+		self.clear()
+		self.text.draw()
+		self.fps_display.draw()
+		self.space.debug_draw(self.draw_options)
+
