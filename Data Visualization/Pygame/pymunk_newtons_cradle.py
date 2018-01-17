@@ -118,4 +118,14 @@ def main():
 				r = random.randint(1, 4)
 				for body in bodies[0:r]:
 					body.apply_impulse_at_local_point((-6000, 0))
+			if event.type == pygame.USEREVENT+2:
+				reset_bodies(space)
+
+			elif event.type == KEYDOWN and event.key == K_r and is_interactive:
+				reset_bodies(space)
+
+			elif event.type == KEYDOWN and event.key == K_f and is_interactive:
+				r = random.randint(1, 4)
+				for body in bodies[0:r]:
+					body.apply_impulse_at_local_point((-6000, 0))
 			
