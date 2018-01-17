@@ -73,4 +73,10 @@ def main():
 	def from_pygame(p):
 		return to_pygame(p)
 
-	
+	clock = pygame.time.Clock()
+	running = True
+	font = pygame.font.Font(None, 16)
+
+	# physics
+	space = pm.Space()
+	space.gravity = (0.0, -1900.0)
