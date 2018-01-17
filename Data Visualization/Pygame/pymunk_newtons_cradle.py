@@ -64,7 +64,7 @@ def reset_bodies(space):
 def main():
 	pygame.init()
 	screen = pygame.display.set_mode(display_size, display_flags)
-	width, height= screen.get_size()
+	width, height = screen.get_size()
 
 	def to_pygame(p):
 		'''A hacky way to convert pymunk to pygame coordinates'''
@@ -95,6 +95,7 @@ def main():
 		body.start_position = Vec2d(body.position)
 		shape = pm.Circle(body, radius)
 		shape.elasticity = 0.9999999
+		space.add(body, shape)
 		bodies.append(body)
 		pj = pm.PinJoint(space.static_body, body, (x, 125 + offset_y), (0, 0))
 		space.add(pj)
