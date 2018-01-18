@@ -19,4 +19,10 @@ while True:
 
         closest_empty_planets = [entities_by_distance[distance][0] for distance in entities_by_distance if isinstance(entities_by_distance[distance][0], hlt.entity.Planet) and not entities_by_distance[distance][0].is_owned()]
         closest_enemy_ships = [entities_by_distance[distance][0] for distance in entities_by_distance if isinstance(entities_by_distance[distance][0], hlt.entity.Ship) and entities_by_distance[distance][0] not in team_ships]
-        
+
+        if len(closest_empty_planets) > 0:
+            target_planet = closest_empty_planets[0]
+            if ship.can_dock(target_planet):
+                command_queue.append(ship.dock(target_planet))
+            else:
+                navigate_command
