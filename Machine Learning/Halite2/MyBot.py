@@ -55,3 +55,13 @@ while True:
     empty_planet_keys = sorted([k for k in empty_planet_sizes])[::-1]
     our_planet_keys = sorted([k for k in our_planet_sizes])[::-1]
     enemy_planet_keys = sorted([k for k  in enemy_planet_sizes])[::-1]
+
+    for ship in game_map.get_me().all_ships():
+        try:
+            if ship.docking_status != ship.DockingStatus.UNDOCKED:
+                continue
+
+            shipid = ship.id
+            change = False
+            if random.randint(1, 100) <= PCT_CHANGE_CHANCE:
+                change = True
