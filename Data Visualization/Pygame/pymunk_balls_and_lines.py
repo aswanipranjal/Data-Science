@@ -68,3 +68,11 @@ def main():
 					line_point1 = Vec2d(event.pos[X], flipy(event.pos[Y]))
 
 			elif event.type == MOUSEBUTTONUP and event.button == 3:
+				if line_point1 is not None:
+					line_point2 = Vec2d(event.pos[X], flipy(event.pos[Y]))
+					body = pymunk.Body(body_type=pymunk.Body.STATIC)
+					shape = pymunk.Segment(body, line_point1, line_point2, 0.0)
+					shape.friction = 0.99
+					space.add(shape)
+					static_lines.append(shape)
+					line_point1 = None
