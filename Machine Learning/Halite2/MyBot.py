@@ -47,3 +47,11 @@ while True:
             our_planet_sizes[radius] = p
         elif p.owner.id != game_map.get_me.id:
             enemy_planet_sizes[radius] = p
+
+    hm_our_planets = len(our_planet_sizes)
+    hm_empty_planets = len(empty_planet_sizes)
+    hm_enemy_planets = len(enemy_planet_sizes)
+
+    empty_planet_keys = sorted([k for k in empty_planet_sizes])[::-1]
+    our_planet_keys = sorted([k for k in our_planet_sizes])[::-1]
+    enemy_planet_keys = sorted([k for k  in enemy_planet_sizes])[::-1]
