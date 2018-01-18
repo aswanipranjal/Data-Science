@@ -81,3 +81,16 @@ while True:
             closest_team_ship_distances    = [distance for distance in entities_by_distance if isinstance(entities_by_distance[distance][0], hlt.entity.Ship) and entities_by_distance[distance][0] in team_ships]            
             closest_enemy_ship_distances   = [distance for distance in entities_by_distance if isinstance(entities_by_distance[distance][0], hlt.entity.Ship) and entities_by_distance[distance][0] not in team_ships]
 
+            largest_empty_planet_distances = []
+            largest_our_planet_distances = []
+            largest_enemy_planet_distances = []
+
+            for i in range(HM_ENT_FEATURES):
+                try: largest_empty_planet_distances.append(key_by_value(entities_by_distance, empty_planet_sizes[empty_planet_keys[i]]))
+                except: largest_empty_planet_distances.append(-99)
+
+                try: largest_our_planet_distances.append(key_by_value(entities_by_distance, our_planet_sizes[our_planet_keys[i]]))
+                except: largest_our_planet_distances.append(-99)
+
+                try: largest_enemy_planet_distances.append(key_by_value(entities_by_distance, enemy_planet_sizes[empty_planet_keys[i]]))
+                except: largest_enemy_planet_distances.append(-99)
