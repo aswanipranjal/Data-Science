@@ -76,3 +76,8 @@ def main():
 					space.add(shape)
 					static_lines.append(shape)
 					line_point1 = None
+
+			elif event.type == KEYDOWN and event.key == K_SPACE:
+				run_physics = not run_physics
+
+		
