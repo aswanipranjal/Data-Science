@@ -52,8 +52,8 @@ def main():
 
 			elif event.type == KEYDOWN and event.key == K_p:
 				pygame.image.save(screen, 'balls_and_lines.png')
-				
-			elif event.type == MOUSEBUBTTONDOWN and event.button == 1:
+
+			elif event.type == MOUSEBUTTONDOWN and event.button == 1:
 				p = event.pos[X], flipy(event.pos[Y])
 				body = pymunk.Body(10, 100)
 				body.position = p
@@ -62,3 +62,9 @@ def main():
 				shape.collision_type = COLLTYPE_BALL
 				space.add(body, shape)
 				balls.append(shape)
+
+			elif event.type == MOUSEBUTTONDOWN and event.button == 3:
+				if line_point1 is None:
+					line_point1 = Vec2d(event.pos[X], flipy(event.pos[Y]))
+
+			elif event.type == MOUSEBUTTONUP and event.button == 3:
