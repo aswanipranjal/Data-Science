@@ -118,3 +118,9 @@ def main():
 			p2 = Vec2d(rot.x, -rot.y) * r * 0.9
 			pygame.draw.circle(screen, THECOLORS['blue'], p, int(r), 2)
 			pygame.draw.line(screen, THECOLORS['red'], p, p + 2)
+
+		if line_point1 is not None:
+			p1 = line_point1.x, flipy(line_point1.y)
+			p2 = mouse_pos.x, flipy(mouse_pos.y)
+			pygame.draw.lines(screen, THECOLORS['black'], False, [p1, p2])
+			
