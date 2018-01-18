@@ -123,4 +123,11 @@ def main():
 			p1 = line_point1.x, flipy(line_point1.y)
 			p2 = mouse_pos.x, flipy(mouse_pos.y)
 			pygame.draw.lines(screen, THECOLORS['black'], False, [p1, p2])
-			
+
+		for line in static_lines:
+			body = line.body
+			pv1 = body.position + line.a.rotated(body.angle)
+			pv2 = body.position + line.b.rotated(body.angle)
+			p1 = pv1.x, flipy(pv1.y)
+			p2 = pv2.x, flipy(pv2.y)
+			pygame.draw.lines(screen, THECOLORS['lightgray'], False, [p1, p2])
