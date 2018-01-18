@@ -94,3 +94,15 @@ while True:
 
                 try: largest_enemy_planet_distances.append(key_by_value(entities_by_distance, enemy_planet_sizes[empty_planet_keys[i]]))
                 except: largest_enemy_planet_distances.append(-99)
+
+            entity_lists = [fix_data(closest_empty_planet_distances),
+                            fix_data(closest_my_planet_distances),
+                            fix_data(closest_enemy_planet_distances),
+                            fix_data(closest_team_ship_distances),
+                            fix_data(closest_enemy_ship_distances),
+                            fix_data(empty_planet_keys),
+                            fix_data(our_planet_keys),
+                            fix_data(enemy_planet_keys),
+                            fix_data(largest_empty_planet_distances),
+                            fix_data(largest_our_planet_distances),
+                            fix_data(largest_enemy_planet_distances)]
