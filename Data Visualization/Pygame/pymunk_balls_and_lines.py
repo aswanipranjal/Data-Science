@@ -131,3 +131,8 @@ def main():
 			p1 = pv1.x, flipy(pv1.y)
 			p2 = pv2.x, flipy(pv2.y)
 			pygame.draw.lines(screen, THECOLORS['lightgray'], False, [p1, p2])
+
+		pygame.display.flip()
+		clock.tick(50)
+		pygame.display.set_caption('fps: ' + str(clock.get_fps()))
+
