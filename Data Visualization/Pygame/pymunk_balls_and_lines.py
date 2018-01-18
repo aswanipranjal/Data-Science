@@ -80,4 +80,29 @@ def main():
 			elif event.type == KEYDOWN and event.key == K_SPACE:
 				run_physics = not run_physics
 
+		p = pygame.mouse.get_pos()
+		mouse_pos = Vec2d(p[X], flipy(p[Y]))
+		mouse_body.position = mouse_pos
+
+		if pygame.key.get_mods() & KMOD_SHIFT and pygame.mouse.get_pressed()[0]:
+			body = pymunk.Body(10, 10)
+			body.position = mouse_pos
+			shape = pymunk.Circle(body, 10, (0, 0))
+			shape.collision_type = COLLTYPE_BALL
+			space.add(body, shape)
+			balls.append(shape)
+
+		if run_physics:
+			dt = 1.0/60.0
+			for x in range(1):
+				space.step(dt)
+
+		screen.fill(THECOLORS['white'])
+
+		font = pygame.font.Font(None, 16)
+		text = '''LMB: Create ball
+				  LMB + Shift: Create many balls
+				  RMB: Drag to create wall
+				  Space: Pause physics simulation'''
+		y = 5
 		
