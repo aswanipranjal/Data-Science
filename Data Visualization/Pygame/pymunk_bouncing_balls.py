@@ -22,3 +22,10 @@ balls = []
 static_body = space.static_body
 static_lines = [pymunk.Segment(static_body, (111.0, 280.0), (407.0, 246.0), 0.0),
 				pymunk.Segment(static_body, (407.0, 246.0), (407.0, 343.0), 0.0)]
+
+for line in static_lines:
+	line.elasticity = 0.95
+	line.friction = 0.9
+space.add(static_lines)
+
+ticks_next_to_ball = 10
