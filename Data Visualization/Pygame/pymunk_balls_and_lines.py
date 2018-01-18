@@ -100,10 +100,7 @@ def main():
 		screen.fill(THECOLORS['white'])
 
 		font = pygame.font.Font(None, 16)
-		text = '''LMB: Create ball
-				  LMB + Shift: Create many balls
-				  RMB: Drag to create wall
-				  Space: Pause physics simulation'''
+		text = '''LMB: Create ball\nLMB + Shift: Create many balls\nRMB: Drag to create wall\nSpace: Pause physics simulation'''
 		y = 5
 		for line in text.splitlines():
 			text = font.render(line, 1, THECOLORS['black'])
