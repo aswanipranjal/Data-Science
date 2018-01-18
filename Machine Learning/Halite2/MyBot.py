@@ -34,3 +34,6 @@ while True:
             navigate_command = ship.navigate(ship.closest_point_to(target_ship), game_map, speed=int(hlt.constants.MAX_SPEED), ignore_ships=False)
             if navigate_command:
                 command_queue.append(navigate_command)
+
+    game.send_command_queue(command_queue)
+    
