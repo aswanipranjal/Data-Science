@@ -136,3 +136,14 @@ def main():
 		clock.tick(50)
 		pygame.display.set_caption('fps: ' + str(clock.get_fps()))
 
+if __name__ == '__main__':
+	doprof = 0
+	if not doprof:
+		main()
+	else:
+		import cProfile, pstats
+		prof = cProfile.run('main()', 'profile.prof')
+		stats = pstats.Stats('profile.prof')
+		stats.strip_dirs()
+		stats.sort_stats('cumulative', 'time', 'calls')
+		stats.print_stats(30)
