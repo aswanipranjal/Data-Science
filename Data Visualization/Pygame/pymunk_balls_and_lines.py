@@ -105,4 +105,16 @@ def main():
 				  RMB: Drag to create wall
 				  Space: Pause physics simulation'''
 		y = 5
-		
+		for line in text.splitlines():
+			text = font.render(line, 1, THECOLORS['black'])
+			screen.blit(text, (5, y))
+			y += 10
+
+		for ball in balls:
+			r = ball.radius
+			v = ball.body.position
+			rot = ball.body.rotation_vector
+			p = int(v.x), int(flipy(v.y))
+			p2 = Vec2d(rot.x, -rot.y) * r * 0.9
+			pygame.draw.circle(screen, THECOLORS['blue'], p, int(r), 2)
+			pygame.draw.line(screen, THECOLORS['red'], p, p + 2)
