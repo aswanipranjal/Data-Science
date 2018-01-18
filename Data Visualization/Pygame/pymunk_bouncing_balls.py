@@ -12,3 +12,13 @@ pygame.init()
 screen = pygame.display.set_mode((600, 600))
 clock = pygame.time.Clock()
 running = True
+
+space = pygame.Space()
+space.gravity = (0.0, -900.0)
+draw_options = pymunk.pygame_util.DrawOptions(screen)
+
+balls = []
+
+static_body = space.static_body
+static_lines = [pymunk.Segment(static_body, (111.0, 280.0), (407.0, 246.0), 0.0),
+				pymunk.Segment(static_body, (407.0, 246.0), (407.0, 343.0), 0.0)]
