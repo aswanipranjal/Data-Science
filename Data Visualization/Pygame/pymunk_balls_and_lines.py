@@ -20,4 +20,13 @@ def mouse_coll_func(arbiter, space, data):
 	s2.unsafe_set_radius(s2.radius + 0.15)
 	return False
 
-	
+def main():
+	pygame.init()
+	screen = pygame.display.set_mode((600, 600))
+	clock = pygame.time.Clock()
+	running = True
+
+	space = pymunk.Space()
+	space.gravity = 0.0, -900.0
+
+	balls = []
