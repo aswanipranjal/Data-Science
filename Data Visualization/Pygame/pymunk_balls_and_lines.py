@@ -36,3 +36,19 @@ def main():
 	mouse_shape.collision_type = COLLTYPE_MOUSE
 	space.add(mouse_shape)
 	space.add_collision_handler(COLLTYPE_MOUSE, COLLTYPE_BALL).pre_solve=mouse_coll_func
+
+	# static line
+	line_point1 = None
+	static_lines = []
+	run_physics = True
+
+	while running:
+		for event in pygame.event.get():
+			if event.type == QUIT:
+				running = False
+			elif event.type == KEYDOWN and event.key == K_ESCAPE:
+				running = False
+			elif event.type == KEYDOWN and event.key == K_p:
+				pygame.image.save(screen, 'balls_and_lines.png')
+			elif event.type == MOUSEBUBTTONDOWN and event.button == 1:
+				
