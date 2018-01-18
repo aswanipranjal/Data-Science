@@ -30,3 +30,9 @@ def main():
 	space.gravity = 0.0, -900.0
 
 	balls = []
+
+	mouse_body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
+	mouse_shape = pymunk.Circle(mouse_body, 3, (0, 0))
+	mouse_shape.collision_type = COLLTYPE_MOUSE
+	space.add(mouse_shape)
+	space.add_collision_handler(COLLTYPE_MOUSE, COLLTYPE_BALL).pre_solve=mouse_coll_func
