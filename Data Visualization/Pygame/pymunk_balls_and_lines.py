@@ -46,9 +46,19 @@ def main():
 		for event in pygame.event.get():
 			if event.type == QUIT:
 				running = False
+
 			elif event.type == KEYDOWN and event.key == K_ESCAPE:
 				running = False
+
 			elif event.type == KEYDOWN and event.key == K_p:
 				pygame.image.save(screen, 'balls_and_lines.png')
-			elif event.type == MOUSEBUBTTONDOWN and event.button == 1:
 				
+			elif event.type == MOUSEBUBTTONDOWN and event.button == 1:
+				p = event.pos[X], flipy(event.pos[Y])
+				body = pymunk.Body(10, 100)
+				body.position = p
+				shape = pymunk.Circle(body, 10, (0, 0))
+				shape.friction = 0.5
+				shape.collision_type = COLLTYPE_BALL
+				space.add(body, shape)
+				balls.append(shape)
