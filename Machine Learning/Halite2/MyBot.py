@@ -33,3 +33,17 @@ while True:
     my_ship_count = len(team_ships)
     enemy_ship_count = len(enemy_ships)
     all_ship_count = len(all_ships)
+
+    my_id = game_map.get_me().id
+    empty_planet_sizes = {}
+    our_planet_sizes = {}
+    enemy_planet_sizes = {}
+
+    for p in game.all_planets():
+        radius = p.radius
+        if not p.is_owned():
+            empty_planet_sizes[radius] = p
+        elif p.owner.id == game_map.get_me.id:
+            our_planet_sizes[radius] = p
+        elif p.owner.id != game_map.get_me.id:
+            enemy_planet_sizes[radius] = p
