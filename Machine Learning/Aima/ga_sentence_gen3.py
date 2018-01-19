@@ -4,7 +4,7 @@ from utils import argmax
 
 target = 'Machine Learning'
 max_population = 100
-mutation_rate = 0.05
+mutation_rate = 0.1
 f_thres = len(target)
 
 u_case = [chr(x) for x in range(65, 91)]
@@ -32,14 +32,15 @@ def genetic_algorithm_stepwise(population, fitness_fn, gene_pool=[0, 1], f_thres
 		if fittest_individual:
 			return fittest_individual
 
-	return argmax(population, key=fitness_fn)
+	return argmax(population, key=fitness_fn), i
 
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
-	solution = genetic_algorithm_stepwise(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool, pmut=mutation_rate)
+	solution, iterations = genetic_algorithm_stepwise(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool, pmut=mutation_rate)
 	print()
 	print(''.join(solution))
 	print(fitness_fn(solution))
+	print(iterations)
 
 if __name__ == '__main__':
 	main()
