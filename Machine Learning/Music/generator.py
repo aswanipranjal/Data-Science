@@ -112,4 +112,7 @@ def generate(data_fn, out_fn, N_epochs):
 	play = lambda x: midi.realtime.StreamPlayer(x).play()
 	play(out_stream)
 
-	
+	mf = midi.translate.streamToMidiFile(out_stream)
+	mf.open(out_fn, 'wb')
+	mf.write()
+	mf.close()
