@@ -71,3 +71,8 @@ def main():
 			p = tuple(map(int, ball.body.position))
 			pygame.draw.circle(screen, THECOLORS['blue'], p, int(ball.radius), 2)
 
+		for ball in balls_to_remove:
+			space.remove(ball, ball.body)
+			balls.remove(ball)
+
+		
