@@ -9,7 +9,9 @@ f_thres = len(target)
 
 u_case = [chr(x) for x in range(65, 91)]
 l_case = [chr(x) for x in range(97, 123)]
-gene_pool = u_case.extend(l_case)
+gene_pool = []
+gene_pool.extend(u_case)
+gene_pool.extend(l_case)
 gene_pool.append(' ')
 
 def fitness_fn(_list):
