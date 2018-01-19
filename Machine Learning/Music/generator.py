@@ -100,4 +100,16 @@ def generate(data_fn, out_fn, N_epochs):
 		curr_notes = prune_notes(curr_notes)
 		curr_notes = clean_up_notes(curr_notes)
 		print('After pruning: %s notes' % (len([i for i in curr_notes  if isinstance(i, note.Note)])))
-		
+		for m in curr_notes:
+			out_stream.insert(curr_offset + m.offset, m)
+		for mc in curr_chords:
+			out_stream.insert(curr_offset + mc.offset, mc)
+
+		curr_offset += 4.0
+
+	out_stream.insert(0.0, tempo.MetronomeMark(number=bpm))
+
+	play = lambda x: midi.realtime.StreamPlayer(x).play()
+	play(out_stream)
+
+	
