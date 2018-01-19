@@ -16,8 +16,8 @@ def draw_collision(arbiter, space, data):
 		pygame.draw.circle(data['surface'], THECOLORS['red'], p, r, 0)
 
 def main():
-	global contact
-	global shape_to_remove
+	# global contact
+	# global shape_to_remove
 
 	pygame.init()
 	screen = pygame.display.set_mode((600, 600))
