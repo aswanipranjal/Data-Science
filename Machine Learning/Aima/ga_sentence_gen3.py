@@ -25,7 +25,7 @@ def fitness_fn(_list):
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
 	solution = search.genetic_algorithm(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool)
-	print(solution)
+	print(''.join(solution))
 	print(fitness_fn(solution))
 
 if __name__ == '__main__':
