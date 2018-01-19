@@ -77,3 +77,5 @@ def main():
 	pyramid = Pyramid()
 	pyramid.run()
 
+if __name__ == '__main__':
+	main()
