@@ -21,7 +21,7 @@ def __parse_midi(data_fn):
     # Parse the MIDI data for separate melody and accompaniment parts.
     midi_data = converter.parse(data_fn)
     # Get melody part, compress into single voice.
-    melody_stream = midi_data[5]     # For Metheny piece, Melody is Part #5.
+    melody_stream = midi_data[1]     # For Metheny piece, Melody is Part #5.
     melody1, melody2 = melody_stream.getElementsByClass(stream.Voice)
     for j in melody2:
         melody1.insert(j.offset, j)
