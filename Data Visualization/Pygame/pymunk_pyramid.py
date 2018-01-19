@@ -68,4 +68,12 @@ class Pyramid:
 		self.clock.tick(fps)
 		pygame.display.set_caption(f'fps: {str(self.clock.get_fps())}')
 
-	
+	def draw(self):
+		self.screen.fill(THECOLORS['white'])
+		self.space.debug_draw(self.draw_options)
+		pygame.display.flip()
+
+def main():
+	pyramid = Pyramid()
+	pyramid.run()
+
