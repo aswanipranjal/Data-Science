@@ -75,4 +75,10 @@ def main():
 			space.remove(ball, ball.body)
 			balls.remove(ball)
 
+		for line in static_lines:
+			body = line.body
+			p1 = body.position + line.a.rotated(body.angle)
+			p2 = body.position + line.b.rotated(body.angle)
+			pygame.draw.lines(screen, THECOLORS['lightgray'], False, [p1, p2])
+
 		
