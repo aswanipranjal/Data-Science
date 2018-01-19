@@ -66,3 +66,21 @@ def __generate_grammar(model, corpus, abstract_grammars, values, val_indices,
         running_length += length
 
     return curr_grammar
+
+def generate(data_fn, out_fn, N_epochs):
+	max_len = 20
+	max_tries = 1000
+	diversity = 0.5
+
+	bpm = 130
+
+	chords, abstract_grammars = get_musical_data(data_fn)
+	corpus, values, val_indices, indices_val = get_corpus_data(abstract_grammars)
+	print('Corpus length: ', len(corpus))
+	print('Total number of values: ', len(values))
+
+	model = lstm.build_model(corpus=corpus, val_indices=val_indices, max_len=max_len, N_epochs=N_epochs)
+	out_stream = stream.Stream()
+
+	curr_offset = 0.0
+	
