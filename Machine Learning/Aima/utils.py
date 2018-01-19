@@ -265,16 +265,16 @@ def clip(x, lowest, highest):
 
 
 def sigmoid_derivative(value):
-    # return value * (1 - value)
+    return value * (1 - value)
     # replacing temporarily with derivative of relu function
-    return value > 0 ? 1 : 0
+    # return value > 0 ? 1 : 0
 
 
 def sigmoid(x):
     """Return activation value of x with sigmoid function"""
-    # return 1/(1 + math.exp(-x))
+    return 1/(1 + math.exp(-x))
     # replacing temporarily with relu function
-    return max(0, x)
+    # return max(0, x)
 
 
 def step(x):
