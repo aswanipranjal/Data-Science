@@ -1,0 +1,102 @@
+[
+ {
+  "Error": {},
+  "Frames": [
+   {
+    "Time": 427,
+    "Turn": 0
+   },
+   {
+    "Commands": [
+     {
+      "angle": 7,
+      "magnitude": 7,
+      "owner": 0,
+      "queue_number": 0,
+      "shipId": 0,
+      "type": "thrust"
+     },
+     {
+      "angle": 14,
+      "magnitude": 7,
+      "owner": 0,
+      "queue_number": 0,
+      "shipId": 1,
+      "type": "thrust"
+     },
+     {
+      "angle": 359,
+      "magnitude": 7,
+      "owner": 0,
+      "queue_number": 0,
+      "shipId": 2,
+      "type": "thrust"
+     }
+    ],
+    "Planets": null,
+    "Ships": [
+     {
+      "cooldown": 0,
+      "docking": {
+       "status": "undocked"
+      },
+      "health": 255,
+      "id": 0,
+      "owner": 0,
+      "vel_x": 0.0,
+      "vel_y": 0.0,
+      "x": 66.94782306148926,
+      "y": 80.853085403836033
+     },
+     {
+      "cooldown": 0,
+      "docking": {
+       "status": "undocked"
+      },
+      "health": 255,
+      "id": 1,
+      "owner": 0,
+      "vel_x": 0.0,
+      "vel_y": 0.0,
+      "x": 66.792070083931975,
+      "y": 78.693453269197676
+     },
+     {
+      "cooldown": 0,
+      "docking": {
+       "status": "undocked"
+      },
+      "health": 255,
+      "id": 2,
+      "owner": 0,
+      "vel_x": 0.0,
+      "vel_y": 0.0,
+      "x": 66.998933866094745,
+      "y": 82.877833154939012
+     }
+    ],
+    "Time": 2,
+    "Turn": 1
+   }
+  ],
+  "PlayerID": 0,
+  "PlayerName": "Attacker-v1"
+ },
+ {
+  "Error": {
+   "Message": "ERRORED! Got Exception (if any): ERROR: Bot #1: Received invalid character 'Traceback (most recent call last):T'. (at character 1.)\nInput received from bot:\nTraceback (most recent call last):\n^; Response received (if any): Traceback (most recent call last):  File \"MyBot-Attacker-v2.py\", line 16, in <module>    for ship in team_ships_main:NameError: name 'team_ships_main' is not defined",
+   "Turn": 1
+  },
+  "Frames": [
+   {
+    "Time": 425,
+    "Turn": 0
+   },
+   {
+    "Time": 6
+   }
+  ],
+  "PlayerID": 1,
+  "PlayerName": "Attacker-v2"
+ }
+]
