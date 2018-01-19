@@ -22,4 +22,9 @@ def fitness_fn(_list):
 
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
-	
+	solution = genetic_algorithm(population, fitness_fn, gene_pool=gene_pool)
+	print(solution)
+	print(fitness_fn(solution))
+
+if __name__ == '__main__':
+	main()
