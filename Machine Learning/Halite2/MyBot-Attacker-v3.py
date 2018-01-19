@@ -24,3 +24,19 @@ while True:
 
 		if len(closest_empty_planets) > 0:
 			if len(closest_enemy_ships) > 0:
+				# If closest empty planet is twice the distance of the closest enemy ship, we would rather attack the enemy ship as our chances of reaching the planet are small
+				# Let's test if this hyper-aggressive approach works well
+				if closest_empty_planet_distances[0] >= 2 * closest_enemy_ship_distances[0]:
+					target_ship = closest_enemy_ships[0]
+					navigate_command = ship.navigate(ship.closest_point_to(target_ship), game_map, speed=int(hlt.constants.MAX_SPEED), ignore_ships=False)
+					if navigate_command:
+						command_queue.append(navigate_command)
+
+				else:
+					target_planet = closest_empty_planets[0]
+					if ship.can_dock(target_planet):
+						command_queue.append(ship.dock(target_planet))
+					else:
+						navigate_command = ship.navigate(ship.closest_point_to(target_planet), game_map, speed=int(hlt.constants.MAX_SPEED), ignore_ships=False)
+						if navigate_command:
+							command_queue.append(navigate_command)
