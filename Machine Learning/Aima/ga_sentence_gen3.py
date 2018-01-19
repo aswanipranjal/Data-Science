@@ -26,7 +26,8 @@ def genetic_algorithm_stepwise(population, fitness_fn, gene_pool=[0, 1], f_thres
 	for i in range(ngen):
 		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
 		current_best = ''.join(argmax(population, key=fitness_fn))
-		print('Current best: ' + current_best + '\t\t' + 'Iteration: ' + str(i) + '\r', end='')
+		# print('Current best: ' + current_best + '\t' + 'Iteration: ' + str(i) + '\r', end='')
+		print(f'Current best: {current_best}\tIteration: {str(i)}\tFitness: {fitness_fn(current_best)}\r', end='')
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 		if fittest_individual:
