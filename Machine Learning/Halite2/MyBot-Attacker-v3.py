@@ -34,7 +34,7 @@ while True:
 					if navigate_command:
 						command_queue.append(navigate_command)
 
-				else:
+				elif (closest_empty_planet_distances[0] < (2 * closest_enemy_ship_distances[0])):
 					target_planet = closest_empty_planets[0]
 					if ship.can_dock(target_planet):
 						command_queue.append(ship.dock(target_planet))
@@ -44,7 +44,7 @@ while True:
 							command_queue.append(navigate_command)
 
 			# There are no enemy ships nearby
-			else:
+			elif len(closest_enemy_ships) == 0:
 				target_planet = closest_empty_planets[0]
 				if ship.can_dock(target_planet):
 					command_queue.append(ship.dock(target_planet))
