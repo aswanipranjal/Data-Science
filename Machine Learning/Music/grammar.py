@@ -298,7 +298,7 @@ def unparse_grammar(m1_grammar, m1_chords):
             # Case S: scale note, must be within increment.
             elif terms[0] == 'S':
                 relevantScaleTones = []
-                for i in xrange(0, numNotes):
+                for i in range(0, numNotes):
                     currNote = note.Note(lowPitch.transpose(i).simplifyEnharmonic())
                     if __is_scale_tone(lastChord, currNote):
                         relevantScaleTones.append(currNote)
