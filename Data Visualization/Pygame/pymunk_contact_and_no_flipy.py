@@ -81,4 +81,13 @@ def main():
 			p2 = body.position + line.b.rotated(body.angle)
 			pygame.draw.lines(screen, THECOLORS['lightgray'], False, [p1, p2])
 
-		
+		dt = 1.0 / 60.0
+		for x in range(1):
+			space.step(dt)
+
+		pygame.display.flip()
+		clock.tick()
+		pygame.display.set_caption('fps: ' + str(clock.get_fps()))
+
+if __name__ == '__main__':
+	sys.exit(main())
