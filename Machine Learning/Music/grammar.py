@@ -279,7 +279,7 @@ def unparse_grammar(m1_grammar, m1_chords):
             
             if terms[0] == 'C':
                 relevantChordTones = []
-                for i in xrange(0, numNotes):
+                for i in range(0, numNotes):
                     currNote = note.Note(lowPitch.transpose(i).simplifyEnharmonic())
                     if __is_chord_tone(lastChord, currNote):
                         relevantChordTones.append(currNote)
