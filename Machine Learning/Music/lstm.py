@@ -29,4 +29,10 @@ def build_model(corpus, val_indices, max_len, N_epochs=128):
 		y[i, val_indices[next_values[i]]] = 1
 
 	# build a stacked LSTM
-	
+	model = Sequential()
+	model.add(LSTM(128, return_sequences=True, input_shape=(max_len, N_values)))
+	model.add(Dropout(0.2))
+	model.add(LSTM(128, return_sequences=False))
+	model.add(Dropout(0.2))
+	model.add(Dense(N_values))
+	model.add(Activation('softmax'))
