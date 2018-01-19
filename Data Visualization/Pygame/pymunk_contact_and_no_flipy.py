@@ -61,3 +61,13 @@ def main():
 			shape = pm.Circle(body, radius, (0, 0))
 			space.add(body, shape)
 			balls.append(shape)
+
+		screen.fill(THECOLORS['white'])
+
+		# draw stuff
+		balls_to_remove = []
+		for ball in balls:
+			if ball.body.position.y > 400: balls_to_remove.append(ball)
+			p = tuple(map(int, ball.body.position))
+			pygame.draw.circle(screen, THECOLORS['blue'], p, int(ball.radius), 2)
+
