@@ -33,4 +33,14 @@ def main():
 	static_body = pm.Body(body_type = pm.Body.STATIC)
 	static_lines = [pm.Segment(static_body, (111.0, 320.0), (407.0, 354.0), 0.0),
 					pm.Segment(static_body, (407.0, 354.0), (407.0, 257.0), 0.0)]
-	space.add(static_lines)					
+	space.add(static_lines)
+
+	ticks_to_next_ball = 10
+	ch = space.add_collision_handler(0, 0)	
+	ch.data['surface'] = screen
+	ch.post_solve = draw_collision
+
+	while running:
+		for event in pygame.event.get():
+			if event.type == QUIT:
+				running = False			
