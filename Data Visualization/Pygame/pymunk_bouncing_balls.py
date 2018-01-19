@@ -13,7 +13,7 @@ screen = pygame.display.set_mode((600, 600))
 clock = pygame.time.Clock()
 running = True
 
-space = pygame.Space()
+space = pymunk.Space()
 space.gravity = (0.0, -900.0)
 draw_options = pymunk.pygame_util.DrawOptions(screen)
 
