@@ -36,7 +36,7 @@ def genetic_algorithm_stepwise(population, fitness_fn, gene_pool=[0, 1], f_thres
 
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
-	solution = genetic_algorithm_stepwise(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool)
+	solution = genetic_algorithm_stepwise(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool, pmut=mutation_rate)
 	print()
 	print(''.join(solution))
 	print(fitness_fn(solution))
