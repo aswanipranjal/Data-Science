@@ -10,8 +10,12 @@ while True:
 	command_queue = []
 	team_ships = game_map.get_me().all_ships()
 	team_ships_extra = []
-	if len(team_ships) > 30:
-		team_ships_main = team_ships[:30]
-		team_ships_extra = team_ships[30:]
-	for ship in team_ships:
+	if len(team_ships) > 20:
+		team_ships_main = team_ships[:20]
+		team_ships_extra = team_ships[20:]
+	for ship in team_ships_main:
 		shipid = ship.id
+		if ship.docking_status != ship.DockingStatus.UNDOCKED:
+			continue
+
+			
