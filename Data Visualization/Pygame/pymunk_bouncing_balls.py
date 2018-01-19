@@ -44,3 +44,13 @@ while running:
 		ticks_to_next_ball = 100
 		mass = 10
 		radius = 25
+		inertia = pymunk.moment_for_circle(mass, 0, radius, (0, 0))
+		body = pymunk.Body(mass, inertia)
+		x = random.randint(115, 350)
+		body.position = x, 400
+		shape = pymunk.Circle(body, radius, (0, 0))
+		shape.elasticity = 0.95
+		shape.friction = 0.9
+		space.add(body, shape)
+		balls.append(shape)
+		
