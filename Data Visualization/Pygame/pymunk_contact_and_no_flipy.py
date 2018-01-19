@@ -23,4 +23,14 @@ def main():
 	screen = pygame.display.set_mode((600, 600))
 	clock = pygame.time.Clock()
 	running = True
-	
+
+	# physics
+	space = pm.Space()
+	space.gravity = (0.0, 900.0)
+
+	balls = []
+
+	static_body = pm.Body(body_type = pm.Body.STATIC)
+	static_lines = [pm.Segment(static_body, (111.0, 320.0), (407.0, 354.0), 0.0),
+					pm.Segment(static_body, (407.0, 354.0), (407.0, 257.0), 0.0)]
+	space.add(static_lines)					
