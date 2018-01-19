@@ -30,9 +30,9 @@ while True:
 				# Let's test if this hyper-aggressive approach works well
 				if closest_empty_planet_distances[0] >= 2 * closest_enemy_ship_distances[0]:
 					target_ship = closest_enemy_ships[0]
-					navigate_command = ship.navigate(ship.closest_point_to(target_ship), game_map, speed=int(hlt.constants.MAX_SPEED), ignore_ships=False)
-					if navigate_command:
-						command_queue.append(navigate_command)
+            		navigate_command = ship.navigate(ship.closest_point_to(target_ship), game_map, speed=int(hlt.constants.MAX_SPEED), ignore_ships=False)
+            		if navigate_command:
+                		command_queue.append(navigate_command)
 
 				else:
 					target_planet = closest_empty_planets[0]
