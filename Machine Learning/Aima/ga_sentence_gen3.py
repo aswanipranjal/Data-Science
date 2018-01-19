@@ -30,7 +30,7 @@ def genetic_algorithm_stepwise(population, fitness_fn, gene_pool=[0, 1], f_thres
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 		if fittest_individual:
-			return fittest_individual
+			return fittest_individual, i
 
 	return argmax(population, key=fitness_fn), i
 
