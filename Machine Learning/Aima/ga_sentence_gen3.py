@@ -22,7 +22,13 @@ def fitness_fn(_list):
 			fitness += 1
 	return fitness
 
-def genetic_algorithm_stepwise()
+def genetic_algorithm_stepwise(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1000, pmut=0.1):
+	for i in range(ngen):
+		population = [mutate(recombine(*select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
+		current_best = ''.join(argmax(population, key=fitness_fn))
+		print(current_best)
+		
+
 
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
