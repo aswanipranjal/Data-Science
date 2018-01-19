@@ -128,3 +128,7 @@ def main(args):
 	if (N_epochs == 1): out_fn += '_epoch.midi'
 	else:				out_fn += '_epochs.midi'
 	generate(data_fn, out_fn, N_epochs)
+
+if __name__ == '__main__':
+	import sys
+	main(sys.argv)
