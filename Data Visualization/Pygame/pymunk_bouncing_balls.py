@@ -70,4 +70,7 @@ while running:
 	dt = 1.0/60.0
 	for x in range(1):
 		space.step(dt)
-		
+
+	pygame.display.flip()
+	clock.tick(50)
+	pygame.display.set_caption('fps: ' + str(clock.get_fps()))
