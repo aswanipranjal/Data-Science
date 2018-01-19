@@ -28,8 +28,7 @@ for line in static_lines:
 	line.friction = 0.9
 space.add(static_lines)
 
-ticks_next_to_ball = 10
-
+ticks_to_next_ball = 10
 
 while running:
 	for event in pygame.event.get():
@@ -40,4 +39,8 @@ while running:
 		elif event.type == KEYDOWN and event.key == K_p:
 			pygame.image.save(screen, 'bouncing_balls.png')
 
-	
+	ticks_to_next_ball -= 1
+	if ticks_to_next_ball <= 0:
+		ticks_to_next_ball = 100
+		mass = 10
+		radius = 25
