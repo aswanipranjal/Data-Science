@@ -27,17 +27,17 @@ def genetic_algorithm_stepwise(population, fitness_fn, gene_pool=[0, 1], f_thres
 		population = [mutate(recombine(*select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
 		current_best = ''.join(argmax(population, key=fitness_fn))
 		print(current_best)
-		
 
+		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+		if fittest_individual:
+			return fittest_individual
+
+	return argmax(population, key=fitness_fn)
 
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
-	# solution = search.genetic_algorithm(population, fitness_fn, f_thres=len(target)-2, gene_pool=gene_pool)
-	for i in range(100):
-		population = [mutate(recombine(*select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
-		fittest_individual = argmax(population, key=fitness_fn)
-		current_best_sentence = ''.join(fittest_individual)
-		print(current_best_sentence)
+	solution = search.genetic_algorithm(population, fitness_fn, f_thres=len(target)-2, gene_pool=gene_pool)
+	print()
 	print(''.join(solution))
 	print(fitness_fn(solution))
 
