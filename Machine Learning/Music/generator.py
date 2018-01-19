@@ -83,4 +83,15 @@ def generate(data_fn, out_fn, N_epochs):
 	out_stream = stream.Stream()
 
 	curr_offset = 0.0
-	
+	loop_end = len(chords)
+	for loop_index in range(1, loop_end):
+		curr_chords = stream.Voice()
+		for j in chords[loop_index]:
+			curr_chords.insert((j.offset % 4), j)
+
+		curr_grammar = __generate_grammar(model=model, corpus=corpus,
+										  abstract_grammars=abstract_grammars,
+										  values=values, val_indices=val_indices,
+										  indices_val=indices_val, max_len=max_len,
+										  max_tries=max_tries, diversity=diversity)
+		curr_grammar = curr_grammar.replace(' A', ' C').replace(' X', ' C')
