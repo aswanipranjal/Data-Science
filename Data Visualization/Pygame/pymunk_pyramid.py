@@ -59,4 +59,13 @@ class Pyramid:
 			elif event.type == KEYDOWN and event.key == K_d:
 				self.drawing = not self.drawing
 
-				
+		fps = 30.
+		dt = 1.0 / fps / 5
+		self.space.step(dt)
+		if self.drawing:
+			self.draw()
+
+		self.clock.tick(fps)
+		pygame.display.set_caption(f'fps: {str(self.clock.get_fps())}')
+
+	
