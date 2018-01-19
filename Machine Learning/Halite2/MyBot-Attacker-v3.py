@@ -63,3 +63,5 @@ while True:
         # There are neither empty planets nor enemy ships nearby
     	else:
     		pass
+
+    game.send_command_queue(command_queue)
