@@ -116,3 +116,15 @@ def generate(data_fn, out_fn, N_epochs):
 	mf.open(out_fn, 'wb')
 	mf.write()
 	mf.close()
+
+def main(args):
+	try:
+		N_epochs = int(args[1])
+	except:
+		N_epochs = 128
+
+	data_fn = 'data/' + 'original_metheny.mid'
+	out_fn = 'data/' + 'deepjaszx_on_metheny...' + str(N_epochs)
+	if (N_epochs == 1): out_fn += '_epoch.midi'
+	else:				out_fn += '_epochs.midi'
+	generate(data_fn, out_fn, N_epochs)
