@@ -1,0 +1,102 @@
+[
+ {
+  "Error": {
+   "Message": "ERRORED! Got Exception (if any): ERROR: Bot #0: Received invalid character '    else:e'. (at character 5.)\nInput received from bot:\n    else:\n    ^; Response received (if any):     else:        ^TabError: inconsistent use of tabs and spaces in indentation",
+   "Turn": 1
+  },
+  "Frames": [
+   {
+    "Time": 151,
+    "Turn": 0
+   },
+   {
+    "Time": 0
+   }
+  ],
+  "PlayerID": 0,
+  "PlayerName": "  File \"MyBot-Attacker-v3.py\","
+ },
+ {
+  "Error": {},
+  "Frames": [
+   {
+    "Time": 305,
+    "Turn": 0
+   },
+   {
+    "Commands": [
+     {
+      "angle": 281,
+      "magnitude": 7,
+      "owner": 1,
+      "queue_number": 0,
+      "shipId": 3,
+      "type": "thrust"
+     },
+     {
+      "angle": 258,
+      "magnitude": 7,
+      "owner": 1,
+      "queue_number": 0,
+      "shipId": 4,
+      "type": "thrust"
+     },
+     {
+      "angle": 292,
+      "magnitude": 7,
+      "owner": 1,
+      "queue_number": 0,
+      "shipId": 5,
+      "type": "thrust"
+     }
+    ],
+    "Planets": null,
+    "Ships": [
+     {
+      "cooldown": 0,
+      "docking": {
+       "status": "undocked"
+      },
+      "health": 255,
+      "id": 3,
+      "owner": 1,
+      "vel_x": 0.0,
+      "vel_y": 0.0,
+      "x": 121.33566296763581,
+      "y": 113.12860971586635
+     },
+     {
+      "cooldown": 0,
+      "docking": {
+       "status": "undocked"
+      },
+      "health": 255,
+      "id": 4,
+      "owner": 1,
+      "vel_x": 0.0,
+      "vel_y": 0.0,
+      "x": 118.54461816427568,
+      "y": 110.15296679486336
+     },
+     {
+      "cooldown": 0,
+      "docking": {
+       "status": "undocked"
+      },
+      "health": 255,
+      "id": 5,
+      "owner": 1,
+      "vel_x": 0.0,
+      "vel_y": 0.0,
+      "x": 122.62224615391139,
+      "y": 116.50971301803249
+     }
+    ],
+    "Time": 8,
+    "Turn": 1
+   }
+  ],
+  "PlayerID": 1,
+  "PlayerName": "Settler-v4"
+ }
+]
