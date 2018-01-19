@@ -1,0 +1,102 @@
+[
+ {
+  "Error": {
+   "Message": "ERRORED! Got Exception (if any): ERROR: Bot #0: Received invalid character '    navigate_command = ship.navigate(ship.closest_point_to(target_ship), game_map, speed=int(hlt.constants.MAX_SPEED), ignore_ships=False)n'. (at character 5.)\nInput received from bot:\n    navigate_command = ship.navigate(ship.closest_point_to(target_ship), game_map, speed=int(hlt.constants.MAX_SPEED), ignore_ships=False)\n    ^; Response received (if any):     navigate_command = ship.navigate(ship.closest_point_to(target_ship), game_map, speed=int(hlt.constants.MAX_SPEED), ignore_ships=False)                                                                                                                                         ^TabError: inconsistent use of tabs and spaces in indentation",
+   "Turn": 1
+  },
+  "Frames": [
+   {
+    "Time": 158,
+    "Turn": 0
+   },
+   {
+    "Time": 0
+   }
+  ],
+  "PlayerID": 0,
+  "PlayerName": "  File \"MyBot-Attacker-v3.py\","
+ },
+ {
+  "Error": {},
+  "Frames": [
+   {
+    "Time": 201,
+    "Turn": 0
+   },
+   {
+    "Commands": [
+     {
+      "angle": 284,
+      "magnitude": 7,
+      "owner": 1,
+      "queue_number": 0,
+      "shipId": 3,
+      "type": "thrust"
+     },
+     {
+      "angle": 254,
+      "magnitude": 7,
+      "owner": 1,
+      "queue_number": 0,
+      "shipId": 4,
+      "type": "thrust"
+     },
+     {
+      "angle": 293,
+      "magnitude": 7,
+      "owner": 1,
+      "queue_number": 0,
+      "shipId": 5,
+      "type": "thrust"
+     }
+    ],
+    "Planets": null,
+    "Ships": [
+     {
+      "cooldown": 0,
+      "docking": {
+       "status": "undocked"
+      },
+      "health": 255,
+      "id": 3,
+      "owner": 1,
+      "vel_x": 0.0,
+      "vel_y": 0.0,
+      "x": 121.69345326919768,
+      "y": 113.20792991606803
+     },
+     {
+      "cooldown": 0,
+      "docking": {
+       "status": "undocked"
+      },
+      "health": 255,
+      "id": 4,
+      "owner": 1,
+      "vel_x": 0.0,
+      "vel_y": 0.0,
+      "x": 118.07053850928101,
+      "y": 110.27116812843177
+     },
+     {
+      "cooldown": 0,
+      "docking": {
+       "status": "undocked"
+      },
+      "health": 255,
+      "id": 5,
+      "owner": 1,
+      "vel_x": 0.0,
+      "vel_y": 0.0,
+      "x": 122.73511789942492,
+      "y": 116.55646602583292
+     }
+    ],
+    "Time": 10,
+    "Turn": 1
+   }
+  ],
+  "PlayerID": 1,
+  "PlayerName": "Settler-v4"
+ }
+]

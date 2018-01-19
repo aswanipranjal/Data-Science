@@ -1,0 +1,60 @@
+[
+ {
+  "Error": {
+   "Message": "ERRORED! Got Exception (if any): ERROR: Bot #0: Received invalid character '    navigate_command = ship.navigate(ship.closest_point_to(target_ship), game_map, speed=int(hlt.constants.MAX_SPEED), ignore_ships=False)n'. (at character 5.)\nInput received from bot:\n    navigate_command = ship.navigate(ship.closest_point_to(target_ship), game_map, speed=int(hlt.constants.MAX_SPEED), ignore_ships=False)\n    ^; Response received (if any):     navigate_command = ship.navigate(ship.closest_point_to(target_ship), game_map, speed=int(hlt.constants.MAX_SPEED), ignore_ships=False)                                                                                                                                   ",
+   "Turn": 1
+  },
+  "Frames": [
+   {
+    "Time": 160,
+    "Turn": 0
+   },
+   {
+    "Time": 1
+   }
+  ],
+  "PlayerID": 0,
+  "PlayerName": "  File \"MyBot-Attacker-v3.py\","
+ },
+ {
+  "Error": {},
+  "Frames": [
+   {
+    "Time": 209,
+    "Turn": 0
+   },
+   {
+    "Commands": [
+     {
+      "angle": 176,
+      "magnitude": 7,
+      "owner": 1,
+      "queue_number": 0,
+      "shipId": 4,
+      "type": "thrust"
+     }
+    ],
+    "Planets": null,
+    "Ships": [
+     {
+      "cooldown": 0,
+      "docking": {
+       "status": "undocked"
+      },
+      "health": 255,
+      "id": 4,
+      "owner": 1,
+      "vel_x": 0.0,
+      "vel_y": 0.0,
+      "x": 173.01705164818122,
+      "y": 77.488295316208877
+     }
+    ],
+    "Time": 4,
+    "Turn": 1
+   }
+  ],
+  "PlayerID": 1,
+  "PlayerName": "Settler-v4"
+ }
+]
