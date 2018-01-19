@@ -36,3 +36,7 @@ def build_model(corpus, val_indices, max_len, N_epochs=128):
 	model.add(Dropout(0.2))
 	model.add(Dense(N_values))
 	model.add(Activation('softmax'))
+
+	model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
+	model.fit(X, y, batch_size-128, nb_epoch=N_epochs)
+	return model
