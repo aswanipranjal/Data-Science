@@ -60,8 +60,4 @@ while True:
 			if navigate_command:
 				command_queue.append(navigate_command)
 
-        # There are neither empty planets nor enemy ships nearby
-    	else:
-    		pass
-
     game.send_command_queue(command_queue)
