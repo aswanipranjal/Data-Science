@@ -1,0 +1,60 @@
+[
+ {
+  "Error": {
+   "Message": "ERRORED! Got Exception (if any): ERROR: Bot #0: Received invalid character '    game.send_command_queue(command_queue)g'. (at character 5.)\nInput received from bot:\n    game.send_command_queue(command_queue)\n    ^; Response received (if any):     game.send_command_queue(command_queue)                                         ^IndentationError: unindent does not match any outer indentation level",
+   "Turn": 1
+  },
+  "Frames": [
+   {
+    "Time": 163,
+    "Turn": 0
+   },
+   {
+    "Time": 0
+   }
+  ],
+  "PlayerID": 0,
+  "PlayerName": "  File \"MyBot-Attacker-v3.py\","
+ },
+ {
+  "Error": {},
+  "Frames": [
+   {
+    "Time": 205,
+    "Turn": 0
+   },
+   {
+    "Commands": [
+     {
+      "angle": 176,
+      "magnitude": 7,
+      "owner": 1,
+      "queue_number": 0,
+      "shipId": 4,
+      "type": "thrust"
+     }
+    ],
+    "Planets": null,
+    "Ships": [
+     {
+      "cooldown": 0,
+      "docking": {
+       "status": "undocked"
+      },
+      "health": 255,
+      "id": 4,
+      "owner": 1,
+      "vel_x": 0.0,
+      "vel_y": 0.0,
+      "x": 173.01705164818122,
+      "y": 77.488295316208877
+     }
+    ],
+    "Time": 4,
+    "Turn": 1
+   }
+  ],
+  "PlayerID": 1,
+  "PlayerName": "Settler-v4"
+ }
+]

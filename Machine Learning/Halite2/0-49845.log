@@ -1,0 +1,60 @@
+[
+ {
+  "Error": {
+   "Message": "ERRORED! Got Exception (if any): ERROR: Bot #0: Received invalid character 'Traceback (most recent call last):T'. (at character 1.)\nInput received from bot:\nTraceback (most recent call last):\n^; Response received (if any): Traceback (most recent call last):  File \"MyBot-Attacker-v3.py\", line 18, in <module>    entities_by_distance = OrderedDict(sorted(entities_by_distance.itens(), key=lambda t: t[0]))AttributeError: 'dict' object has no attribute 'itens'",
+   "Turn": 1
+  },
+  "Frames": [
+   {
+    "Time": 210,
+    "Turn": 0
+   },
+   {
+    "Time": 8
+   }
+  ],
+  "PlayerID": 0,
+  "PlayerName": "Attacker-v3"
+ },
+ {
+  "Error": {},
+  "Frames": [
+   {
+    "Time": 194,
+    "Turn": 0
+   },
+   {
+    "Commands": [
+     {
+      "angle": 175,
+      "magnitude": 7,
+      "owner": 1,
+      "queue_number": 0,
+      "shipId": 4,
+      "type": "thrust"
+     }
+    ],
+    "Planets": null,
+    "Ships": [
+     {
+      "cooldown": 0,
+      "docking": {
+       "status": "undocked"
+      },
+      "health": 255,
+      "id": 4,
+      "owner": 1,
+      "vel_x": 0.0,
+      "vel_y": 0.0,
+      "x": 173.02663711335779,
+      "y": 77.610090199233611
+     }
+    ],
+    "Time": 5,
+    "Turn": 1
+   }
+  ],
+  "PlayerID": 1,
+  "PlayerName": "Settler-v4"
+ }
+]
