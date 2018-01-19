@@ -42,3 +42,21 @@ class Pyramid:
 
 				y += deltaY
 			x += deltaX
+		self.draw_options = pymunk.pygame_util.DrawOptions(self.screen)
+
+	def run(self):
+		while self.running:
+			self.loop()
+
+	def loop(self):
+		for event in pygame.event.get():
+			if event.type == QUIT:
+				self.running = False
+			elif event.type == KEYDOWN and event.key == K_ESCAPE:
+				self.running = False
+			elif event.type == KEYDOWN and event.key == K_p:
+				pygame.image.save(self.screen, 'box2d_pyramid.png')
+			elif event.type == KEYDOWN and event.key == K_d:
+				self.drawing = not self.drawing
+
+				
