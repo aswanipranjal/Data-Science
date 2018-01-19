@@ -14,3 +14,13 @@ def draw_collision(arbiter, space, data):
 		r = int(r)
 		p = tuple(map(int, c.point_a))
 		pygame.draw.circle(data['surface'], THECOLORS['red'], p, r, 0)
+
+def main():
+	global contact
+	global shape_to_remove
+
+	pygame.init()
+	screen = pygame.display.set_mode((600, 600))
+	clock = pygame.time.Clock()
+	running = True
+	
