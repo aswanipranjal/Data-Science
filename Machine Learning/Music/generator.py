@@ -123,8 +123,8 @@ def main(args):
 	except:
 		N_epochs = 128
 
-	data_fn = 'data/' + 'ASkyFullofStars.mid'
-	out_fn = 'data/' + 'deepjaszx_on_askyfullofstars...' + str(N_epochs)
+	data_fn = 'data/' + 'original_metheny.mid'
+	out_fn = 'data/' + 'deepjaszx_on_metheny...' + str(N_epochs)
 	if (N_epochs == 1): out_fn += '_epoch.midi'
 	else:				out_fn += '_epochs.midi'
 	generate(data_fn, out_fn, N_epochs)
