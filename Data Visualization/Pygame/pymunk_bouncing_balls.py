@@ -29,3 +29,15 @@ for line in static_lines:
 space.add(static_lines)
 
 ticks_next_to_ball = 10
+
+
+while running:
+	for event in pygame.event.get():
+		if event.type == QUIT:
+			running = False
+		elif event.type == KEYDOWN and event.key == K_ESCAPE:
+			running = False
+		elif event.type == KEYDOWN and event.key == K_p:
+			pygame.image.save(screen, 'bouncing_balls.png')
+
+	
