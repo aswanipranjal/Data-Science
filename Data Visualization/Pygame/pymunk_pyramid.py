@@ -14,4 +14,8 @@ class Pyramid:
 		self.screen = pygame.display.set_mode((self.w, self.h))
 		self.clock = pygame.time.Clock()
 
+		self.space = pymunk.Space()
+		self.space.gravity = (0.0, -900.0)
+		self.space.sleep_time_threshold = 0.3
+
 		
