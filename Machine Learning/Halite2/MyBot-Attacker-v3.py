@@ -40,3 +40,13 @@ while True:
 						navigate_command = ship.navigate(ship.closest_point_to(target_planet), game_map, speed=int(hlt.constants.MAX_SPEED), ignore_ships=False)
 						if navigate_command:
 							command_queue.append(navigate_command)
+
+			# There are no enemy ships nearby
+			else:
+				target_planet = closest_empty_planets[0]
+				if ship.can_dock(target_planet):
+					command_queue.append(ship.dock(target_planet))
+				else:
+					navigate_command = ship.navigate(ship.closest_point_to(target_planet), game_map, speed=int(hlt.constants.MAX_SPEED), ignore_ships=False)
+					if navigate_command:
+						command_queue.append(navigate_command)
