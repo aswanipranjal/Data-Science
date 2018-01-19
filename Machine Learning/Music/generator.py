@@ -95,3 +95,9 @@ def generate(data_fn, out_fn, N_epochs):
 										  indices_val=indices_val, max_len=max_len,
 										  max_tries=max_tries, diversity=diversity)
 		curr_grammar = curr_grammar.replace(' A', ' C').replace(' X', ' C')
+		curr_grammar = prune_grammar(curr_grammar)
+		curr_notes = unparse_grammar(curr_grammar, curr_chords)
+		curr_notes = prune_notes(curr_notes)
+		curr_notes = clean_up_notes(curr_notes)
+		print('After pruning: %s notes' % (len([i for i in curr_notes  if isinstance(i, note.Note)])))
+		
