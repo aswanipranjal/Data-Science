@@ -53,4 +53,21 @@ while running:
 		shape.friction = 0.9
 		space.add(body, shape)
 		balls.append(shape)
+
+	screen.fill(THECOLORS['white'])
+
+	balls_to_remove = []
+	for ball in balls:
+		if ball.body.position.y < 100 : balls_to_remove.append(ball)
+
+	for ball in balls_to_remove:
+		space.remove(ball, ball.body)
+		balls.remove(ball)
+
+	space.debug_draw(draw_options)
+
+	# update physics
+	dt = 1.0/60.0
+	for x in range(1):
+		space.step(dt)
 		
