@@ -5,3 +5,28 @@ from keras.layers.core import Dense, Activation, Dropout
 from keras.layers.recurrent import LSTM
 import numpy as np
 
+# Build a 2-layerLSTM from a training corpus
+def build_model(corpus, val_indices, max_len, N_epochs=128):
+	# number of different values or words in corpus
+	N_values = len(set(corpus))
+
+	# cut the corpus into semi-redundant sequences of max_len values
+	step = 3
+	sentences = []
+	next_values = []
+
+	for i in range(0, len(corpus) - max_len, step):
+		sentences.append(corpus[i: i + max_len])
+		next_values.append(corpus[i + max_len])
+	print('nb sequences: ', len(sentences))
+
+	# transform data into binary matrices
+	X = np.zeros((len(sentences), max_len, N_values), dtype=np.bool)
+	y = np.zeros((len(sentences), N_values), dtype=np.bool)
+	for i, sentence in enumerate(sentences):
+		for t, val in enumerate(sentence):
+			X[i, t, val_indices[val]] = 1
+		y[i, val_indices[next_values[i]]] = 1
+
+	# build a stacked LSTM
+	
