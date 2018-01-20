@@ -14,3 +14,9 @@ import pymunk.pygame_util
 
 def main():
 	pygame.init()
+	screen = pygame.display.set_mode((600, 600))
+	clock = pygame.time.Clock()
+	running = True
+
+	space = pymunk.Space()
+	draw_options = pymunk.pygame_util.DrawOptions(screen)
