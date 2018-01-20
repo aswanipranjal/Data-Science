@@ -60,3 +60,13 @@ def main():
 				print(rotary_spring.stiffness, rotary_spring.damping)
 			elif event.type == KEYDOWN and event.key == K_s:
 				rotary_spring.damping *= 2
+
+		screen.fill(THECOLORS['white']) # clear the screen
+		space.debug_draw(draw_options) # draw stuff
+		
+		# update physics
+		dt = 1.0 / 60.0
+		for x in range(1):
+			space.step(dt)
+
+		
