@@ -67,3 +67,19 @@ for p in [(240, 500), (360, 500)]:
 	shape = pymunk.Circle(body, 10)
 	shape.elasticity = 1.5
 	space.add(shape)
+
+while running:
+	for event in pygame.event.get():
+		if event.type == QUIT:
+			running = False
+		elif event.type == KEYDOWN and event.key == K_ESCAPE:
+			running = False
+		elif event.type == KEYDOWN and event.key == K_p:
+			pygame.image.save(screen, 'flipper.png')
+
+		elif event.type == KEYDOWN and event.key == K_j:
+			r_flipper_body.apply_impulse_at_local_point(Vec2d.unit() * 40000, (-100, 0))
+		elif event.type == KEYDOWN and event.key == K_f:
+			l_flipper_body.apply_impulse_at_local_point(Vec2d.unit() * -40000, (-100, 0))
+		elif event.type == KEYDOWN and event.key == K_b:
+			
