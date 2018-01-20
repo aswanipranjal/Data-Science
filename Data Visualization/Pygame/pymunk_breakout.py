@@ -98,4 +98,6 @@ def main():
 		space.remove(ball_shape, ball_shape.body)
 		return True
 
-	
+	h = space.add_collision_handler(collision_types['ball'], collision_types['bottom'])
+	h.begin = remove_first
+	space.add(bottom)
