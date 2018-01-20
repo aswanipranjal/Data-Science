@@ -28,3 +28,10 @@ def main():
 	gun_body = pymunk.Body(1, moment)
 	gun_body.position = 300, 300
 	gun_shape = pymunk.Poyl(gun_body, polygon_shape)
+
+	rest_angle = 0
+	stiffness = 125000.
+	damping = 6000.
+
+	rotary_spring = pymunk.constraint.DampedRotarySpring(pointer_body, gun_body, rest_angle)
+	space.add(gun_body, gun_shape, rotary_spring)
