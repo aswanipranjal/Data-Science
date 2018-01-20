@@ -170,7 +170,7 @@ def main():
 
 		screen.blit(font.render(f'fps: {str(clock.get_fps())}', 1, THECOLORS['white']), (0, 0))
 		screen.blit(font.render('Move with arrow keys, space to spawn a ball', 1, THECOLORS['darkgrey']), (5, height - 35))
-		screen.blit(font.render('Press R to reset, ESC or Q to quit', 1, THECOLORS['darkgrey'], (5, height - 20)))
+		screen.blit(font.render('Press R to reset, ESC or Q to quit', 1, THECOLORS['darkgrey']), (5, height - 20))
 
 		pygame.display.flip()
 		clock.tick(fps)
