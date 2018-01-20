@@ -33,7 +33,7 @@ def main():
 	stiffness = 125000.
 	damping = 6000.
 
-	rotary_spring = pymunk.constraint.DampedRotarySpring(pointer_body, gun_body, rest_angle)
+	rotary_spring = pymunk.constraint.DampedRotarySpring(pointer_body, gun_body, rest_angle, stiffness, damping)
 	space.add(gun_body, gun_shape, rotary_spring)
 
 	while running:
