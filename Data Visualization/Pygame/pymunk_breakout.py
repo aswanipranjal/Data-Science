@@ -87,3 +87,15 @@ def main():
 		line.elasticity = 1.0
 
 	space.add(static_lines)
+
+	# bottom sensor
+	bottom = pymunk.Segment(space.static_body, (50, 50), (550, 50), 2)
+	bottom.sensor = True
+	bottom.collision_type = collision_types['bottom']
+	bottom.color = THECOLORS['red']
+	def remove_first(arbiter, space, data):
+		ball_shape = arbiter.shapes[0]
+		space.remove(ball_shape, ball_shape.body)
+		return True
+
+	
