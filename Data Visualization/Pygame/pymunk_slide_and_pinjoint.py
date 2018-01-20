@@ -73,3 +73,9 @@ def main():
 		for ball in balls_to_remove:
 			space.remove(ball, ball.body)
 			balls.remove(ball)
+
+		space.step(1/50.0)
+		screen.fill((255, 255, 255))
+		space.debug_draw(draw_options)
+		pygame.display.flip()
+		clock.tick(50)
