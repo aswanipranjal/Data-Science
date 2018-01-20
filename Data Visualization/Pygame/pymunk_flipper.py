@@ -99,4 +99,12 @@ while running:
 	r_flipper_body.position = 450, 100
 	l_flipper_body.position = 150, 100
 	r_flipper_body.velocity = l_flipper_body.velocity = 0, 0
-	
+
+	to_remove = []
+	for ball in balls:
+		if ball.body.position.get_distance((300, 300)) > 1000:
+			to_remove.append(ball)
+
+	for ball in to_remove:
+		space.remove(ball.body, ball)
+		balls.remove(ball)
