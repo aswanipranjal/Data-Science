@@ -164,4 +164,6 @@ def main():
 			s = '%s %s %s' % (x, x.body.position, x.body.velocity)
 			state.append(s)
 
-		
+		fps = 60.0
+		dt = 1. / fps
+		space.step(dt)
