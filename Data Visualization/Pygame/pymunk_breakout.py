@@ -110,3 +110,17 @@ def main():
 	player_shape.color = THECOLORS['red']
 	player_shape.elasticity = 1.0
 	player_shape.collision_type = collision_types['player']
+
+	def pre_solve(arbiter, space, data):
+		set_ = arbiter.contact_point_set
+		if len(set_.points) > 0:
+			player_shape = arbiter.shapes[0]
+			width = (player_shape.b - player_shape.a).x
+			delta = (player_shape.body.position - set_.points[0].point_a.x).x
+			normal = Vec2d(0, 1).rotated(delta / width / 2)
+			set_.normal = normal
+			set_.points[0].distance = 0
+		arbiter.contact_point_set = set_
+		return True
+	h = space.add_collision_handler(collision_types['player'], collision_types['ball'])
+	h.pre_solve = pre_solve
