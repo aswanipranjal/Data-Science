@@ -58,4 +58,18 @@ def main():
 				sys.exit(0)
 			elif event.type == KEYDOWN and event.key == K_p:
 				pygame.image.save(screen, 'slide_and_pinjoint.png')
-		
+
+		ticks_to_next_ball -= 1
+		if ticks_to_next_ball <= 0:
+			ticks_to_next_ball = 25
+			ball_shape = add_ball(space)
+			balls.append(ball_shape)
+
+		balls_to_remove = []
+		for ball in balls:
+			if ball.body.position.y < 150:
+				balls_to_remove.append(ball)
+
+		for ball in balls_to_remove:
+			space.remove(ball, ball.body)
+			balls.remove(ball)
