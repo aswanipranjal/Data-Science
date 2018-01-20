@@ -17,3 +17,16 @@ space = pymunk.Space()
 space.gravity = (0.0, -900.0)
 draw_options = pymunk.pygame_util.DrawOptions(screen)
 
+balls = []
+
+static_lines = [pymunk.Segment(space.static_body, (150.0, 100.0), ( 50.0, 550.0), 1.0),
+				pymunk.Segment(space.static_body, (450.0, 100.0), (550.0, 550.0), 1.0),
+				pymunk.Segment(space.static_body, ( 50.0, 550.0), (300.0, 600.0), 1.0),
+				pymunk.Segment(space.static_body, (300.0, 600.0), (550.0, 550.0), 1.0),
+				pymunk.Segment(space.static_body, (300.0, 420.0), (400.0, 400.0), 1.0)]
+for line in static_lines:
+	line.elasticity = 0.7
+	line.group = 1
+space.add(static_lines)
+
+fp = [(20, -20), (-120, 0), (20, 20)]
