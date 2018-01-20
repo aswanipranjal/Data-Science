@@ -30,3 +30,12 @@ for line in static_lines:
 space.add(static_lines)
 
 fp = [(20, -20), (-120, 0), (20, 20)]
+mass = 100
+moment = pymunk.moment_for_poly(mass, fp)
+
+# right flipper
+r_flipper_body = pymunk.Body(mass, moment)
+r_flipper_body.position = 450, 100
+r_flipper_shape = pymunk.Poly(r_flipper_body, fp)
+space.add(r_flipper_body, r_flipper_shape)
+
