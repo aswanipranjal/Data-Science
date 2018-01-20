@@ -39,3 +39,8 @@ r_flipper_body.position = 450, 100
 r_flipper_shape = pymunk.Poly(r_flipper_body, fp)
 space.add(r_flipper_body, r_flipper_shape)
 
+r_flipper_joint_body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
+r_flipper_joint_body.position = r_flipper_body.position
+j = pymunk.PinJoint(r_flipper_body, r_flipper_joint_body, (0, 0), (0, 0))
+s = pymunk.DampedRotarySpring(r_flipper_body, r_flipper_joint_body, 0.15, 20000000, 900000)
+space.add(j, s)
