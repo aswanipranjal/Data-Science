@@ -37,4 +37,24 @@ def spawn_ball(space, position, direction):
 	ball_body.velocity_func = constant_velocity
 	space.add(ball_body, ball_shape)
 
+def setup_level(space, player_body):
+	# removes balls and bricks (all dynamic objects except the player body)
+	for s in space.shapes[:]:
+		if s.body.body_type == pymunk.Body.DYNAMIC and s.body not in [player_body]:
+			space.remove(s.body, s)
+
+	spawn_ball(space, player_body.position + (0, 40), random.choice([(1, 10), (-1, 10)])) # spawn a ball
 	
+	# spawn bricks
+	for x in range(0, 21):
+		x = x * 20 + 100
+		for y in range(0, 5):
+			y = y * 10 + 400
+			brick_body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
+			brick_body.position = x, y
+			brick_shape = pymunk.Poly.create_box(brick_body, (20, 10))
+			brick_shape.elasticity = 1.0
+			brick_shape.color = THECOLORS['blue']
+			brick_shape.group = 1
+			brick_shape.collision_type = collision_types['brick']
+			space.add(brick_body, brick_shape)
