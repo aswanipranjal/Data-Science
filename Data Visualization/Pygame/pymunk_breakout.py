@@ -155,4 +155,13 @@ def main():
 				setup_level(space, player_body)
 			elif event.type == KEYDOWN and event.key == K_SPACE:
 				spawn_ball(space, player_body.position + (0, 40), random.choice([(1, 10), (-1, 10)]))
+
+		screen.fill(THECOLORS['black'])
+		space.debug_draw(draw_options)
+
+		state = []
+		for x in space.shapes:
+			s = '%s %s %s' % (x, x.body.position, x.body.velocity)
+			state.append(s)
+
 		
