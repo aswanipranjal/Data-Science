@@ -35,3 +35,13 @@ def add_L(space):
 
 	space.add(l1, l2, body, rotation_center_joint, rotation_limit_joint)
 	return l1, l2
+
+def main():
+	pygame.init()
+	screen = pygame.display.set_mode((600, 600))
+	pygame.display.set_caption('Joints. Just wait and the L will tip over')
+	clock = pygame.time.Clock()
+
+	space = pymunk.Space()
+	space.gravity = (0.0, -900.0)
+	
