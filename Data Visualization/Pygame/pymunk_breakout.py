@@ -58,3 +58,12 @@ def setup_level(space, player_body):
 			brick_shape.group = 1
 			brick_shape.collision_type = collision_types['brick']
 			space.add(brick_body, brick_shape)
+
+	# bricks should be removed when hit by the ball
+	def remove_brick(arbiter, space, data):
+		brick_shape = arbiter.shapes[0]
+		space.remove(brick_shape, brick_shape.body)
+
+	# add collision handler
+	h = space.add_collision_handler(collision_types['brick'], collision_types['ball'])
+	h.separate = remove_brick
