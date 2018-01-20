@@ -44,4 +44,18 @@ def main():
 
 	space = pymunk.Space()
 	space.gravity = (0.0, -900.0)
-	
+
+	lines = add_L(space)
+	balls = []
+	draw_options = pymunk.pygame_util.DrawOptions(screen)
+
+	ticks_to_next_ball = 10
+	while True:
+		for  event  in pygame.event.get():
+			if event.type == QUIT:
+				sys.exit(0)
+			elif event.type == KEYDOWN and event.key == K_ESCAPE:
+				sys.exit(0)
+			elif event.type == KEYDOWN and event.key == K_p:
+				pygame.image.save(screen, 'slide_and_pinjoint.png')
+		
