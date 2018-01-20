@@ -108,3 +108,11 @@ while running:
 	for ball in to_remove:
 		space.remove(ball.body, ball)
 		balls.remove(ball)
+
+	dt = 1.0 / 60.0 / 5.
+	for x in range(5):
+		space.step(dt)
+
+	pygame.display.flip()
+	clock.tick(50)
+	pygame.display.set_caption(f'fps: {str(clock.get_fps())}')
