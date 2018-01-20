@@ -101,3 +101,12 @@ def main():
 	h = space.add_collision_handler(collision_types['ball'], collision_types['bottom'])
 	h.begin = remove_first
 	space.add(bottom)
+
+	# player
+	player_body = pm.Body(500, pymunk.inf)
+	player_body.position = 300, 100
+
+	player_shape = pymunk.Segment(player_body, (-50, 0), (50, 0), 8)
+	player_shape.color = THECOLORS['red']
+	player_shape.elasticity = 1.0
+	player_shape.collision_type = collision_types['player']
