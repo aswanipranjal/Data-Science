@@ -69,4 +69,8 @@ def main():
 		for x in range(1):
 			space.step(dt)
 
-		
+		pygame.display.flip()
+		clock.tick(50)
+
+if __name__ == '__main__':
+	sys.exit(main())
