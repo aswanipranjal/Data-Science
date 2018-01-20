@@ -30,3 +30,11 @@ def spawn_ball(space, position, direction):
 	ball_shape.collision_type = collision_types['ball']
 
 	ball_body.apply_impulse_at_local_point(Vec2d(direction))
+
+	# keep ball velocity at a constant value
+	def constant_velocity(body, gravity, damping, dt):
+		body.velocity = body.velocity.normalized() * 400
+	ball_body.velocity_func = constant_velocity
+	space.add(ball_body, ball_shape)
+
+	
