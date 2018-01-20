@@ -56,3 +56,14 @@ l_flipper_joint_body.position = l_flipper_body.position
 j = pymunk.PinJoint(l_flipper_body, l_flipper_joint_body, (0, 0), (0, 0))
 s = pymunk.DampedRotarySpring(l_flipper_body, l_flipper_joint_body, -0.15, 20000000, 900000)
 space.add(j, s)
+
+r_flipper_shape.group = l_flipper_shape.group = 1
+r_flipper_shape.elasticity = l_flipper_shape.elasticity = 0.4
+
+# bumpers
+for p in [(240, 500), (360, 500)]:
+	body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
+	body.position = p
+	shape = pymunk.Circle(body, 10)
+	shape.elasticity = 1.5
+	space.add(shape)
