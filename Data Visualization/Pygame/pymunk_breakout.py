@@ -67,3 +67,10 @@ def setup_level(space, player_body):
 	# add collision handler
 	h = space.add_collision_handler(collision_types['brick'], collision_types['ball'])
 	h.separate = remove_brick
+
+def main():
+	pygame.init()
+	screen = pygame.display.set_mode((width, height))
+	clock = pygame.time.Clock()
+	running = True
+	font = pygame.font.SysFont('Arial', 16)
