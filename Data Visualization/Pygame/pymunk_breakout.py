@@ -126,7 +126,7 @@ def main():
 	h.pre_solve = pre_solve
 
 	# restricting movement of player to a straight line
-	move_joint = pymunk.GrooveJoint(space.static_body, player_body, (100, 100), (500, 100))
+	move_joint = pymunk.GrooveJoint(space.static_body, player_body, (100, 100), (500, 100), (0, 0))
 	space.add(player_body, player_shape, move_joint)
 	global state
 
