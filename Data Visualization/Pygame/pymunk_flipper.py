@@ -44,3 +44,10 @@ r_flipper_joint_body.position = r_flipper_body.position
 j = pymunk.PinJoint(r_flipper_body, r_flipper_joint_body, (0, 0), (0, 0))
 s = pymunk.DampedRotarySpring(r_flipper_body, r_flipper_joint_body, 0.15, 20000000, 900000)
 space.add(j, s)
+
+# left flipper
+l_flipper_body = pymunk.Body(mass, moment)
+l_flipper_body.position = 150, 100
+l_flipper_shape = pymunk.Poly(l_flipper_body, [(-x, y) for x, y in fp])
+space.add(l_flipper_body, l_flipper_shape)
+
