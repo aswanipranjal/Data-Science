@@ -92,4 +92,11 @@ while running:
 			shape.elasticity = 0.95
 			space.add(body, shape)
 			balls.append(shape)
-			
+
+	screen.fill(THECOLORS['white'])
+	space.debug_draw(draw_options)
+
+	r_flipper_body.position = 450, 100
+	l_flipper_body.position = 150, 100
+	r_flipper_body.velocity = l_flipper_body.velocity = 0, 0
+	
