@@ -20,3 +20,11 @@ def main():
 
 	space = pymunk.Space()
 	draw_options = pymunk.pygame_util.DrawOptions(screen)
+
+	pointer_body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
+
+	polygon_shape = [(80, 0), (0, 20), (0, -20)]
+	moment = pymunk.moment_for_poly(1, polygon_shape)
+	gun_body = pymunk.Body(1, moment)
+	gun_body.position = 300, 300
+	gun_shape = pymunk.Poyl(gun_body, polygon_shape)
