@@ -103,7 +103,7 @@ def main():
 	space.add(bottom)
 
 	# player
-	player_body = pm.Body(500, pymunk.inf)
+	player_body = pymunk.Body(500, pymunk.inf)
 	player_body.position = 300, 100
 
 	player_shape = pymunk.Segment(player_body, (-50, 0), (50, 0), 8)
@@ -124,3 +124,10 @@ def main():
 		return True
 	h = space.add_collision_handler(collision_types['player'], collision_types['ball'])
 	h.pre_solve = pre_solve
+
+	# restricting movement of player to a straight line
+	move_joint = pymunk.GrooveJoint(space.static_body, player_body, (100, 100), (500, 100))
+	space.add(player_body, player_shape, move_joint)
+	global state
+
+	setup_level(space, player_body)
