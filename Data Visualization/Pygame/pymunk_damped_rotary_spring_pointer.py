@@ -27,7 +27,7 @@ def main():
 	moment = pymunk.moment_for_poly(1, polygon_shape)
 	gun_body = pymunk.Body(1, moment)
 	gun_body.position = 300, 300
-	gun_shape = pymunk.Poyl(gun_body, polygon_shape)
+	gun_shape = pymunk.Poly(gun_body, polygon_shape)
 
 	rest_angle = 0
 	stiffness = 125000.
