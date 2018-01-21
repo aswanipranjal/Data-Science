@@ -98,6 +98,12 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		# genome with the highest fitness in the current generation
 		current_best = ''.join(argmax(population, key=fitness_fn))
 
+		# checks for completion
+		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+		if fittest_individual:
+			running = False
+			# return fittest_individual
+
 		# displays current best on top of the screen
 		large_text = pygame.font.SysFont('Consolas', 80, bold=True)
 		m_text_surface, m_text_rect = text_objects(current_best, large_text, p_blue)
@@ -129,21 +135,16 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		g_text_rect.center = ((display_width * 0.5), (display_height * 0.95))
 		screen.blit(g_text_surface, g_text_rect)
 
-		# checks for completion
-		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
-		if fittest_individual:
-			running = False
-			time.sleep(100)
-			# return fittest_individual
-
 		# updates the screen
 		pygame.display.update()
 		clock.tick(60)
 
 	# return argmax(population, key=fitness_fn)
-	time.sleep(100)
+	# time.sleep(100)
 
 if __name__ == '__main__':
 	population = search.init_population(max_population, gene_pool, len(target))
 	solution = game_loop(population, fitness_fn, gene_pool=gene_pool, f_thres=len(target), pmut=mutation_rate)
 	# pygame.quit()
+	time.sleep(1000)
+	pygame.quit()
