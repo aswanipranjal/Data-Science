@@ -107,7 +107,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		pygame.draw.rect(screen, p_blue, (m_text_rect[0], m_text_rect[1] + 85, m_text_rect[2], 10), 2)
 		pygame.draw.rect(screen, (12 - 12 * scaling_factor, 57 - 57 *scaling_factor, 76 - 76 * scaling_factor), (m_text_rect[0], m_text_rect[1] + 85, m_text_rect[2] * scaling_factor, 10))
 
-		g_text_surface, g_text_rect = text_objects(f'Generation {generation}', small_text, light_p_blue, bold=True)
+		g_text_surface, g_text_rect = text_objects(f'Generation {generation}', pygame.font.SysFont('Consolas', 20, bold=True), light_p_blue)
 		g_text_rect.center = ((display_width * 0.5), (display_height * 0.9))
 		screen.blit(g_text_surface, g_text_rect)
 
