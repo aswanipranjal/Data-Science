@@ -28,4 +28,16 @@ def generate_geometry(surface, space):
 		if hasattr(s, 'generated') and s.generated:
 			space.remove(s)
 
-	def 
+	def sample_func(point):
+		try:
+			p = int(point.x), int(point.y)
+			color = surface.get_at(p)
+			return color.hsla[2] # use lightness
+		except:
+			return 0
+
+	line_set = pymunk.autogeometry.PolylineSet()
+	def segment_func(v0, v1):
+		line_set.collect_segment(v0, v1)
+
+	pymunk.autogeometry.march_soft(BB(0, 0, 599, 599), 60, 60, 90, segment_func, sample_func)
