@@ -89,12 +89,6 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		
 		members = [''.join(x) for x in population][:48]
 		small_text = pygame.font.SysFont('Consolas', 20)
-		# m_text_surface, m_text_rect = text_objects(members[0], small_text, light_p_blue)
-		# m_text_rect.center = ((display_width/4), (display_height * 0.2))
-		# screen.blit(m_text_surface, m_text_rect)
-		# m_text_surface, m_text_rect = text_objects(members[1], small_text, light_p_blue)
-		# m_text_rect.center = ((display_width * 0.75), (display_height * 0.2))
-		# screen.blit(m_text_surface, m_text_rect)
 		for i in range(len(members) // 3):
 			m_text_surface1, m_text_rect1 = text_objects(members[3*i], small_text, light_p_blue)
 			m_text_surface2, m_text_rect2 = text_objects(members[3*i+1], small_text, light_p_blue)
