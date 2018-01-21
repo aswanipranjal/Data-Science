@@ -144,4 +144,4 @@ def on_draw():
 		pass
 	pyglet.graphics.draw(len(a)//2, pyglet.gl.GL_LINES, ('v2f', a))
 
-	
+pyglet.app.run()
