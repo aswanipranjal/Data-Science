@@ -106,5 +106,7 @@ def main():
 				for s in space.shapes:
 					if hasattr(s, 'generated') and s.generated:
 						space.remove(s)
-
-			
+			elif event.type == KEYDOWN and event.key == K_g:
+				generate_geometry(terrain_surface, space)
+			elif event.type == KEYDOWN and event.key == K_p:
+				pygame.image.save(screen, 'deformable.png')
