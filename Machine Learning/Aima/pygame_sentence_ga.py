@@ -78,7 +78,7 @@ def genetic_algorithm_stepwise(population, fitness_fn, gene_pool=[0, 1], f_thres
 
 	return argmax(population, key=fitness_fn), i
 
-def game_loop(population, fitness_fn, gene_pool=[0, 1]):
+def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200, pmut=0.1):
 	running = True
 	while running:
 		for event in pygame.event.get():
@@ -90,7 +90,8 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1]):
 				pygame.image.save(screen, 'genetic_algorithm_phrase_gen.png')
 
 		screen.fill(THECOLORS['white'])
-
+		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
+		current_best = ''.join(argmax(population, key=fitness_fn))
 
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
