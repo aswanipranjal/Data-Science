@@ -57,3 +57,13 @@ def add_joint(a, b):
 	j = pymunk.DampedSpring(a, b, (0, 0), (0, 0), rl, stiffness, damping)
 	j.max_bias = 1000
 	space.add(j)
+
+for b in bs[:20]:
+	add_joint(cb, b)
+
+for i in range(len(bs)-1):
+	add_joint(bs[i], bs[i+1])
+	i2 = i + 20
+	if len(bs) > i2:
+		add_joint(bs[i], bs[i2])
+
