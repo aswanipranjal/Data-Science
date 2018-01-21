@@ -96,12 +96,15 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		# m_text_rect.center = ((display_width * 0.75), (display_height * 0.2))
 		# screen.blit(m_text_surface, m_text_rect)
 		for i in range(10):
-			m_text_surface1, m_text_rect1 = text_objects(members[2*i], small_text, light_p_blue)
-			m_text_surface2, m_text_rect2 = text_objects(members[2*i+1], small_text, light_p_blue)
-			m_text_rect1.center = ((display_width * .25), (display_height * 0.2 + (15 * i)))
-			m_text_rect2.center = ((display_width * .75), (display_height * 0.2 + (15 * i)))
+			m_text_surface1, m_text_rect1 = text_objects(members[3*i], small_text, light_p_blue)
+			m_text_surface2, m_text_rect2 = text_objects(members[3*i+1], small_text, light_p_blue)
+			m_text_surface3, m_text_rect3 = text_objects(members[3*i+2], small_text, light_p_blue)
+			m_text_rect1.center = ((display_width * .175), (display_height * 0.25 + (25 * i)))
+			m_text_rect3.center = ((display_width * .500), (display_height * 0.25 + (25 * i)))
+			m_text_rect2.center = ((display_width * .825), (display_height * 0.25 + (25 * i)))
 			screen.blit(m_text_surface1, m_text_rect1)
 			screen.blit(m_text_surface2, m_text_rect2)
+			screen.blit(m_text_surface3, m_text_rect3)
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 		if fittest_individual:
