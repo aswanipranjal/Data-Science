@@ -18,17 +18,17 @@ from utils import argmax
 # clock = pygame.time.Clock()
 
 # genetic algorithm variables
-target = ''
+target = 'Machine Learning'
 max_population = 100
 mutation_rate = 0.1
 f_thres = len(target)
 
 u_case = [chr(x) for x in range(65, 91)]
 l_case = [chr(x) for x in range(97, 123)]
-punctuations1 = [chr(x) for x in range(33, 48)]
-punctuations2 = [chr(x) for x in range(58, 65)]
-punctuations3 = [chr(x) for x in range(91, 97)]
-numerals = [chr(x) for x in range(48, 58)]
+# punctuations1 = [chr(x) for x in range(33, 48)]
+# punctuations2 = [chr(x) for x in range(58, 65)]
+# punctuations3 = [chr(x) for x in range(91, 97)]
+# numerals = [chr(x) for x in range(48, 58)]
 
 # extend the gene pool with the required lists
 gene_pool = []
