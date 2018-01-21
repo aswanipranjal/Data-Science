@@ -17,7 +17,6 @@ screen = pygame.display.set_mode((display_width, display_height))
 pygame.display.set_caption('Genetic Algorithm')
 clock = pygame.time.Clock()
 
-
 # genetic algorithm variables
 target = ''
 max_population = 100
@@ -37,6 +36,10 @@ gene_pool.extend(u_case)
 gene_pool.extend(l_case)
 gene_pool.append(' ')
 
+def text_objects(text, font):
+	text_surface = font.render(text, True, black)
+	return text_surface, text_surface.get_rect()
+
 def fitness_fn(_list):
 	fitness = 0
 	phrase = ''.join(_list)
@@ -44,3 +47,4 @@ def fitness_fn(_list):
 		if target[i] == phrase[i]:
 			fitness += 1
 	return fitness
+
