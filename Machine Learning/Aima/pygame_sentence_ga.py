@@ -133,13 +133,13 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 		if fittest_individual:
 			running = False
-			return fittest_individual
+			# return fittest_individual
 
 		# updates the screen
 		pygame.display.update()
 		clock.tick(60)
 
-	return argmax(population, key=fitness_fn)
+	# return argmax(population, key=fitness_fn)
 
 if __name__ == '__main__':
 	population = search.init_population(max_population, gene_pool, len(target))
