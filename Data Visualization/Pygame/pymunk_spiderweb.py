@@ -120,3 +120,19 @@ def on_key_press(symbol, modifiers):
 	if symbol == pyglet.window.key.P:
 		pyglet.image.get_buffer_manager().get_color_buffer().save('spiderweb.png')
 
+fps_display = pyglet.clock.ClockDisplay()
+
+@window.event
+def on_draw():
+	pyglet.gl.glClearColor(240, 240, 240, 255)
+	window.Clear()
+
+	fps_display.draw()
+
+	# static attach points
+	pyglet.gl.glColor3f(1, 0, 1)
+	pyglet.gl.glPointSize(6)
+	a = []
+	for b in static_bs:
+		a += [b.position.x, b.position.y]
+		pyglet.graphics.draw(len(a)//2, pyglet.gl.GL_POINTS, ('v2f', a))
