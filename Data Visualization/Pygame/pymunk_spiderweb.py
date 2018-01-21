@@ -111,3 +111,7 @@ def on_mouse_release(x, y, button, modifiers):
 		space.remove(selected)
 		selected = None
 
+@window.event
+def on_mouse_drag(x, y, dx, dy, buttons, modifiers):
+	mouse_body.position = x, y
+
