@@ -91,3 +91,15 @@ selected = None
 selected_joint = None
 mouse_body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
 
+@window.event
+def on_mouse_press(x, y, button, modifiers):
+	mouse_body.position = x, y
+	hit = space.point_query_nearest((x, y), 10, pymunk.ShapeFilter())
+	if hit != None:
+		global selected
+		body = hit.shape.body
+		rest_length = mouse_body.position.get_distance(body.position)
+		stiffness = 1000
+		damping = 10
+		selected = pymunk.DampedSpring(mouse_body, body, (0, 0), (0, 0), rest_length, stiffness, damping)
+		space.add(selected)
