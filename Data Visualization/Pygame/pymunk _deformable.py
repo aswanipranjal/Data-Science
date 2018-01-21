@@ -134,4 +134,6 @@ def main():
 		pygame.display.flip()
 		clock.tick(fps)
 		pygame.display.set_caption(f'fps: {str(clock.get_fps())}')
-		
+
+if __name__ == '__main__':
+	sys.exit(main())
