@@ -23,7 +23,7 @@ clock = pygame.time.Clock()
 
 # genetic algorithm variables
 target = 'Genetic Algorithm'
-max_population = 100
+max_population = 75
 mutation_rate = 0.1
 f_thres = len(target)
 
