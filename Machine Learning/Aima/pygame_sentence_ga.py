@@ -1,6 +1,8 @@
 import time
-import pygame
 import random
+import pygame
+from pygame.color import *
+from pygame.locals import *
 
 import search
 import random
@@ -76,9 +78,23 @@ def genetic_algorithm_stepwise(population, fitness_fn, gene_pool=[0, 1], f_thres
 
 	return argmax(population, key=fitness_fn), i
 
+def game_loop(population, fitness_fn, gene_pool=[0, 1]):
+	running = True
+	while running:
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				running = False
+			elif event.type == KEYDOWN and event.key == K_ESCAPE:
+				running = False
+			elif event.type == KEYDOWN and event.key == K_p:
+				pygame.image.save(screen, 'genetic_algorithm_phrase_gen.png')
+
+		screen.fill(THECOLORS['white'])
+
+
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
-	solution, iterations = genetic_algorithm_stepwise(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool, pmut=mutation_rate)
+	solution, iterations = genetic_algorithm_stepwise(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool, pmut=mutation_rate)	
 
 if __name__ == '__main__':
 	main()
