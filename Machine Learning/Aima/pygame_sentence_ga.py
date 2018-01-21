@@ -66,18 +66,6 @@ def fitness_fn(_list):
 			fitness += 1
 	return fitness
 
-def genetic_algorithm_stepwise(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200, pmut=0.1):
-	for i in range(ngen):
-		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
-		current_best = ''.join(argmax(population, key=fitness_fn))
-		print(f'Current best: {current_best}\tIteration: {str(i)}\tFitness: {fitness_fn(current_best)}\r', end='')
-
-		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
-		if fittest_individual:
-			return fittest_individual, i
-
-	return argmax(population, key=fitness_fn), i
-
 def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200, pmut=0.1):
 	running = True
 	while running:
@@ -94,7 +82,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		current_best = ''.join(argmax(population, key=fitness_fn))
 		large_text = pygame.font.SysFont('Consolas', 80)
 		m_text_surface, m_text_rect = text_objects(current_best, large_text)
-		m_text_rect.center = ((display_width/2), (display_height/2))
+		m_text_rect.center = ((display_width/2), (display_height * 0.1))
 		screen.blit(m_text_surface, m_text_rect)
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
@@ -107,12 +95,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 
 	return argmax(population, key=fitness_fn)
 
-# def main():
-	# population = search.init_population(max_population, gene_pool, len(target))
-	# solution, iterations = genetic_algorithm_stepwise(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool, pmut=mutation_rate)	
-
 if __name__ == '__main__':
 	population = search.init_population(max_population, gene_pool, len(target))
 	solution = game_loop(population, fitness_fn, gene_pool=gene_pool, f_thres=len(target), pmut=mutation_rate)
-	# print(solution)
 	pygame.quit()
