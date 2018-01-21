@@ -4,6 +4,7 @@ import pygame
 from pygame.color import *
 from pygame.locals import *
 
+# imports from aimacode files
 import search
 import random
 from utils import argmax
@@ -12,39 +13,44 @@ pygame.init()
 display_width = 800
 display_height = 600
 
+# defining colors
 black = (0, 0, 0)
 white = (255, 255, 255)
 p_blue = (4, 37, 51)
 light_p_blue = (12, 57, 76)
 
+# defining mandatory pygame variables
 screen = pygame.display.set_mode((display_width, display_height))
 pygame.display.set_caption('Genetic Algorithm')
 clock = pygame.time.Clock()
 
 # genetic algorithm variables
-target = 'Genetic Algorithm'
-max_population = 75
-mutation_rate = 0.1
-f_thres = len(target)
-generation = 0
+target = 'Hello bitch' # the phrase to be generated
+max_population = 75 # number of samples in each population
+mutation_rate = 0.1 
+f_thres = len(target) # fitness threshold
 
-u_case = [chr(x) for x in range(65, 91)]
-l_case = [chr(x) for x in range(97, 123)]
-punctuations1 = [chr(x) for x in range(33, 48)]
+generation = 0 # counter to keep track of generation number
+
+u_case = [chr(x) for x in range(65, 91)] 		# list containing all uppercase characters
+l_case = [chr(x) for x in range(97, 123)]		# list containing all lowercase characters
+punctuations1 = [chr(x) for x in range(33, 48)]	# lists containing punctuation symbols
 punctuations2 = [chr(x) for x in range(58, 65)]
 punctuations3 = [chr(x) for x in range(91, 97)]
-numerals = [chr(x) for x in range(48, 58)]
+numerals = [chr(x) for x in range(48, 58)]		# list containing numbers
 
-# extend the gene pool with the required lists
+# extend the gene pool with the required lists and append the space character
 gene_pool = []
 gene_pool.extend(u_case)
 gene_pool.extend(l_case)
 gene_pool.append(' ')
 
+# helper function that returns surface and coordinates of text box
 def text_objects(text, font, color):
 	text_surface = font.render(text, True, color)
 	return text_surface, text_surface.get_rect()
 
+# helper function to create a button
 def button(msg, x, y, w, h, i_color, a_color, action=None):
 	mouse = pygame.mouse.get_pos()
 	click = pygame.mouse.get_pressed()
@@ -61,9 +67,12 @@ def button(msg, x, y, w, h, i_color, a_color, action=None):
 	m_text_rect.center = ((x + (w / 2)), (y + (h / 2)))
 	screen.blit(m_text_surface, m_text_rect)
 
+# fitness function
 def fitness_fn(_list):
 	fitness = 0
+	# create string from list of characters
 	phrase = ''.join(_list)
+	# add 1 to fitness value for every matching character
 	for i in range(len(phrase)):
 		if target[i] == phrase[i]:
 			fitness += 1
