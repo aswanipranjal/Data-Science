@@ -136,3 +136,12 @@ def on_draw():
 	for b in static_bs:
 		a += [b.position.x, b.position.y]
 		pyglet.graphics.draw(len(a)//2, pyglet.gl.GL_POINTS, ('v2f', a))
+
+	# web/net constraints
+	a = []
+	for j in space.constraints:
+		a += [j.a.position.x, j.a.position.y, j.b.position.x, j.b.position.y]
+		pass
+	pyglet.graphics.draw(len(a)//2, pyglet.gl.GL_LINES, ('v2f', a))
+
+	
