@@ -25,7 +25,7 @@ pygame.display.set_caption('Genetic Algorithm')
 clock = pygame.time.Clock()
 
 # genetic algorithm variables
-target = 'Hello bitch' # the phrase to be generated
+target = 'Hello' # the phrase to be generated
 max_population = 75 # number of samples in each population
 mutation_rate = 0.1 
 f_thres = len(target) # fitness threshold
@@ -133,6 +133,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 		if fittest_individual:
 			running = False
+			time.sleep(100)
 			# return fittest_individual
 
 		# updates the screen
@@ -140,8 +141,9 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		clock.tick(60)
 
 	# return argmax(population, key=fitness_fn)
+	time.sleep(100)
 
 if __name__ == '__main__':
 	population = search.init_population(max_population, gene_pool, len(target))
 	solution = game_loop(population, fitness_fn, gene_pool=gene_pool, f_thres=len(target), pmut=mutation_rate)
-	pygame.quit()
+	# pygame.quit()
