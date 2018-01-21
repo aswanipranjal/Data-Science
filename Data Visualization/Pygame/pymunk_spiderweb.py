@@ -103,3 +103,11 @@ def on_mouse_press(x, y, button, modifiers):
 		damping = 10
 		selected = pymunk.DampedSpring(mouse_body, body, (0, 0), (0, 0), rest_length, stiffness, damping)
 		space.add(selected)
+
+@window.event
+def on_mouse_release(x, y, button, modifiers):
+	global selected
+	if selected != None:
+		space.remove(selected)
+		selected = None
+
