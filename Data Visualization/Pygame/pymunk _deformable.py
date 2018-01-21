@@ -53,3 +53,12 @@ def generate_geometry(surface, space):
 			shape.color = pygame.color.THECOLORS['red']
 			shape.generated = True
 			space.add(shape)
+
+def main():
+	pygame.init()
+	screen = pygame.display.set_mode((600, 600))
+	clock = pygame.time.Clock()
+
+	space = pymunk.Space()
+	space.gravity = 0, 980
+	
