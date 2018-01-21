@@ -81,3 +81,15 @@ def main():
 	color = pygame.color.THECOLORS['pink']
 	pygame.draw.circle(terrain_surface, color, (450, 120), 100)
 	generate_geometry(terrain_surface, space)
+
+	for x in range(25):
+		mass = 1
+		moment = pymunk.moment_for_circle(mass, 0, 10)
+		body = pymunk.Body(mass, moment)
+		body.position = 450, 120
+		shape = pymunk.Circle(body, 10)
+		shape.friction = .5
+		space.add(body, shape)
+
+	draw_options = pymunk.pygame_util.DrawOptions(screen)
+	pymunk.pygame_util.positive_y_is_up = False
