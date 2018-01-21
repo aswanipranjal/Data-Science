@@ -101,3 +101,10 @@ def main():
 				sys.exit(0)
 			elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
 				pass
+			elif event.type == KEYDOWN and event.key == K_r:
+				terrain_surface.fill(pygame.color.THECOLORS['white'])
+				for s in space.shapes:
+					if hasattr(s, 'generated') and s.generated:
+						space.remove(s)
+
+			
