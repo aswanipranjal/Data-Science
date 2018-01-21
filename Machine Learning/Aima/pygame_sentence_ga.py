@@ -100,15 +100,19 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 		if fittest_individual:
 			running = False
-			return fittest_individual, i
+			return fittest_individual
 
 		pygame.display.update()
 		clock.tick(60)
 
-def main():
-	population = search.init_population(max_population, gene_pool, len(target))
-	solution, iterations = genetic_algorithm_stepwise(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool, pmut=mutation_rate)	
+	return argmax(population, key=fitness_fn)
+
+# def main():
+	# population = search.init_population(max_population, gene_pool, len(target))
+	# solution, iterations = genetic_algorithm_stepwise(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool, pmut=mutation_rate)	
 
 if __name__ == '__main__':
-	
+	population = search.init_population(max_population, gene_pool, len(target))
+	solution = game_loop(population, fitness_fn, gene_pool=gene_pool, f_thres=len(target, pmut=mutation_rate)
+		print(solution, iterations)
 	pygame.quit()
