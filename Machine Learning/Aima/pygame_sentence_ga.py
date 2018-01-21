@@ -80,3 +80,5 @@ def main():
 	population = search.init_population(max_population, gene_pool, len(target))
 	solution, iteration = genetic_algorithm_stepwise(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool, pmut=mutation_rate)
 
+if __name__ == '__main__':
+	main()
