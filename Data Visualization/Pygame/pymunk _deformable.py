@@ -61,4 +61,10 @@ def main():
 
 	space = pymunk.Space()
 	space.gravity = 0, 980
-	
+	static_lines = [pymunk.Segment(space.static_body, (0, -50), (-50, 650), 5),
+					pymunk.Segment(space.static_body, (0, 650), (650, 650), 5),
+					pymunk.Segment(space.static_body, (650, 650), (650, -50), 5),
+					pymunk.Segment(space.static_body, (-50, -50), (650, -50), 5),]
+	for s in static_lines:
+		s.collision_type = 1
+	space.add(static_lines)
