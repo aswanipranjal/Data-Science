@@ -79,3 +79,15 @@ for b in bs[-17::4]:
 	j.damping = 100
 	j.stiffness = 20000
 	space.add(j)
+
+def update(dt):
+	r = 10
+	for x in range(r):
+		space.step(1./30./r)
+
+pyglet.clock.schedule_interval(update, 1/30.)
+
+selected = None
+selected_joint = None
+mouse_body = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
+
