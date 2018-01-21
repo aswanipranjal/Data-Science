@@ -102,6 +102,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 			screen.blit(m_text_surface3, m_text_rect3)
 
 		pygame.draw.rect(screen, p_blue, (m_text_rect[0], m_text_rect[1] + 85, m_text_rect[2], 10), 2)
+		pygame.draw.rect(screen, light_p_blue, (m_text_rect[0], m_text_rect[1] + 85, m_text_rect[2] * fitness_fn(current_best) / len(target), 10))
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 		if fittest_individual:
