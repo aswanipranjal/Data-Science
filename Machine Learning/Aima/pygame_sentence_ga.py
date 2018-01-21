@@ -36,3 +36,11 @@ gene_pool = []
 gene_pool.extend(u_case)
 gene_pool.extend(l_case)
 gene_pool.append(' ')
+
+def fitness_fn(_list):
+	fitness = 0
+	phrase = ''.join(_list)
+	for i in range(len(phrase)):
+		if target[i] == phrase[i]:
+			fitness += 1
+	return fitness
