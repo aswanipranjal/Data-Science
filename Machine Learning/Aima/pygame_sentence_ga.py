@@ -96,12 +96,19 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		m_text_surface, m_text_rect = text_objects(current_best, large_text)
 		m_text_rect.center = ((display_width/2), (display_height/2))
 		screen.blit(m_text_surface, m_text_rect)
-		
+
+		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+		if fittest_individual:
+			running = False
+			return fittest_individual, i
+
+		pygame.display.update()
+		clock.tick(60)
 
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
 	solution, iterations = genetic_algorithm_stepwise(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool, pmut=mutation_rate)	
 
 if __name__ == '__main__':
-	main()
+	
 	pygame.quit()
