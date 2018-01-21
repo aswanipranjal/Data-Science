@@ -20,7 +20,7 @@ pygame.display.set_caption('Genetic Algorithm')
 clock = pygame.time.Clock()
 
 # genetic algorithm variables
-target = 'Machine Learning'
+target = 'Genetic Algorithm'
 max_population = 100
 mutation_rate = 0.1
 f_thres = len(target)
@@ -114,5 +114,5 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 if __name__ == '__main__':
 	population = search.init_population(max_population, gene_pool, len(target))
 	solution = game_loop(population, fitness_fn, gene_pool=gene_pool, f_thres=len(target), pmut=mutation_rate)
-	print(solution)
+	# print(solution)
 	pygame.quit()
