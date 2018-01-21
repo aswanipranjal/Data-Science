@@ -82,7 +82,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		screen.fill(THECOLORS['white'])
 		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
 		current_best = ''.join(argmax(population, key=fitness_fn))
-		large_text = pygame.font.SysFont('Consolas', 80)
+		large_text = pygame.font.SysFont('Consolas', 80, bold=True)
 		m_text_surface, m_text_rect = text_objects(current_best, large_text, p_blue)
 		m_text_rect.center = ((display_width/2), (display_height * 0.1))
 		screen.blit(m_text_surface, m_text_rect)
@@ -95,7 +95,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		# m_text_surface, m_text_rect = text_objects(members[1], small_text, light_p_blue)
 		# m_text_rect.center = ((display_width * 0.75), (display_height * 0.2))
 		# screen.blit(m_text_surface, m_text_rect)
-		for i in range(10):
+		for i in range(17):
 			m_text_surface1, m_text_rect1 = text_objects(members[3*i], small_text, light_p_blue)
 			m_text_surface2, m_text_rect2 = text_objects(members[3*i+1], small_text, light_p_blue)
 			m_text_surface3, m_text_rect3 = text_objects(members[3*i+2], small_text, light_p_blue)
