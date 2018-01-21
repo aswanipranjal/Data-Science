@@ -110,3 +110,20 @@ def main():
 				generate_geometry(terrain_surface, space)
 			elif event.type == KEYDOWN and event.key == K_p:
 				pygame.image.save(screen, 'deformable.png')
+
+		if pygame.mouse.get_pressed()[0]:
+			if pygame.key.get_mods() & KMOD_SHIFT:
+				mass = 1
+				moment = pymunk.moment_for_circle(mass, 0, 10)
+				body = pymunk.Body(mass, moment)
+				body.position = event.pos
+				shape = pymunk.Circle(body, 10)
+				shape.friction = .5
+				space.add(body, shape)
+			else:
+				color = pygame.color.THECOLORS['pink']
+				pos = pygame.mouse.get_pos()
+				pygame.draw.circle(terrain_surface, color, pos, 25)
+
+		space.step(1. / fps)
+		
