@@ -74,3 +74,10 @@ def main():
 		space.remove(s.body, s)
 		return False
 	space.add_collision_handler(0, 1).pre_solve = pre_solve
+
+	terrain_surface = pygame.Surface((600, 600))
+	terrain_surface.fill(pygame.color.THECOLORS['white'])
+
+	color = pygame.color.THECOLORS['pink']
+	pygame.draw.circle(terrain_surface, color, (450, 120), 100)
+	generate_geometry(terrain_surface, space)
