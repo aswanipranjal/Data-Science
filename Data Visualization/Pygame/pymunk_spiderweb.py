@@ -115,3 +115,8 @@ def on_mouse_release(x, y, button, modifiers):
 def on_mouse_drag(x, y, dx, dy, buttons, modifiers):
 	mouse_body.position = x, y
 
+@window.event
+def on_key_press(symbol, modifiers):
+	if symbol == pyglet.window.key.P:
+		pyglet.image.get_buffer_manager().get_color_buffer().save('spiderweb.png')
+
