@@ -67,3 +67,12 @@ for i in range(len(bs)-1):
 	if len(bs) > i2:
 		add_joint(bs[i], bs[i2])
 
+# web attach points
+static_bs = []
+for b in bs[-17::4]:
+	static_body = pymunk.Body(body_type=pymunk.Body.STATIC)
+	static_body.position = b.position
+	static_bs.append(static_body)
+
+	j = pymunk.PivotJoint(static_body, b, static_body.position)
+	
