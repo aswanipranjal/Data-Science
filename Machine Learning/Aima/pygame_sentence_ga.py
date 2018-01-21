@@ -15,6 +15,7 @@ display_height = 600
 black = (0, 0, 0)
 white = (255, 255, 255)
 p_blue = (12, 25, 76)
+c_yellow = (226, 178, 18)
 light_p_blue = (12, 57, 76)
 
 screen = pygame.display.set_mode((display_width, display_height))
@@ -99,6 +100,8 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 			screen.blit(m_text_surface1, m_text_rect1)
 			screen.blit(m_text_surface2, m_text_rect2)
 			screen.blit(m_text_surface3, m_text_rect3)
+
+		pygame.draw.rect(screen, c_yellow, (display_width * 0.075, display_height * 0.175, display_width * 0.925, 10))
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 		if fittest_individual:
