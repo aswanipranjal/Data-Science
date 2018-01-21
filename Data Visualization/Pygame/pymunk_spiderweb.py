@@ -125,7 +125,7 @@ fps_display = pyglet.clock.ClockDisplay()
 @window.event
 def on_draw():
 	pyglet.gl.glClearColor(240, 240, 240, 255)
-	window.Clear()
+	window.clear()
 
 	fps_display.draw()
 
