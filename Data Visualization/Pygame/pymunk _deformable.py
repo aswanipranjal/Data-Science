@@ -126,4 +126,12 @@ def main():
 				pygame.draw.circle(terrain_surface, color, pos, 25)
 
 		space.step(1. / fps)
+
+		screen.fill(pygame.color.THECOLORS['white'])
+		screen.blit(terrain_surface, (0, 0))
+		space.debug_draw(draw_options)
+		draw_helptext(screen)
+		pygame.display.flip()
+		clock.tick(fps)
+		pygame.display.set_caption(f'fps: {str(clock.get_fps())}')
 		
