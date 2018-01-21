@@ -93,3 +93,11 @@ def main():
 
 	draw_options = pymunk.pygame_util.DrawOptions(screen)
 	pymunk.pygame_util.positive_y_is_up = False
+
+	fps = 60
+	while True:
+		for event in pygame.event.get():
+			if event.type == QUIT or event.type == KEYDOWN and (event.key in [K_ESCAPE, K_q]):
+				sys.exit(0)
+			elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
+				pass
