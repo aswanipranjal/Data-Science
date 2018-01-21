@@ -113,6 +113,6 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 
 if __name__ == '__main__':
 	population = search.init_population(max_population, gene_pool, len(target))
-	solution = game_loop(population, fitness_fn, gene_pool=gene_pool, f_thres=len(target, pmut=mutation_rate)
+	solution = game_loop(population, fitness_fn, gene_pool=gene_pool, f_thres=len(target), pmut=mutation_rate)
 	print(solution)
 	pygame.quit()
