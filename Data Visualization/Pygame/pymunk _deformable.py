@@ -41,3 +41,15 @@ def generate_geometry(surface, space):
 		line_set.collect_segment(v0, v1)
 
 	pymunk.autogeometry.march_soft(BB(0, 0, 599, 599), 60, 60, 90, segment_func, sample_func)
+
+	for polyline in line_set:
+		line = pymunk.autogeometry.simplify_curves(polyline, 1.)
+
+		for i in range(len(line) - 1):
+			p1 = line[i]
+			p2 = line[i+1]
+			shape = pymunk.Segment(space.static_body, p1, p2, 1)
+			shape.friction = .5
+			shape.color = pygame.color.THECOLORS['red']
+			shape.generated = True
+			space.add(shape)
