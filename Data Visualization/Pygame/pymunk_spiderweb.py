@@ -49,3 +49,11 @@ for x in range(0, 101):
 	s.ignore_draw = True
 	space.add(b, s)
 	bs.append(b)
+
+def add_joint(a, b):
+	rl = a.position.get_distance(b.position) * 0.9
+	stiffness = 5000.
+	damping = 100
+	j = pymunk.DampedSpring(a, b, (0, 0), (0, 0), rl, stiffness, damping)
+	j.max_bias = 1000
+	space.add(j)
