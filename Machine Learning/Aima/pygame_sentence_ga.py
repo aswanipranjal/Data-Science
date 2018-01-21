@@ -40,6 +40,22 @@ def text_objects(text, font):
 	text_surface = font.render(text, True, black)
 	return text_surface, text_surface.get_rect()
 
+def button(msg, x, y, w, h, i_color, a_color, action=None):
+	mouse = pygame.mouse.get_pos()
+	click = pygame.mouse.get_pressed()
+
+	if x + w > mouse[0] > x and y + h > mouse[1] > y:
+		pygame.draw.rect(screen, a_color, (x, y, w, h))
+		if click[0] == 1 and action != None:
+			action()
+	else:
+		pygame.draw.rect(screen, i_color, (x, y, w, h))
+
+	small_text = pygame.font.Font('freesansbold.ttf', 20)
+	m_text_surface, m_text_rect = text_objects(msg, small_text)
+	m_text_rect.center = ((x + (w / 2)), (y + (h / 2)))
+	screen.blit(m_text_surface, m_text_rect)
+
 def fitness_fn(_list):
 	fitness = 0
 	phrase = ''.join(_list)
