@@ -75,3 +75,8 @@ def genetic_algorithm_stepwise(population, fitness_fn, gene_pool=[0, 1], f_thres
 			return fittest_individual, i
 
 	return argmax(population, key=fitness_fn), i
+
+def main():
+	population = search.init_population(max_population, gene_pool, len(target))
+	solution, iteration = genetic_algorithm_stepwise(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool, pmut=mutation_rate)
+
