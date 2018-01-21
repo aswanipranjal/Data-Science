@@ -26,7 +26,7 @@ target = 'Genetic Algorithm'
 max_population = 75
 mutation_rate = 0.1
 f_thres = len(target)
-generation = 1
+generation = 0
 
 u_case = [chr(x) for x in range(65, 91)]
 l_case = [chr(x) for x in range(97, 123)]
@@ -70,6 +70,7 @@ def fitness_fn(_list):
 	return fitness
 
 def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200, pmut=0.1):
+	global generation
 	running = True
 	while running:
 		for event in pygame.event.get():
@@ -81,6 +82,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 				pygame.image.save(screen, 'genetic_algorithm_phrase_gen.png')
 
 		screen.fill(THECOLORS['white'])
+		generation += 1
 		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
 		current_best = ''.join(argmax(population, key=fitness_fn))
 		large_text = pygame.font.SysFont('Consolas', 80, bold=True)
@@ -116,7 +118,6 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 
 		pygame.display.update()
 		clock.tick(60)
-		generation += 1
 
 	return argmax(population, key=fitness_fn)
 
