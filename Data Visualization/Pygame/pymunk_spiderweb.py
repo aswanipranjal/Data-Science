@@ -15,3 +15,14 @@ space.gravity = 0, -900
 space.damping = .999
 c = Vec2d(window.width / 2., window.height / 2.)
 
+# web
+web_group = 1
+bs = []
+dist = .3
+
+cb = pymunk.Body(1, 1)
+cb.position = c
+s = pymunk.Circle(cb, 15)
+s.filter = pymunk.ShapeFilter(group=web_group)
+s.ignore_draw = True
+space.add(cb, s)
