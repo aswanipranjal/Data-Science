@@ -14,6 +14,7 @@ display_height = 600
 
 black = (0, 0, 0)
 white = (255, 255, 255)
+p_blue = (12, 25, 76)
 
 screen = pygame.display.set_mode((display_width, display_height))
 pygame.display.set_caption('Genetic Algorithm')
@@ -38,8 +39,8 @@ gene_pool.extend(u_case)
 gene_pool.extend(l_case)
 gene_pool.append(' ')
 
-def text_objects(text, font):
-	text_surface = font.render(text, True, black)
+def text_objects(text, font, color):
+	text_surface = font.render(text, True, color)
 	return text_surface, text_surface.get_rect()
 
 def button(msg, x, y, w, h, i_color, a_color, action=None):
@@ -81,7 +82,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
 		current_best = ''.join(argmax(population, key=fitness_fn))
 		large_text = pygame.font.SysFont('Consolas', 80)
-		m_text_surface, m_text_rect = text_objects(current_best, large_text)
+		m_text_surface, m_text_rect = text_objects(current_best, large_text, p_blue)
 		m_text_rect.center = ((display_width/2), (display_height * 0.1))
 		screen.blit(m_text_surface, m_text_rect)
 
