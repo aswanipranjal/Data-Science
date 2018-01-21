@@ -68,3 +68,9 @@ def main():
 	for s in static_lines:
 		s.collision_type = 1
 	space.add(static_lines)
+
+	def pre_solve(arbiter, space, data):
+		s = arbiter.shapes[0]
+		space.remove(s.body, s)
+		return False
+	space.add_collision_handler(0, 1).pre_solve = pre_solve
