@@ -22,3 +22,10 @@ def draw_helptext(screen):
 		text = font.render(line, 1, THECOLORS['black'])
 		screen.blit(text, (5, y))
 		y += 10
+
+def generate_geometry(surface, space):
+	for s in space.shapes:
+		if hasattr(s, 'generated') and s.generated:
+			space.remove(s)
+
+	def 
