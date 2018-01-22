@@ -25,8 +25,8 @@ pygame.display.set_caption('Genetic Algorithm')
 clock = pygame.time.Clock()
 
 # genetic algorithm variables
-target = 'Hello' # the phrase to be generated
-max_population = 75 # number of samples in each population
+target = 'Genetic Algorithm' # the phrase to be generated
+max_population = 100 # number of samples in each population
 mutation_rate = 0.1 
 f_thres = len(target) # fitness threshold
 
