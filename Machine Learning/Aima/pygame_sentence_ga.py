@@ -162,12 +162,6 @@ def quitgame():
 	pygame.quit()
 	quit()
 
-# def get_target():
-# 	intro = True
-# 	global target
-# 	while intro:
-# 		for event in pygame.event.get():
-
 def game_intro():
 	intro = True
 	global target
