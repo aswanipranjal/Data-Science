@@ -100,6 +100,9 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 			elif event.type == KEYDOWN and event.key == K_p:
 				pygame.image.save(screen, 'genetic_algorithm_phrase_gen.png') # screenshot
 
+		if generation >= ngen:
+			finished = True
+
 		if not finished:
 			screen.fill(THECOLORS['white'])
 			generation += 1
