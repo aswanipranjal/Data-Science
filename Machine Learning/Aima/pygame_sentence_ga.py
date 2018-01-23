@@ -88,11 +88,11 @@ def fitness_fn(_list):
 def quitgame():
 	pygame.quit()
 
-def get_target():
-	intro = True
-	global target
-	while intro:
-		for event in pygame.event.get():
+# def get_target():
+# 	intro = True
+# 	global target
+# 	while intro:
+# 		for event in pygame.event.get():
 
 def game_intro():
 	intro = True
