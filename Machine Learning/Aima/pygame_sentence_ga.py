@@ -38,6 +38,11 @@ max_population = 100 # number of samples in each population
 mutation_rate = 0.1 
 f_thres = len(target) # fitness threshold
 
+# selector values
+max_population_selector = None
+mutation_rate_selector = None
+f_thres_selector = None
+
 generation = 0 # counter to keep track of generation number
 
 u_case = [chr(x) for x in range(65, 91)] 		# list containing all uppercase characters
@@ -78,7 +83,6 @@ def button(msg, x, y, w, h, i_color, a_color, action=None):
 def selector(msg, x, y, w, h, i_color, a_color):
 	mouse = pygame.mouse.get_pos()
 	click = pygame.mouse.get_pressed()
-	selected = None
 	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
 	if x + w > mouse[0] > x and y + h > mouse[1] > y:
 		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
