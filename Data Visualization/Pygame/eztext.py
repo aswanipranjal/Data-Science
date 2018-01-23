@@ -17,3 +17,9 @@ def name():
 					name = ''
 			elif event.type == QUIT:
 				return
+		screen.fill((0, 0, 0))
+		block = font.render(name, True, (255, 255, 255))
+		rect = block.get_rect()
+		rect.center = screen.get_rect().center
+		screen.blit(block, rect)
+		pygame.display.flip()
