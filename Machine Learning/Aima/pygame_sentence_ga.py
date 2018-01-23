@@ -124,6 +124,13 @@ def f_mutation_rate_selector(msg, x, y, w, h, i_color, a_color):
 	m_text_rect.center = ((x + (w / 2)), (y + (h / 2) - 14))
 	screen.blit(m_text_surface, m_text_rect)
 
+def f_fthres_selector(msg, x, y, w, h, i_color, a_color):
+	global f_thres_selector
+	global f_thres
+	mouse = pygame.mouse.get_pos()
+	click = pygame.mouse.get_pressed()
+	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
+
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
@@ -172,8 +179,8 @@ def game_intro():
 
 		button('GO', 100, 450, 100, 50, p_blue, light_p_blue, main)
 		button('EXIT', 600, 450, 100, 50, p_blue, light_p_blue, quitgame)
-		f_max_population_selector('Max population size', display_width*0.1, display_height*0.5, display_width*0.8, 10, p_blue, light_p_blue)
-		f_mutation_rate_selector('Mutation rate',display_width*0.1, display_height*0.6, display_width*0.8, 10, p_blue, light_p_blue)
+		f_max_population_selector('Max population size', display_width*0.1, display_height*0.4, display_width*0.8, 10, p_blue, light_p_blue)
+		f_mutation_rate_selector('Mutation rate',display_width*0.1, display_height*0.5, display_width*0.8, 10, p_blue, light_p_blue)
 		pygame.display.update()
 		clock.tick(15)
 
