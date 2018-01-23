@@ -75,6 +75,13 @@ def button(msg, x, y, w, h, i_color, a_color, action=None):
 	m_text_rect.center = ((x + (w / 2)), (y + (h / 2)))
 	screen.blit(m_text_surface, m_text_rect)
 
+def selector(msg, x, y, w, h, i_color, a_color):
+	mouse = pygame.mouse.get_pos()
+	click = pygame.mouse.get_pressed()
+
+	if x + w > mouse[0] > x and y + h > mouse[1] > y:
+		pygame.draw.rect(screen, i_color, (x, y, w, h))
+
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
