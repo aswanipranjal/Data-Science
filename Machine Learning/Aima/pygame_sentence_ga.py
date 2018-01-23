@@ -86,7 +86,8 @@ def selector(msg, x, y, w, h, i_color, a_color):
 	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
 	if x + w > mouse[0] > x and y + h > mouse[1] > y:
 		max_population_selector = mouse[0] - x
-	pygame.draw.rect(screen, a_color, (x, y, max_population_selector, h))
+	if max_population_selector:
+		pygame.draw.rect(screen, a_color, (x, y, max_population_selector, h))
 		# if click[0] == 1:
 
 # fitness function
