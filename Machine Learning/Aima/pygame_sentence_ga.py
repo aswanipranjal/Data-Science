@@ -97,7 +97,7 @@ def f_max_population_selector(msg, x, y, w, h, i_color, a_color):
 		# if click[0] == 1:
 
 	small_text = pygame.font.Font('freesansbold.ttf', 14)
-	m_text_surface, m_text_rect = text_objects(msg + ' ' + max_population, small_text, i_color)
+	m_text_surface, m_text_rect = text_objects(msg + ' ' + str(max_population), small_text, i_color)
 	m_text_rect.center = ((x + (w / 2)), (y + (h / 2) - 14))
 	screen.blit(m_text_surface, m_text_rect)
 
