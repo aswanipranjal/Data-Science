@@ -110,8 +110,8 @@ def game_intro():
 					name += event.unicode
 				elif event.key == K_BACKSPACE:
 					name = name[:-1]
-				elif event.key == K_RETURN:
-					name = ''
+				# elif event.key == K_RETURN:
+				# 	name = ''
 
 		if len(name) > 0:
 			target = name
