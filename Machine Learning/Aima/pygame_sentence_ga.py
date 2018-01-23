@@ -111,7 +111,7 @@ def game_intro():
 					name = ''
 
 		screen.fill(white)
-		large_text = pygame.font.Font('freesansbold.ttf', 75)
+		large_text = pygame.font.SysFont('Consolas', 60, bold=True)
 		m_text_surface, m_text_rect = text_objects(name, large_text, p_blue)
 		m_text_rect.center = ((display_width/2), (display_height/2))
 		screen.blit(m_text_surface, m_text_rect)
