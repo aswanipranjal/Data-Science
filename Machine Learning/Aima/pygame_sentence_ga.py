@@ -79,9 +79,9 @@ def selector(msg, x, y, w, h, i_color, a_color):
 	mouse = pygame.mouse.get_pos()
 	click = pygame.mouse.get_pressed()
 
-	pygame.draw.rect(screen, i_color, (x, y, w, h), 0)
+	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
 	if x + w > mouse[0] > x and y + h > mouse[1] > y:
-		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h), 2)
+		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
 
 # fitness function
 def fitness_fn(_list):
@@ -131,7 +131,7 @@ def game_intro():
 
 		button('GO', 100, 450, 100, 50, p_blue, light_p_blue, main)
 		button('EXIT', 600, 450, 100, 50, p_blue, light_p_blue, quitgame)
-		selector('test', display_width*0.1, display_height*0.1, display_width*0.8, display_height*0.8, p_blue, light_p_blue)
+		selector('test', display_width*0.1, display_height*0.1, display_width*0.8, 10, p_blue, light_p_blue)
 		pygame.display.update()
 		clock.tick(15)
 
