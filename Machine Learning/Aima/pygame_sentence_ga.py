@@ -81,11 +81,15 @@ def button(msg, x, y, w, h, i_color, a_color, action=None):
 	screen.blit(m_text_surface, m_text_rect)
 
 def selector(msg, x, y, w, h, i_color, a_color):
+	global max_population_selector
 	mouse = pygame.mouse.get_pos()
 	click = pygame.mouse.get_pressed()
 	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
 	if x + w > mouse[0] > x and y + h > mouse[1] > y:
-		max_population_selector = mouse[0] - x
+		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
+		if click[0] == 1:
+			max_population_selector = mouse[0] - x
+
 	if max_population_selector:
 		pygame.draw.rect(screen, a_color, (x, y, max_population_selector, h))
 		# if click[0] == 1:
