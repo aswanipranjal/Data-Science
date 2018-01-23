@@ -94,9 +94,9 @@ def f_max_population_selector(msg, x, y, w, h, i_color, a_color):
 		pygame.draw.rect(screen, a_color, (x, y, max_population_selector, h))
 		# if click[0] == 1:
 
-	small_text = pygame.font.SysFont('Consolas', 16)
+	small_text = pygame.font.Font('freesansbold.ttf', 14)
 	m_text_surface, m_text_rect = text_objects(msg, small_text, i_color)
-	m_text_rect.center = ((x + (w / 2)), (y + (h / 2) - 10))
+	m_text_rect.center = ((x + (w / 2)), (y + (h / 2) - 14))
 	screen.blit(m_text_surface, m_text_rect)
 
 # fitness function
@@ -147,7 +147,7 @@ def game_intro():
 
 		button('GO', 100, 450, 100, 50, p_blue, light_p_blue, main)
 		button('EXIT', 600, 450, 100, 50, p_blue, light_p_blue, quitgame)
-		selector('Max population size', display_width*0.1, display_height*0.1, display_width*0.8, 10, p_blue, light_p_blue)
+		f_max_population_selector('Max population size', display_width*0.1, display_height*0.1, display_width*0.8, 10, p_blue, light_p_blue)
 		pygame.display.update()
 		clock.tick(15)
 
