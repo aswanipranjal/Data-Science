@@ -102,6 +102,13 @@ def game_intro():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				intro = False
+			elif event.type == KEYDOWN:
+				if event.unicode.isalpha() or event.unicode == ' ':
+					name += event.unicode
+				elif event.key == K_BACKSPACE:
+					name = name[:-1]
+				elif event.key == K_RETURN:
+					name = ''
 
 		screen.fill(white)
 		large_text = pygame.font.Font('freesansbold.ttf', 75)
