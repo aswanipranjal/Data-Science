@@ -91,7 +91,7 @@ def f_max_population_selector(msg, x, y, w, h, i_color, a_color):
 		if click[0] == 1:
 			max_population_selector = mouse[0] - x
 
-	if max_population_selector:
+	if max_population:
 		pygame.draw.rect(screen, a_color, (x, y, max_population_selector, h))
 		max_population = int(1000 * max_population_selector / w)
 		# if click[0] == 1:
