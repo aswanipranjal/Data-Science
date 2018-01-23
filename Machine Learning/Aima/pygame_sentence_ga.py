@@ -97,7 +97,7 @@ def quitgame():
 
 def game_intro():
 	intro = True
-
+	name = 'Genetic Algorithm'
 	while intro:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
@@ -105,11 +105,11 @@ def game_intro():
 
 		screen.fill(white)
 		large_text = pygame.font.Font('freesansbold.ttf', 75)
-		m_text_surface, m_text_rect = text_objects('Genetic Algorithm', large_text, p_blue)
+		m_text_surface, m_text_rect = text_objects(name, large_text, p_blue)
 		m_text_rect.center = ((display_width/2), (display_height/2))
 		screen.blit(m_text_surface, m_text_rect)
 
-		button('GO!', 100, 450, 100, 50, p_blue, light_p_blue, main)
+		button('GO', 100, 450, 100, 50, p_blue, light_p_blue, main)
 		button('EXIT', 550, 450, 100, 50, p_blue, light_p_blue, quitgame)
 
 		pygame.display.update()
