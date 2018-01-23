@@ -104,8 +104,7 @@ def game_intro():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				intro = False
-				pygame.quit()
-				quit()
+				quitgame()
 			elif event.type == KEYDOWN:
 				if event.unicode.isalpha() or event.unicode == ' ':
 					name += event.unicode
@@ -123,7 +122,7 @@ def game_intro():
 		screen.blit(m_text_surface, m_text_rect)
 
 		button('GO', 100, 450, 100, 50, p_blue, light_p_blue, main)
-		button('EXIT', 550, 450, 100, 50, p_blue, light_p_blue, quitgame)
+		button('EXIT', 600, 450, 100, 50, p_blue, light_p_blue, quitgame)
 
 		pygame.display.update()
 		clock.tick(15)
