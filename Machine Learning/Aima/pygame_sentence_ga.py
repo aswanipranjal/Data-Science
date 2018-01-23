@@ -138,7 +138,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 			screen.blit(g_text_surface, g_text_rect)
 
 		else:
-			button('Next', display_width * 0.9, display_height * 0.9, display_width * 0.1, display_height * 0.1, p_blue, light_p_blue, NOne)
+			button('Next', display_width * 0.9, display_height * 0.9, display_width * 0.1, display_height * 0.1, p_blue, light_p_blue, None)
 
 		# updates the screen
 		pygame.display.update()
