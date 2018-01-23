@@ -100,6 +100,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 			elif event.type == KEYDOWN and event.key == K_p:
 				pygame.image.save(screen, 'genetic_algorithm_phrase_gen.png') # screenshot
 
+		# set finished to True if we exceed the maximum number of generations
 		if generation >= ngen:
 			finished = True
 
