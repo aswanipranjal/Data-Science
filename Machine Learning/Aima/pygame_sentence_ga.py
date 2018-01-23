@@ -114,10 +114,10 @@ def f_mutation_rate_selector(msg, x, y, w, h, i_color, a_color):
 			mutation_rate_selector = mouse[0] - x
 
 	if mutation_rate and not mutation_rate_selector:
-		pygame.draw.rect(screen, a_color, (x, y, int(w * mutation_rate / 1), h))
+		pygame.draw.rect(screen, a_color, (x, y, w * mutation_rate / 1, h))
 	elif mutation_rate_selector:
 		pygame.draw.rect(screen, a_color, (x, y, mutation_rate_selector, h))
-		mutation_rate = int(1 * mutation_rate_selector / w)
+		mutation_rate = 1 * mutation_rate_selector / w
 
 	small_text = pygame.font.Font('freesansbold.ttf', 14)
 	m_text_surface, m_text_rect = text_objects(msg + ' ' + str(mutation_rate), small_text, i_color)
