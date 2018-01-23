@@ -82,6 +82,7 @@ def button(msg, x, y, w, h, i_color, a_color, action=None):
 
 def f_max_population_selector(msg, x, y, w, h, i_color, a_color):
 	global max_population_selector
+	global max_population
 	mouse = pygame.mouse.get_pos()
 	click = pygame.mouse.get_pressed()
 	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
@@ -92,10 +93,11 @@ def f_max_population_selector(msg, x, y, w, h, i_color, a_color):
 
 	if max_population_selector:
 		pygame.draw.rect(screen, a_color, (x, y, max_population_selector, h))
+		max_population = 1000 * max_population_selector / w
 		# if click[0] == 1:
 
 	small_text = pygame.font.Font('freesansbold.ttf', 14)
-	m_text_surface, m_text_rect = text_objects(msg, small_text, i_color)
+	m_text_surface, m_text_rect = text_objects(msg + ' ' + max_population, small_text, i_color)
 	m_text_rect.center = ((x + (w / 2)), (y + (h / 2) - 14))
 	screen.blit(m_text_surface, m_text_rect)
 
