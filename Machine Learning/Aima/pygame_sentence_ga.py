@@ -81,6 +81,7 @@ def fitness_fn(_list):
 def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200, pmut=0.1):
 	global generation
 	running = True
+	finished = False
 	while running:
 		for event in pygame.event.get():
 			# defining functions to execute on keypresses
@@ -91,49 +92,50 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 			elif event.type == KEYDOWN and event.key == K_p:
 				pygame.image.save(screen, 'genetic_algorithm_phrase_gen.png') # screenshot
 
-		screen.fill(THECOLORS['white'])
-		generation += 1
-		# generating new population after selecting, recombining and mutating the existing population
-		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
-		# genome with the highest fitness in the current generation
-		current_best = ''.join(argmax(population, key=fitness_fn))
+		if not finished:
+			screen.fill(THECOLORS['white'])
+			generation += 1
+			# generating new population after selecting, recombining and mutating the existing population
+			population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
+			# genome with the highest fitness in the current generation
+			current_best = ''.join(argmax(population, key=fitness_fn))
 
-		# checks for completion
-		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
-		if fittest_individual:
-			running = False
-			# return fittest_individual
+			# checks for completion
+			fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+			if fittest_individual:
+				finished = True
+				# return fittest_individual
 
-		# displays current best on top of the screen
-		large_text = pygame.font.SysFont('Consolas', 80, bold=True)
-		m_text_surface, m_text_rect = text_objects(current_best, large_text, p_blue)
-		m_text_rect.center = ((display_width/2), (display_height * 0.1))
-		screen.blit(m_text_surface, m_text_rect)
-		
-		# collecting first few examples from the current population
-		members = [''.join(x) for x in population][:48]
-		small_text = pygame.font.SysFont('Consolas', 20)
-		# displaying a part of the population on the screen
-		for i in range(len(members) // 3):
-			m_text_surface1, m_text_rect1 = text_objects(members[3*i], small_text, light_p_blue)
-			m_text_surface2, m_text_rect2 = text_objects(members[3*i+1], small_text, light_p_blue)
-			m_text_surface3, m_text_rect3 = text_objects(members[3*i+2], small_text, light_p_blue)
-			m_text_rect1.center = ((display_width * .175), (display_height * 0.25 + (25 * i)))
-			m_text_rect3.center = ((display_width * .500), (display_height * 0.25 + (25 * i)))
-			m_text_rect2.center = ((display_width * .825), (display_height * 0.25 + (25 * i)))
-			screen.blit(m_text_surface1, m_text_rect1)
-			screen.blit(m_text_surface2, m_text_rect2)
-			screen.blit(m_text_surface3, m_text_rect3)
+			# displays current best on top of the screen
+			large_text = pygame.font.SysFont('Consolas', 80, bold=True)
+			m_text_surface, m_text_rect = text_objects(current_best, large_text, p_blue)
+			m_text_rect.center = ((display_width/2), (display_height * 0.1))
+			screen.blit(m_text_surface, m_text_rect)
+			
+			# collecting first few examples from the current population
+			members = [''.join(x) for x in population][:48]
+			small_text = pygame.font.SysFont('Consolas', 20)
+			# displaying a part of the population on the screen
+			for i in range(len(members) // 3):
+				m_text_surface1, m_text_rect1 = text_objects(members[3*i], small_text, light_p_blue)
+				m_text_surface2, m_text_rect2 = text_objects(members[3*i+1], small_text, light_p_blue)
+				m_text_surface3, m_text_rect3 = text_objects(members[3*i+2], small_text, light_p_blue)
+				m_text_rect1.center = ((display_width * .175), (display_height * 0.25 + (25 * i)))
+				m_text_rect3.center = ((display_width * .500), (display_height * 0.25 + (25 * i)))
+				m_text_rect2.center = ((display_width * .825), (display_height * 0.25 + (25 * i)))
+				screen.blit(m_text_surface1, m_text_rect1)
+				screen.blit(m_text_surface2, m_text_rect2)
+				screen.blit(m_text_surface3, m_text_rect3)
 
-		# displays blue bar that indicates current maximum fitness compared to maximum possible fitness
-		scaling_factor = fitness_fn(current_best) / len(target)
-		pygame.draw.rect(screen, p_blue, (m_text_rect[0], m_text_rect[1] + 85, m_text_rect[2], 10), 2)
-		pygame.draw.rect(screen, (12 - 12 * scaling_factor, 57 - 57 *scaling_factor, 76 - 76 * scaling_factor), (m_text_rect[0], m_text_rect[1] + 85, m_text_rect[2] * scaling_factor, 10))
+			# displays blue bar that indicates current maximum fitness compared to maximum possible fitness
+			scaling_factor = fitness_fn(current_best) / len(target)
+			pygame.draw.rect(screen, p_blue, (m_text_rect[0], m_text_rect[1] + 85, m_text_rect[2], 10), 2)
+			pygame.draw.rect(screen, (12 - 12 * scaling_factor, 57 - 57 *scaling_factor, 76 - 76 * scaling_factor), (m_text_rect[0], m_text_rect[1] + 85, m_text_rect[2] * scaling_factor, 10))
 
-		# displays current generation number
-		g_text_surface, g_text_rect = text_objects(f'Generation {generation}', pygame.font.SysFont('Consolas', 20, bold=True), light_p_blue)
-		g_text_rect.center = ((display_width * 0.5), (display_height * 0.95))
-		screen.blit(g_text_surface, g_text_rect)
+			# displays current generation number
+			g_text_surface, g_text_rect = text_objects(f'Generation {generation}', pygame.font.SysFont('Consolas', 20, bold=True), light_p_blue)
+			g_text_rect.center = ((display_width * 0.5), (display_height * 0.95))
+			screen.blit(g_text_surface, g_text_rect)
 
 		# updates the screen
 		pygame.display.update()
