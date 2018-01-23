@@ -85,6 +85,12 @@ def fitness_fn(_list):
 			fitness += 1
 	return fitness
 
+def get_target():
+	intro = True
+	global target
+	while intro:
+		for event in pygame.event.get():
+
 def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200, pmut=0.1):
 	global generation
 	generation = 0
