@@ -6,6 +6,7 @@
 # Displays the first few individuals of the current generation
 
 import time
+import math
 import random
 import pygame
 from pygame.color import *
@@ -93,7 +94,7 @@ def f_max_population_selector(msg, x, y, w, h, i_color, a_color):
 
 	if max_population_selector:
 		pygame.draw.rect(screen, a_color, (x, y, max_population_selector, h))
-		max_population = 1000 * max_population_selector / w
+		max_population = floor(1000 * max_population_selector / w)
 		# if click[0] == 1:
 
 	small_text = pygame.font.Font('freesansbold.ttf', 14)
