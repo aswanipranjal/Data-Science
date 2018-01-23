@@ -130,6 +130,16 @@ def f_fthres_selector(msg, x, y, w, h, i_color, a_color):
 	mouse = pygame.mouse.get_pos()
 	click = pygame.mouse.get_pressed()
 	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
+	if x + w > mouse[0] > x and y + h > mouse[1] > y:
+		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
+		if click[0] == 1:
+			f_thres_selector = mouse[0] - x
+
+	if f_thres and not f_thres_selector:
+		pygame.draw.rect(screen, a_color, (x, y, int(w * f_thres / len(target)), h))
+	elif f_thres_selector:
+		pygame.draw.rect(screen, a_color, (x, y, f_thres_selector, h))
+		f_thres = int(len(target) * f_thres_selector / w)
 
 # fitness function
 def fitness_fn(_list):
