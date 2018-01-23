@@ -9,7 +9,7 @@ def name():
 	while True:
 		for event in pygame.event.get():
 			if event.type == KEYDOWN:
-				if event.unicode.isalpha():
+				if event.unicode.isalpha() or event.unicode == ' ':
 					name += event.unicode
 				elif event.key == K_BACKSPACE:
 					name = name[:-1]
