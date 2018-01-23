@@ -1,5 +1,6 @@
 # A simple program that implements the solution to the phrase generation problem using
 # genetic algorithms as given in the search.ipynb notebook.
+# 
 # Displays best individual of the current generation
 # Displays a progress bar that indicates the amount of completion of the algorithm
 # Displays the first few individuals of the current generation
@@ -97,6 +98,7 @@ def quitgame():
 
 def game_intro():
 	intro = True
+	global target
 	name = 'Genetic Algorithm'
 	while intro:
 		for event in pygame.event.get():
@@ -110,6 +112,8 @@ def game_intro():
 				elif event.key == K_RETURN:
 					name = ''
 
+		if len(name) > 0:
+			target = name
 		screen.fill(white)
 		large_text = pygame.font.SysFont('Consolas', 60, bold=True)
 		m_text_surface, m_text_rect = text_objects(name, large_text, p_blue)
