@@ -85,6 +85,9 @@ def fitness_fn(_list):
 			fitness += 1
 	return fitness
 
+def quitgame():
+	pygame.quit()
+
 def get_target():
 	intro = True
 	global target
