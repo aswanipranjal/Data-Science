@@ -102,14 +102,14 @@ def game_intro():
 			if event.type == pygame.QUIT:
 				intro = False
 
-		screen.fill(THECOLORS['white'])
+		screen.fill(white)
 		large_text = pygame.font.Font('freesansbold.ttf', 115)
 		m_text_surface, m_text_rect = text_objects('Genetic Algorithm', large_text, p_blue)
 		m_text_rect.center = ((display_width/2), (display_height/2))
 		screen.blit(m_text_surface, m_text_rect)
 
-		button('GO!', 100, 450, 100, 50, p_blue, light_p_blue, main)
-		button('EXIT', 550, 450, 100, 50, p_blue, light_p_blue, quitgame)
+		# button('GO!', 100, 450, 100, 50, p_blue, light_p_blue, main)
+		# button('EXIT', 550, 450, 100, 50, p_blue, light_p_blue, quitgame)
 
 def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200, pmut=0.1):
 	global generation
@@ -193,5 +193,5 @@ if __name__ == '__main__':
 	# pygame.quit()
 	# time.sleep(1000)
 	game_intro()
-	main()
+	# main()
 	pygame.quit()
