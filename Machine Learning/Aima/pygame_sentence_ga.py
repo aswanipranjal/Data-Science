@@ -104,6 +104,8 @@ def game_intro():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				intro = False
+				pygame.quit()
+				quit()
 			elif event.type == KEYDOWN:
 				if event.unicode.isalpha() or event.unicode == ' ':
 					name += event.unicode
