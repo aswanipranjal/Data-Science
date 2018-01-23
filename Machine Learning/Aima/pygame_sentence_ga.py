@@ -1,3 +1,9 @@
+# A simple program that implements the solution to the phrase generation problem using
+# genetic algorithms as given in the search.ipynb notebook.
+# Displays best individual of the current generation
+# Displays a progress bar that indicates the amount of completion of the algorithm
+# Displays the first few individuals of the current generation
+
 import time
 import random
 import pygame
@@ -25,7 +31,8 @@ pygame.display.set_caption('Genetic Algorithm')
 clock = pygame.time.Clock()
 
 # genetic algorithm variables
-target = 'Machine Learning' # the phrase to be generated
+# feel free to play around with these
+target = 'Genetic Algorithm' # the phrase to be generated
 max_population = 100 # number of samples in each population
 mutation_rate = 0.1 
 f_thres = len(target) # fitness threshold
