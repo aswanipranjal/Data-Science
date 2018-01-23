@@ -127,6 +127,7 @@ def f_mutation_rate_selector(msg, x, y, w, h, i_color, a_color):
 def f_fthres_selector(msg, x, y, w, h, i_color, a_color):
 	global f_thres_selector
 	global f_thres
+	f_thres = len(target)
 	mouse = pygame.mouse.get_pos()
 	click = pygame.mouse.get_pressed()
 	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
