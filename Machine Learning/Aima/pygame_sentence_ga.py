@@ -80,6 +80,7 @@ def fitness_fn(_list):
 
 def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200, pmut=0.1):
 	global generation
+	generation = 0
 	running = True
 	finished = False
 	while running:
