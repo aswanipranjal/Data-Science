@@ -115,7 +115,7 @@ def f_mutation_rate_selector(msg, x, y, w, h, i_color, a_color):
 
 	if mutation_rate and not mutation_rate_selector:
 		pygame.draw.rect(screen, a_color, (x, y, int(w * mutation_rate / 1), h))
-	elif max_population_selector:
+	elif mutation_rate_selector:
 		pygame.draw.rect(screen, a_color, (x, y, mutation_rate_selector, h))
 		mutation_rate = int(1 * mutation_rate_selector / w)
 
