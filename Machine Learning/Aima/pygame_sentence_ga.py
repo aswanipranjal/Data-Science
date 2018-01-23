@@ -63,7 +63,7 @@ def button(msg, x, y, w, h, i_color, a_color, action=None):
 		pygame.draw.rect(screen, i_color, (x, y, w, h))
 
 	small_text = pygame.font.SysFont('Consolas', 20)
-	m_text_surface, m_text_rect = text_objects(msg, small_text)
+	m_text_surface, m_text_rect = text_objects(msg, small_text, white)
 	m_text_rect.center = ((x + (w / 2)), (y + (h / 2)))
 	screen.blit(m_text_surface, m_text_rect)
 
