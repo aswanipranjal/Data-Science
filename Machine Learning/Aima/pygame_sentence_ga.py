@@ -91,6 +91,23 @@ def get_target():
 	while intro:
 		for event in pygame.event.get():
 
+def game_intro():
+	intro = True
+
+	while intro:
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				intro = False
+
+		screen.fill(THECOLORS['white'])
+		large_text = pygame.font.Font('freesansbold.ttf', 115)
+		m_text_surface, m_text_rect = text_objects('Genetic Algorithm', large_text, p_blue)
+		m_text_rect.center = ((display_width/2), (display_height/2))
+		screen.blit(m_text_surface, m_text_rect)
+
+		button('GO!', 100, 450, 100, 50, p_blue, light_p_blue, game_loop)
+		
+
 def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200, pmut=0.1):
 	global generation
 	generation = 0
