@@ -144,12 +144,12 @@ def game_intro():
 		screen.fill(white)
 		large_text = pygame.font.SysFont('Consolas', 60, bold=True)
 		m_text_surface, m_text_rect = text_objects(name, large_text, p_blue)
-		m_text_rect.center = ((display_width/2), (display_height/2))
+		m_text_rect.center = ((display_width/2), (display_height * 0.8))
 		screen.blit(m_text_surface, m_text_rect)
 
 		button('GO', 100, 450, 100, 50, p_blue, light_p_blue, main)
 		button('EXIT', 600, 450, 100, 50, p_blue, light_p_blue, quitgame)
-		f_max_population_selector('Max population size', display_width*0.1, display_height*0.1, display_width*0.8, 10, p_blue, light_p_blue)
+		f_max_population_selector('Max population size', display_width*0.1, display_height*0.5, display_width*0.8, 10, p_blue, light_p_blue)
 		pygame.display.update()
 		clock.tick(15)
 
