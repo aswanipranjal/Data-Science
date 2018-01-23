@@ -78,14 +78,14 @@ def button(msg, x, y, w, h, i_color, a_color, action=None):
 def selector(msg, x, y, w, h, i_color, a_color):
 	mouse = pygame.mouse.get_pos()
 	click = pygame.mouse.get_pressed()
-	selected = False
+	selected = None
 	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
 	if x + w > mouse[0] > x and y + h > mouse[1] > y:
 		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
 		if click[0] == 1:
-			selected = True
-	if selected:
-		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
+			selected = mouse[0]
+	if selected != None:
+		pygame.draw.rect(screen, a_color, (x, y, selected - x, h))
 
 # fitness function
 def fitness_fn(_list):
