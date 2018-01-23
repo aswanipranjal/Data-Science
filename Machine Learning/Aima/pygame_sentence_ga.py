@@ -96,12 +96,28 @@ def f_max_population_selector(msg, x, y, w, h, i_color, a_color):
 	elif max_population_selector:
 		pygame.draw.rect(screen, a_color, (x, y, max_population_selector, h))
 		max_population = int(1000 * max_population_selector / w)
-		# if click[0] == 1:
 
 	small_text = pygame.font.Font('freesansbold.ttf', 14)
 	m_text_surface, m_text_rect = text_objects(msg + ' ' + str(max_population), small_text, i_color)
 	m_text_rect.center = ((x + (w / 2)), (y + (h / 2) - 14))
 	screen.blit(m_text_surface, m_text_rect)
+
+def f_mutation_rate_selector(msg, x, y, w, h, i_color, a_color):
+	global mutation_rate_selector
+	global mutation_rate
+	mouse = pygame.mouse.get_pos()
+	click = pygame.mouse.get_pressed()
+	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
+	if x + w > mouse[0] > x and y + h > mouse[1] > y:
+		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
+		if click[0] == 1:
+			mutation_rate_selector = mouse[0] - x
+
+	if mutation_rate and not mutation_rate_selector:
+		pygame.draw.rect(screen, a_color, (x, y, int(w * mutation_rate / 1), h))
+	elif max_population_selector:
+		pygame.draw.rect(screen, a_color, (x, y, mutation_rate_selector, h))
+		mutation_rate = int(1 * mutation_rate_selector / w)
 
 # fitness function
 def fitness_fn(_list):
