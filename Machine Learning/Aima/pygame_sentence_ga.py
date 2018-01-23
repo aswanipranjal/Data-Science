@@ -62,7 +62,7 @@ def button(msg, x, y, w, h, i_color, a_color, action=None):
 	else:
 		pygame.draw.rect(screen, i_color, (x, y, w, h))
 
-	small_text = pygame.font.SysFont('Consolas', 20)
+	small_text = pygame.font.SysFont('Consolas', 16)
 	m_text_surface, m_text_rect = text_objects(msg, small_text, white)
 	m_text_rect.center = ((x + (w / 2)), (y + (h / 2)))
 	screen.blit(m_text_surface, m_text_rect)
@@ -138,7 +138,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 			screen.blit(g_text_surface, g_text_rect)
 
 		else:
-			button('Next', display_width * 0.9, display_height * 0.9, display_width * 0.1, display_height * 0.1, p_blue, light_p_blue, None)
+			button('NEXT', display_width * 0.9, display_height * 0.9, display_width * 0.1, display_height * 0.1, p_blue, light_p_blue, None)
 
 		# updates the screen
 		pygame.display.update()
