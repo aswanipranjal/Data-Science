@@ -176,10 +176,10 @@ def f_ngen_selector(msg, x, y, w, h, i_color, a_color):
 			ngen_selector = mouse[0] - x
 
 	if ngen and not ngen_selector:
-		pygame.draw.rect(screen, a_color, (x, y, int(w * ngen / 2000), h))
+		pygame.draw.rect(screen, a_color, (x, y, int(w * ngen / 5000), h))
 	elif ngen_selector:
 		pygame.draw.rect(screen, a_color, (x, y, ngen_selector, h))
-		ngen = int(2000 * ngen_selector / w)
+		ngen = int(5000 * ngen_selector / w)
 
 	# defining text box area and font properties
 	small_text = pygame.font.Font('freesansbold.ttf', 14)
