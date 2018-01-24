@@ -225,6 +225,7 @@ def game_intro():
 			elif event.type == KEYDOWN:
 				if event.unicode.isalpha() or event.unicode == ' ':
 					name += event.unicode
+		# checks if the backspace key is held down
 		_keys = pygame.key.get_pressed()
 		if _keys[K_BACKSPACE]:
 			name = name[:-1]
