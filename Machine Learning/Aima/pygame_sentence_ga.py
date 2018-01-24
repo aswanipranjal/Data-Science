@@ -1,6 +1,10 @@
+# author: ad71
 # A simple program that implements the solution to the phrase generation problem using
 # genetic algorithms as given in the search.ipynb notebook.
 # 
+# Type on the home screen to change the target phrase
+# Click on the slider to change genetic algorithm parameters
+# Click 'GO' to run the algorithm with the specified variables
 # Displays best individual of the current generation
 # Displays a progress bar that indicates the amount of completion of the algorithm
 # Displays the first few individuals of the current generation
