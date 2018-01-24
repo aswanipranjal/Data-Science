@@ -214,6 +214,7 @@ def game_intro():
 	intro = True
 	global target
 	name = 'Genetic Algorithm'
+	cursor_color = black
 	while intro:
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
@@ -241,9 +242,7 @@ def game_intro():
 		screen.blit(m_text_surface, m_text_rect)
 
 		# draws cursor next to text box
-		cursor_color = black
 		if framecount % 10 == 0:
-			print('change')
 			cursor_color = change_color(cursor_color)
 		pygame.draw.rect(screen, cursor_color, (m_text_rect[0] + m_text_rect[2], m_text_rect[1], 2, m_text_rect[3]))
 
