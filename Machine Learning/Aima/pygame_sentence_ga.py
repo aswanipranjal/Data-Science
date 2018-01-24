@@ -241,7 +241,8 @@ def game_intro():
 
 		# draws cursor next to text box
 		cursor_color = black
-		if pygame.time.get_ticks() % 400 == 0:
+		if pygame.time.get_ticks() % 5 == 0:
+			print('change')
 			cursor_color = change_color(cursor_color)
 		pygame.draw.rect(screen, cursor_color, (m_text_rect[0] + m_text_rect[2], m_text_rect[1], 2, m_text_rect[3]))
 
