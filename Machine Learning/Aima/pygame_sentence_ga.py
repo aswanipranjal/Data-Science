@@ -210,6 +210,7 @@ def quitgame():
 # click on the sliders to change the values of the other parameters
 # click go to run the genetic algorithm with the defined parameters and click exit to close the program
 def game_intro():
+	framecount = 0
 	intro = True
 	global target
 	name = 'Genetic Algorithm'
@@ -241,7 +242,7 @@ def game_intro():
 
 		# draws cursor next to text box
 		cursor_color = black
-		if pygame.time.get_ticks() % 5 == 0:
+		if framecount % 10 == 0:
 			print('change')
 			cursor_color = change_color(cursor_color)
 		pygame.draw.rect(screen, cursor_color, (m_text_rect[0] + m_text_rect[2], m_text_rect[1], 2, m_text_rect[3]))
@@ -257,6 +258,7 @@ def game_intro():
 		f_ngen_selector('Max number of generations', display_width*0.1, display_height*0.65, display_width*0.8, 10, p_blue, light_p_blue)
 
 		pygame.display.update()
+		framecount += 1
 		clock.tick(15)
 
 def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200, pmut=0.1):
