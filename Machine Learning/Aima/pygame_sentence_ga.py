@@ -177,6 +177,11 @@ def f_ngen_selector(msg, x, y, w, h, i_color, a_color):
 		pygame.draw.rect(screen, a_color, (x, y, ngen_selector, h))
 		ngen = int(2000 * ngen_selector / w)
 
+	small_text = pygame.font.Font('freesansbold.ttf', 14)
+	m_text_surface, m_text_rect = text_objects(msg + ' ' + str(ngen), small_text, i_color)
+	m_text_rect.center = ((x + (w / 2)), (y + (h /2) - 14))
+	screen.blit(m_text_surface, m_text_rect)
+
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
