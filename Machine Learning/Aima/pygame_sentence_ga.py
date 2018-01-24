@@ -34,8 +34,9 @@ clock = pygame.time.Clock()
 # feel free to play around with these
 target = 'Genetic Algorithm' # the phrase to be generated
 max_population = 100 # number of samples in each population
-mutation_rate = 0.1 
+mutation_rate = 0.1 # probability of mutation
 f_thres = len(target) # fitness threshold
+ngen = 1200 # max number of generations to run the genetic algorithm
 
 # selector values to select the ga variables in the home screen
 max_population_selector = None
@@ -296,7 +297,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
-	solution = game_loop(population, fitness_fn, gene_pool=gene_pool, f_thres=f_thres, pmut=mutation_rate, ngen=400)
+	solution = game_loop(population, fitness_fn, gene_pool=gene_pool, f_thres=f_thres, pmut=mutation_rate, ngen=ngen)
 
 if __name__ == '__main__':
 	# pygame.quit()
