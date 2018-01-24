@@ -189,6 +189,11 @@ def change_color(color):
 	else:
 		return white
 
+# function to quit the game
+def quitgame():
+	pygame.quit()
+	quit()
+
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
@@ -199,11 +204,6 @@ def fitness_fn(_list):
 		if target[i] == phrase[i]:
 			fitness += 1
 	return fitness
-
-# function to quit the game
-def quitgame():
-	pygame.quit()
-	quit()
 
 # function to display the home screen
 # start typing on the home screen to change the target value
