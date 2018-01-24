@@ -8,6 +8,8 @@
 # Displays best individual of the current generation
 # Displays a progress bar that indicates the amount of completion of the algorithm
 # Displays the first few individuals of the current generation
+# 
+# requires pygame library (pip install pygame)
 
 import time
 import random

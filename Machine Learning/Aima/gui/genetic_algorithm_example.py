@@ -9,6 +9,8 @@
 # Displays a progress bar that indicates the amount of completion of the algorithm
 # Displays the first few individuals of the current generation
 
+# pygame required (pip install pygame)
+
 import time
 import random
 import pygame
