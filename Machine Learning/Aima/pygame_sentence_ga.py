@@ -233,7 +233,7 @@ def game_intro():
 		m_text_rect.center = ((display_width/2), (display_height * 0.2))
 		screen.blit(m_text_surface, m_text_rect)
 
-		pygame.draw.rect(screen, black, (m_text_rect[0] + m_text_rect[2], m_text_rect[1], 2, m_text_rect[1] + m_text_rect[3]))
+		pygame.draw.rect(screen, black, (m_text_rect[0] + m_text_rect[2], m_text_rect[1], 2, m_text_rect[3]))
 
 		# function calls to create the `GO` and `EXIT` buttons
 		button('GO', 100, 450, 100, 50, p_blue, light_p_blue, main)
