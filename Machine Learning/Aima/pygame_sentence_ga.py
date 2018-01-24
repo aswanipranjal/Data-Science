@@ -186,8 +186,7 @@ def f_ngen_selector(msg, x, y, w, h, i_color, a_color):
 def change_color(color):
 	if color == white:
 		return black
-	else:
-		return white
+	return white
 
 # function to quit the game
 def quitgame():
