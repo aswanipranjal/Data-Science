@@ -225,11 +225,9 @@ def game_intro():
 			elif event.type == KEYDOWN:
 				if event.unicode.isalpha() or event.unicode == ' ':
 					name += event.unicode
-				elif event.key == K_BACKSPACE:
-					name = name[:-1]
 		_keys = pygame.key.get_pressed()
-		if _keys[pygame.K_BACKSPACE]:
-			name = ''
+		if _keys[K_BACKSPACE]:
+			name = name[:-1]
 
 		# target variable changes only when the length of `name` if greater than 0
 		if len(name) > 0:
