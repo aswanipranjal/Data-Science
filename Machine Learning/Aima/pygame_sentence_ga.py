@@ -290,7 +290,6 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 			# checks for completion
 			fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 			if fittest_individual:
-				print('fittest_individual')
 				finished = True
 				# return fittest_individual
 
