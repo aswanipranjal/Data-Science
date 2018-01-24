@@ -240,6 +240,9 @@ def game_intro():
 		screen.blit(m_text_surface, m_text_rect)
 
 		# draws cursor next to text box
+		cursor_color = black
+		if pygame.time.get_ticks() % 400 == 0:
+			cursor_color = change_color(cursor_color)
 		pygame.draw.rect(screen, cursor_color, (m_text_rect[0] + m_text_rect[2], m_text_rect[1], 2, m_text_rect[3]))
 
 		# function calls to create the `GO` and `EXIT` buttons
