@@ -174,7 +174,10 @@ def quitgame():
 	pygame.quit()
 	quit()
 
-
+# function to display the home screen
+# start typing on the home screen to change the target value
+# click on the sliders to change the values of the other parameters
+# click go to run the genetic algorithm with the defined parameters and click exit to close the program
 def game_intro():
 	intro = True
 	global target
@@ -184,24 +187,32 @@ def game_intro():
 			if event.type == pygame.QUIT:
 				intro = False
 				quitgame()
+			# accepts keypresses from the user, and if it is an alphabet, it will be appended to the variable 'name'
+			# to accept punctuation marks, replace the first if statement with `if event.unicode:`
+			# also change the gene pool if you do this, or the genetic algorithm will not be able to converge
 			elif event.type == KEYDOWN:
 				if event.unicode.isalpha() or event.unicode == ' ':
 					name += event.unicode
 				elif event.key == K_BACKSPACE:
 					name = name[:-1]
-				# elif event.key == K_RETURN:
-				# 	name = ''
 
+		# target variable changes only when the length of `name` if greater than 0
 		if len(name) > 0:
 			target = name
+
+		# clear the screen
 		screen.fill(white)
+		# defining text box area and font properties
 		large_text = pygame.font.SysFont('Consolas', 60, bold=True)
 		m_text_surface, m_text_rect = text_objects(name, large_text, p_blue)
 		m_text_rect.center = ((display_width/2), (display_height * 0.2))
 		screen.blit(m_text_surface, m_text_rect)
 
+		# function calls to create the `GO` and `EXIT` buttons
 		button('GO', 100, 450, 100, 50, p_blue, light_p_blue, main)
 		button('EXIT', 600, 450, 100, 50, p_blue, light_p_blue, quitgame)
+
+		# functions to create the sliders
 		f_max_population_selector('Max population size', display_width*0.1, display_height*0.4, display_width*0.8, 10, p_blue, light_p_blue)
 		f_mutation_rate_selector('Mutation rate', display_width*0.1, display_height*0.5, display_width*0.8, 10, p_blue, light_p_blue)
 		f_fthres_selector('Fitness threshold', display_width*0.1, display_height*0.6, display_width*0.8, 10, p_blue, light_p_blue)
