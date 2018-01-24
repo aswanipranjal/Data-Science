@@ -169,7 +169,7 @@ def f_ngen_selector(msg, x, y, w, h, i_color, a_color):
 	if x + w > mouse[0] > x and y + h > mouse[1] > y:
 		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
 		if click[0] == 1:
-			f_ngen_selector = mouse[0] - x
+			ngen_selector = mouse[0] - x
 
 	if ngen and not ngen_selector:
 		pygame.draw.rect(screen, a_color, (x, y, int(w * ngen / 2000), h))
@@ -242,6 +242,7 @@ def game_intro():
 		f_mutation_rate_selector('Mutation rate', display_width*0.1, display_height*0.45, display_width*0.8, 10, p_blue, light_p_blue)
 		f_fthres_selector('Fitness threshold', display_width*0.1, display_height*0.55, display_width*0.8, 10, p_blue, light_p_blue)
 		f_ngen_selector('Max number of generations', display_width*0.1, display_height*0.65, display_width*0.8, 10, p_blue, light_p_blue)
+
 		pygame.display.update()
 		clock.tick(15)
 
