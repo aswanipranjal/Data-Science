@@ -13,7 +13,6 @@ from pygame.locals import *
 
 # imports from aimacode files
 import search
-import random
 from utils import argmax
 
 pygame.init()
@@ -38,7 +37,7 @@ max_population = 100 # number of samples in each population
 mutation_rate = 0.1 
 f_thres = len(target) # fitness threshold
 
-# selector values
+# selector values to select the ga variables in the home screen
 max_population_selector = None
 mutation_rate_selector = None
 f_thres_selector = None
@@ -65,7 +64,9 @@ def text_objects(text, font, color):
 
 # helper function to create a button
 def button(msg, x, y, w, h, i_color, a_color, action=None):
+	# gets mouse position
 	mouse = pygame.mouse.get_pos()
+	# gets mouse click position
 	click = pygame.mouse.get_pressed()
 
 	if x + w > mouse[0] > x and y + h > mouse[1] > y:
@@ -75,16 +76,23 @@ def button(msg, x, y, w, h, i_color, a_color, action=None):
 	else:
 		pygame.draw.rect(screen, i_color, (x, y, w, h))
 
+	# defining text box area and font properties
 	small_text = pygame.font.SysFont('Consolas', 16)
 	m_text_surface, m_text_rect = text_objects(msg, small_text, white)
 	m_text_rect.center = ((x + (w / 2)), (y + (h / 2)))
 	screen.blit(m_text_surface, m_text_rect)
 
+
+# The three following helper functions help the user to select the values of the ga variables on the home screen
+# These functions can be combined into one by not using global variables. To be done in a future patch
 def f_max_population_selector(msg, x, y, w, h, i_color, a_color):
+	# (apologies for using global variables)
 	global max_population_selector
 	global max_population
+
 	mouse = pygame.mouse.get_pos()
 	click = pygame.mouse.get_pressed()
+	# draws outer rectangle
 	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
 	if x + w > mouse[0] > x and y + h > mouse[1] > y:
 		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
@@ -97,6 +105,7 @@ def f_max_population_selector(msg, x, y, w, h, i_color, a_color):
 		pygame.draw.rect(screen, a_color, (x, y, max_population_selector, h))
 		max_population = int(1000 * max_population_selector / w)
 
+	# defining text box area and font properties
 	small_text = pygame.font.Font('freesansbold.ttf', 14)
 	m_text_surface, m_text_rect = text_objects(msg + ' ' + str(max_population), small_text, i_color)
 	m_text_rect.center = ((x + (w / 2)), (y + (h / 2) - 14))
@@ -119,6 +128,7 @@ def f_mutation_rate_selector(msg, x, y, w, h, i_color, a_color):
 		pygame.draw.rect(screen, a_color, (x, y, mutation_rate_selector, h))
 		mutation_rate = 1 * mutation_rate_selector / w
 
+	# defining text box area and font properties
 	small_text = pygame.font.Font('freesansbold.ttf', 14)
 	m_text_surface, m_text_rect = text_objects(msg + ' ' + str(mutation_rate), small_text, i_color)
 	m_text_rect.center = ((x + (w / 2)), (y + (h / 2) - 14))
@@ -142,6 +152,7 @@ def f_fthres_selector(msg, x, y, w, h, i_color, a_color):
 		pygame.draw.rect(screen, a_color, (x, y, f_thres_selector, h))
 		f_thres = int(len(target) * f_thres_selector / w)
 
+	# defining text box area and font properties
 	small_text = pygame.font.Font('freesansbold.ttf', 14)
 	m_text_surface, m_text_rect = text_objects(msg + ' ' + str(f_thres), small_text, i_color)
 	m_text_rect.center = ((x + (w / 2)), (y + (h / 2) - 14))
@@ -158,9 +169,11 @@ def fitness_fn(_list):
 			fitness += 1
 	return fitness
 
+# function to quit the game
 def quitgame():
 	pygame.quit()
 	quit()
+
 
 def game_intro():
 	intro = True
