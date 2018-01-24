@@ -102,10 +102,10 @@ def f_max_population_selector(msg, x, y, w, h, i_color, a_color):
 			max_population_selector = mouse[0] - x
 
 	if max_population and not max_population_selector:
-		pygame.draw.rect(screen, a_color, (x, y, int(w * max_population / 1000), h))
+		pygame.draw.rect(screen, a_color, (x, y, int(w * (max_population - 2) / 1000), h))
 	elif max_population_selector:
 		pygame.draw.rect(screen, a_color, (x, y, max_population_selector, h))
-		max_population = int(1000 * max_population_selector / w)
+		max_population = int(1000 * max_population_selector / w) + 2
 
 	# defining text box area and font properties
 	small_text = pygame.font.Font('freesansbold.ttf', 14)
