@@ -242,7 +242,7 @@ def game_intro():
 		screen.blit(m_text_surface, m_text_rect)
 
 		# draws cursor next to text box
-		if framecount % 10 == 0:
+		if framecount % 7 == 0:
 			cursor_color = change_color(cursor_color)
 		pygame.draw.rect(screen, cursor_color, (m_text_rect[0] + m_text_rect[2], m_text_rect[1], 2, m_text_rect[3]))
 
