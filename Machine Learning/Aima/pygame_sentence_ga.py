@@ -238,9 +238,10 @@ def game_intro():
 		button('EXIT', 600, 450, 100, 50, p_blue, light_p_blue, quitgame)
 
 		# functions to create the sliders
-		f_max_population_selector('Max population size', display_width*0.1, display_height*0.4, display_width*0.8, 10, p_blue, light_p_blue)
-		f_mutation_rate_selector('Mutation rate', display_width*0.1, display_height*0.5, display_width*0.8, 10, p_blue, light_p_blue)
-		f_fthres_selector('Fitness threshold', display_width*0.1, display_height*0.6, display_width*0.8, 10, p_blue, light_p_blue)
+		f_max_population_selector('Max population size', display_width*0.1, display_height*0.35, display_width*0.8, 10, p_blue, light_p_blue)
+		f_mutation_rate_selector('Mutation rate', display_width*0.1, display_height*0.45, display_width*0.8, 10, p_blue, light_p_blue)
+		f_fthres_selector('Fitness threshold', display_width*0.1, display_height*0.55, display_width*0.8, 10, p_blue, light_p_blue)
+		f_ngen_selector('Max number of generations', display_width*0.1, display_height*0.65, display_width*0.8, 10, p_blue, light_p_blue)
 		pygame.display.update()
 		clock.tick(15)
 
