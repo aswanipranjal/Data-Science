@@ -171,6 +171,12 @@ def f_ngen_selector(msg, x, y, w, h, i_color, a_color):
 		if click[0] == 1:
 			f_ngen_selector = mouse[0] - x
 
+	if ngen and not ngen_selector:
+		pygame.draw.rect(screen, a_color, (x, y, int(w * ngen / 2000), h))
+	elif ngen_selector:
+		pygame.draw.rect(screen, a_color, (x, y, ngen_selector, h))
+		ngen = int(2000 * ngen_selector / w)
+
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
