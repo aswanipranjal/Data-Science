@@ -42,6 +42,7 @@ ngen = 1200 # max number of generations to run the genetic algorithm
 max_population_selector = None
 mutation_rate_selector = None
 f_thres_selector = None
+ngen_selector = None
 
 generation = 0 # counter to keep track of generation number
 
@@ -158,6 +159,17 @@ def f_fthres_selector(msg, x, y, w, h, i_color, a_color):
 	m_text_surface, m_text_rect = text_objects(msg + ' ' + str(f_thres), small_text, i_color)
 	m_text_rect.center = ((x + (w / 2)), (y + (h / 2) - 14))
 	screen.blit(m_text_surface, m_text_rect)
+
+def f_ngen_selector(msg, x, y, w, h, i_color, a_color):
+	global ngen_selector
+	global ngen
+	mouse = pygame.mouse.get_pos()
+	click = pygame.mouse.get_pressed()
+	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
+	if x + w > mouse[0] > x and y + h > mouse[1] > y:
+		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
+		if click[0] == 1:
+			f_ngen_selector = mouse[0] - x
 
 # fitness function
 def fitness_fn(_list):
