@@ -249,6 +249,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 			# checks for completion
 			fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 			if fittest_individual:
+				print('fittest_individual')
 				finished = True
 				# return fittest_individual
 
@@ -295,7 +296,7 @@ def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200,
 
 def main():
 	population = search.init_population(max_population, gene_pool, len(target))
-	solution = game_loop(population, fitness_fn, gene_pool=gene_pool, f_thres=len(target), pmut=mutation_rate, ngen=400)
+	solution = game_loop(population, fitness_fn, gene_pool=gene_pool, f_thres=f_thres, pmut=mutation_rate, ngen=400)
 
 if __name__ == '__main__':
 	# pygame.quit()
