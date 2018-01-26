@@ -89,8 +89,10 @@ class RunScreen(tk.Frame):
 
 		# button1 = ttk.Button(self, text='Visit Home Screen', command=lambda: controller.show_frame(HomeScreen))
 		# button1.pack()
-		label = tk.Label(self, text=target, font=EXTRA_LARGE_FONT)
-		label.pack(pady=10, padx=10)
+		# label = tk.Label(self, text=target, font=EXTRA_LARGE_FONT)
+		# label.pack(pady=25, padx=10)
+		population = search.init_population(max_population, gene_pool, len(target))
+		solution, generations = self.genetic_algorithm_stepwise(population, fitness_fn, f_thres=len(target), gene_pool=gene_pool, pmut=mutation_rate)
 
 app = GeneticAlgorithm()
 app.geometry('800x600')
