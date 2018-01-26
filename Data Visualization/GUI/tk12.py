@@ -72,5 +72,10 @@ class PageThree(tk.Frame):
 		button = ttk.Button(self, text='Back to home', command=lambda: controller.show_frame(StartPage))
 		button.pack()
 
+		fig = Figure(figsize=(5, 5), dpi=100)
+		sub = fig.add_subplot(111)
+		sub.plot([1, 2, 3, 4, 5, 6, 7, 8], [5, 6, 1, 3, 8, 9, 3, 5])
+		
+
 app = SeaofBTCapp()
 app.mainloop()
