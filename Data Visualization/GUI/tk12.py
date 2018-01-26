@@ -75,7 +75,8 @@ class SeaofBTCapp(tk.Tk):
 		exchange_menu.add_command(label='Bitfinex', command=lambda: change_exchange('Bitfinex', 'bitfinex'))
 		exchange_menu.add_command(label='Bitstamp', command=lambda: change_exchange('Bitstamp', 'bitstamp'))
 		exchange_menu.add_command(label='Huobi', command=lambda: change_exchange('Huobi', 'huobi'))
-
+		menu_bar.add_cascade(label='Exchange', menu=exchange_menu)
+		
 		tk.Tk.config(self, menu=menu_bar)
 
 		self.frames = {}
