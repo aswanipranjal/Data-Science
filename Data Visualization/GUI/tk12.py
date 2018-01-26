@@ -43,8 +43,10 @@ class PageOne(tk.Frame):
 		tk.Frame.__init__(self, parent)
 		label = tk.Label(self, text='Page One', font=LARGE_FONT)
 		label.pack(pady=10, padx=10)
-		button = tk.Button(self, text='Back to home', command=lambda: controller.show_frame(StartPage))
-		button.pack()
+		button1 = tk.Button(self, text='Back to home', command=lambda: controller.show_frame(StartPage))
+		button1.pack()
+		button2 = tk.Button(self, text='Visit Page 2', command=lambda: controller.show_frame(PageTwo))
+		button2.pack()
 
 class PageTwo(tk.Frame):
 	def __init__(self, parent, controller):
