@@ -11,6 +11,17 @@ matplotlib.use('TkAgg')
 LARGE_FONT = ('Verdana', 12)
 style.use('ggplot')
 
+def animate(i):
+	pull_data = open('sampledata.txt', 'r').read()
+	data_list = pull_data.split('\n')
+	x_list = []
+	y_list = []
+	for each_line in data_list:
+		if len(each_line) > 1:
+			x, y = each_line.split(',')
+			x_list.append(int(x))
+			y_list.append(int(y))
+
 class SeaofBTCapp(tk.Tk):
 	def __init__(self, *args, **kwargs):
 		tk.Tk.__init__(self, *args, **kwargs)
