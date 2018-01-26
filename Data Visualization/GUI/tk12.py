@@ -6,12 +6,13 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolb
 from matplotlib.figure import Figure
 import matplotlib.animation as animation
 from matplotlib import style
+from matplotlib import pyplot as plt
 matplotlib.use('TkAgg')
 
 LARGE_FONT = ('Verdana', 12)
 style.use('ggplot')
 
-fig = Figure(figsize=(10, 5), dpi=100)
+fig = Figure()
 sub = fig.add_subplot(111)
 # sub.plot([1, 2, 3, 4, 5, 6, 7, 8], [5, 6, 1, 3, 8, 9, 3, 5])
 
@@ -104,5 +105,6 @@ class PageThree(tk.Frame):
 		canvas._tkcanvas.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
 
 app = SeaofBTCapp()
+app.geometry('1280x720')
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 app.mainloop()
