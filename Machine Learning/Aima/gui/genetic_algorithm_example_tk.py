@@ -20,6 +20,21 @@ mutation_rate = 0.1 # probability of mutation
 f_thres = len(target) # fitness threshold
 ngen = 1200 # max number of generations to run the genetic algorithm
 
+generation = 0 # counter to keep track of generation number
+
+u_case = [chr(x) for x in range(65, 91)] 		# list containing all uppercase characters
+l_case = [chr(x) for x in range(97, 123)]		# list containing all lowercase characters
+punctuations1 = [chr(x) for x in range(33, 48)]	# lists containing punctuation symbols
+punctuations2 = [chr(x) for x in range(58, 65)]
+punctuations3 = [chr(x) for x in range(91, 97)]
+numerals = [chr(x) for x in range(48, 58)]		# list containing numbers
+
+# extend the gene pool with the required lists and append the space character
+gene_pool = []
+gene_pool.extend(u_case)
+gene_pool.extend(l_case)
+gene_pool.append(' ')
+
 class GeneticAlgorithm(tk.Tk):
 	def __init__(self, *args, **kwargs):
 		tk.Tk.__init__(self, *args, **kwargs)
