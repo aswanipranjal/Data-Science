@@ -11,10 +11,11 @@ import search
 from utils import argmax
 
 LARGE_FONT = ('Verdana', 12)
+EXTRA_LARGE_FONT = ('Consolas', 40)
 
 # genetic algorithm variables
 # feel free to play around with these
-target = 'Genetic Algorithm' # the phrase to be generated
+target = 'FUCK YOU!' # the phrase to be generated
 max_population = 100 # number of samples in each population
 mutation_rate = 0.1 # probability of mutation
 f_thres = len(target) # fitness threshold
@@ -45,7 +46,7 @@ def fitness_fn(_list):
 		if target[i] == phrase[i]:
 			fitness += 1
 	return fitness
-	
+
 class GeneticAlgorithm(tk.Tk):
 	def __init__(self, *args, **kwargs):
 		tk.Tk.__init__(self, *args, **kwargs)
@@ -74,6 +75,8 @@ class HomeScreen(tk.Frame):
 
 		# button1 = ttk.Button(self, text='Visit Run Screen', command=lambda: controller.show_frame(RunScreen))
 		# button1.pack()
+		label = ttk.Label(self, text=target, font=EXTRA_LARGE_FONT)
+		label.pack(pady=10, padx=10)
 
 class RunScreen(tk.Frame):
 	def __init__(self, parent, controller):
