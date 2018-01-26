@@ -93,7 +93,7 @@ class RunScreen(tk.Frame):
 		# label.pack(pady=25, padx=10)
 		population = search.init_population(max_population, gene_pool, len(target))
 		# self.genetic_algorithm_stepwise(population, fitness_fn, gene_pool, len(target), ngen, mutation_rate)
-		v = StringVar()
+		v = tk.StringVar()
 		tk.Label(self, textvariable=v).pack(pady=25, padx=10)
 		print('In this function')
 		for i in range(ngen):
@@ -105,8 +105,9 @@ class RunScreen(tk.Frame):
 			if fittest_individual:
 				finished = True
 
-			label.configure(text=current_best)
-			label.update()
+			v.set(current_best)
+			# label.configure(text=current_best)
+			# label.update()
 			print(i)
 
 app = GeneticAlgorithm()
