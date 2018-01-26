@@ -32,7 +32,7 @@ class StartPage(tk.Frame):
 		button1 = tk.Button(self, text='Visit Page 1', command=lambda: controller.show_frame(PageOne))
 		button1.pack()
 
-class PageOne(tf.Frame):
+class PageOne(tk.Frame):
 	def __init__(self, parent, controller):
 		tf.Frame.__init__(self, parent)
 		label = tk.Label(self, text='Page One', font=LARGE_FONT)
