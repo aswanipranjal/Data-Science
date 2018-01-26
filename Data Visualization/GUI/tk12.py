@@ -18,6 +18,18 @@ fig = Figure()
 sub = fig.add_subplot(111)
 # sub.plot([1, 2, 3, 4, 5, 6, 7, 8], [5, 6, 1, 3, 8, 9, 3, 5])
 
+exchange = 'BTC-e'
+dat_counter = 9000
+program_name = 'btce'
+
+def change_exchange(to_what, pn):
+	global exchange
+	global dat_counter
+	global program_name
+	exchange = to_what
+	program_name = pn
+	dat_counter = 9000
+
 def popupmsg(text):
 	popup = tk.Tk()
 	popup.wm_title('!')
