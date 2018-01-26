@@ -12,6 +12,14 @@ from utils import argmax
 
 LARGE_FONT = ('Verdana', 12)
 
+# genetic algorithm variables
+# feel free to play around with these
+target = 'Genetic Algorithm' # the phrase to be generated
+max_population = 100 # number of samples in each population
+mutation_rate = 0.1 # probability of mutation
+f_thres = len(target) # fitness threshold
+ngen = 1200 # max number of generations to run the genetic algorithm
+
 class GeneticAlgorithm(tk.Tk):
 	def __init__(self, *args, **kwargs):
 		tk.Tk.__init__(self, *args, **kwargs)
