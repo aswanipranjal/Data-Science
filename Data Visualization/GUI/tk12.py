@@ -1,5 +1,7 @@
 import tkinter as tk
 
+LARGE_FONT = ('Verdana', 12)
+
 class SeaofBTCapp(tk.Tk):
 	def __init__(self, *args, **kwargs):
 		tk.Tk.__init__(self, *args, **kwargs)
@@ -19,4 +21,6 @@ class SeaofBTCapp(tk.Tk):
 		frame.tkraise()
 
 class StartPage(tk.Frame):
-	
+	def __init__(self, parent, controller):
+		tf.Frame.__init__(self, parent)
+		label = tk.Label(self, text='Start Page', font=LARGE_FONT)
