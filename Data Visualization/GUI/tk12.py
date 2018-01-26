@@ -24,3 +24,7 @@ class StartPage(tk.Frame):
 	def __init__(self, parent, controller):
 		tf.Frame.__init__(self, parent)
 		label = tk.Label(self, text='Start Page', font=LARGE_FONT)
+		label.pack(pady=10, padx=10)
+
+app = SeaofBTCapp()
+app.mainloop()
