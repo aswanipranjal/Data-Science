@@ -38,4 +38,5 @@ class HomeScreen(tk.Frame):
 		label = ttk.Label(self, text='Start Page', font=LARGE_FONT)
 		label.pack(pady=10, padx=10)
 
-		button1 = ttk.Button(self, text='Visit Page 1', command=lambda: controller)
+		button1 = ttk.Button(self, text='Visit Page 1', command=lambda: placeholder_function())
+		button1.pack()
