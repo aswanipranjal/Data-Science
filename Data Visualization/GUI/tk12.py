@@ -10,6 +10,8 @@ from matplotlib import pyplot as plt
 matplotlib.use('TkAgg')
 
 LARGE_FONT = ('Verdana', 12)
+NORMAL_FONT = ('Verdana', 10)
+SMALL_FONT = ('Verdana', 8)
 style.use('ggplot')
 
 fig = Figure()
@@ -17,7 +19,13 @@ sub = fig.add_subplot(111)
 # sub.plot([1, 2, 3, 4, 5, 6, 7, 8], [5, 6, 1, 3, 8, 9, 3, 5])
 
 def popupmsg(text):
-	print(text)
+	popup = tk.Tk()
+	popup.wm_title('!')
+	label = ttk.Label(popup, text=msg, font=NORMAL_FONT)
+	label.pack(side=tk.TOP, fill=tk.X, pady=10)
+	button1 = ttk.Button(popup, text='OK', command=quitpopup)
+	button1.pack()
+	popup.mainloop()
 
 def animate(i):
 	pull_data = open('sampledata.txt', 'r').read()
