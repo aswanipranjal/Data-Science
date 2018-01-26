@@ -21,7 +21,7 @@ sub = fig.add_subplot(111)
 def popupmsg(text):
 	popup = tk.Tk()
 	popup.wm_title('!')
-	label = ttk.Label(popup, text=msg, font=NORMAL_FONT)
+	label = ttk.Label(popup, text=text, font=NORMAL_FONT)
 	label.pack(side=tk.TOP, fill=tk.X, pady=10)
 	button1 = ttk.Button(popup, text='OK', command=popup.destroy)
 	button1.pack()
