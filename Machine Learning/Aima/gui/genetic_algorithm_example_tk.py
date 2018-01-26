@@ -108,7 +108,7 @@ class RunScreen(tk.Frame):
 				finished = True
 
 			label.configure(text=current_best)
-			print(i)
+			self.update()
 
 app = GeneticAlgorithm()
 app.geometry('800x600')
