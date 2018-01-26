@@ -40,13 +40,13 @@ class SeaofBTCapp(tk.Tk):
 		container.grid_rowconfigure(0, weight=1)
 		container.grid_columnconfigure(0, weight=1)
 		
-		menu_bar = tk.Menu(container)
-		file_menu = tk.Menu(menu_bar, tearoff=0)
-		file_menu.add_command(label='Save settings', command=lambda: popupmsg('Not supported just yet!'))
-		file_menu.add_separator()
-		file_menu.add_command(label='Exit', command=quit())
-		menu_bar.add_cascade(label='File', menu=file_menu)
-		tk.Tk.config(self, menu=menu_bar)
+		# menu_bar = tk.Menu(container)
+		# file_menu = tk.Menu(menu_bar, tearoff=0)
+		# file_menu.add_command(label='Save settings', command=lambda: popupmsg('Not supported just yet!'))
+		# file_menu.add_separator()
+		# file_menu.add_command(label='Exit', command=quit())
+		# menu_bar.add_cascade(label='File', menu=file_menu)
+		# tk.Tk.config(self, menu=menu_bar)
 
 		self.frames = {}
 
