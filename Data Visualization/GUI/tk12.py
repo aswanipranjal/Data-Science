@@ -20,14 +20,10 @@ sub = fig.add_subplot(111)
 
 def popupmsg(text):
 	popup = tk.Tk()
-
-	def quitpopup():
-		popup.destroy()
-		
 	popup.wm_title('!')
 	label = ttk.Label(popup, text=msg, font=NORMAL_FONT)
 	label.pack(side=tk.TOP, fill=tk.X, pady=10)
-	button1 = ttk.Button(popup, text='OK', command=quitpopup)
+	button1 = ttk.Button(popup, text='OK', command=popup.destroy)
 	button1.pack()
 	popup.mainloop()
 
