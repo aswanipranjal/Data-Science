@@ -16,6 +16,9 @@ fig = Figure()
 sub = fig.add_subplot(111)
 # sub.plot([1, 2, 3, 4, 5, 6, 7, 8], [5, 6, 1, 3, 8, 9, 3, 5])
 
+def popupmsg(text):
+	print(text)
+
 def animate(i):
 	pull_data = open('sampledata.txt', 'r').read()
 	data_list = pull_data.split('\n')
@@ -40,13 +43,13 @@ class SeaofBTCapp(tk.Tk):
 		container.grid_rowconfigure(0, weight=1)
 		container.grid_columnconfigure(0, weight=1)
 		
-		# menu_bar = tk.Menu(container)
-		# file_menu = tk.Menu(menu_bar, tearoff=0)
-		# file_menu.add_command(label='Save settings', command=lambda: popupmsg('Not supported just yet!'))
-		# file_menu.add_separator()
-		# file_menu.add_command(label='Exit', command=quit())
-		# menu_bar.add_cascade(label='File', menu=file_menu)
-		# tk.Tk.config(self, menu=menu_bar)
+		menu_bar = tk.Menu(container)
+		file_menu = tk.Menu(menu_bar, tearoff=0)
+		file_menu.add_command(label='Save settings', command=lambda: popupmsg('Not supported just yet!'))
+		file_menu.add_separator()
+		file_menu.add_command(label='Exit', command=quit())
+		menu_bar.add_cascade(label='File', menu=file_menu)
+		tk.Tk.config(self, menu=menu_bar)
 
 		self.frames = {}
 
