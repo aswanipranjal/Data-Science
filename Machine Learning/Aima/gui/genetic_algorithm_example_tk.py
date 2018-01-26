@@ -12,9 +12,6 @@ from utils import argmax
 
 LARGE_FONT = ('Verdana', 12)
 
-def placeholder_function():
-	print('placeholder_function')
-
 class GeneticAlgorithm(tk.Tk):
 	def __init__(self, *args, **kwargs):
 		tk.Tk.__init__(self, *args, **kwargs)
@@ -41,7 +38,7 @@ class HomeScreen(tk.Frame):
 		label = ttk.Label(self, text='Home Screen', font=LARGE_FONT)
 		label.pack(pady=10, padx=10)
 
-		button1 = ttk.Button(self, text='Visit Run Screen', command=lambda: placeholder_function())
+		button1 = ttk.Button(self, text='Visit Run Screen', command=lambda: controller.show_frame(RunScreen))
 		button1.pack()
 
 class RunScreen(tk.Frame):
@@ -50,7 +47,7 @@ class RunScreen(tk.Frame):
 		label = ttk.Label(self, text='Run Screen', font=LARGE_FONT)
 		label.pack(pady=10, padx=10)
 
-		button1 = ttk.Button(self, text='Visit Home Screen', command=lambda: placeholder_function())
+		button1 = ttk.Button(self, text='Visit Home Screen', command=lambda: controller.show_frame(HomeScreen))
 		button1.pack()
 
 app = GeneticAlgorithm()
