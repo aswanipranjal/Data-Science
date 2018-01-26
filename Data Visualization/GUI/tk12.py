@@ -23,9 +23,6 @@ class SeaofBTCapp(tk.Tk):
 		frame = self.frames[controller]
 		frame.tkraise()
 
-def qf(text):
-	print(text)
-
 class StartPage(tk.Frame):
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
