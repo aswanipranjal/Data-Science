@@ -6,12 +6,13 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 import tkinter as tk
 from tkinter import ttk
+from tkinter import font
 
 import search
 from utils import argmax
 
 LARGE_FONT = ('Verdana', 12)
-EXTRA_LARGE_FONT = ('Consolas', 40)
+RUN_FONT = font.Font(family='Consolas', size=36, weight='bold')
 
 # genetic algorithm variables
 # feel free to play around with these
@@ -88,7 +89,7 @@ class RunScreen(tk.Frame):
 
 		# button1 = ttk.Button(self, text='Visit Home Screen', command=lambda: controller.show_frame(HomeScreen))
 		# button1.pack()
-		label = ttk.Label(self, text=target, font=EXTRA_LARGE_FONT)
+		label = ttk.Label(self, text=target, font=RUN_FONT)
 		label.pack(pady=10, padx=10)
 
 app = GeneticAlgorithm()
