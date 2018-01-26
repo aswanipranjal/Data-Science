@@ -61,5 +61,13 @@ class PageTwo(tk.Frame):
 		button = ttk.Button(self, text='Back to home', command=lambda: controller.show_frame(StartPage))
 		button.pack()
 
+class PageThree(tk.Frame):
+	def __init__(self, parent, controller):
+		tk.Frame.__init__(self, parent)
+		label = ttk.Label(self, text='Graph Page', font=LARGE_FONT)
+		label.pack(pady=10, padx=10)
+		button = ttk.Button(self, text='Back to home', command=lambda: controller.show_frame(StartPage))
+		button.pack()
+
 app = SeaofBTCapp()
 app.mainloop()
