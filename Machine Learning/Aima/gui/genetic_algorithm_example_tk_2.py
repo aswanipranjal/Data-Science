@@ -45,3 +45,5 @@ def fitness_fn(_list):
 		if target[i] == phrase[i]:
 			fitness += 1
 	return fitness
+
+root = Tk()
