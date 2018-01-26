@@ -16,7 +16,7 @@ EXTRA_LARGE_FONT = ('Consolas', 36, 'bold')
 
 # genetic algorithm variables
 # feel free to play around with these
-target = 'inline function!' # the phrase to be generated
+target = 'Genetic Algorithm' # the phrase to be generated
 max_population = 100 # number of samples in each population
 mutation_rate = 0.1 # probability of mutation
 f_thres = len(target) # fitness threshold
@@ -97,6 +97,7 @@ class RunScreen(tk.Frame):
 	def genetic_algorithm_stepwise(self, population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200, pmut=0.1):
 		label = tk.Label(self, text='', font=EXTRA_LARGE_FONT)
 		label.pack(pady=25, padx=10)
+		print('In this function')
 		for i in range(ngen):
 			population =[search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
 			current_best = ''.join(argmax(population, key=fitness_fn))
@@ -107,6 +108,7 @@ class RunScreen(tk.Frame):
 				finished = True
 
 			label.configure(text=current_best)
+			print(i)
 
 app = GeneticAlgorithm()
 app.geometry('800x600')
