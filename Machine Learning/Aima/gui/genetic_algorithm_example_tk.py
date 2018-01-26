@@ -35,20 +35,20 @@ class GeneticAlgorithm(tk.Tk):
 class HomeScreen(tk.Frame):
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
-		label = ttk.Label(self, text='Home Screen', font=LARGE_FONT)
-		label.pack(pady=10, padx=10)
+		# label = ttk.Label(self, text='Home Screen', font=LARGE_FONT)
+		# label.pack(pady=10, padx=10)
 
-		button1 = ttk.Button(self, text='Visit Run Screen', command=lambda: controller.show_frame(RunScreen))
-		button1.pack()
+		# button1 = ttk.Button(self, text='Visit Run Screen', command=lambda: controller.show_frame(RunScreen))
+		# button1.pack()
 
 class RunScreen(tk.Frame):
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
-		label = ttk.Label(self, text='Run Screen', font=LARGE_FONT)
-		label.pack(pady=10, padx=10)
+		# label = ttk.Label(self, text='Run Screen', font=LARGE_FONT)
+		# label.pack(pady=10, padx=10)
 
-		button1 = ttk.Button(self, text='Visit Home Screen', command=lambda: controller.show_frame(HomeScreen))
-		button1.pack()
+		# button1 = ttk.Button(self, text='Visit Home Screen', command=lambda: controller.show_frame(HomeScreen))
+		# button1.pack()
 
 app = GeneticAlgorithm()
 app.geometry('800x600')
