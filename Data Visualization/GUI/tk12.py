@@ -82,7 +82,9 @@ class PageThree(tk.Frame):
 
 		toolbar = NavigationToolbar2TkAgg(canvas, self)
 		toolbar.update()
-		canvas._tkcanvas.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+		# write side=tk.TOP to bring the toolbar to the bottom
+		# write side=tk.BOTTOM to bring the toolbar to the top
+		canvas._tkcanvas.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
 
 app = SeaofBTCapp()
 app.mainloop()
