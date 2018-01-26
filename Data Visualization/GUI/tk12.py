@@ -10,3 +10,8 @@ class SeaofBTCapp(tk.Tk):
 		
 		self.frames = {}
 		frame = start_page(container, self)
+		self.frames[start_page] = frame
+		frame.grid(row=0, column=0, sticky='nsew')
+		self.show_frame(start_page)
+
+	
