@@ -6,6 +6,8 @@ LARGE_FONT = ('Verdana', 12)
 class SeaofBTCapp(tk.Tk):
 	def __init__(self, *args, **kwargs):
 		tk.Tk.__init__(self, *args, **kwargs)
+		# tk.Tk.iconbitmap(self, default='<your-icon-here>.ico')
+		tk.Tk.wm_title(self, 'Sea of BTC client')
 		container = tk.Frame(self)
 		container.pack(side='top', fill='both', expand=True)
 		container.grid_rowconfigure(0, weight=1)
