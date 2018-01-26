@@ -12,7 +12,7 @@ class SeaofBTCapp(tk.Tk):
 		
 		self.frames = {}
 
-		for F in (StartPage, PageOne):
+		for F in (StartPage, PageOne, PageTwo):
 			frame = F(container, self)
 			self.frames[F] = frame
 			frame.grid(row=0, column=0, sticky='nsew')
