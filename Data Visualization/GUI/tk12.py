@@ -20,7 +20,7 @@ class SeaofBTCapp(tk.Tk):
 		
 		self.frames = {}
 
-		for F in (StartPage, PageOne, PageTwo):
+		for F in (StartPage, PageOne, PageTwo, PageThree):
 			frame = F(container, self)
 			self.frames[F] = frame
 			frame.grid(row=0, column=0, sticky='nsew')
@@ -42,6 +42,9 @@ class StartPage(tk.Frame):
 
 		button2 = ttk.Button(self, text='Visit Page 2', command=lambda: controller.show_frame(PageTwo))
 		button2.pack()
+
+		button3 = ttk.Button(self, text='Graph Page', command=lambda: controller.show_frame(PageThree))
+		button3.pack()
 
 class PageOne(tk.Frame):
 	def __init__(self, parent, controller):
