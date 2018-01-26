@@ -104,4 +104,5 @@ class PageThree(tk.Frame):
 		canvas._tkcanvas.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
 
 app = SeaofBTCapp()
+ani = animation.FuncAnimation(fig, animate, interval=1000)
 app.mainloop()
