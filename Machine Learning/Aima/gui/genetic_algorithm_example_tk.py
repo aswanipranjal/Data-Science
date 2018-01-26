@@ -35,6 +35,17 @@ gene_pool.extend(u_case)
 gene_pool.extend(l_case)
 gene_pool.append(' ')
 
+# fitness function
+def fitness_fn(_list):
+	fitness = 0
+	# create string from list of characters
+	phrase = ''.join(_list)
+	# add 1 to fitness value for every matching character
+	for i in range(len(phrase)):
+		if target[i] == phrase[i]:
+			fitness += 1
+	return fitness
+	
 class GeneticAlgorithm(tk.Tk):
 	def __init__(self, *args, **kwargs):
 		tk.Tk.__init__(self, *args, **kwargs)
