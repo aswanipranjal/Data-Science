@@ -17,3 +17,9 @@ class GeneticAlgorithm(tk.Tk):
 		container = tk.Frame(self)
 		container.pack(side='top', fill='both', expand=True)
 
+		self.frames = {}
+
+		for F in (HomeScreen, RunScreen):
+			frame = F(container, self)
+			self.frames[F] = frame
+			frame.grid(row=0, column=0, sticky='nsew')
