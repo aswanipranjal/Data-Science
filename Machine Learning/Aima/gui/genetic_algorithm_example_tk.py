@@ -12,10 +12,11 @@ import search
 from utils import argmax
 
 LARGE_FONT = ('Verdana', 12)
+EXTRA_LARGE_FONT = ('Consolas', 36, 'bold')
 
 # genetic algorithm variables
 # feel free to play around with these
-target = 'FUCK YOU!' # the phrase to be generated
+target = 'inline function!' # the phrase to be generated
 max_population = 100 # number of samples in each population
 mutation_rate = 0.1 # probability of mutation
 f_thres = len(target) # fitness threshold
@@ -88,8 +89,7 @@ class RunScreen(tk.Frame):
 
 		# button1 = ttk.Button(self, text='Visit Home Screen', command=lambda: controller.show_frame(HomeScreen))
 		# button1.pack()
-		self.text.font = Font(family='Segoe UI', size=10)
-		label = ttk.Label(self, text=target)
+		label = tk.Label(self, text=target, font=EXTRA_LARGE_FONT)
 		label.pack(pady=10, padx=10)
 
 app = GeneticAlgorithm()
