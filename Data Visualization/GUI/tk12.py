@@ -14,4 +14,6 @@ class SeaofBTCapp(tk.Tk):
 		frame.grid(row=0, column=0, sticky='nsew')
 		self.show_frame(start_page)
 
-	
+	def show_frame(self, controller):
+		frame = self.frames[controller]
+		frame.tkraise()
