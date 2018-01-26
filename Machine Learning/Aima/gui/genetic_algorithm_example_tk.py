@@ -88,7 +88,8 @@ class RunScreen(tk.Frame):
 
 		# button1 = ttk.Button(self, text='Visit Home Screen', command=lambda: controller.show_frame(HomeScreen))
 		# button1.pack()
-		label = ttk.Label(self, text=target, font=font.Font(self, family='Consolas', size=36, weight='bold', exists=True))
+		self.text.font = Font(family='Segoe UI', size=10)
+		label = ttk.Label(self, text=target)
 		label.pack(pady=10, padx=10)
 
 app = GeneticAlgorithm()
