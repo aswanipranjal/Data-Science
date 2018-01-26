@@ -98,7 +98,14 @@ class RunScreen(tk.Frame):
 		for i in range(ngen):
 			population =[search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
 			current_best = ''.join(argmax(population, key=fitness_fn))
-			
+
+			# checks for completion
+			fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+			if fittest_individual:
+				finished = True
+				
+			label = tk.Label(self, text=current_best, font=EXTRA_LARGE_FONT)
+			label.pack(pady=25, padx=10)
 
 app = GeneticAlgorithm()
 app.geometry('800x600')
