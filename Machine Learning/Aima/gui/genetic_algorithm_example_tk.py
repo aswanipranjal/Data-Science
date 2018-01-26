@@ -12,6 +12,9 @@ from utils import argmax
 
 LARGE_FONT = ('Verdana', 12)
 
+def placeholder_function():
+	print('placeholder_function')
+
 class GeneticAlgorithm(tk.Tk):
 	def __init__(self, *args, **kwargs):
 		tk.Tk.__init__(self, *args, **kwargs)
