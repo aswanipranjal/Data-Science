@@ -9,13 +9,14 @@ class SeaofBTCapp(tk.Tk):
 		container.grid_columnconfigure(0, weight=1)
 		
 		self.frames = {}
-		frame = start_page(container, self)
-		self.frames[start_page] = frame
+		frame = StartPage(container, self)
+		self.frames[StartPage] = frame
 		frame.grid(row=0, column=0, sticky='nsew')
-		self.show_frame(start_page)
+		self.show_frame(StartPage)
 
 	def show_frame(self, container):
 		frame = self.frames[container]
 		frame.tkraise()
 
+class StartPage(tk.Frame):
 	
