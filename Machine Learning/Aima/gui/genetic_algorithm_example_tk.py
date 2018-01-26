@@ -12,7 +12,6 @@ import search
 from utils import argmax
 
 LARGE_FONT = ('Verdana', 12)
-RUN_FONT = font.Font(family='Consolas', size=36, weight='bold')
 
 # genetic algorithm variables
 # feel free to play around with these
@@ -89,7 +88,7 @@ class RunScreen(tk.Frame):
 
 		# button1 = ttk.Button(self, text='Visit Home Screen', command=lambda: controller.show_frame(HomeScreen))
 		# button1.pack()
-		label = ttk.Label(self, text=target, font=RUN_FONT)
+		label = ttk.Label(self, text=target, font=font.Font(self, family='Consolas', size=36, weight='bold', exists=True))
 		label.pack(pady=10, padx=10)
 
 app = GeneticAlgorithm()
