@@ -11,6 +11,10 @@ matplotlib.use('TkAgg')
 LARGE_FONT = ('Verdana', 12)
 style.use('ggplot')
 
+fig = Figure(figsize=(5, 5), dpi=100)
+sub = fig.add_subplot(111)
+# sub.plot([1, 2, 3, 4, 5, 6, 7, 8], [5, 6, 1, 3, 8, 9, 3, 5])
+
 def animate(i):
 	pull_data = open('sampledata.txt', 'r').read()
 	data_list = pull_data.split('\n')
@@ -21,6 +25,9 @@ def animate(i):
 			x, y = each_line.split(',')
 			x_list.append(int(x))
 			y_list.append(int(y))
+
+	sub.clear()
+	sub.plot(x_list, y_list)
 
 class SeaofBTCapp(tk.Tk):
 	def __init__(self, *args, **kwargs):
@@ -85,10 +92,6 @@ class PageThree(tk.Frame):
 		label.pack(pady=10, padx=10)
 		button = ttk.Button(self, text='Back to home', command=lambda: controller.show_frame(StartPage))
 		button.pack()
-
-		fig = Figure(figsize=(5, 5), dpi=100)
-		sub = fig.add_subplot(111)
-		sub.plot([1, 2, 3, 4, 5, 6, 7, 8], [5, 6, 1, 3, 8, 9, 3, 5])
 
 		canvas = FigureCanvasTkAgg(fig, self)
 		canvas.show()
