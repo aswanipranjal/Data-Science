@@ -45,7 +45,8 @@ class SeaofBTCapp(tk.Tk):
 		file_menu.add_command(label='Save settings', command=lambda: popupmsg('Not supported just yet!'))
 		file_menu.add_separator()
 		file_menu.add_command(label='Exit', command=quit())
-		
+		menu_bar.add_cascade(label='File', menu=file_menu)
+		tk.Tk.config(self, menu=menu_bar)
 
 		self.frames = {}
 
