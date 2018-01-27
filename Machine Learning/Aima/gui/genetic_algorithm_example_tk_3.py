@@ -63,3 +63,7 @@ class GeneticAlgorithm(tk.Tk):
 		self.frames[RunScreen] = frame
 		frame.grid(row=0, column=0, sticky='nsew')
 		self.show_frame(RunScreen)
+
+	def show_frame(self, controller):
+		frame = self.frames[controller]
+		frame.tkraise()
