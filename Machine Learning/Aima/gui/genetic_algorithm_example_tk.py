@@ -98,7 +98,7 @@ class RunScreen(tk.Frame):
 		label.pack()
 		print('In this function')
 		for i in range(ngen):
-			sleep(0.2)
+			time.sleep(0.2)
 			population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
 			current_best = ''.join(argmax(population, key=fitness_fn))
 
