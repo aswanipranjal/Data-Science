@@ -15,6 +15,11 @@ EXTRA_LARGE_FONT = ('Consolas', 36, 'bold')
 canvas_width = 800
 canvas_height = 600
 
+black = '#000000'
+white = '#ffffff'
+p_blue = '#042533'
+lp_blue = '#0c394c'
+
 # genetic algorithm variables
 # feel free to play around with these
 target = 'Genetic Algorithm' # the phrase to be generated
@@ -66,7 +71,7 @@ def genetic_algorithm_stepwise(population):
 		# var.set(current_best)
 		# root.update_idletasks()
 		canvas.delete('all')
-		canvas.create_text(canvas_width / 2, 20, fill='#042533', font='Consolas 36 bold', text=current_best)
+		canvas.create_text(canvas_width / 2, 20, fill=p_blue, font='Consolas 36 bold', text=current_best)
 		canvas.update()
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
