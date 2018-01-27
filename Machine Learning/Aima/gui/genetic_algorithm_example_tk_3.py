@@ -83,21 +83,23 @@ class RunScreen(tk.Frame):
 		canvas = tk.Canvas(self, width=canvas_width, height=canvas_height)
 		canvas.pack(expand=tk.YES, fill=tk.BOTH, padx=20, pady=20)
 		for generation in range(ngen):
-		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
-		current_best = ''.join(argmax(population, key=fitness_fn))
-		members = [''.join(x) for x in population][:48]
+			population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
+			current_best = ''.join(argmax(population, key=fitness_fn))
+			members = [''.join(x) for x in population][:48]
 
-		canvas.delete('all')
-		canvas.create_text(canvas_width / 2, 40, fill=p_blue, font='Consolas 46 bold', text=current_best)
+			canvas.delete('all')
+			canvas.create_text(canvas_width / 2, 40, fill=p_blue, font='Consolas 46 bold', text=current_best)
 
-		for i in range(len(members) // 3):
-			canvas.create_text((canvas_width * .175), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 16', text=members[3 * i])
-			canvas.create_text((canvas_width * .500), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 16', text=members[3 * i + 1])
-			canvas.create_text((canvas_width * .825), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 16', text=members[3 * i + 2])
+			for i in range(len(members) // 3):
+				canvas.create_text((canvas_width * .175), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 16', text=members[3 * i])
+				canvas.create_text((canvas_width * .500), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 16', text=members[3 * i + 1])
+				canvas.create_text((canvas_width * .825), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 16', text=members[3 * i + 2])
 
-		canvas.create_text((canvas_width * .5), (canvas_height * 0.95), fill=p_blue, font='Consolas 18 bold', text=f'Generation {generation}')
-		canvas.update()
+			canvas.create_text((canvas_width * .5), (canvas_height * 0.95), fill=p_blue, font='Consolas 18 bold', text=f'Generation {generation}')
+			canvas.update()
 
-		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
-		if fittest_individual:
-			break
+			fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+			if fittest_individual:
+				break
+
+app = GeneticAlgorithm()
