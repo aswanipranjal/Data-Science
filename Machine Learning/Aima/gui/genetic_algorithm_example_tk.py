@@ -127,7 +127,7 @@ class RunScreen(tk.Frame):
 			population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
 			current_best = ''.join(argmax(population, key=fitness_fn))
 			var.set(current_best)
-			self.update_idletasks()
+			parent.update_idletasks()
 
 			# checks for completion
 			fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
