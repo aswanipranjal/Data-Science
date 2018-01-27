@@ -14,3 +14,7 @@ root.title('Paint')
 w = Canvas(root, width=canvas_width, height=canvas_height)
 w.pack(expand=YES, fill=BOTH)
 w.bind('<B1-Motion>', paint)
+
+message = Label(root, text='Press and drag mouse to draw')
+message.pack(side=BOTTOM)
+mainloop()
