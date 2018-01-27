@@ -110,7 +110,8 @@ class RunScreen(tk.Frame):
 		tk.Frame.__init__(self, parent)
 		
 		self.title('Genetic Algorithm')
-		
+		w = Canvas(self, width=800, height=600)
+		w.pack(expand=YES, fill=BOTH)
 		# var = tk.StringVar()
 		# var.set('')
 		# label = tk.Label(self, textvariable=var)
