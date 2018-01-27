@@ -64,10 +64,13 @@ f2 = Frame(root)
 for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
 
+Button(f1, text='Run', command=lambda: raise_frame(f2)).pack()
+
 def genetic_algorithm_stepwise(population):
 	root.title('Genetic Algorithm')
-	canvas = Canvas(root, width=canvas_width, height=canvas_height)
+	canvas = Canvas(f2, width=canvas_width, height=canvas_height)
 	canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
+	button = Button(f2, text='EXIT', command=lambda: raise_frame(f1)).pack(side=BOTTOM)
 	for generation in range(ngen):
 		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
 		current_best = ''.join(argmax(population, key=fitness_fn))
