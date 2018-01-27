@@ -12,6 +12,9 @@ from utils import argmax
 LARGE_FONT = ('Verdana', 12)
 EXTRA_LARGE_FONT = ('Consolas', 36, 'bold')
 
+canvas_width = 800
+canvas_height = 600
+
 # genetic algorithm variables
 # feel free to play around with these
 target = 'Genetic Algorithm' # the phrase to be generated
@@ -49,17 +52,19 @@ def fitness_fn(_list):
 root = Tk()
 
 def genetic_algorithm_stepwise(population):
-	var = StringVar()
-	var.set('')
+	# var = StringVar()
+	# var.set('')
 
-	l = Label(root, textvariable=var)
-	l.pack()
-
+	# l = Label(root, textvariable=var)
+	# l.pack()
+	root.title('Genetic Algorithm')
+	canvas = Canvas(root, width=canvas_width, height=canvas_height)
+	canvas.pack(expand=YES, fill=BOTH)
 	for i in range(ngen):
 		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
 		current_best = ''.join(argmax(population, key=fitness_fn))
-		var.set(current_best)
-		root.update_idletasks()
+		# var.set(current_best)
+		# root.update_idletasks()
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 		if fittest_individual:
