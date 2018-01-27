@@ -82,6 +82,7 @@ class RunScreen(tk.Frame):
 		controller.title('Genetic Algorithm')
 		canvas = tk.Canvas(self, width=canvas_width, height=canvas_height)
 		canvas.pack(expand=tk.YES, fill=tk.BOTH, padx=20, pady=20)
+		population = search.init_population(max_population, gene_pool, len(target))
 		for generation in range(ngen):
 			population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
 			current_best = ''.join(argmax(population, key=fitness_fn))
