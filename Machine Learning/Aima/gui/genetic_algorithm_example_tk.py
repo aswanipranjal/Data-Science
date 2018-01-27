@@ -108,20 +108,15 @@ class GeneticAlgorithm(tk.Tk):
 class RunScreen(tk.Frame):
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
-		# label = ttk.Label(self, text='Run Screen', font=LARGE_FONT)
-		# label.pack(pady=10, padx=10)
-
-		# button1 = ttk.Button(self, text='Visit Home Screen', command=lambda: controller.show_frame(HomeScreen))
-		# button1.pack()
-		# label = tk.Label(self, text=target, font=EXTRA_LARGE_FONT)
-		# label.pack(pady=25, padx=10)
-		var = tk.StringVar()
-		var.set('')
-		label = tk.Label(self, textvariable=var)
-		label.pack()
+		
+		self.title('Genetic Algorithm')
+		
+		# var = tk.StringVar()
+		# var.set('')
+		# label = tk.Label(self, textvariable=var)
+		# label.pack()
 		population = search.init_population(max_population, gene_pool, len(target))
-		# self.genetic_algorithm_stepwise(population, fitness_fn, gene_pool, len(target), ngen, mutation_rate)
-		# print('In this function')
+		
 		for i in range(ngen):
 			# time.sleep(0.2)
 			population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
