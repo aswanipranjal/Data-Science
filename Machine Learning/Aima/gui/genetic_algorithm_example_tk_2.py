@@ -95,6 +95,7 @@ def genetic_algorithm_stepwise(population):
 		if fittest_individual:
 			break
 
+raise_frame(f1)
 population = search.init_population(max_population, gene_pool, len(target))
 genetic_algorithm_stepwise(population)
 root.mainloop()
