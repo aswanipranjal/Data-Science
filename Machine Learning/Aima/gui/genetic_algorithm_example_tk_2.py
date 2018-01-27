@@ -65,7 +65,7 @@ def genetic_algorithm_stepwise(population):
 	root.title('Genetic Algorithm')
 	canvas = Canvas(root, width=canvas_width, height=canvas_height)
 	canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
-	for i in range(ngen):
+	for generation in range(ngen):
 		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
 		current_best = ''.join(argmax(population, key=fitness_fn))
 		members = [''.join(x) for x in population][:48]
@@ -78,8 +78,7 @@ def genetic_algorithm_stepwise(population):
 			canvas.create_text((canvas_width * .500), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 16', text=members[3 * i + 1])
 			canvas.create_text((canvas_width * .825), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 16', text=members[3 * i + 2])
 
-		canvas.create_text((canvas_width * .5), (canvas_height * 0.95), fill=p_blue, font='Consolas 18 bold', text=f'Generation {i}')
-
+		canvas.create_text((canvas_width * .5), (canvas_height * 0.95), fill=p_blue, font='Consolas 18 bold', text=f'Generation {generation}')
 		canvas.update()
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
