@@ -65,7 +65,9 @@ for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
 
 def home_screen():
-	button = Button(f1, text='RUN', command=lambda: raise_frame(f2)).pack()
+	canvas = Canvas(f1, width=canvas_width, height=canvas_height)
+	canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
+	button = Button(f1, text='RUN', command=lambda: raise_frame(f2)).pack(side=BOTTOM)
 	population = search.init_population(max_population, gene_pool, len(target))
 	raise_frame(f2)
 	genetic_algorithm_stepwise(population)
