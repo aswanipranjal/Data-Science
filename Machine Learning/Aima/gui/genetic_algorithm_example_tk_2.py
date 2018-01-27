@@ -57,4 +57,6 @@ population = search.init_population(max_population, gene_pool, len(target))
 
 for i in range(ngen):
 	population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
-	
+	current_best = ''.join(argmax(population, key=fitness_fn))
+	var.set(current_best)
+	root.update_idletasks()
