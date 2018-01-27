@@ -48,6 +48,18 @@ def fitness_fn(_list):
 			fitness += 1
 	return fitness
 
+def genetic_algorithm_stepwise(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200, pmut=0.1):
+	for i in range(ngen):
+		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
+		current_best = ''.join(argmax(population, key=fitness_fn))
+		# print(f'Current best: {current_best}\tIteration: {str(i)}\tFitness: {fitness_fn(current_best)}\r', end='')
+
+		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+		if fittest_individual:
+			return fittest_individual, i
+
+	return argmax(population, key=fitness_fn), i
+
 class GeneticAlgorithm(tk.Tk):
 	def __init__(self, *args, **kwargs):
 		tk.Tk.__init__(self, *args, **kwargs)
@@ -93,22 +105,22 @@ class RunScreen(tk.Frame):
 		# label.pack(pady=25, padx=10)
 		population = search.init_population(max_population, gene_pool, len(target))
 		# self.genetic_algorithm_stepwise(population, fitness_fn, gene_pool, len(target), ngen, mutation_rate)
-		v = tk.StringVar()
-		label = tk.Label(self, textvariable=v)
-		label.pack()
-		print('In this function')
-		for i in range(ngen):
-			time.sleep(0.2)
-			population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
-			current_best = ''.join(argmax(population, key=fitness_fn))
+		# v = tk.StringVar()
+		# label = tk.Label(self, textvariable=v)
+		# label.pack()
+		# print('In this function')
+		# for i in range(ngen):
+		# 	time.sleep(0.2)
+		# 	population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
+		# 	current_best = ''.join(argmax(population, key=fitness_fn))
 
-			# checks for completion
-			fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
-			if fittest_individual:
-				finished = True
+		# 	# checks for completion
+		# 	fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+		# 	if fittest_individual:
+		# 		finished = True
 
-			v.set(current_best)
-			self.update_idletasks()
+		# 	v.set(current_best)
+		# 	self.update_idletasks()
 			# label.configure(text=current_best)
 			# label.update()
 
