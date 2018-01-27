@@ -80,10 +80,13 @@ class GeneticAlgorithm(tk.Tk):
 
 		self.frames = {}
 
-		for F in (HomeScreen, RunScreen):
-			frame = F(container, self)
-			self.frames[F] = frame
-			frame.grid(row=0, column=0, sticky='nsew')
+		# for F in (HomeScreen, RunScreen):
+		# 	frame = F(container, self)
+		# 	self.frames[F] = frame
+		# 	frame.grid(row=0, column=0, sticky='nsew')
+		frame = RunScreen(container, self)
+		self.frames[RunScreen] = frame
+		frame.grid(row=0, column=0, sticky='nsew')
 
 		self.show_frame(RunScreen)
 
@@ -91,16 +94,16 @@ class GeneticAlgorithm(tk.Tk):
 		frame = self.frames[controller]
 		frame.tkraise()
 
-class HomeScreen(tk.Frame):
-	def __init__(self, parent, controller):
-		tk.Frame.__init__(self, parent)
-		# label = ttk.Label(self, text='Home Screen', font=LARGE_FONT)
-		# label.pack(pady=10, padx=10)
+# class HomeScreen(tk.Frame):
+# 	def __init__(self, parent, controller):
+# 		tk.Frame.__init__(self, parent)
+# 		# label = ttk.Label(self, text='Home Screen', font=LARGE_FONT)
+# 		# label.pack(pady=10, padx=10)
 
-		# button1 = ttk.Button(self, text='Visit Run Screen', command=lambda: controller.show_frame(RunScreen))
-		# button1.pack()
-		button1 = ttk.Button(self, text='Run', command=lambda: controller.show_frame(RunScreen))
-		button1.pack()
+# 		# button1 = ttk.Button(self, text='Visit Run Screen', command=lambda: controller.show_frame(RunScreen))
+# 		# button1.pack()
+# 		button1 = ttk.Button(self, text='Run', command=lambda: controller.show_frame(RunScreen))
+# 		button1.pack()
 
 class RunScreen(tk.Frame):
 	def __init__(self, parent, controller):
@@ -114,7 +117,7 @@ class RunScreen(tk.Frame):
 		# label.pack(pady=25, padx=10)
 		var = tk.StringVar()
 		var.set('')
-		label = tk.Label(self, textvariable=v)
+		label = tk.Label(self, textvariable=var)
 		label.pack()
 		population = search.init_population(max_population, gene_pool, len(target))
 		# self.genetic_algorithm_stepwise(population, fitness_fn, gene_pool, len(target), ngen, mutation_rate)
