@@ -85,7 +85,7 @@ class GeneticAlgorithm(tk.Tk):
 			self.frames[F] = frame
 			frame.grid(row=0, column=0, sticky='nsew')
 
-		self.show_frame(HomeScreen)
+		self.show_frame(RunScreen)
 
 	def show_frame(self, controller):
 		frame = self.frames[controller]
@@ -118,21 +118,23 @@ class RunScreen(tk.Frame):
 		# label = tk.Label(self, textvariable=v)
 		# label.pack()
 		# print('In this function')
-		# for i in range(ngen):
-		# 	time.sleep(0.2)
-		# 	population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
-		# 	current_best = ''.join(argmax(population, key=fitness_fn))
+		for i in range(ngen):
+			# time.sleep(0.2)
+			population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
+			current_best = ''.join(argmax(population, key=fitness_fn))
+			var.set(current_best)
+			self.update_idletasks()
 
-		# 	# checks for completion
-		# 	fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
-		# 	if fittest_individual:
-		# 		finished = True
+			# checks for completion
+			fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+			if fittest_individual:
+				break
 
 		# 	v.set(current_best)
 		# 	self.update_idletasks()
 			# label.configure(text=current_best)
 			# label.update()
-		solution, generations = genetic_algorithm_stepwise(self, population, fitness_fn, gene_pool, f_thres, ngen, mutation_rate)
+		# solution, generations = genetic_algorithm_stepwise(self, population, fitness_fn, gene_pool, f_thres, ngen, mutation_rate)
 
 app = GeneticAlgorithm()
 app.geometry('800x600')
