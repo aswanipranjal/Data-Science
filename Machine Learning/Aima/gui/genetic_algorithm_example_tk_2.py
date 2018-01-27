@@ -59,14 +59,14 @@ def genetic_algorithm_stepwise(population):
 	# l.pack()
 	root.title('Genetic Algorithm')
 	canvas = Canvas(root, width=canvas_width, height=canvas_height)
-	canvas.pack(expand=YES, fill=BOTH)
+	canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
 	for i in range(ngen):
 		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
 		current_best = ''.join(argmax(population, key=fitness_fn))
 		# var.set(current_best)
 		# root.update_idletasks()
 		canvas.delete('all')
-		canvas.create_text(canvas_width / 2, 20, fill='darkblue', font='Consolas 20 bold', text=current_best)
+		canvas.create_text(canvas_width / 2, 20, fill='#042533', font='Consolas 36 bold', text=current_best)
 		canvas.update()
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
