@@ -55,13 +55,13 @@ def fitness_fn(_list):
 	return fitness
 
 root = Tk()
+f1 = Frame(root)
+f2 = Frame(root)
+
+for frame in (f1, f2):
+	frame.grid(row=0, column=0, sticky='news')
 
 def genetic_algorithm_stepwise(population):
-	# var = StringVar()
-	# var.set('')
-
-	# l = Label(root, textvariable=var)
-	# l.pack()
 	root.title('Genetic Algorithm')
 	canvas = Canvas(root, width=canvas_width, height=canvas_height)
 	canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
