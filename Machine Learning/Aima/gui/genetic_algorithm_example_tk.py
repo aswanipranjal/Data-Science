@@ -118,7 +118,7 @@ class RunScreen(tk.Frame):
 		# label.pack()
 		population = search.init_population(max_population, gene_pool, len(target))
 		
-		for i in range(ngen):
+		for i in range(100):
 			print(i)
 			# time.sleep(0.2)
 			population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
@@ -138,7 +138,7 @@ class RunScreen(tk.Frame):
 			# label.configure(text=current_best)
 			# label.update()
 		# solution, generations = genetic_algorithm_stepwise(self, population, fitness_fn, gene_pool, f_thres, ngen, mutation_rate)
+		controller.mainloop()
 
 app = GeneticAlgorithm()
 app.geometry('800x600')
-app.mainloop()
