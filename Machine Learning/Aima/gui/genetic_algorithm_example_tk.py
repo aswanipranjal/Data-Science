@@ -119,11 +119,14 @@ class RunScreen(tk.Frame):
 		population = search.init_population(max_population, gene_pool, len(target))
 		
 		for i in range(ngen):
+			print(i)
 			# time.sleep(0.2)
 			population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
 			current_best = ''.join(argmax(population, key=fitness_fn))
-			var.set(current_best)
-			parent.update_idletasks()
+			w.create_text(100, 10, fill='darkblue', font='Times 20 italic bold', text=current_best)
+			w.update()
+			# var.set(current_best)
+			# parent.update_idletasks()
 
 			# checks for completion
 			fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
