@@ -47,3 +47,12 @@ def fitness_fn(_list):
 	return fitness
 
 root = Tk()
+var = StringVar()
+var.set('')
+
+l = Label(root, textvariable=var)
+l.pack()
+
+population = search.init_population(max_population, gene_pool, len(target))
+
+for i
