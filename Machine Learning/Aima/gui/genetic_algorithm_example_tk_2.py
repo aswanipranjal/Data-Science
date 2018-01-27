@@ -68,10 +68,16 @@ def genetic_algorithm_stepwise(population):
 	for i in range(ngen):
 		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
 		current_best = ''.join(argmax(population, key=fitness_fn))
-		# var.set(current_best)
-		# root.update_idletasks()
+		members = [''.join(x) for x in population][:48]
+
 		canvas.delete('all')
 		canvas.create_text(canvas_width / 2, 40, fill=p_blue, font='Consolas 46 bold', text=current_best)
+
+		for i in range(len(members) // 3):
+			canvas.create_text((canvas_width * .175), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 20', text=members[3 * i])
+			canvas.create_text((canvas_width * .500), (canvas_height * .25 + (25 * i)))
+			canvas.create_text((canvas_width * .825), (canvas_height * .25 + (25 * i)))
+
 		canvas.update()
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
