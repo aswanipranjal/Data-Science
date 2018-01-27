@@ -74,16 +74,15 @@ def genetic_algorithm_stepwise(population):
 		canvas.create_text(canvas_width / 2, 40, fill=p_blue, font='Consolas 46 bold', text=current_best)
 
 		for i in range(len(members) // 3):
-			canvas.create_text((canvas_width * .175), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 16', text=members[3 * i])
-			canvas.create_text((canvas_width * .500), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 16', text=members[3 * i + 1])
-			canvas.create_text((canvas_width * .825), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 16', text=members[3 * i + 2])
+			canvas.create_text((canvas_width * .175), (canvas_height * .25 + (25 * i)), fill=lp_blue, font='Consolas 16', text=members[3 * i])
+			canvas.create_text((canvas_width * .500), (canvas_height * .25 + (25 * i)), fill=lp_blue, font='Consolas 16', text=members[3 * i + 1])
+			canvas.create_text((canvas_width * .825), (canvas_height * .25 + (25 * i)), fill=lp_blue, font='Consolas 16', text=members[3 * i + 2])
 
 		canvas.create_text((canvas_width * .5), (canvas_height * 0.95), fill=p_blue, font='Consolas 18 bold', text=f'Generation {generation}')
 
 		scaling_factor = fitness_fn(current_best) / len(target)
 		canvas.create_rectangle(canvas_width * 0.1, 90, canvas_width * 0.9, 100, outline=p_blue)
 		canvas.create_rectangle(canvas_width * 0.1, 90, canvas_width * 0.1 + scaling_factor * canvas_width * 0.8, 100, fill=lp_blue)
-		# canvas
 		canvas.update()
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
