@@ -60,3 +60,7 @@ for i in range(ngen):
 	current_best = ''.join(argmax(population, key=fitness_fn))
 	var.set(current_best)
 	root.update_idletasks()
+
+	fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+	if fittest_individual:
+		break
