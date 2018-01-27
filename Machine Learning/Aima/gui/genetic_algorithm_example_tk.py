@@ -94,9 +94,11 @@ class RunScreen(tk.Frame):
 		population = search.init_population(max_population, gene_pool, len(target))
 		# self.genetic_algorithm_stepwise(population, fitness_fn, gene_pool, len(target), ngen, mutation_rate)
 		v = tk.StringVar()
-		tk.Label(self, textvariable=v).pack(pady=25, padx=10)
+		label = tk.Label(self, textvariable=v)
+		label.pack()
 		print('In this function')
 		for i in range(ngen):
+			sleep(0.2)
 			population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
 			current_best = ''.join(argmax(population, key=fitness_fn))
 
@@ -106,9 +108,9 @@ class RunScreen(tk.Frame):
 				finished = True
 
 			v.set(current_best)
+			self.update_idletasks()
 			# label.configure(text=current_best)
 			# label.update()
-			print(i)
 
 app = GeneticAlgorithm()
 app.geometry('800x600')
