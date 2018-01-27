@@ -14,6 +14,14 @@ from utils import argmax
 LARGE_FONT = ('Verdana', 12)
 EXTRA_LARGE_FONT = ('Consolas', 36, 'bold')
 
+canvas_width = 800
+canvas_height = 600
+
+black = '#000000'
+white = '#ffffff'
+p_blue = '#042533'
+lp_blue = '#0c394c'
+
 # genetic algorithm variables
 # feel free to play around with these
 target = 'Genetic Algorithm' # the phrase to be generated
@@ -67,3 +75,9 @@ class GeneticAlgorithm(tk.Tk):
 	def show_frame(self, controller):
 		frame = self.frames[controller]
 		frame.tkraise()
+
+class RunScreen(tk.Frame):
+	def __init__(self, parent, controller):
+		tk.Frame.__init__(self, parent)
+		controller.title('Genetic Algorithm')
+		canvas = tk.Canvas(self, )
