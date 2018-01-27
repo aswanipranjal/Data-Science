@@ -47,20 +47,23 @@ def fitness_fn(_list):
 	return fitness
 
 root = Tk()
-var = StringVar()
-var.set('')
 
-l = Label(root, textvariable=var)
-l.pack()
+def genetic_algorithm_stepwise():
+	var = StringVar()
+	var.set('')
+
+	l = Label(root, textvariable=var)
+	l.pack()
+
+	for i in range(ngen):
+		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
+		current_best = ''.join(argmax(population, key=fitness_fn))
+		var.set(current_best)
+		root.update_idletasks()
+
+		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+		if fittest_individual:
+			break
 
 population = search.init_population(max_population, gene_pool, len(target))
-
-for i in range(ngen):
-	population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
-	current_best = ''.join(argmax(population, key=fitness_fn))
-	var.set(current_best)
-	root.update_idletasks()
-
-	fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
-	if fittest_individual:
-		break
+genetic_algorithm_stepwise()
