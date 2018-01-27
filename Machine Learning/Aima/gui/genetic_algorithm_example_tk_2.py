@@ -81,7 +81,9 @@ def genetic_algorithm_stepwise(population):
 		canvas.create_text((canvas_width * .5), (canvas_height * 0.95), fill=p_blue, font='Consolas 18 bold', text=f'Generation {generation}')
 
 		scaling_factor = fitness_fn(current_best) / len(target)
-		canvas.create_rectangle(canvas_width * 0.1, 80, canvas_width * 0.9, 90, activefill=p_blue)
+		canvas.create_rectangle(canvas_width * 0.1, 90, canvas_width * 0.9, 100, outline=p_blue)
+		canvas.create_rectangle(canvas_width * 0.1, 90, canvas_width * 0.1 + scaling_factor * canvas_width * 0.8, 100, fill=lp_blue)
+		# canvas
 		canvas.update()
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
