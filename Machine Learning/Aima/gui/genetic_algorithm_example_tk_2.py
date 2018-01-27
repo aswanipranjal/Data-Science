@@ -64,7 +64,11 @@ f2 = Frame(root)
 for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
 
-Button(f1, text='Run', command=lambda: raise_frame(f2)).pack()
+def home_screen():
+	button = Button(f1, text='RUN', command=lambda: raise_frame(f2)).pack()
+	population = search.init_population(max_population, gene_pool, len(target))
+	raise_frame(f2)
+	genetic_algorithm_stepwise(population)
 
 def genetic_algorithm_stepwise(population):
 	root.title('Genetic Algorithm')
@@ -96,6 +100,4 @@ def genetic_algorithm_stepwise(population):
 			break
 
 raise_frame(f1)
-population = search.init_population(max_population, gene_pool, len(target))
-genetic_algorithm_stepwise(population)
 root.mainloop()
