@@ -71,7 +71,7 @@ def genetic_algorithm_stepwise(population):
 		# var.set(current_best)
 		# root.update_idletasks()
 		canvas.delete('all')
-		canvas.create_text(canvas_width / 2, 20, fill=p_blue, font='Consolas 36 bold', text=current_best)
+		canvas.create_text(canvas_width / 2, 40, fill=p_blue, font='Consolas 46 bold', text=current_best)
 		canvas.update()
 
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
