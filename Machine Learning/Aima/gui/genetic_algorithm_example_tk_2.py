@@ -48,7 +48,9 @@ def fitness_fn(_list):
 
 root = Tk()
 
-def genetic_algorithm_stepwise():
+population = search.init_population(max_population, gene_pool, len(target))
+
+def genetic_algorithm_stepwise(population):
 	var = StringVar()
 	var.set('')
 
@@ -65,5 +67,4 @@ def genetic_algorithm_stepwise():
 		if fittest_individual:
 			break
 
-population = search.init_population(max_population, gene_pool, len(target))
-genetic_algorithm_stepwise()
+genetic_algorithm_stepwise(population)
