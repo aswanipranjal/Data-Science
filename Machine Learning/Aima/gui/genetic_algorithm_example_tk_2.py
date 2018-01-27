@@ -75,8 +75,8 @@ def genetic_algorithm_stepwise(population):
 
 		for i in range(len(members) // 3):
 			canvas.create_text((canvas_width * .175), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 20', text=members[3 * i])
-			canvas.create_text((canvas_width * .500), (canvas_height * .25 + (25 * i)))
-			canvas.create_text((canvas_width * .825), (canvas_height * .25 + (25 * i)))
+			canvas.create_text((canvas_width * .500), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 20', text=members[3 * i + 1])
+			canvas.create_text((canvas_width * .825), (canvas_height * .25 + (25 * i)), fill=p_blue, font='Consolas 20', text=members[3 * i + 2])
 
 		canvas.update()
 
