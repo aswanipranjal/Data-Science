@@ -54,6 +54,9 @@ def fitness_fn(_list):
 			fitness += 1
 	return fitness
 
+def raise_frame(frame):
+	frame.tkraise()
+
 root = Tk()
 f1 = Frame(root)
 f2 = Frame(root)
