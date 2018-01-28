@@ -48,6 +48,8 @@ gene_pool.append(' ')
 def update_max_population(slider_value):
 	global max_population
 	max_population = slider_value
+	print('Slider value ' + slider_value)
+	print('Max population' + max_population)
 
 # fitness function
 def fitness_fn(_list):
