@@ -74,11 +74,13 @@ def fitness_fn(_list):
 	return fitness
 
 # function to bring a new frame on top
-def raise_frame(frame, init=False, update_target=False, target_entry=None):
+def raise_frame(frame, init=False, update_target=False, target_entry=None, f_thres_slider=None):
 	frame.tkraise()
 	global target
 	if update_target and target_entry is not None:
 		target = target_entry.get()
+		f_thres_slider.set(len(target))
+		f_thres_slider.config(to=len(target))
 	if init:
 		population = search.init_population(max_population, gene_pool, len(target))
 		genetic_algorithm_stepwise(population)
@@ -106,7 +108,7 @@ mutation_rate_slider = Scale(f1, from_=0, to=1, orient=HORIZONTAL, label='Mutati
 mutation_rate_slider.set(mutation_rate)
 mutation_rate_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 
-f_thres_slider = Scale(f1, from_=0, to=len(target),orient=HORIZONTAL, label='Fitness threshold', command=lambda value: update_f_thres(int(value)))
+f_thres_slider = Scale(f1, from_=0, to=len(target), orient=HORIZONTAL, label='Fitness threshold', command=lambda value: update_f_thres(int(value)))
 f_thres_slider.set(f_thres)
 f_thres_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 
@@ -114,7 +116,7 @@ ngen_slider = Scale(f1, from_=1, to=5000, orient=HORIZONTAL, label='Max number o
 ngen_slider.set(ngen)
 ngen_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 
-button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True, update_target=True, target_entry=target_entry)).pack(side=BOTTOM, pady=50)
+button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True, update_target=True, target_entry=target_entry, f_thres_slider=f_thres_slider)).pack(side=BOTTOM, pady=50)
 
 # f2 widgets
 canvas = Canvas(f2, width=canvas_width, height=canvas_height)
