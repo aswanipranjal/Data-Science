@@ -62,39 +62,6 @@ def update_ngen(slider_value):
 	global ngen
 	ngen = slider_value
 
-class ValidatingEntry(Entry):
-	def __init__(self, master, value='', **kw):
-		apply(Entry.__init__, (self, master), kw)
-		self.__value = value
-		self.__variable = StringVar()
-		self.__variable.set(value)
-		self.__variable.trace('w', self.__callback)
-		self.config(textvariable=self.__variable)
-
-	def __callback(self, *dummy):
-		value = self.__variable.get()
-		newvalue = self.validate(value)
-		if newvalue is None:
-			self.__variable.set(self.__value)
-		elif newvalue != value:
-			self.__value = newvalue
-			self.__variable.set(self.newvalue)
-		else:
-			self.__value = value
-
-	def validate(self, value):
-		return value
-
-class MaxLengthEntry(ValidatingEntry):
-	def __init__(self, master, value='', maxlength=None, **kw):
-		apply(ValidatingEntry.__init__, (self, master), kw)
-		self.maxlength = maxlength
-
-	def validate(self, value):
-		if self.maxlength:
-			value = value[:self.maxlength]
-		return value
-
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
@@ -126,8 +93,8 @@ for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
 
 # Home Screen (f1) widgets
-target_entry = MaxLengthEntry(f1, font=('Consolas 46 bold'), exportselection=0, foreground=p_blue, justify=CENTER)
-# target_entry.insert(0, target)
+target_entry = Entry(f1, font=('Consolas 46 bold'), exportselection=0, foreground=p_blue, justify=CENTER)
+target_entry.insert(0, target)
 target_entry.pack(expand=YES, side=TOP, fill=X, padx=50)
 target_entry.focus_force()
 
