@@ -49,6 +49,7 @@ def update_max_population(slider_value):
 	global max_population
 	max_population = slider_value
 
+
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
@@ -79,6 +80,7 @@ max_population_slider.set(max_population)
 max_population_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 mutation_rate_slider = Scale(f1, from_=0, to=1, orient=HORIZONTAL, label='Mutation Rate', resolution=0.0001, command=lambda value: update_mutation_rate(float(value)))
 mutation_rate_slider.set(mutation_rate)
+mutation_rate_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 canvas = Canvas(f2, width=canvas_width, height=canvas_height)
 canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
 button = ttk.Button(f2, text='EXIT', command=lambda: raise_frame(f1)).pack(side=BOTTOM)
