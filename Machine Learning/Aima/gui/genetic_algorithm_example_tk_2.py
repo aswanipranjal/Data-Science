@@ -113,31 +113,37 @@ button = ttk.Button(f2, text='EXIT', command=lambda: raise_frame(f1)).pack(side=
 def genetic_algorithm_stepwise(population):
 	root.title('Genetic Algorithm')
 	for generation in range(ngen):
+		# generating new population after selecting, recombining and mutating the existing population
 		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
+		# genome with the highest fitness in the current generation
 		current_best = ''.join(argmax(population, key=fitness_fn))
+		# collecting first few examples from the current population
 		members = [''.join(x) for x in population][:48]
 
+		# clear the canvas
 		canvas.delete('all')
+		# displays current best on top of the screen
 		canvas.create_text(canvas_width / 2, 40, fill=p_blue, font='Consolas 46 bold', text=current_best)
 
+		# displaying a part of the population on the screen
 		for i in range(len(members) // 3):
 			canvas.create_text((canvas_width * .175), (canvas_height * .25 + (25 * i)), fill=lp_blue, font='Consolas 16', text=members[3 * i])
 			canvas.create_text((canvas_width * .500), (canvas_height * .25 + (25 * i)), fill=lp_blue, font='Consolas 16', text=members[3 * i + 1])
 			canvas.create_text((canvas_width * .825), (canvas_height * .25 + (25 * i)), fill=lp_blue, font='Consolas 16', text=members[3 * i + 2])
 
+		# displays current generation number
 		canvas.create_text((canvas_width * .5), (canvas_height * 0.95), fill=p_blue, font='Consolas 18 bold', text=f'Generation {generation}')
 
+		# displays blue bar that indicates current maximum fitness compared to maximum possible fitness
 		scaling_factor = fitness_fn(current_best) / len(target)
 		canvas.create_rectangle(canvas_width * 0.1, 90, canvas_width * 0.9, 100, outline=p_blue)
 		canvas.create_rectangle(canvas_width * 0.1, 90, canvas_width * 0.1 + scaling_factor * canvas_width * 0.8, 100, fill=lp_blue)
 		canvas.update()
 
+		# checks for completion
 		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
 		if fittest_individual:
 			break
 
 raise_frame(f1)
-# population = search.init_population(max_population, gene_pool, len(target))
-# raise_frame(f2)
-# genetic_algorithm_stepwise(population)
 root.mainloop()
