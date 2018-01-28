@@ -71,7 +71,7 @@ for frame in (f1, f2):
 
 canvas = Canvas(f1, width=canvas_width, height=canvas_height)
 canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
-button = Button(f1, text='RUN', command=lambda: raise_frame(f2)).pack(side=BOTTOM)
+button = Button(f1, text='RUN', command=lambda: raise_frame_and_run_ga(f2)).pack(side=BOTTOM)
 
 def genetic_algorithm_stepwise(population):
 	root.title('Genetic Algorithm')
