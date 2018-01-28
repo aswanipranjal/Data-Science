@@ -49,6 +49,9 @@ def update_max_population(slider_value):
 	global max_population
 	max_population = slider_value
 
+def update_mutation_rate(slider_value):
+	global mutation_rate
+	mutation_rate = slider_value
 
 # fitness function
 def fitness_fn(_list):
