@@ -62,6 +62,10 @@ def update_ngen(slider_value):
 	global ngen
 	ngen = slider_value
 
+def update_target(entry_value):
+	global target
+	target = entry_value
+
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
