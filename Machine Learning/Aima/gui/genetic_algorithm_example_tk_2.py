@@ -84,16 +84,16 @@ class ValidatingEntry(Entry):
 
 	def validate(self, value):
 		return value
-		
+
 class MaxLengthEntry(ValidatingEntry):
-	def __init__(self, master, value, maxlength, **kw):
+	def __init__(self, master, value='', maxlength=None, **kw):
 		self.maxlength = maxlength
 		apply(ValidatingEntry.__init__, (self, master), kw)
 
 	def validate(self, value):
-		if len(value) <= self.maxlength:
-			return value
-		return None
+		if self.maxlength:
+			value = value[:self.maxlength]
+		return value
 
 # fitness function
 def fitness_fn(_list):
@@ -126,8 +126,8 @@ for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
 
 # Home Screen (f1) widgets
-target_entry = Entry(f1, font=('Consolas 46 bold'), exportselection=0, foreground=p_blue, justify=CENTER)
-target_entry.insert(0, target)
+target_entry = MaxLengthEntry(f1, value=target, maxlength=21, font=('Consolas 46 bold'), exportselection=0, foreground=p_blue, justify=CENTER)
+# target_entry.insert(0, target)
 target_entry.pack(expand=YES, side=TOP, fill=X, padx=50)
 target_entry.focus_force()
 
