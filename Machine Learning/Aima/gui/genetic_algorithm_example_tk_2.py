@@ -6,6 +6,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from tkinter import *
 from tkinter import ttk
+from functools import partial
 
 import search
 from utils import argmax
@@ -75,8 +76,9 @@ for frame in (f1, f2):
 # canvas = Canvas(f1, width=canvas_width, height=canvas_height)
 # canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
 button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True)).pack(side=BOTTOM)
-max_population_slider = Scale(f1, from_=3, to=1000, orient=HORIZONTAL, label='Max Population')
-max_population_slider.bind('<ButtonRelease-1>', lambda: update_max_population(max_population_slider.get()))
+# update_max_population_with_arg = partial(update_max_population, )
+max_population_slider = Scale(f1, from_=3, to=1000, orient=HORIZONTAL, label='Max Population', command=lambda: update_max_population(max_population_slider.get()))
+# max_population_slider.bind('<ButtonRelease-1>', command=lambda: update_max_population(max_population_slider.get()))
 max_population_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 
 canvas = Canvas(f2, width=canvas_width, height=canvas_height)
