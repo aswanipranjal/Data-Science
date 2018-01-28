@@ -91,6 +91,8 @@ for frame in (f1, f2):
 
 # Home Screen (f1) widgets
 button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True)).pack(side=BOTTOM, pady=50)
+target_entry = Entry(f1, cursor=ARROW, font=('Consolas 46 bold'), exportselection=0, fg=p_blue, justify=CENTER, relief=FLAT)
+target_entry.pack(expand=YES, side=TOP, fill=X, padx=40)
 max_population_slider = Scale(f1, from_=3, to=1000, orient=HORIZONTAL, label='Max population', command=lambda value: update_max_population(int(value)))
 max_population_slider.set(max_population)
 max_population_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
