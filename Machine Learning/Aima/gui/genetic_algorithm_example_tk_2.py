@@ -62,10 +62,6 @@ def update_ngen(slider_value):
 	global ngen
 	ngen = slider_value
 
-# def update_target(entry_value):
-# 	global target
-# 	target = entry_value
-
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
@@ -113,7 +109,7 @@ f_thres_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 ngen_slider = Scale(f1, from_=1, to=5000, orient=HORIZONTAL, label='Max number of generations', command=lambda value: update_ngen(int(value)))
 ngen_slider.set(ngen)
 ngen_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
-button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True)).pack(side=BOTTOM, pady=50)
+button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True, update_target=True, target_entry=target_entry)).pack(side=BOTTOM, pady=50)
 
 # f2 widgets
 canvas = Canvas(f2, width=canvas_width, height=canvas_height)
