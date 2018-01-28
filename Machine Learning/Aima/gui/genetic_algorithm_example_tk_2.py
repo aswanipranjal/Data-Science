@@ -77,7 +77,7 @@ for frame in (f1, f2):
 # canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
 button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True)).pack(side=BOTTOM)
 # update_max_population_with_arg = partial(update_max_population, )
-max_population_slider = Scale(f1, from_=3, to=1000, orient=HORIZONTAL, label='Max Population', command=lambda: update_max_population(max_population_slider.get()))
+max_population_slider = Scale(f1, from_=3, to=1000, orient=HORIZONTAL, label='Max Population', command=lambda value, name=scale: update_max_population(name, value))
 # max_population_slider.bind('<ButtonRelease-1>', command=lambda: update_max_population(max_population_slider.get()))
 max_population_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 
