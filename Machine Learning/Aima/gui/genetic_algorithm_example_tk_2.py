@@ -96,6 +96,7 @@ for frame in (f1, f2):
 target_entry = ttk.Entry(f1, font=('Consolas 46 bold'), exportselection=0, foreground=p_blue, justify=CENTER, state=ACTIVE)
 target_entry.insert(0, target)
 target_entry.pack(expand=YES, side=TOP, fill=X, padx=50)
+target_entry.focus_force()
 max_population_slider = Scale(f1, from_=3, to=1000, orient=HORIZONTAL, label='Max population', command=lambda value: update_max_population(int(value)))
 max_population_slider.set(max_population)
 max_population_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
