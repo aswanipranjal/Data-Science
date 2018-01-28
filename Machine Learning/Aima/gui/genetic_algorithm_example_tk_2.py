@@ -71,7 +71,7 @@ class ValidatingEntry(Entry):
 		self.__variable.trace('w', self.__callback)
 		self.config(textvariable=self.__variable)
 
-    def __callback(self, *dummy):
+	def __callback(self, *dummy):
     	value = self.__variable.get()
     	newvalue = self.validate(value)
     	if newvalue is None:
