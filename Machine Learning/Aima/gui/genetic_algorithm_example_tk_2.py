@@ -67,6 +67,11 @@ class MaxLengthEntry(ValidatingEntry):
 		self.maxlength = maxlength
 		apply(ValidatingEntry.__init__, (self, master), kw)
 
+	def validate(self, value):
+		if len(value) <= self.maxlength:
+			return value
+		return None
+
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
