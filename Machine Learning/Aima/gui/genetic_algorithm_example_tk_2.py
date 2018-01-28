@@ -68,9 +68,12 @@ f2 = Frame(root)
 for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
 
-canvas = Canvas(f1, width=canvas_width, height=canvas_height)
-canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
+# canvas = Canvas(f1, width=canvas_width, height=canvas_height)
+# canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
 button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True)).pack(side=BOTTOM)
+max_population_slider = ttk.Scale(f1, from_=3, to=max_population, orient=HORIZONTAL)
+max_population_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
+
 canvas = Canvas(f2, width=canvas_width, height=canvas_height)
 canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
 button = ttk.Button(f2, text='EXIT', command=lambda: raise_frame(f1)).pack(side=BOTTOM)
