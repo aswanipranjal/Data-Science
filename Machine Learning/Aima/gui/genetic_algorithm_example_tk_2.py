@@ -62,6 +62,11 @@ def update_ngen(slider_value):
 	global ngen
 	ngen = slider_value
 
+class MaxLengthEntry(ValidatingEntry):
+	def __init__(self, master, value, maxlength, **kw):
+		self.maxlength = maxlength
+		apply(ValidatingEntry.__init__, (self, master), kw)
+
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
