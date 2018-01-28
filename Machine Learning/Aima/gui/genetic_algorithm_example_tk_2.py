@@ -62,6 +62,15 @@ def update_ngen(slider_value):
 	global ngen
 	ngen = slider_value
 
+class ValidatingEntry(Entry):
+	def __init__(self, master, value='', **kw):
+		apply(Entry.__init__, (self, master), kw)
+		self.__value = value
+        self.__variable = StringVar()
+        self.__variable.set(value)
+        self.__variable.trace("w", self.__callback)
+        self.config(textvariable=self.__variable)
+
 class MaxLengthEntry(ValidatingEntry):
 	def __init__(self, master, value, maxlength, **kw):
 		self.maxlength = maxlength
