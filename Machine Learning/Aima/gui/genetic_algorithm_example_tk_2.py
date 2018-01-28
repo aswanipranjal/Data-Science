@@ -44,6 +44,10 @@ gene_pool.extend(u_case)
 gene_pool.extend(l_case)
 gene_pool.append(' ')
 
+def update_max_population(slider_value):
+	global max_population
+	max_population = slider_value
+
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
