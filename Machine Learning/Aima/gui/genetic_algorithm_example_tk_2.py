@@ -45,6 +45,7 @@ gene_pool.extend(u_case)
 gene_pool.extend(l_case)
 gene_pool.append(' ')
 
+# callbacks to update global variables from the slider values
 def update_max_population(slider_value):
 	global max_population
 	max_population = slider_value
@@ -72,20 +73,24 @@ def fitness_fn(_list):
 			fitness += 1
 	return fitness
 
+# function to bring a new frame on top
 def raise_frame(frame, init=False):
 	frame.tkraise()
 	if init:
 		population = search.init_population(max_population, gene_pool, len(target))
 		genetic_algorithm_stepwise(population)
 
+# defining root and child frames
 root = Tk()
 f1 = Frame(root)
 f2 = Frame(root)
 
+# pack frames on top of one another
 for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
 
-button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True)).pack(side=BOTTOM)
+# Home Screen (f1) widgets
+button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True)).pack(side=BOTTOM, pady=50)
 max_population_slider = Scale(f1, from_=3, to=1000, orient=HORIZONTAL, label='Max population', command=lambda value: update_max_population(int(value)))
 max_population_slider.set(max_population)
 max_population_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
@@ -99,10 +104,12 @@ ngen_slider = Scale(f1, from_=1, to=5000, orient=HORIZONTAL, label='Max number o
 ngen_slider.set(ngen)
 ngen_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 
+# f2 widgets
 canvas = Canvas(f2, width=canvas_width, height=canvas_height)
 canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
 button = ttk.Button(f2, text='EXIT', command=lambda: raise_frame(f1)).pack(side=BOTTOM)
 
+# function to run the genetic algorithm and update text on the canvas
 def genetic_algorithm_stepwise(population):
 	root.title('Genetic Algorithm')
 	for generation in range(ngen):
