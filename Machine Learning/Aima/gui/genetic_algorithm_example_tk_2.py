@@ -57,6 +57,10 @@ def update_f_thres(slider_value):
 	global f_thres
 	f_thres = slider_value
 
+def update_ngen(slider_value):
+	global ngen
+	ngen = slider_value
+
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
