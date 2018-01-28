@@ -54,13 +54,11 @@ def fitness_fn(_list):
 			fitness += 1
 	return fitness
 
-def raise_frame(frame):
+def raise_frame(frame, init=False):
 	frame.tkraise()
-
-def raise_frame_and_run_ga(frame):
-	frame.tkraise()
-	population = search.init_population(max_population, gene_pool, len(target))
-	genetic_algorithm_stepwise(population)
+	if init:
+		population = search.init_population(max_population, gene_pool, len(target))
+		genetic_algorithm_stepwise(population)
 
 root = Tk()
 f1 = Frame(root)
@@ -71,7 +69,7 @@ for frame in (f1, f2):
 
 canvas = Canvas(f1, width=canvas_width, height=canvas_height)
 canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
-button = Button(f1, text='RUN', command=lambda: raise_frame_and_run_ga(f2)).pack(side=BOTTOM)
+button = Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True)).pack(side=BOTTOM)
 canvas = Canvas(f2, width=canvas_width, height=canvas_height)
 canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
 button = Button(f2, text='EXIT', command=lambda: raise_frame(f1)).pack(side=BOTTOM)
