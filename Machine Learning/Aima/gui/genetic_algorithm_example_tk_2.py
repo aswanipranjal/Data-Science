@@ -97,18 +97,23 @@ target_entry = ttk.Entry(f1, font=('Consolas 46 bold'), exportselection=0, foreg
 target_entry.insert(0, target)
 target_entry.pack(expand=YES, side=TOP, fill=X, padx=50)
 target_entry.focus_force()
+
 max_population_slider = Scale(f1, from_=3, to=1000, orient=HORIZONTAL, label='Max population', command=lambda value: update_max_population(int(value)))
 max_population_slider.set(max_population)
 max_population_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
+
 mutation_rate_slider = Scale(f1, from_=0, to=1, orient=HORIZONTAL, label='Mutation rate', resolution=0.0001, command=lambda value: update_mutation_rate(float(value)))
 mutation_rate_slider.set(mutation_rate)
 mutation_rate_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
+
 f_thres_slider = Scale(f1, from_=0, to=len(target),orient=HORIZONTAL, label='Fitness threshold', command=lambda value: update_f_thres(int(value)))
 f_thres_slider.set(f_thres)
 f_thres_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
+
 ngen_slider = Scale(f1, from_=1, to=5000, orient=HORIZONTAL, label='Max number of generations', command=lambda value: update_ngen(int(value)))
 ngen_slider.set(ngen)
 ngen_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
+
 button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True, update_target=True, target_entry=target_entry)).pack(side=BOTTOM, pady=50)
 
 # f2 widgets
