@@ -89,7 +89,6 @@ def raise_frame(frame, init=False, update_target=False, target_entry=None, f_thr
 	global target
 	if update_target and target_entry is not None:
 		target = target_entry.get()
-		f_thres_slider.set(len(target))
 		f_thres_slider.config(to=len(target))
 	if init:
 		population = search.init_population(max_population, gene_pool, len(target))
