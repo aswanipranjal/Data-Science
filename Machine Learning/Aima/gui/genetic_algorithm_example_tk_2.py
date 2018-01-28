@@ -48,9 +48,7 @@ gene_pool.append(' ')
 def update_max_population(slider_value):
 	global max_population
 	max_population = slider_value
-	print(f'Slider value {slider_value}')
-	print(f'Max population {max_population}')
-
+	
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
@@ -75,12 +73,9 @@ f2 = Frame(root)
 for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
 
-# canvas = Canvas(f1, width=canvas_width, height=canvas_height)
-# canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
 button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True)).pack(side=BOTTOM)
-# update_max_population_with_arg = partial(update_max_population, )
 max_population_slider = Scale(f1, from_=3, to=1000, orient=HORIZONTAL, label='Max Population', command=lambda value: update_max_population(int(value)))
-# max_population_slider.bind('<ButtonRelease-1>', command=lambda: update_max_population(max_population_slider.get()))
+max_population_slider.set(100)
 max_population_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 
 canvas = Canvas(f2, width=canvas_width, height=canvas_height)
