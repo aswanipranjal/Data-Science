@@ -95,6 +95,7 @@ for frame in (f1, f2):
 # Home Screen (f1) widgets
 target_entry = ttk.Entry(f1, font=('Consolas 46 bold'), exportselection=0, foreground=p_blue, justify=CENTER, state=ACTIVE)
 target_entry.insert(0, target)
+target_entry.trace('w', lambda *args: character_limit(target_entry))
 target_entry.pack(expand=YES, side=TOP, fill=X, padx=50)
 target_entry.focus_force()
 
