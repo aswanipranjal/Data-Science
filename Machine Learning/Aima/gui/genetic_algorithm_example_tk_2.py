@@ -82,6 +82,9 @@ class ValidatingEntry(Entry):
     	else:
     		self.__value = value
 
+    def validate(self, value):
+    	return value
+
 class MaxLengthEntry(ValidatingEntry):
 	def __init__(self, master, value, maxlength, **kw):
 		self.maxlength = maxlength
