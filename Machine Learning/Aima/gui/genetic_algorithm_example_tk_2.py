@@ -131,7 +131,7 @@ button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True, u
 # f2 widgets
 canvas = Canvas(f2, width=canvas_width, height=canvas_height)
 canvas.pack(expand=YES, fill=BOTH, padx=20, pady=15)
-button = ttk.Button(f2, text='EXIT', command=lambda: raise_frame(f1)).pack(side=BOTTOM, pady=20)
+button = ttk.Button(f2, text='EXIT', command=lambda: raise_frame(f1)).pack(side=BOTTOM, pady=15)
 
 # function to run the genetic algorithm and update text on the canvas
 def genetic_algorithm_stepwise(population):
