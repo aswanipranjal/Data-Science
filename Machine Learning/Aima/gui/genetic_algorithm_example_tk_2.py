@@ -78,8 +78,11 @@ def fitness_fn(_list):
 	return fitness
 
 # function to bring a new frame on top
-def raise_frame(frame, init=False):
+def raise_frame(frame, init=False, update_target=False, target_entry=None):
 	frame.tkraise()
+	global target
+	if update_target and target_entry is not None:
+		target = target_entry.get()
 	if init:
 		population = search.init_population(max_population, gene_pool, len(target))
 		genetic_algorithm_stepwise(population)
@@ -94,11 +97,10 @@ for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
 
 # Home Screen (f1) widgets
-button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True)).pack(side=BOTTOM, pady=50)
 target_entry = ttk.Entry(f1, font=('Consolas 46 bold'), exportselection=0, foreground=p_blue, justify=CENTER)
 target_entry.insert(0, target)
 target_entry.pack(expand=YES, side=TOP, fill=X, padx=50)
-target = target_entry.get()
+# target = target_entry.get()
 max_population_slider = Scale(f1, from_=3, to=1000, orient=HORIZONTAL, label='Max population', command=lambda value: update_max_population(int(value)))
 max_population_slider.set(max_population)
 max_population_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
@@ -111,6 +113,7 @@ f_thres_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 ngen_slider = Scale(f1, from_=1, to=5000, orient=HORIZONTAL, label='Max number of generations', command=lambda value: update_ngen(int(value)))
 ngen_slider.set(ngen)
 ngen_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
+button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True)).pack(side=BOTTOM, pady=50)
 
 # f2 widgets
 canvas = Canvas(f2, width=canvas_width, height=canvas_height)
