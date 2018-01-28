@@ -62,10 +62,6 @@ def update_ngen(slider_value):
 	global ngen
 	ngen = slider_value
 
-def character_limit(target_entry):
-	if len(target_entry.get()) > 0:
-		target_entry.set(target_entry.get()[-1])
-
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
@@ -97,9 +93,8 @@ for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
 
 # Home Screen (f1) widgets
-target_entry = ttk.Entry(f1, font=('Consolas 46 bold'), exportselection=0, foreground=p_blue, justify=CENTER, state=ACTIVE)
+target_entry = Entry(f1, font=('Consolas 46 bold'), exportselection=0, foreground=p_blue, justify=CENTER)
 target_entry.insert(0, target)
-target_entry.trace('w', lambda *args: character_limit(target_entry))
 target_entry.pack(expand=YES, side=TOP, fill=X, padx=50)
 target_entry.focus_force()
 
