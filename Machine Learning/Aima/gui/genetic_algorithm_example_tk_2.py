@@ -72,12 +72,12 @@ for frame in (f1, f2):
 canvas = Canvas(f1, width=canvas_width, height=canvas_height)
 canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
 button = Button(f1, text='RUN', command=lambda: raise_frame_and_run_ga(f2)).pack(side=BOTTOM)
+canvas = Canvas(f2, width=canvas_width, height=canvas_height)
+canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
+button = Button(f2, text='EXIT', command=lambda: raise_frame(f1)).pack(side=BOTTOM)
 
 def genetic_algorithm_stepwise(population):
 	root.title('Genetic Algorithm')
-	canvas = Canvas(f2, width=canvas_width, height=canvas_height)
-	canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
-	button = Button(f2, text='EXIT', command=lambda: raise_frame(f1)).pack(side=BOTTOM)
 	for generation in range(ngen):
 		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
 		current_best = ''.join(argmax(population, key=fitness_fn))
