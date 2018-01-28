@@ -87,8 +87,8 @@ class ValidatingEntry(Entry):
 
 class MaxLengthEntry(ValidatingEntry):
 	def __init__(self, master, value='', maxlength=None, **kw):
-		self.maxlength = maxlength
 		apply(ValidatingEntry.__init__, (self, master), kw)
+		self.maxlength = maxlength
 
 	def validate(self, value):
 		if self.maxlength:
@@ -126,7 +126,7 @@ for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
 
 # Home Screen (f1) widgets
-target_entry = MaxLengthEntry(f1, value=target, maxlength=21, font=('Consolas 46 bold'), exportselection=0, foreground=p_blue, justify=CENTER)
+target_entry = MaxLengthEntry(f1, font=('Consolas 46 bold'), exportselection=0, foreground=p_blue, justify=CENTER)
 # target_entry.insert(0, target)
 target_entry.pack(expand=YES, side=TOP, fill=X, padx=50)
 target_entry.focus_force()
