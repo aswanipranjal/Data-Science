@@ -1,3 +1,14 @@
+# author: ad71
+# A simple program that implements the solution to the phrase generation problem using
+# genetic algorithms as given in the search.ipynb notebook.
+# 
+# Type on the home screen to change the target phrase
+# Click on the slider to change genetic algorithm parameters
+# Click 'GO' to run the algorithm with the specified variables
+# Displays best individual of the current generation
+# Displays a progress bar that indicates the amount of completion of the algorithm
+# Displays the first few individuals of the current generation
+
 import sys
 import time
 import random
@@ -6,7 +17,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from tkinter import *
 from tkinter import ttk
-from functools import partial
 
 import search
 from utils import argmax
@@ -120,8 +130,8 @@ button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True, u
 
 # f2 widgets
 canvas = Canvas(f2, width=canvas_width, height=canvas_height)
-canvas.pack(expand=YES, fill=BOTH, padx=20, pady=20)
-button = ttk.Button(f2, text='EXIT', command=lambda: raise_frame(f1)).pack(side=BOTTOM)
+canvas.pack(expand=YES, fill=BOTH, padx=20, pady=15)
+button = ttk.Button(f2, text='EXIT', command=lambda: raise_frame(f1)).pack(side=BOTTOM, pady=20)
 
 # function to run the genetic algorithm and update text on the canvas
 def genetic_algorithm_stepwise(population):
