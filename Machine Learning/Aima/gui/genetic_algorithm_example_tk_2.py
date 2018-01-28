@@ -62,6 +62,10 @@ def update_ngen(slider_value):
 	global ngen
 	ngen = slider_value
 
+def character_limit(target_entry):
+	if len(target_entry.get()) > 0:
+		target_entry.set(target_entry.get()[-1])
+
 # fitness function
 def fitness_fn(_list):
 	fitness = 0
