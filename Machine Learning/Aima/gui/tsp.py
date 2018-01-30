@@ -27,7 +27,7 @@ class TSP_problem(Problem):
 		return neighbour_state
 
 	def actions(self, state):
-		return [self.two_opt]
+		return [self.two_opt_lesser]
 
 	def result(self, state, action):
 		return action(state)
