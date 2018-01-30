@@ -1,2 +1,2 @@
-model_checkpoint_path: "my_policy_nt_pg.ckpt"
-all_model_checkpoint_paths: "my_policy_nt_pg.ckpt"
+model_checkpoint_path: "policy_gradients_cartpole-v0-v0.00"
+all_model_checkpoint_paths: "policy_gradients_cartpole-v0-v0.00"
