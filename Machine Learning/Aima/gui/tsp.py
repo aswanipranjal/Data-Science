@@ -65,3 +65,10 @@ class TSPGui():
 			if column_number == 10:
 				column_number = 0
 				row_number += 1
+
+	def create_buttons(self):
+		Button(self.frame_select_cities, textvariable=self.button_text,
+			   command=self.run_traveling_salesman).grid(row=3, column=4, sticky=E + W)
+		Button(self.frame_select_cities, text='Quit', command=self.root.destroy).grid(row=3, column=5, sticky=E + W)
+
+		
