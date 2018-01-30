@@ -19,6 +19,13 @@ class TSP_problem(Problem):
 		neighbour_state[left: right + 1] = reversed(neighbour_state[left: right + 1])
 		return neighbour_state
 
+	def two_opt_lesser(self, state):
+		neighbour_state = state[:]
+		left = random.randint(0, len(neighbour_state) - 2)
+		right = random.randint(0, len(neighbour_state) - 1)
+		neighbour_state[left: right + 1] = reversed(neighbour_state[left: right + 1])
+		return neighbour_state
+
 	def actions(self, state):
 		return [self.two_opt]
 
