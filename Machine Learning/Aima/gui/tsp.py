@@ -51,4 +51,17 @@ class TSPGui():
 		self.frame_canvas.grid(row=2)
 		Label(self.root, text='Map of Romania', font='Times 13 bold').grid(row=0, columnspan=10)
 
-	def create_checkboxes():
+	def create_checkboxes(self, side=LEFT, anchor=W):
+		row_number = 0
+		column_number = 0
+
+		for city in self.all_cities:
+			var = IntVar()
+			var.set(1)
+			Checkbutton(self.frame_select_cities, text=city, variable=var).grid(row=row_number, column=column_number, sticky=W)
+
+			self.vars.append(var)
+			column_number += 1
+			if column_number == 10:
+				column_number = 0
+				row_number += 1
