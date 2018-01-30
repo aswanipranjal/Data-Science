@@ -757,6 +757,7 @@ def recombine(x, y):
 
 def recombine_uniform(x, y):
     n = len(x)
+    result = [0] * n;
     
 
 
