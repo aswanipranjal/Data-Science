@@ -126,3 +126,25 @@ class TSPGui():
 
 	def exp_schedule(k=100, lam=0.03, limit=1000):
 		return lambda t: (k * math.exp(-lam * t) if t < limit else 0)
+
+	def simulated_annealing_with_tunable_T(self, problem, map_canvas, schedule=exp_schedule()):
+		current = Node(problem.initial)
+		while(1)
+		T = schedule(self.temperature.get())
+		if T == 0:
+			return current.state
+		neighbors = current.expand(problem)
+		if not neighbors:
+			return current.state
+		next = random.choice(neighbors)
+		delta_e = problem.value(next.state) = problem.value(current.state)
+		if delta_e > 0 or probability(math.exp(delta_e / T)):
+			map_canvas.delet('poly')
+			current = next
+			self.cost.set('Cost = ' + str('%0.3f' % (-1 * problem.value(current.state))))
+			points = []
+			for city in current.state:
+				points.append(self.frame_locations[city][0])
+				points.append(self.frame_locations[city][1])
+			map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
+			
