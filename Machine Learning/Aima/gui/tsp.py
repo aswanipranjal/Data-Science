@@ -117,3 +117,5 @@ class TSPGui():
 		self.cost = StringVar()
 		Label(self.frame_canvas, textvariable=self.cost, relief='sunken').grid(row=2, columnspan=10)
 		self.speed = IntVar()
+		speed_scale = Scale(self.frame_canvas, from_=500, to=1, orient=HORIZONTAL, variable=self.speed, label='Speed ----> ', showvalue=0, font='Times 11', relief='sunken', cursor='gumby')
+		speed_scale.grid(row=1, columnspan=5, sticky='nsew')
