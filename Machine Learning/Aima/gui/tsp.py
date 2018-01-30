@@ -34,3 +34,20 @@ class TSP_problem(Problem):
 
 	def value(self. state):
 		return -1 * self.path_cost(None, None, None, state)
+
+class TSPGui():
+
+	def __init__(self, root, all_cities):
+		self.root = root;
+		self.vars = [
+		self.frame_locations = {}
+		self.calculate_canvas_size()
+		self.button_text = StringVar()
+		self.button_text.set('Start')
+		self.all_cities = all_cities
+		self.frame_select_cities = Frame(self.root)
+		self.frame_select_cities.grid(row=1)
+		self.frame_canvas = Frame(self.root)
+		self.frame_canvas.grid(row=2)
+		Label(self.root, text='Map of Romania', font='Times 13 bold').grid(row=0, columnspan=10)
+		
