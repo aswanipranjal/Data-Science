@@ -32,7 +32,7 @@ class TSP_problem(Problem):
 		cost += distances[state2[0]][state2[-1]]
 		return cost
 
-	def value(self. state):
+	def value(self, state):
 		return -1 * self.path_cost(None, None, None, state)
 
 class TSPGui():
