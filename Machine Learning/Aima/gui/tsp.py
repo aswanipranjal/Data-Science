@@ -38,8 +38,8 @@ class TSP_problem(Problem):
 class TSPGui():
 
 	def __init__(self, root, all_cities):
-		self.root = root;
-		self.vars = [
+		self.root = root
+		self.vars = []
 		self.frame_locations = {}
 		self.calculate_canvas_size()
 		self.button_text = StringVar()
@@ -50,4 +50,5 @@ class TSPGui():
 		self.frame_canvas = Frame(self.root)
 		self.frame_canvas.grid(row=2)
 		Label(self.root, text='Map of Romania', font='Times 13 bold').grid(row=0, columnspan=10)
-		
+
+	def create_checkboxes():
