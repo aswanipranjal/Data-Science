@@ -169,3 +169,6 @@ def main():
 	cities_selection_panel.create_checkboxes()
 	cities_selection_panel.create_buttons()
 	root.mainloop()
+
+if __name__ == '__main__':
+	main()
