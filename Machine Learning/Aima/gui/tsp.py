@@ -137,7 +137,7 @@ class TSPGui():
 			if not neighbors:
 				return current.state
 			next = random.choice(neighbors)
-			delta_e = problem.value(next.state) = problem.value(current.state)
+			delta_e = problem.value(next.state) - problem.value(current.state)
 			if delta_e > 0 or probability(math.exp(delta_e / T)):
 				map_canvas.delet('poly')
 				current = next
