@@ -150,4 +150,18 @@ class TSPGui():
 			map_canvas.update()
 			map_canvas.after(self.speed.get())
 
-	
+def main():
+	all_cities = []
+	for city in romania_map.locations.keys():
+		distances[city] = {}
+		all_cities.append(city)
+	all_cities.sort()
+
+	for name_1, coordinates_1 in romania_map.locations.items():
+		for name_2, coordinates_2 in romania_map.locations.items():
+			distances[name_1][name_2] = np.linalg.norm([coordinates_1[0] - coordinates_2[0], coordinates_1[1] - coordinates_2[1]])
+			distances[name_2][name_1] = np.linalg.norm([coordinates_1[0] - coordinates_2[1], coordinates_1[1] - coordinates_2[1]])
+
+
+	root = Tk()
+	root.title('Traveling Salesman Problem')
