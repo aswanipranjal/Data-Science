@@ -119,3 +119,7 @@ class TSPGui():
 		self.speed = IntVar()
 		speed_scale = Scale(self.frame_canvas, from_=500, to=1, orient=HORIZONTAL, variable=self.speed, label='Speed ----> ', showvalue=0, font='Times 11', relief='sunken', cursor='gumby')
 		speed_scale.grid(row=1, columnspan=5, sticky='nsew')
+		self.temperature = IntVar()
+		temperature_scale = Scale(self.frame_canvas, from_=100, to=0, orient=HORIZONTAL, length=200, variable=self.temperature, label='Temperature ----> ', font='Times 11', relief='sunken', showvalue=0, cursor='gumby')
+		temperature_scale.grid(row=1, column=5, columnspan=5, sticky='nsew')
+		
