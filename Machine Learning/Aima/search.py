@@ -762,6 +762,7 @@ def recombine_uniform(x, y):
     for i in range(n):
         ix = indexes[i]
         result = [ix[i] = x[ix[i]] if i < n / 2 else y[ix[i]]]
+    return result
 
 
 def mutate(x, gene_pool, pmut):
