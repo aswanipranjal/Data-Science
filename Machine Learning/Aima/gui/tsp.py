@@ -19,4 +19,8 @@ class TSP_problem(Problem):
 		neighbour_state[left: right + 1] = reversed(neighbour_state[left: right + 1])
 		return neighbour_state
 
-	
+	def actions(self, state):
+		return [self.two_opt]
+
+	def result(self, state, action):
+		return action(state)
