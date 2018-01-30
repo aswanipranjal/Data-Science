@@ -147,4 +147,7 @@ class TSPGui():
 				points.append(self.frame_locations[city][0])
 				points.append(self.frame_locations[city][1])
 			map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
-			
+			map_canvas.update()
+			map_canvas.after(self.speed.get())
+
+	
