@@ -24,3 +24,10 @@ class TSP_problem(Problem):
 
 	def result(self, state, action):
 		return action(state)
+
+	def path_cost(self, c, state1, action, state2):
+		cost = 0
+		for i in range(len(state2) - 1):
+			cost += distances[state2[i]][state2[i + 1]]
+		cost += distances[state2[0]][state2[-1]]
+		return cost
