@@ -71,4 +71,13 @@ class TSPGui():
 			   command=self.run_traveling_salesman).grid(row=3, column=4, sticky=E + W)
 		Button(self.frame_select_cities, text='Quit', command=self.root.destroy).grid(row=3, column=5, sticky=E + W)
 
-		
+	def run_traveling_salesman(self):
+
+		cities = []
+		for i in range(len(self.vars)):
+			if self.vars[i].get() == 1:
+				cities.append(self.all_cities[i])
+
+		tsp_problem = TSP_problem(cities)
+		self.button_text.set('Reset')
+		self.create_canvas(tsp_problem)
