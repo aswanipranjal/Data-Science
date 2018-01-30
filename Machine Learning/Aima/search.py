@@ -758,7 +758,9 @@ def recombine(x, y):
 def recombine_uniform(x, y):
     n = len(x)
     result = [0] * n;
-    
+    indexes = random.sample(range(n), n)
+    for i in range(n):
+        ix = 
 
 
 def mutate(x, gene_pool, pmut):
