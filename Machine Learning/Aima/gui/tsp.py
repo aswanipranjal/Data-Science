@@ -122,4 +122,7 @@ class TSPGui():
 		self.temperature = IntVar()
 		temperature_scale = Scale(self.frame_canvas, from_=100, to=0, orient=HORIZONTAL, length=200, variable=self.temperature, label='Temperature ----> ', font='Times 11', relief='sunken', showvalue=0, cursor='gumby')
 		temperature_scale.grid(row=1, column=5, columnspan=5, sticky='nsew')
-		
+		self.simulated_annealing_with_tunable_T(problem, map_canvas)
+
+	def exp_schedule(k=100, lam=0.03, limit=1000):
+		return lambda t: (k * math.exp(-lam * t) if t < limit else 0)
