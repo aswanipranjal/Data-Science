@@ -72,7 +72,6 @@ class TSPGui():
 		Button(self.frame_select_cities, text='Quit', command=self.root.destroy).grid(row=3, column=5, sticky=E + W)
 
 	def run_traveling_salesman(self):
-
 		cities = []
 		for i in range(len(self.vars)):
 			if self.vars[i].get() == 1:
@@ -81,3 +80,23 @@ class TSPGui():
 		tsp_problem = TSP_problem(cities)
 		self.button_text.set('Reset')
 		self.create_canvas(tsp_problem)
+
+	def calculate_canvas_size(self):
+		minx, maxx = sys.maxsize, -1 * sys.maxsize
+		miny, maxy = sys.maxsize, -1 * sys.maxsize
+
+		for value in romania_map.locations.values():
+			minx = min(minx, value[0])
+			maxx = max(maxx, value[0])
+			miny = min(miny, value[1])
+			maxy = max(maxy, value[1])
+
+		for name, coordinates in romania_map.locations.items():
+			self.frame_locations[name] = (coordinates[0] / 1.2 - minx + 150, coordinates[1] / 1.2 - miny + 165)
+
+		canvas_width = maxx	- minx + 200
+		canvas_height = maxy - miny + 200
+
+		self.canvas_width = canvas_width
+		self.canvas_height = canvas_height
+	
