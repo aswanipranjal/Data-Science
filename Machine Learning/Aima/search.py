@@ -755,6 +755,11 @@ def recombine(x, y):
     return x[:c] + y[c:]
 
 
+def recombine_uniform(x, y):
+    n = len(x)
+    
+
+
 def mutate(x, gene_pool, pmut):
     if random.uniform(0, 1) >= pmut:
         return x
