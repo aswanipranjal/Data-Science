@@ -165,3 +165,7 @@ def main():
 
 	root = Tk()
 	root.title('Traveling Salesman Problem')
+	cities_selection_panel = TSPGui(root, all_cities)
+	cities_selection_panel.create_checkboxes()
+	cities_selection_panel.create_buttons()
+	root.mainloop()
