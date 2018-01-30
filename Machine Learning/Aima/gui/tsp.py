@@ -139,7 +139,7 @@ class TSPGui():
 			next = random.choice(neighbors)
 			delta_e = problem.value(next.state) - problem.value(current.state)
 			if delta_e > 0 or probability(math.exp(delta_e / T)):
-				map_canvas.delet('poly')
+				map_canvas.delete('poly')
 				current = next
 				self.cost.set('Cost = ' + str('%0.3f' % (-1 * problem.value(current.state))))
 				points = []
