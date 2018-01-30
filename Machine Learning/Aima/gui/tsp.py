@@ -108,3 +108,12 @@ class TSPGui():
 		self.romania_image = PhotoImage(file='../images/romania_map.png')
 		map_canvas.create_image(self.canvas_width / 2, self.canvas_height / 2, image=self.romania_image)
 		cities = current.state
+
+		for city in cities:
+			x = self.frame_locations[city][0]
+			y = self.frame_locations[city][1]
+			map_canvas.create_oval(x - 3, y - 3, x + 3, y + 3, fill='red', outline='red')
+			map_canvas.create_text(x - 15, y - 10, text=city)
+		self.cost = StringVar()
+		Label(self.frame_canvas, textvariable=self.cost, relief='sunken').grid(row=2, columnspan=10)
+		self.speed = IntVar()
