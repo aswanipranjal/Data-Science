@@ -145,7 +145,7 @@ class TSPGui():
 		print('Current:', current)
 		print('Current.state:', current.state)
 		print('Fitness of current state:', self.fitness_fn(current.state))
-		selection = select(2, current.state, fitness_fn)
+		selection = select(2, current.state, self.fitness_fn)
 		print('Selection:', selection)
 		while(1):
 			T = schedule(self.temperature.get())
