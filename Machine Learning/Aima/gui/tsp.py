@@ -47,6 +47,7 @@ class TSPGui():
 	def __init__(self, root, all_cities):
 		self.root = root
 		self.vars = []
+		self.problem = None
 		self.frame_locations = {}
 		self.calculate_canvas_size()
 		self.button_text = StringVar()
@@ -84,7 +85,7 @@ class TSPGui():
 			if self.vars[i].get() == 1:
 				cities.append(self.all_cities[i])
 
-		tsp_problem = TSP_problem(cities)
+		self.problem = TSP_problem(cities)
 		self.button_text.set('Reset')
 		self.create_canvas(tsp_problem)
 
