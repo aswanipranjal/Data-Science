@@ -144,7 +144,7 @@ class TSPGui():
 		print('Current:', current)
 		while(1):
 			T = schedule(self.temperature.get())
-			print('T:', TT)
+			print('T:', T)
 			if T == 0:
 				return current.state
 			neighbors = current.expand(problem)
@@ -152,7 +152,9 @@ class TSPGui():
 			if not neighbors:
 				return current.state
 			next = random.choice(neighbors)
+			print('Next:', next)
 			delta_e = problem.value(next.state) - problem.value(current.state)
+			print('delta_e:', delta_e)
 			if delta_e > 0 or probability(math.exp(delta_e / T)):
 				map_canvas.delete('poly')
 				current = next
