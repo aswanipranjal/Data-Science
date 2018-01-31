@@ -167,6 +167,9 @@ class TSPGui():
 				map_canvas.update()
 				map_canvas.after(self.speed.get())
 
+	def genetic_algorithm(self, problem, map_canvas):
+		
+
 def main():
 	all_cities = []
 	for city in romania_map.locations.keys():
