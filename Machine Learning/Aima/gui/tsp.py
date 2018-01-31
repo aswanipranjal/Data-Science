@@ -154,6 +154,8 @@ class TSPGui():
 				return current.state
 			next = random.choice(neighbors)
 			print('Next:', next)
+			print('value(next.state)', problem.value(next.state))
+			print('value(current.state)', problem.value(current.state))
 			delta_e = problem.value(next.state) - problem.value(current.state)
 			print('delta_e:', delta_e)
 			if delta_e > 0 or probability(math.exp(delta_e / T)):
@@ -168,8 +170,8 @@ class TSPGui():
 				map_canvas.update()
 				map_canvas.after(self.speed.get())
 
-	def fitness_fn(self, state):
-		
+	# def fitness_fn(self, state):
+	# 	problem.value(state)
 
 	# def genetic_algorithm_stepwise(self, problem, map_canvas):
 		# print('In genetic_algorithm_stepwise function')
