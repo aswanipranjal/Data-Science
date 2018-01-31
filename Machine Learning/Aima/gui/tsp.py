@@ -108,15 +108,17 @@ class TSPGui():
 		self.canvas_height = canvas_height
 
 	def create_canvas(self, problem):
-		print(problem)
-		print(problem.initial)
+		print('Problem', problem)
+		print('problem.initial', problem.initial)
 		map_canvas = Canvas(self.frame_canvas, width=self.canvas_width, height=self.canvas_height)
 		map_canvas.grid(row=3, columnspan=10)
 		current = Node(problem.initial)
+		print('Current:', current)
 		map_canvas.delete('all')
 		self.romania_image = PhotoImage(file='../images/romania_map.png')
 		map_canvas.create_image(self.canvas_width / 2, self.canvas_height / 2, image=self.romania_image)
 		cities = current.state
+		print('Cities: ', cities)
 
 		for city in cities:
 			x = self.frame_locations[city][0]
