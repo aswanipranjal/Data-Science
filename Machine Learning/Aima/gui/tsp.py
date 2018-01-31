@@ -170,8 +170,9 @@ class TSPGui():
 				map_canvas.update()
 				map_canvas.after(self.speed.get())
 
-	# def fitness_fn(self, state):
-	# 	problem.value(state)
+	def fitness_fn(self, state):
+		fitness = problem.value(state)
+		return -10000 / fitness
 
 	# def genetic_algorithm_stepwise(self, problem, map_canvas):
 		# print('In genetic_algorithm_stepwise function')
