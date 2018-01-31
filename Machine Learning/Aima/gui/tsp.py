@@ -168,9 +168,11 @@ class TSPGui():
 				map_canvas.update()
 				map_canvas.after(self.speed.get())
 
-	def genetic_algorithm_stepwise(self, problem, map_canvas):
-		print('In genetic_algorithm')
-		current = Node(problem.initial)
+	# def genetic_algorithm_stepwise(self, problem, map_canvas):
+		# print('In genetic_algorithm_stepwise function')
+		# current = Node(problem.initial)
+		# while(1):
+			# population = [mutate(recombine(*select(2, population, )))]
 
 def main():
 	all_cities = []
