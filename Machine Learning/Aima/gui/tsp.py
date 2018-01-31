@@ -143,6 +143,9 @@ class TSPGui():
 		current = Node(problem.initial)
 		print('Current:', current)
 		print('Current.state:', current.state)
+		print('Fitness of current state:', fitness_fn(current.state))
+		selection = select(2, current.state, fitness_fn)
+		print('Selection:', selection)
 		while(1):
 			T = schedule(self.temperature.get())
 			print('T:', T)
@@ -173,6 +176,9 @@ class TSPGui():
 	def fitness_fn(self, state):
 		fitness = problem.value(state)
 		return -10000 / fitness
+
+	def mutate():
+		pass
 
 	# def genetic_algorithm_stepwise(self, problem, map_canvas):
 		# print('In genetic_algorithm_stepwise function')
