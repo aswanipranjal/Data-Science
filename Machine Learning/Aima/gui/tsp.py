@@ -143,7 +143,7 @@ class TSPGui():
 		current = Node(problem.initial)
 		print('Current:', current)
 		print('Current.state:', current.state)
-		print('Fitness of current state:', fitness_fn(current.state))
+		print('Fitness of current state:', self.fitness_fn(current.state))
 		selection = select(2, current.state, fitness_fn)
 		print('Selection:', selection)
 		while(1):
