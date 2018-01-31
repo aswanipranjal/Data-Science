@@ -108,6 +108,8 @@ class TSPGui():
 		self.canvas_height = canvas_height
 
 	def create_canvas(self, problem):
+		print(problem)
+		print(problem.initial)
 		map_canvas = Canvas(self.frame_canvas, width=self.canvas_width, height=self.canvas_height)
 		map_canvas.grid(row=3, columnspan=10)
 		current = Node(problem.initial)
