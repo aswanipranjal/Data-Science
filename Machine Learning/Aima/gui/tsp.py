@@ -142,6 +142,7 @@ class TSPGui():
 		print('In simulated_annealing_with_tunable_T function')
 		current = Node(problem.initial)
 		print('Current:', current)
+		print('Current.state:', current.state)
 		while(1):
 			T = schedule(self.temperature.get())
 			print('T:', T)
@@ -167,8 +168,8 @@ class TSPGui():
 				map_canvas.update()
 				map_canvas.after(self.speed.get())
 
-	def genetic_algorithm(self, problem, map_canvas):
-		
+	# def genetic_algorithm(self, problem, map_canvas):
+
 
 def main():
 	all_cities = []
