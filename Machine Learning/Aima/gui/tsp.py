@@ -87,7 +87,7 @@ class TSPGui():
 
 		self.problem = TSP_problem(cities)
 		self.button_text.set('Reset')
-		self.create_canvas(tsp_problem)
+		self.create_canvas()
 
 	def calculate_canvas_size(self):
 		minx, maxx = sys.maxsize, -1 * sys.maxsize
@@ -108,12 +108,12 @@ class TSPGui():
 		self.canvas_width = canvas_width
 		self.canvas_height = canvas_height
 
-	def create_canvas(self, problem):
-		print('Problem', problem)
-		print('problem.initial', problem.initial)
+	def create_canvas(self):
+		print('Problem', self.problem)
+		print('problem.initial', self.problem.initial)
 		map_canvas = Canvas(self.frame_canvas, width=self.canvas_width, height=self.canvas_height)
 		map_canvas.grid(row=3, columnspan=10)
-		current = Node(problem.initial)
+		current = Node(self.problem.initial)
 		print('Current:', current)
 		map_canvas.delete('all')
 		self.romania_image = PhotoImage(file='../images/romania_map.png')
@@ -134,14 +134,14 @@ class TSPGui():
 		self.temperature = IntVar()
 		temperature_scale = Scale(self.frame_canvas, from_=100, to=0, orient=HORIZONTAL, length=200, variable=self.temperature, label='Temperature ----> ', font='Times 11', relief='sunken', showvalue=0, cursor='gumby')
 		temperature_scale.grid(row=1, column=5, columnspan=5, sticky='nsew')
-		self.simulated_annealing_with_tunable_T(problem, map_canvas)
+		self.simulated_annealing_with_tunable_T(map_canvas)
 
 	def exp_schedule(k=100, lam=0.03, limit=1000):
 		return lambda t: (k * math.exp(-lam * t) if t < limit else 0)
 
-	def simulated_annealing_with_tunable_T(self, problem, map_canvas, schedule=exp_schedule()):
+	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
 		print('In simulated_annealing_with_tunable_T function')
-		current = Node(problem.initial)
+		current = Node(self.problem.initial)
 		print('Current:', current)
 		print('Current.state:', current.state)
 		print('Fitness of current state:', self.fitness_fn(current.state))
@@ -152,20 +152,20 @@ class TSPGui():
 			print('T:', T)
 			if T == 0:
 				return current.state
-			neighbors = current.expand(problem)
+			neighbors = current.expand(self.problem)
 			print('neighbors:', neighbors, end='\n\n\n')
 			if not neighbors:
 				return current.state
 			next = random.choice(neighbors)
 			print('Next:', next)
-			print('value(next.state)', problem.value(next.state))
-			print('value(current.state)', problem.value(current.state))
-			delta_e = problem.value(next.state) - problem.value(current.state)
+			print('value(next.state)', self.problem.value(next.state))
+			print('value(current.state)', self.problem.value(current.state))
+			delta_e = self.problem.value(next.state) - self.problem.value(current.state)
 			print('delta_e:', delta_e)
 			if delta_e > 0 or probability(math.exp(delta_e / T)):
 				map_canvas.delete('poly')
 				current = next
-				self.cost.set('Cost = ' + str('%0.3f' % (-1 * problem.value(current.state))))
+				self.cost.set('Cost = ' + str('%0.3f' % (-1 * self.problem.value(current.state))))
 				points = []
 				for city in current.state:
 					points.append(self.frame_locations[city][0])
@@ -175,7 +175,7 @@ class TSPGui():
 				map_canvas.after(self.speed.get())
 
 	def fitness_fn(self, state):
-		fitness = problem.value(state)
+		fitness = self.problem.value(state)
 		return -10000 / fitness
 
 	def mutate():
