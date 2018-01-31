@@ -119,7 +119,7 @@ class TSPGui():
 		map_canvas.create_image(self.canvas_width / 2, self.canvas_height / 2, image=self.romania_image)
 		cities = current.state
 		print('Cities: ', cities)
-
+		print('frame locations: ', self.frame_locations)
 		for city in cities:
 			x = self.frame_locations[city][0]
 			y = self.frame_locations[city][1]
