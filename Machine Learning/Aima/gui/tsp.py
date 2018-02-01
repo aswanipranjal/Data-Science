@@ -181,7 +181,8 @@ class TSPGui():
 
 	def select_tsp(r. population, fitness_fn):
 		fitnesses = map(fitness_fn, population)
-		sampler = weighted_sampler()
+		indices = range(len(population))
+		sampler = weighted_sampler(population, fitnesses)
 
 	def mutate():
 		pass
