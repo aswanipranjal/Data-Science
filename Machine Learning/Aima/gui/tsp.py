@@ -194,7 +194,7 @@ class TSPGui():
 
 	def fitness_fn(self, state):
 		fitness = self.problem.value(state)
-		return -1e13 // (fitness ** 3)
+		return 1e10 // (fitness ** 2)
 
 	def init_population(self, pop_number, gene_pool, state_length):
 		population = []
