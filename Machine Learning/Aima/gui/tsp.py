@@ -161,6 +161,7 @@ class TSPGui():
 		# print(f'Fitness2: {self.fitness_fn(selection[1])}')
 		while(1):
 			population = [self.mutate(self.recombine(*select(2, population, self.fitness_fn)), self.all_cities, mutation_rate) for i in range(len(population))]
+			current_best = utils.argmax(population, key=fitness_fn)
 			
 
 	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
