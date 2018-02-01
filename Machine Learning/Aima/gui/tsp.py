@@ -150,17 +150,17 @@ class TSPGui():
 
 	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
 		# print('In simulated_annealing_with_tunable_T function')
-		print('Genetic algorithm')
-		current = Node(self.problem.initial)
-		print(f'all_cities {self.all_cities}')
-		# print('Current:', current)
-		print('Current.state:', current.state)
-		print('Initializing')
-		population = init_population(100, self.all_cities, len(self.all_cities))
-		# print('Fitness of current state:', self.fitness_fn(current.state))
-		# selection = select(2, current.state, self.fitness_fn)
-		selection = self.select_tsp(2, population, self.fitness_fn)
-		print('Selection:', selection)
+		# print('Genetic algorithm')
+		# current = Node(self.problem.initial)
+		# print(f'all_cities {self.all_cities}')
+		# # print('Current:', current)
+		# print('Current.state:', current.state)
+		# print('Initializing')
+		# population = init_population(100, self.all_cities, len(self.all_cities))
+		# # print('Fitness of current state:', self.fitness_fn(current.state))
+		# # selection = select(2, current.state, self.fitness_fn)
+		# selection = self.select_tsp(2, population, self.fitness_fn)
+		# print('Selection:', selection)
 		# while(1):
 		# 	T = schedule(self.temperature.get())
 		# 	print('T:', T)
@@ -187,6 +187,7 @@ class TSPGui():
 		# 		map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
 		# 		map_canvas.update()
 		# 		map_canvas.after(self.speed.get())
+		genetic_algorithm_stepwise(map_canvas)
 
 	def fitness_fn(self, state):
 		fitness = self.problem.value(state)
