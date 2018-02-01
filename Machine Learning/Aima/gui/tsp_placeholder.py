@@ -200,6 +200,15 @@ class TSP_Gui():
                 population.append(utils.shuffled(gene_pool))
             return population
 
+        def recombine(self, state_a, state_b):
+            start = random.randint(0, len(state_a) - 1)
+            end = random.randint(start + 1, len(state_a))
+            new_state = state_a[start:end]
+            for city in state_b:
+                if city not in new_state:
+                    new_state.append(city)
+            return new_state
+
 def main():
     all_cities = []
     for city in romania_map.locations.keys():
