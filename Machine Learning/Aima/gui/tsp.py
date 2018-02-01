@@ -206,9 +206,9 @@ class TSPGui():
 	def select_tsp(self, r, population, fitness_fn):
 		# print(f'Time right now {time.time()}')
 		fitnesses = list(map(fitness_fn, population))
-		indices = range(len(population))
-		sampler = utils.weighted_sampler(indices, fitnesses)
-		return [population[sampler()] for i in range(r)]
+		# indices = range(len(population))
+		sampler = utils.weighted_sampler(population, fitnesses)
+		return [sampler() for i in range(r)]
 
 	def mutate():
 		pass
