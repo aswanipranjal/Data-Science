@@ -272,6 +272,7 @@ def main():
     cities_selection_panel = TSP_Gui(root, all_cities)
     cities_selection_panel.create_checkboxes()
     cities_selection_panel.create_buttons()
+    cities_selection_panel.create_dropdown_menu()
     root.mainloop()
 
 
