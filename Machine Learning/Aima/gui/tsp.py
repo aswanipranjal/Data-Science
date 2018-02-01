@@ -187,7 +187,7 @@ class TSPGui():
 		# 		map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
 		# 		map_canvas.update()
 		# 		map_canvas.after(self.speed.get())
-		genetic_algorithm_stepwise(map_canvas)
+		self.genetic_algorithm_stepwise(map_canvas)
 
 	def fitness_fn(self, state):
 		fitness = self.problem.value(state)
