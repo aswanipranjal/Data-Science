@@ -219,6 +219,12 @@ class TSP_Gui():
             fitness = problem.value(state)
             return int((5600 + fitness) ** 2)
 
+        mutation_rate = 0.05
+        current = Node(problem.initial)
+        population = init_population(100, current.state, len(current.state))
+        all_time_best = current.state
+        
+
 def main():
     all_cities = []
     for city in romania_map.locations.keys():
