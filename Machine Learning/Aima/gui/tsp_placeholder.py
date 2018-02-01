@@ -56,6 +56,7 @@ class TSP_Gui():
         self.frame_locations = {}
         self.calculate_canvas_size()
         self.button_text = StringVar()
+        self.algo_var = StringVar()
         self.button_text.set("Start")
         self.all_cities = all_cities
         self.frame_select_cities = Frame(self.root)
@@ -93,10 +94,9 @@ class TSP_Gui():
     def create_dropdown_menu(self):
         """ Create dropdown menu for algorithm selection """
 
-        algo_var = StringVar()
         choices = {'Simulated Annealing', '  Genetic Algorithm  '}
-        algo_var.set('Simulated Annealing')
-        dropdown_menu = OptionMenu(self.frame_select_cities, algo_var, *choices)
+        self.algo_var.set('Simulated Annealing')
+        dropdown_menu = OptionMenu(self.frame_select_cities, self.algo_var, *choices)
         dropdown_menu.grid(row=4, column=4, columnspan=2, sticky=E + W)
 
     def run_traveling_salesman(self):
