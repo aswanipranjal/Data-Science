@@ -147,6 +147,7 @@ class TSPGui():
 		print(f'current state: {current.state}')
 		print('Initializing')
 		population = self.init_population(100, self.all_cities, len(self.all_cities))
+		print(f'population: {population[:5]}')
 
 	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
 		# print('In simulated_annealing_with_tunable_T function')
