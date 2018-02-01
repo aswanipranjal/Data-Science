@@ -162,14 +162,14 @@ class TSP_Gui():
                             variable=self.speed, label="Speed ----> ", showvalue=0, font="Times 11",
                             relief="sunken", cursor="gumby")
         speed_scale.grid(row=1, columnspan=5, sticky=N + S + E + W)
-        self.temperature = IntVar()
-        temperature_scale = Scale(self.frame_canvas, from_=100, to=0, orient=HORIZONTAL,
-                                  length=200, variable=self.temperature, label="Temperature ---->",
-                                  font="Times 11", relief="sunken", showvalue=0, cursor="gumby")
-
-        temperature_scale.grid(row=1, column=5, columnspan=5, sticky=N + S + E + W)
+        
         # self.simulated_annealing_with_tunable_T(problem, map_canvas)
         if self.algo_var.get() == 'Simulated Annealing':
+            self.temperature = IntVar()
+            temperature_scale = Scale(self.frame_canvas, from_=100, to=0, orient=HORIZONTAL,
+                                  length=200, variable=self.temperature, label="Temperature ---->",
+                                  font="Times 11", relief="sunken", showvalue=0, cursor="gumby")
+            temperature_scale.grid(row=1, column=5, columnspan=5, sticky=N + S + E + W)
             self.simulated_annealing_with_tunable_T(problem, map_canvas)
         elif self.algo_var.get() == 'Genetic Algorithm':
             self.genetic_algorithm(problem, map_canvas)
@@ -225,7 +225,7 @@ class TSP_Gui():
             return new_state
 
         def mutate(state, mutation_rate):
-            if random.uniform(0, 1) < mutation_rate:
+            if random.uniform(0, 1) < self.mutation_rate:
                 sample = random.sample(range(len(state)), 2)
                 state[sample[0]], state[sample[1]] = state[sample[1]], state[sample[0]]
             return state
@@ -234,7 +234,6 @@ class TSP_Gui():
             fitness = problem.value(state)
             return int((5600 + fitness) ** 2)
 
-        mutation_rate = 0.05
         current = Node(problem.initial)
         population = init_population(100, current.state, len(current.state))
         all_time_best = current.state
