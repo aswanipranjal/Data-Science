@@ -234,7 +234,12 @@ class TSP_Gui():
                 points.append(self.frame_locations[city][0])
                 points.append(self.frame_locations[city][1])
             map_canvas.create_polygon(points, outline='red', width=1, fill='', tag='poly')
-            
+            best_points = []
+            for city in all_time_best:
+                best_points.append(self.frame_locations[city][0])
+                best_points.append(self.frame_locations[city][1])
+            map_canvas.create_polygon(best_points, outline='red', width=3, fill='', tag='poly')
+            map_canvas.update()
 
 def main():
     all_cities = []
