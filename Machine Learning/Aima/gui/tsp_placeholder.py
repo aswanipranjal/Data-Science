@@ -98,6 +98,7 @@ class TSP_Gui():
         self.algo_var.set('Simulated Annealing')
         dropdown_menu = OptionMenu(self.frame_select_cities, self.algo_var, *choices)
         dropdown_menu.grid(row=4, column=4, columnspan=2, sticky=E + W)
+        dropdown_menu.config(width=19)
 
     def run_traveling_salesman(self):
         """ Choose selected citites """
