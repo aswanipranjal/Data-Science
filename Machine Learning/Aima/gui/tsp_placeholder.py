@@ -223,7 +223,13 @@ class TSP_Gui():
         current = Node(problem.initial)
         population = init_population(100, current.state, len(current.state))
         all_time_best = current.state
-        
+        while(1):
+            population = [mutate(racombine(*select(2, population, fitness_fn)), mutation_rate) for i in range(len(population))]
+            current_best = utils.argmax(population, key=fitness_fn)
+            if fitness_fn(current_best) > fitness_fn(all_time_best):
+                all_time_best = current_best
+            map_canvas.delete('poly')
+            points = []
 
 def main():
     all_cities = []
