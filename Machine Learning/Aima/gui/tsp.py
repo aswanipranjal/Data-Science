@@ -192,6 +192,12 @@ class TSPGui():
 		fitness = self.problem.value(state)
 		return int(-1000000 / fitness)
 
+	def init_population(self, pop_number, gene_pool, state_length):
+		population = []
+		for i in range(pop_number):
+			population.append(utils.shuffled(gene_pool))
+		return population
+
 	def select_tsp(self, r, population, fitness_fn):
 		fitnesses = map(fitness_fn, population)
 		indices = range(len(population))
