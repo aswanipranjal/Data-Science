@@ -176,6 +176,7 @@ class TSP_Gui():
             mutation_rate_scale = Scale(self.frame_canvas, from_=0, to=1, orient=HORIZONTAL, 
                                         length=200, variable=self.mutation_rate, label='Mutation Rate ---->',
                                         font='Times 11', relief='sunken', showvalue=1, cursor='gumby', resolution=0.001)
+            mutation_rate_scale.grid(row=1, column=5, columnspan=5, sticky='nsew')
             self.genetic_algorithm(problem, map_canvas)
 
     def exp_schedule(k=100, lam=0.03, limit=1000):
