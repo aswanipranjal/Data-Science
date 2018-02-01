@@ -90,6 +90,9 @@ class TSP_Gui():
         Button(self.frame_select_cities, text='Quit', command=self.root.destroy).grid(
             row=3, column=5, sticky=E + W)
 
+    def create_dropdown_menu(self):
+        """ Create dropdown menu for algorithm selection """
+
     def run_traveling_salesman(self):
         """ Choose selected citites """
 
