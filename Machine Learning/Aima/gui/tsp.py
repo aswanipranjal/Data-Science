@@ -163,6 +163,8 @@ class TSPGui():
 		while(1):
 			population = [self.mutate(self.recombine(*select(2, population, self.fitness_fn)), mutation_rate) for i in range(len(population))]
 			current_best = utils.argmax(population, key=self.fitness_fn)
+			if self.fitness_fn(current_best) > self.fitness_fn(all_time_best):
+				all_time_best = current_best
 			map_canvas.delete('poly')
 			points = []
 			for city in current_best:
@@ -172,6 +174,7 @@ class TSPGui():
 			for city in all_time_best:
 				points.append(self.frame_locations[city][0])
 				points.append(self.frame_locations[city][1])
+			map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
 			map_canvas.update()
 			# map_canvas.after(self.speed.get())
 
