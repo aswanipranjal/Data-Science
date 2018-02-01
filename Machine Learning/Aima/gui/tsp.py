@@ -151,7 +151,7 @@ class TSPGui():
 		population = init_population(100, self.all_cities, len(self.all_cities))
 		# print('Fitness of current state:', self.fitness_fn(current.state))
 		# selection = select(2, current.state, self.fitness_fn)
-		selection = self.select_tsp(2, current.state, self.fitness_fn)
+		selection = self.select_tsp(2, population, self.fitness_fn)
 		print('Selection:', selection)
 		# while(1):
 		# 	T = schedule(self.temperature.get())
