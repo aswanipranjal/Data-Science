@@ -150,10 +150,10 @@ class TSPGui():
 		population = self.init_population(100, self.all_cities, len(self.all_cities))
 		# print(f'population: {population}')
 		selection = select(2, population, self.fitness_fn)
-		print(selection)
-		print(f'Fitnesses: {list(map(self.fitness_fn, population))}')
-		print(f'Fitness1: {self.fitness_fn(selection[0])}')
-		print(f'Fitness2: {self.fitness_fn(selection[1])}')
+		# print(selection)
+		# print(f'Fitnesses: {list(map(self.fitness_fn, population))}')
+		# print(f'Fitness1: {self.fitness_fn(selection[0])}')
+		# print(f'Fitness2: {self.fitness_fn(selection[1])}')
 
 	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
 		self.genetic_algorithm_stepwise(map_canvas)
