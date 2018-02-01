@@ -151,49 +151,11 @@ class TSPGui():
 		# print(f'population: {population}')
 		selection = select(2, population, self.fitness_fn)
 		print(selection)
-		print(f'Fitnesses: {list(map(fitness_fn, population))}')
+		print(f'Fitnesses: {list(map(self.fitness_fn, population))}')
 		print(f'Fitness1: {self.fitness_fn(selection[0])}')
 		print(f'Fitness2: {self.fitness_fn(selection[1])}')
 
 	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
-		# print('In simulated_annealing_with_tunable_T function')
-		# print('Genetic algorithm')
-		# current = Node(self.problem.initial)
-		# print(f'all_cities {self.all_cities}')
-		# # print('Current:', current)
-		# print('Current.state:', current.state)
-		# print('Initializing')
-		# population = init_population(100, self.all_cities, len(self.all_cities))
-		# # print('Fitness of current state:', self.fitness_fn(current.state))
-		# # selection = select(2, current.state, self.fitness_fn)
-		# selection = self.select_tsp(2, population, self.fitness_fn)
-		# print('Selection:', selection)
-		# while(1):
-		# 	T = schedule(self.temperature.get())
-		# 	print('T:', T)
-		# 	if T == 0:
-		# 		return current.state
-		# 	neighbors = current.expand(self.problem)
-		# 	print('neighbors:', neighbors, end='\n\n\n')
-		# 	if not neighbors:
-		# 		return current.state
-		# 	next = random.choice(neighbors)
-		# 	print('Next:', next)
-		# 	print('value(next.state)', self.problem.value(next.state))
-		# 	print('value(current.state)', self.problem.value(current.state))
-		# 	delta_e = self.problem.value(next.state) - self.problem.value(current.state)
-		# 	print('delta_e:', delta_e)
-		# 	if delta_e > 0 or probability(math.exp(delta_e / T)):
-		# 		map_canvas.delete('poly')
-		# 		current = next
-		# 		self.cost.set('Cost = ' + str('%0.3f' % (-1 * self.problem.value(current.state))))
-		# 		points = []
-		# 		for city in current.state:
-		# 			points.append(self.frame_locations[city][0])
-		# 			points.append(self.frame_locations[city][1])
-		# 		map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
-		# 		map_canvas.update()
-		# 		map_canvas.after(self.speed.get())
 		self.genetic_algorithm_stepwise(map_canvas)
 
 	def fitness_fn(self, state):
@@ -208,12 +170,6 @@ class TSPGui():
 
 	def mutate():
 		pass
-
-	# def genetic_algorithm_stepwise(self, problem, map_canvas):
-		# print('In genetic_algorithm_stepwise function')
-		# current = Node(problem.initial)
-		# while(1):
-			# population = [mutate(recombine(*select(2, population, )))]
 
 def main():
 	all_cities = []
