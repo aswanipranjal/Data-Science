@@ -143,7 +143,7 @@ class TSPGui():
 
 	def genetic_algorithm_stepwise(self, map_canvas):
 		print('In genetic_algorithm_stepwise function')
-		mutation_rate = 0.07
+		mutation_rate = 0
 		current = Node(self.problem.initial)
 		print(f'all_cities: {self.all_cities}')
 		print(f'current state: {current.state}')
@@ -176,7 +176,7 @@ class TSPGui():
 
 	def fitness_fn(self, state):
 		fitness = self.problem.value(state)
-		return 1e9 // (fitness ** 2)
+		return 7000 + fitness
 
 	def init_population(self, pop_number, gene_pool, state_length):
 		population = []
