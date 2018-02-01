@@ -161,7 +161,7 @@ class TSPGui():
 		# print(f'Fitness2: {self.fitness_fn(selection[1])}')
 		while(1):
 			population = [self.mutate(self.recombine(*select(2, population, self.fitness_fn)), mutation_rate) for i in range(len(population))]
-			current_best = utils.argmax(population, key=fitness_fn)
+			current_best = utils.argmax(population, key=self.fitness_fn)
 			map_canvas.delete('poly')
 			points = []
 			for city in current_best:
