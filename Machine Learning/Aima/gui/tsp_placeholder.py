@@ -93,6 +93,12 @@ class TSP_Gui():
     def create_dropdown_menu(self):
         """ Create dropdown menu for algorithm selection """
 
+        algo_var = StringVar()
+        choices = {'Simulated Annealing', 'Genetic Algorithm'}
+        algo_var.set('Simulated Annealing')
+        dropdown_menu = OptionMenu(self.frame_select_cities, algo_var, *choices)
+        Label(self.frame_select_cities, text='Choose an algorithm').grid(row=4, column=4, columnspan=2)
+        
     def run_traveling_salesman(self):
         """ Choose selected citites """
 
