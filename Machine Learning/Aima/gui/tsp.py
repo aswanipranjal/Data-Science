@@ -151,6 +151,8 @@ class TSPGui():
 		# print(f'population: {population}')
 		selection = select(2, population, self.fitness_fn)
 		print(selection)
+		print(f'Fitness1: {fitness_fn(selection[0])}')
+		print(f'Fitness2: {fitness_fn(selection[1])}')
 
 	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
 		# print('In simulated_annealing_with_tunable_T function')
