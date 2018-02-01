@@ -118,8 +118,6 @@ class TSPGui():
 		self.romania_image = PhotoImage(file='../images/romania_map.png')
 		map_canvas.create_image(self.canvas_width / 2, self.canvas_height / 2, image=self.romania_image)
 		cities = current.state
-		print('Cities: ', cities)
-		print('frame locations: ', self.frame_locations, end='\n\n\n')
 		for city in cities:
 			x = self.frame_locations[city][0]
 			y = self.frame_locations[city][1]
@@ -139,7 +137,6 @@ class TSPGui():
 		return lambda t: (k * math.exp(-lam * t) if t < limit else 0)
 
 	def genetic_algorithm_stepwise(self, map_canvas):
-		print('In genetic_algorithm_stepwise function')
 		mutation_rate = 0.05
 		current = Node(self.problem.initial)
 		population = self.init_population(100, current.state, len(current.state))
