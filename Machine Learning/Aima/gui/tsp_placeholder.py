@@ -242,6 +242,7 @@ class TSP_Gui():
             current_best = utils.argmax(population, key=fitness_fn)
             if fitness_fn(current_best) > fitness_fn(all_time_best):
                 all_time_best = current_best
+                self.cost.set("Cost = " + str('%0.3f' % (-1 * problem.value(all_time_best))))
             map_canvas.delete('poly')
             points = []
             for city in current_best:
