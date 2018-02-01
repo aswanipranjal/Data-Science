@@ -143,23 +143,9 @@ class TSPGui():
 
 	def genetic_algorithm_stepwise(self, map_canvas):
 		print('In genetic_algorithm_stepwise function')
-		mutation_rate = 0
+		mutation_rate = 0.05
 		current = Node(self.problem.initial)
-		print(f'all_cities: {self.all_cities}')
-		print(f'current state: {current.state}')
-		print('Initializing')
 		population = self.init_population(100, current.state, len(current.state))
-		# print(f'population: {population}')
-		# selection = select(2, population, self.fitness_fn)
-		# print(selection)
-		# recombination = self.recombine(*selection)
-		# print(recombination)
-		# mutation = self.mutate(recombination, 1)
-		# print(mutation)
-		print(f'Fitnesses: {list(map(self.fitness_fn, population))}')
-		# print(f'Fitness1: {self.fitness_fn(selection[0])}')
-		# print(f'Fitness2: {self.fitness_fn(selection[1])}')
-		all_time_best = self.problem.initial
 		while(1):
 			population = [self.mutate(self.recombine(*select(2, population, self.fitness_fn)), mutation_rate) for i in range(len(population))]
 			current_best = utils.argmax(population, key=self.fitness_fn)
