@@ -172,7 +172,7 @@ class TSP_Gui():
             temperature_scale.grid(row=1, column=5, columnspan=5, sticky=N + S + E + W)
             self.simulated_annealing_with_tunable_T(problem, map_canvas)
         elif self.algo_var.get() == 'Genetic Algorithm':
-            self.mutation_rate = IntVar()
+            self.mutation_rate = DoubleVar()
             mutation_rate_scale = Scale(self.frame_canvas, from_=0, to=1, orient=HORIZONTAL, 
                                         length=200, variable=self.mutation_rate, label='Mutation Rate ---->',
                                         font='Times 11', relief='sunken', showvalue=1, cursor='gumby', resolution=0.001)
@@ -230,6 +230,7 @@ class TSP_Gui():
             return new_state
 
         def mutate(state, mutation_rate):
+            print(mutation_rate)
             if random.uniform(0, 1) < mutation_rate:
                 sample = random.sample(range(len(state)), 2)
                 state[sample[0]], state[sample[1]] = state[sample[1]], state[sample[0]]
