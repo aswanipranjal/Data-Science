@@ -185,7 +185,7 @@ class TSPGui():
 		return population
 
 	def recombine(self, state_a, state_b):
-		start = random.randint(0, len(state_a))
+		start = random.randint(0, len(state_a) - 1)
 		end = random.randint(start + 1, len(state_b))
 		new_state = state_a[start:end]
 		for city in state_b:
