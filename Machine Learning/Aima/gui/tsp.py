@@ -170,7 +170,12 @@ class TSPGui():
 
 	def recombine(self, state_a, state_b):
 		start = random.randint(0, len(state_a))
-		end = random.randint(start, len(state_b))
+		end = random.randint(start + 1, len(state_b))
+		new_state = state_a[start:end]
+		for city in state_b:
+			if city not in new_state:
+				new_state.append(city)
+		return new_state
 
 	def mutate():
 		pass
