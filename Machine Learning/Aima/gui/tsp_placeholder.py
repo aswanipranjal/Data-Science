@@ -163,7 +163,6 @@ class TSP_Gui():
                             relief="sunken", cursor="gumby")
         speed_scale.grid(row=1, columnspan=5, sticky=N + S + E + W)
         
-        # self.simulated_annealing_with_tunable_T(problem, map_canvas)
         if self.algo_var.get() == 'Simulated Annealing':
             self.temperature = IntVar()
             temperature_scale = Scale(self.frame_canvas, from_=100, to=0, orient=HORIZONTAL,
@@ -216,12 +215,16 @@ class TSP_Gui():
         """ Genetic Algorithm modified for the given problem """
 
         def init_population(pop_number, gene_pool, state_length):
+            """ initialize population """
+
             population = []
             for i in range(pop_number):
                 population.append(utils.shuffled(gene_pool))
             return population
 
         def recombine(state_a, state_b):
+            """ recombine two problem states """
+
             start = random.randint(0, len(state_a) - 1)
             end = random.randint(start + 1, len(state_a))
             new_state = state_a[start:end]
@@ -231,13 +234,16 @@ class TSP_Gui():
             return new_state
 
         def mutate(state, mutation_rate):
-            print(mutation_rate)
+            """ mutate problem states """
+
             if random.uniform(0, 1) < mutation_rate:
                 sample = random.sample(range(len(state)), 2)
                 state[sample[0]], state[sample[1]] = state[sample[1]], state[sample[0]]
             return state
 
         def fitness_fn(state):
+            """ calculate fitness of a particular state """
+            
             fitness = problem.value(state)
             return int((5600 + fitness) ** 2)
 
