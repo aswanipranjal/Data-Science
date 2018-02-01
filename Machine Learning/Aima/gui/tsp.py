@@ -147,6 +147,7 @@ class TSPGui():
 		print('Current.state:', current.state)
 		print('Fitness of current state:', self.fitness_fn(current.state))
 		# selection = select(2, current.state, self.fitness_fn)
+		selection = select_tsp(2, current.state, self.fitness_fn)
 		print('Selection:', selection)
 		while(1):
 			T = schedule(self.temperature.get())
@@ -183,7 +184,7 @@ class TSPGui():
 		fitnesses = map(fitness_fn, population)
 		indices = range(len(population))
 		sampler = weighted_sampler(indices, fitnesses)
-		return [sampler() for i in range(r)]
+		return [population[sampler()] for i in range(r)]
 
 	def mutate():
 		pass
