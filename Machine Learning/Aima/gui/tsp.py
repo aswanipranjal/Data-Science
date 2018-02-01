@@ -110,12 +110,12 @@ class TSPGui():
 		self.canvas_height = canvas_height
 
 	def create_canvas(self):
-		print('Problem', self.problem)
-		print('problem.initial', self.problem.initial)
+		# print('Problem', self.problem)
+		# print('problem.initial', self.problem.initial)
 		map_canvas = Canvas(self.frame_canvas, width=self.canvas_width, height=self.canvas_height)
 		map_canvas.grid(row=3, columnspan=10)
 		current = Node(self.problem.initial)
-		print('Current:', current)
+		# print('Current:', current)
 		map_canvas.delete('all')
 		self.romania_image = PhotoImage(file='../images/romania_map.png')
 		map_canvas.create_image(self.canvas_width / 2, self.canvas_height / 2, image=self.romania_image)
@@ -139,6 +139,14 @@ class TSPGui():
 
 	def exp_schedule(k=100, lam=0.03, limit=1000):
 		return lambda t: (k * math.exp(-lam * t) if t < limit else 0)
+
+	def genetic_algorithm_stepwise(self, map_canvas):
+		print('In genetic_algorithm_stepwise function')
+		current = Node(self.problem.initial)
+		print(f'all_cities: {all_cities}')
+		print(f'current state: {current.state}')
+		print('Initializing')
+		population = init_population()
 
 	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
 		# print('In simulated_annealing_with_tunable_T function')
