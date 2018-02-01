@@ -179,8 +179,8 @@ class TSPGui():
 				new_state.append(city)
 		return new_state
 
-	def mutate():
-		pass
+	def mutate(self, state, mutation_rate):
+		
 
 def main():
 	all_cities = []
