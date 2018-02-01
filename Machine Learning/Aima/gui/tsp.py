@@ -4,6 +4,7 @@ import os.path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from search import *
+from utils import weighted_sampler
 import numpy as np
 
 distances = {}
@@ -177,6 +178,10 @@ class TSPGui():
 	def fitness_fn(self, state):
 		fitness = self.problem.value(state)
 		return -10000 / fitness
+
+	def select_tsp(r. population, fitness_fn):
+		fitnesses = map(fitness_fn, population)
+		sampler = weighted_sampler()
 
 	def mutate():
 		pass
