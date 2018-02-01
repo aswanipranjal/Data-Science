@@ -181,11 +181,11 @@ class TSPGui():
 		return -10000 / fitness
 
 	def select_tsp(self, r, population, fitness_fn):
-		fitnesses = map(fitness_fn, population)
+		fitnesses = list(map(fitness_fn, population))
 		indices = range(len(population))
 		print(f'Indices: {indices}')
 		print(f'Fitnesses: {fitnesses}')
-		sampler = weighted_sampler(indices, list(fitnesses))
+		sampler = weighted_sampler(indices, fitnesses)
 		print(f'Sampler: {sampler}')
 		return [population[sampler()] for i in range(r)]
 
