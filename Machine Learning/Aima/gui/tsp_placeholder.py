@@ -173,7 +173,7 @@ class TSP_Gui():
             self.simulated_annealing_with_tunable_T(problem, map_canvas)
         elif self.algo_var.get() == 'Genetic Algorithm':
             self.mutation_rate = DoubleVar()
-            mutation_rate.set(0.05)
+            self.mutation_rate.set(0.05)
             mutation_rate_scale = Scale(self.frame_canvas, from_=0, to=1, orient=HORIZONTAL, 
                                         length=200, variable=self.mutation_rate, label='Mutation Rate ---->',
                                         font='Times 11', relief='sunken', showvalue=0, cursor='gumby', resolution=0.001)
