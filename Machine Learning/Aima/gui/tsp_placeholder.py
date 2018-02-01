@@ -215,6 +215,10 @@ class TSP_Gui():
                 state[sample[0]], state[sample[1]] = state[sample[1]], state[sample[0]]
             return state
 
+        def fitness_fn(state):
+            fitness = problem.value(state)
+            return int((5600 + fitness) ** 2)
+
 def main():
     all_cities = []
     for city in romania_map.locations.keys():
