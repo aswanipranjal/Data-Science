@@ -153,6 +153,8 @@ class TSPGui():
 		print(selection)
 		recombination = self.recombine(*selection)
 		print(recombination)
+		mutation = self.mutate(recombination, 0.07)
+		print(mutation)
 		# print(f'Fitnesses: {list(map(self.fitness_fn, population))}')
 		# print(f'Fitness1: {self.fitness_fn(selection[0])}')
 		# print(f'Fitness2: {self.fitness_fn(selection[1])}')
