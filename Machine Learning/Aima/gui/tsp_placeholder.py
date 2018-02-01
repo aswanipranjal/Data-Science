@@ -168,7 +168,10 @@ class TSP_Gui():
 
         temperature_scale.grid(row=1, column=5, columnspan=5, sticky=N + S + E + W)
         # self.simulated_annealing_with_tunable_T(problem, map_canvas)
-        self.genetic_algorithm(problem, map_canvas)
+        if algo_var.get() == 'Simulated Annealing':
+            self.simulated_annealing_with_tunable_T(problem, map_canvas)
+        elif algo_var.get() == 'Genetic Algorithm':
+            self.genetic_algorithm(problem, map_canvas)
 
     def exp_schedule(k=100, lam=0.03, limit=1000):
         """ One possible schedule function for simulated annealing """
