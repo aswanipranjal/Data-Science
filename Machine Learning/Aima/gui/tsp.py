@@ -143,10 +143,10 @@ class TSPGui():
 	def genetic_algorithm_stepwise(self, map_canvas):
 		print('In genetic_algorithm_stepwise function')
 		current = Node(self.problem.initial)
-		print(f'all_cities: {all_cities}')
+		print(f'all_cities: {self.all_cities}')
 		print(f'current state: {current.state}')
 		print('Initializing')
-		population = init_population()
+		population = self.init_population(100, )
 
 	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
 		# print('In simulated_annealing_with_tunable_T function')
