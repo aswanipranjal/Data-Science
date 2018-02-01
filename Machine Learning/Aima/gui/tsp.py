@@ -4,7 +4,7 @@ import os.path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from search import *
-from utils import weighted_sampler
+import utils
 import numpy as np
 
 distances = {}
@@ -185,7 +185,7 @@ class TSPGui():
 		indices = range(len(population))
 		print(f'Indices: {indices}')
 		print(f'Fitnesses: {fitnesses}')
-		sampler = weighted_sampler(indices, fitnesses)
+		sampler = utils.weighted_sampler(indices, fitnesses)
 		print(f'Sampler: {sampler}')
 		return [population[sampler()] for i in range(r)]
 
