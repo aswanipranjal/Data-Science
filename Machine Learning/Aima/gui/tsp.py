@@ -179,10 +179,11 @@ class TSPGui():
 		fitness = self.problem.value(state)
 		return -10000 / fitness
 
-	def select_tsp(r. population, fitness_fn):
+	def select_tsp(r, population, fitness_fn):
 		fitnesses = map(fitness_fn, population)
 		indices = range(len(population))
-		sampler = weighted_sampler(population, fitnesses)
+		sampler = weighted_sampler(indices, fitnesses)
+		return [sampler() for i in range(r)]
 
 	def mutate():
 		pass
