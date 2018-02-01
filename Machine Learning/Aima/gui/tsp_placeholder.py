@@ -209,7 +209,11 @@ class TSP_Gui():
                     new_state.append(city)
             return new_state
 
-        def mutate()
+        def mutate(state, mutation_rate):
+            if random.uniform(0, 1) < mutation_rate:
+                sample = random.sample(range(len(state)), 2)
+                state[sample[0]], state[sample[1]] = state[sample[1]], state[sample[0]]
+            return state
 
 def main():
     all_cities = []
