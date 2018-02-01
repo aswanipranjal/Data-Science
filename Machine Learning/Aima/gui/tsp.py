@@ -6,6 +6,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from search import *
 import utils
 import numpy as np
+import time
 
 distances = {}
 
@@ -193,7 +194,7 @@ class TSPGui():
 
 	def fitness_fn(self, state):
 		fitness = self.problem.value(state)
-		return 1e10 // (fitness ** 2)
+		return -1e13 // (fitness ** 3)
 
 	def init_population(self, pop_number, gene_pool, state_length):
 		population = []
@@ -202,7 +203,9 @@ class TSPGui():
 		return population
 
 	def select_tsp(self, r, population, fitness_fn):
+		print(f'Time right now {time.time()}')
 		fitnesses = list(map(fitness_fn, population))
+		print(f'Time right now {time.time()}')
 		indices = range(len(population))
 		print(f'Indices: {indices}')
 		print(f'Fitnesses: {fitnesses}')
