@@ -168,6 +168,10 @@ class TSPGui():
 			population.append(utils.shuffled(gene_pool))
 		return population
 
+	def recombine(self, state_a, state_b):
+		start = random.randint(0, len(state_a))
+		end = random.randint(start, len(state_b))
+
 	def mutate():
 		pass
 
