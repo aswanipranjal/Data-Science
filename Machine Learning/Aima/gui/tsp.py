@@ -159,6 +159,7 @@ class TSPGui():
 		# print(f'Fitnesses: {list(map(self.fitness_fn, population))}')
 		# print(f'Fitness1: {self.fitness_fn(selection[0])}')
 		# print(f'Fitness2: {self.fitness_fn(selection[1])}')
+		all_time_best = current.state
 		while(1):
 			population = [self.mutate(self.recombine(*select(2, population, self.fitness_fn)), mutation_rate) for i in range(len(population))]
 			current_best = utils.argmax(population, key=self.fitness_fn)
@@ -167,7 +168,10 @@ class TSPGui():
 			for city in current_best:
 				points.append(self.frame_locations[city][0])
 				points.append(self.frame_locations[city][1])
-			map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
+			map_canvas.create_polygon(points, outline='red', width=1, fill='', tag='poly')
+			for city in all_time_best:
+				points.append(self.frame_locations[city][0])
+				points.append(self.frame_locations[city][1])
 			map_canvas.update()
 			# map_canvas.after(self.speed.get())
 
@@ -176,7 +180,7 @@ class TSPGui():
 
 	def fitness_fn(self, state):
 		fitness = self.problem.value(state)
-		return 7000 + fitness
+		return 6000 + fitness
 
 	def init_population(self, pop_number, gene_pool, state_length):
 		population = []
