@@ -178,7 +178,7 @@ class TSPGui():
 
 	def fitness_fn(self, state):
 		fitness = self.problem.value(state)
-		return -10000 / fitness
+		return int(-1000000 / fitness)
 
 	def select_tsp(self, r, population, fitness_fn):
 		fitnesses = list(map(fitness_fn, population))
