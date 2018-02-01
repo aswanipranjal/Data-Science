@@ -86,9 +86,9 @@ class TSP_Gui():
         """ Create start and quit button """
 
         Button(self.frame_select_cities, textvariable=self.button_text,
-               command=self.run_traveling_salesman).grid(row=4, column=4, sticky=E + W)
+               command=self.run_traveling_salesman).grid(row=5, column=4, sticky=E + W)
         Button(self.frame_select_cities, text='Quit', command=self.root.destroy).grid(
-            row=4, column=5, sticky=E + W)
+            row=5, column=5, sticky=E + W)
 
     def create_dropdown_menu(self):
         """ Create dropdown menu for algorithm selection """
@@ -97,7 +97,6 @@ class TSP_Gui():
         choices = {'Simulated Annealing', '  Genetic Algorithm  '}
         algo_var.set('Simulated Annealing')
         dropdown_menu = OptionMenu(self.frame_select_cities, algo_var, *choices)
-        Label(self.frame_select_cities, text='Choose an algorithm').grid(row=3, column=4, columnspan=2, sticky=E + W)
         dropdown_menu.grid(row=4, column=4, columnspan=2, sticky=E + W)
 
     def run_traveling_salesman(self):
