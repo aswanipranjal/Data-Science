@@ -162,7 +162,14 @@ class TSPGui():
 		while(1):
 			population = [self.mutate(self.recombine(*select(2, population, self.fitness_fn)), self.all_cities, mutation_rate) for i in range(len(population))]
 			current_best = utils.argmax(population, key=fitness_fn)
-			
+			map_canvas.delete('poly')
+			points = []
+			for city in current_best:
+				points.append(self.frame_locations[city][0])
+				points.append(self.frame_locations[city][1])
+			map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
+			map_canvas.update()
+			map_canvas.after(self.speed.get())
 
 	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
 		self.genetic_algorithm_stepwise(map_canvas)
