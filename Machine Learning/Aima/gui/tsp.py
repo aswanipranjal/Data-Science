@@ -151,6 +151,7 @@ class TSPGui():
 		# print(f'population: {population}')
 		selection = select(2, population, self.fitness_fn)
 		print(selection)
+		print(f'Fitnesses: {list(map(fitness_fn, population))}')
 		print(f'Fitness1: {self.fitness_fn(selection[0])}')
 		print(f'Fitness2: {self.fitness_fn(selection[1])}')
 
