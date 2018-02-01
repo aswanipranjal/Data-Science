@@ -141,47 +141,48 @@ class TSPGui():
 		return lambda t: (k * math.exp(-lam * t) if t < limit else 0)
 
 	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
-		print('In simulated_annealing_with_tunable_T function')
+		# print('In simulated_annealing_with_tunable_T function')
+		print('Genetic algorithm')
 		current = Node(self.problem.initial)
-		print('Current:', current)
+		# print('Current:', current)
 		print('Current.state:', current.state)
-		print('Fitness of current state:', self.fitness_fn(current.state))
+		# print('Fitness of current state:', self.fitness_fn(current.state))
 		# selection = select(2, current.state, self.fitness_fn)
 		selection = self.select_tsp(2, current.state, self.fitness_fn)
 		print('Selection:', selection)
-		while(1):
-			T = schedule(self.temperature.get())
-			print('T:', T)
-			if T == 0:
-				return current.state
-			neighbors = current.expand(self.problem)
-			print('neighbors:', neighbors, end='\n\n\n')
-			if not neighbors:
-				return current.state
-			next = random.choice(neighbors)
-			print('Next:', next)
-			print('value(next.state)', self.problem.value(next.state))
-			print('value(current.state)', self.problem.value(current.state))
-			delta_e = self.problem.value(next.state) - self.problem.value(current.state)
-			print('delta_e:', delta_e)
-			if delta_e > 0 or probability(math.exp(delta_e / T)):
-				map_canvas.delete('poly')
-				current = next
-				self.cost.set('Cost = ' + str('%0.3f' % (-1 * self.problem.value(current.state))))
-				points = []
-				for city in current.state:
-					points.append(self.frame_locations[city][0])
-					points.append(self.frame_locations[city][1])
-				map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
-				map_canvas.update()
-				map_canvas.after(self.speed.get())
+		# while(1):
+		# 	T = schedule(self.temperature.get())
+		# 	print('T:', T)
+		# 	if T == 0:
+		# 		return current.state
+		# 	neighbors = current.expand(self.problem)
+		# 	print('neighbors:', neighbors, end='\n\n\n')
+		# 	if not neighbors:
+		# 		return current.state
+		# 	next = random.choice(neighbors)
+		# 	print('Next:', next)
+		# 	print('value(next.state)', self.problem.value(next.state))
+		# 	print('value(current.state)', self.problem.value(current.state))
+		# 	delta_e = self.problem.value(next.state) - self.problem.value(current.state)
+		# 	print('delta_e:', delta_e)
+		# 	if delta_e > 0 or probability(math.exp(delta_e / T)):
+		# 		map_canvas.delete('poly')
+		# 		current = next
+		# 		self.cost.set('Cost = ' + str('%0.3f' % (-1 * self.problem.value(current.state))))
+		# 		points = []
+		# 		for city in current.state:
+		# 			points.append(self.frame_locations[city][0])
+		# 			points.append(self.frame_locations[city][1])
+		# 		map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
+		# 		map_canvas.update()
+		# 		map_canvas.after(self.speed.get())
 
 	def fitness_fn(self, state):
 		fitness = self.problem.value(state)
 		return int(-1000000 / fitness)
 
 	def select_tsp(self, r, population, fitness_fn):
-		fitnesses = list(map(fitness_fn, population))
+		fitnesses = map(fitness_fn, population)
 		indices = range(len(population))
 		print(f'Indices: {indices}')
 		print(f'Fitnesses: {fitnesses}')
