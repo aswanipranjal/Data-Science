@@ -194,13 +194,13 @@ class TSP_Gui():
 
     def genetic_algorithm(self, problem, map_canvas):
 
-        def init_population(self, pop_number, gene_pool, state_length):
+        def init_population(pop_number, gene_pool, state_length):
             population = []
             for i in range(pop_number):
                 population.append(utils.shuffled(gene_pool))
             return population
 
-        def recombine(self, state_a, state_b):
+        def recombine(state_a, state_b):
             start = random.randint(0, len(state_a) - 1)
             end = random.randint(start + 1, len(state_a))
             new_state = state_a[start:end]
@@ -208,6 +208,8 @@ class TSP_Gui():
                 if city not in new_state:
                     new_state.append(city)
             return new_state
+
+        def mutate()
 
 def main():
     all_cities = []
