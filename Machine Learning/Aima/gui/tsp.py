@@ -143,6 +143,7 @@ class TSPGui():
 
 	def genetic_algorithm_stepwise(self, map_canvas):
 		print('In genetic_algorithm_stepwise function')
+		mutation_rate = 0.07
 		current = Node(self.problem.initial)
 		print(f'all_cities: {self.all_cities}')
 		print(f'current state: {current.state}')
@@ -158,6 +159,9 @@ class TSPGui():
 		# print(f'Fitnesses: {list(map(self.fitness_fn, population))}')
 		# print(f'Fitness1: {self.fitness_fn(selection[0])}')
 		# print(f'Fitness2: {self.fitness_fn(selection[1])}')
+		while(1):
+			population = [self.mutate(self.recombine(*select(2, population, self.fitness_fn)), self.all_cities, mutation_rate) for i in range(len(population))]
+			
 
 	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
 		self.genetic_algorithm_stepwise(map_canvas)
