@@ -140,6 +140,7 @@ class TSPGui():
 		mutation_rate = 0.05
 		current = Node(self.problem.initial)
 		population = self.init_population(100, current.state, len(current.state))
+		all_time_best = current.state
 		while(1):
 			population = [self.mutate(self.recombine(*select(2, population, self.fitness_fn)), mutation_rate) for i in range(len(population))]
 			current_best = utils.argmax(population, key=self.fitness_fn)
