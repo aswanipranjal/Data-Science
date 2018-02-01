@@ -149,7 +149,8 @@ class TSPGui():
 		print('Initializing')
 		population = self.init_population(100, self.all_cities, len(self.all_cities))
 		# print(f'population: {population}')
-		self.select_tsp(2, population, self.fitness_fn)
+		selection = self.select_tsp(2, population, self.fitness_fn)
+		print(selection)
 
 	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
 		# print('In simulated_annealing_with_tunable_T function')
@@ -203,15 +204,11 @@ class TSPGui():
 		return population
 
 	def select_tsp(self, r, population, fitness_fn):
-		print(f'Time right now {time.time()}')
+		# print(f'Time right now {time.time()}')
 		fitnesses = list(map(fitness_fn, population))
-		print(f'Time right now {time.time()}')
 		indices = range(len(population))
-		print(f'Indices: {indices}')
-		print(f'Fitnesses: {fitnesses}')
-		# sampler = utils.weighted_sampler(indices, fitnesses)
-		# print(f'Sampler: {sampler}')
-		# return [population[sampler()] for i in range(r)]
+		sampler = utils.weighted_sampler(indices, fitnesses)
+		return [population[sampler()] for i in range(r)]
 
 	def mutate():
 		pass
