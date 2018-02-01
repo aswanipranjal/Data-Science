@@ -3,6 +3,7 @@ import sys
 import os.path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from search import *
+import utils
 import numpy as np
 
 distances = {}
@@ -191,6 +192,13 @@ class TSP_Gui():
                 map_canvas.update()
                 map_canvas.after(self.speed.get())
 
+    def genetic_algorithm(self, problem, map_canvas):
+
+        def init_population(self, pop_number, gene_pool, state_length):
+            population = []
+            for i in range(pop_number):
+                population.append(utils.shuffled(gene_pool))
+            return population
 
 def main():
     all_cities = []
