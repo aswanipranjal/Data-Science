@@ -206,6 +206,7 @@ class TSP_Gui():
                 map_canvas.after(self.speed.get())
 
     def genetic_algorithm(self, problem, map_canvas):
+        """ Genetic Algorithm modified for the given problem """
 
         def init_population(pop_number, gene_pool, state_length):
             population = []
