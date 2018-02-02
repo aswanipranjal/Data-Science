@@ -293,7 +293,7 @@ class TSP_Gui():
 
         current = Node(problem.initial)
         while(1):
-            neighbors = find_neighbors(current.state, self.no_of_neighbors)
+            neighbors = find_neighbors(current.state, self.no_of_neighbors.get())
             neighbor = utils.argmax_random_tie(neighbors, key=lambda node: problem.value(node.state))
             map_canvas.delete('poly')
             points = []
