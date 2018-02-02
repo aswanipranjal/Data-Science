@@ -279,7 +279,7 @@ class TSP_Gui():
             neighbors = []
             for i in range(number_of_neighbors):
                 new_state = self.problem.two_opt(state)
-                neighbors.append(new_state)
+                neighbors.append(Node(new_state))
                 state = new_state
             return neighbors
 
