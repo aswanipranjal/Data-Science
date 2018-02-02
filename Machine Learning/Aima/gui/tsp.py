@@ -188,6 +188,9 @@ class TSPGui():
 			state[sample[0]], state[sample[1]] = state[sample[1]], state[sample[0]]
 		return state
 
+	def hill_climbing_test(self, map_canvas):
+		current = Node(self.problem.initial)
+
 def main():
 	all_cities = []
 	for city in romania_map.locations.keys():
