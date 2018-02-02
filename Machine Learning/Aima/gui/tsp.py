@@ -230,6 +230,9 @@ class TSPGui():
 				print('Changed')
 		# return current.state
 
+	def greedy_algorithm(self, map_canvas):
+		current = Node(self.problem.initial)
+
 def main():
 	all_cities = []
 	for city in romania_map.locations.keys():
