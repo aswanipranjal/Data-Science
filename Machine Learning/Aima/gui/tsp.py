@@ -197,8 +197,12 @@ class TSPGui():
 			neighbor = argmax_random_tie(neighbors, key=lambda node: self.problem.value(node.state))
 			if self.problem.value(neighbor.state) <= self.problem.value(current.state):
 				break
+			map_canvas.delete('poly')
+			points = []
+			for city in current.state:
+				
 			current = neighbor
-		return current.state
+		# return current.state
 
 def main():
 	all_cities = []
