@@ -308,7 +308,7 @@ class TSP_Gui():
             map_canvas.create_polygon(neighbor_points, outline='red', width=1, fill='', tag='poly')
             map_canvas.update()
             map_canvas.after(self.speed.get())
-            if self.problem.value(neighbor.state) > self.problem.value(current.state):
+            if problem.value(neighbor.state) > problem.value(current.state):
                 current.state = neighbor.state
                 self.cost.set("Cost = " + str('%0.3f' % (-1 * problem.value(current.state))))
 
