@@ -57,8 +57,8 @@ class TSP_Gui():
         self.frame_locations = {}
         self.calculate_canvas_size()
         self.button_text = StringVar()
-        self.algo_var = StringVar()
         self.button_text.set("Start")
+        self.algo_var = StringVar()
         self.all_cities = all_cities
         self.frame_select_cities = Frame(self.root)
         self.frame_select_cities.grid(row=1)
