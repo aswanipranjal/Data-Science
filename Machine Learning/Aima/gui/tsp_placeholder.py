@@ -94,7 +94,7 @@ class TSP_Gui():
     def create_dropdown_menu(self):
         """ Create dropdown menu for algorithm selection """
 
-        choices = {'Simulated Annealing', 'Genetic Algorithm'}
+        choices = {'Simulated Annealing', 'Genetic Algorithm', 'Hill Climbing'}
         self.algo_var.set('Simulated Annealing')
         dropdown_menu = OptionMenu(self.frame_select_cities, self.algo_var, *choices)
         dropdown_menu.grid(row=4, column=4, columnspan=2, sticky=E + W)
@@ -178,6 +178,9 @@ class TSP_Gui():
                                         font='Times 11', relief='sunken', showvalue=0, cursor='gumby', resolution=0.001)
             mutation_rate_scale.grid(row=1, column=5, columnspan=5, sticky='nsew')
             self.genetic_algorithm(problem, map_canvas)
+        elif self.algo_var.get() == 'Hill Climbing':
+            self.no_of_neighbors = IntVar()
+            self.no_of_neighbors.set(100)
 
     def exp_schedule(k=100, lam=0.03, limit=1000):
         """ One possible schedule function for simulated annealing """
