@@ -312,8 +312,8 @@ class TSP_Gui():
                 current.state = neighbor.state
                 self.cost.set("Cost = " + str('%0.3f' % (-1 * problem.value(current.state))))
 
-    def on_closing():
-        if messagebox.askokcancel('Quit', 'Do you want to quit?'):
+    def on_closing(self):
+        if tkinter.messagebox.askokcancel('Quit', 'Do you want to quit?'):
             self.root.destroy()
 
 def main():
