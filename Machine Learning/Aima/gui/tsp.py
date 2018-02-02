@@ -188,9 +188,12 @@ class TSPGui():
 			state[sample[0]], state[sample[1]] = state[sample[1]], state[sample[0]]
 		return state
 
-	def find_neighbors(self, state, number=30):
+	def find_neighbors(self, state, number=100):
 		neighbors = []
 		for i in range(number):
+			for j in range(number):
+				for k in range(j):
+					
 			neighbors.append(self.problem.two_opt(state))
 		return neighbors
 
@@ -199,9 +202,9 @@ class TSPGui():
 		print(f'current: {current}')
 		while True:
 			neighbors = self.find_neighbors(current.state)
-			print(f'neighbors: {neighbors}')
-			if not neighbors:
-				break
+			# print(f'neighbors: {neighbors}')
+			# if not neighbors:
+			# 	break
 			# neighbor = argmax_random_tie(neighbors, key=lambda node: self.problem.value(node.state))
 			neighbor = argmax(neighbors, key=self.fitness_fn)
 			print(f'neighbor: {neighbor}')
