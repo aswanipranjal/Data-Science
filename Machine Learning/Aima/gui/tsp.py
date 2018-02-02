@@ -188,10 +188,10 @@ class TSPGui():
 			state[sample[0]], state[sample[1]] = state[sample[1]], state[sample[0]]
 		return state
 
-	def find_neighbors(self, state, number=10):
+	def find_neighbors(self, state, number=30):
 		neighbors = []
 		for i in range(number):
-			neighbors.append(Node(self.problem.two_opt(state)))
+			neighbors.append(self.problem.two_opt(state))
 		return neighbors
 
 	def hill_climbing_test(self, map_canvas):
@@ -202,7 +202,8 @@ class TSPGui():
 			print(f'neighbors: {neighbors}')
 			if not neighbors:
 				break
-			neighbor = argmax_random_tie(neighbors, key=lambda node: self.problem.value(node.state))
+			# neighbor = argmax_random_tie(neighbors, key=lambda node: self.problem.value(node.state))
+			neighbor = argmax(neighbors, key=self.problem.value)
 			print(f'neighbor: {neighbor}')
 			print(f'value(neighbor.state): {self.problem.value(neighbor.state)}')
 			print(f'value(current.state): {self.problem.value(current.state)}')
