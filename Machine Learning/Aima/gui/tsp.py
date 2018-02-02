@@ -202,6 +202,8 @@ class TSPGui():
 			for city in current.state:
 				points.append(self.frame_locations[city][0])
 				points.append(self.frame_locations[city][1])
+			map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
+			map_canvas.update()
 			current = neighbor
 		# return current.state
 
