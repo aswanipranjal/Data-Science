@@ -287,7 +287,17 @@ class TSP_Gui():
         while(1):
             neighbors = find_neighbors(current.state)
             neighbor = utils.argmax_random_tie(neighbors, key=lambda node: problem.value(node.state))
-            
+            map_canvas.delete('poly')
+            points = []
+            for city in current.state:
+                points.append(self.frame_locations[city][0])
+                points.append(self.frame_locations[city][1])
+            map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
+            neighbor_points = []
+            for city in neighbor.state:
+                neighbor_points.append(self.frame_locations[city][0])
+                neighbor_points.append(self.frame_locations[city][1])
+            map_canvas.create_polygon(neighbor_points, outline='red', width=1, fill='', tag='poly')
 
 def main():
     all_cities = []
