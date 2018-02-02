@@ -201,7 +201,6 @@ class TSPGui():
 		print(f'current: {current}')
 		while True:
 			neighbors = self.find_neighbors(current.state)
-			print(f'neighbors: {neighbors}')
 			# if not neighbors:
 			# 	break
 			# neighbor = argmax_random_tie(neighbors, key=lambda node: self.problem.value(node.state))
