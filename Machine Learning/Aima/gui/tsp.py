@@ -198,8 +198,7 @@ class TSPGui():
 		current = Node(self.problem.initial)
 		print(f'current: {current}')
 		while True:
-			# neighbors = current.expand(self.problem)
-
+			neighbors = find_neighbors(current.state)
 			print(f'neighbors: {neighbors}')
 			if not neighbors:
 				break
