@@ -190,14 +190,20 @@ class TSPGui():
 
 	def hill_climbing_test(self, map_canvas):
 		current = Node(self.problem.initial)
+		print(f'current: {current}')
 		while True:
 			neighbors = current.expand(self.problem)
+			print(f'neighbors: {neighbors}')
 			if not neighbors:
 				break
 			neighbor = argmax_random_tie(neighbors, key=lambda node: self.problem.value(node.state))
+			print(f'neighbor: {neighbor}')
+			print(f'value(neighbor.state): {self.problem.value(neighbor.state)}')
+			print(f'value(current.state): {self.problem.value(current.state)}')
 			if self.problem.value(neighbor.state) <= self.problem.value(current.state):
 				break
 			map_canvas.delete('poly')
+			print(f'current.state: {current.state}')
 			points = []
 			for city in current.state:
 				points.append(self.frame_locations[city][0])
