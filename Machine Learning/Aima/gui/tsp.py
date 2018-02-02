@@ -203,7 +203,7 @@ class TSPGui():
 			if not neighbors:
 				break
 			# neighbor = argmax_random_tie(neighbors, key=lambda node: self.problem.value(node.state))
-			neighbor = argmax(neighbors, key=self.problem.value)
+			neighbor = argmax(neighbors, key=self.fitness_fn)
 			print(f'neighbor: {neighbor}')
 			print(f'value(neighbor.state): {self.problem.value(neighbor.state)}')
 			print(f'value(current.state): {self.problem.value(current.state)}')
