@@ -184,7 +184,8 @@ class TSP_Gui():
             no_of_neighbors_scale = Scale(self.frame_canvas, from_=10, to=1000, orient=HORIZONTAL, 
                                           length=200, variable=self.no_of_neighbors, label='Number of neighbors ---->',
                                           font='Times 11',relief='sunken', showvalue=0, cursor='gumby')
-
+            no_of_neighbors_scale.grid(row=1, column=5, columnspan=5, sticky='nsew')
+            self.hill_climbing(problem, map_canvas)
 
     def exp_schedule(k=100, lam=0.03, limit=1000):
         """ One possible schedule function for simulated annealing """
