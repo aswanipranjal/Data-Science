@@ -194,8 +194,10 @@ class TSPGui():
 			neighbors = current.expand(self.problem)
 			if not neighbors:
 				break
-			neighbor = argmax_random_tie(neighbors, key=lambda node: problem.value(node.state))
-			if self.problem
+			neighbor = argmax_random_tie(neighbors, key=lambda node: self.problem.value(node.state))
+			if self.problem.value(neighbor.state) <= self.problem.value(current.state):
+				break
+			
 
 def main():
 	all_cities = []
