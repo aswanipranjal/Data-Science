@@ -270,6 +270,9 @@ class TSP_Gui():
             map_canvas.update()
             map_canvas.after(self.speed.get())
 
+    def _hill_climbing(self, problem, map_canvas):
+        
+
 def main():
     all_cities = []
     for city in romania_map.locations.keys():
