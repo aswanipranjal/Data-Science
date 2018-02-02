@@ -283,6 +283,10 @@ class TSP_Gui():
                 state = new_state
             return neighbors
 
+        current = Node(problem.initial)
+        while(1):
+            neighbors = find_neighbors(current.state)
+            neighbors = 
 
 def main():
     all_cities = []
