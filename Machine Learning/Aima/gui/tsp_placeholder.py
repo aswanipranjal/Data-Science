@@ -286,7 +286,8 @@ class TSP_Gui():
         current = Node(problem.initial)
         while(1):
             neighbors = find_neighbors(current.state)
-            neighbors = 
+            neighbor = utils.argmax_random_tie(neighbors, key=lambda node: problem.value(node.state))
+            
 
 def main():
     all_cities = []
