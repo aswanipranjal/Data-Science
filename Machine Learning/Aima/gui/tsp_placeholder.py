@@ -194,7 +194,6 @@ class TSP_Gui():
             if T == 0:
                 return current.state
             neighbors = current.expand(problem)
-            print(f'neighbors: {neighbors}')
             if not neighbors:
                 return current.state
             next = random.choice(neighbors)
@@ -270,9 +269,6 @@ class TSP_Gui():
             map_canvas.create_polygon(best_points, outline='red', width=3, fill='', tag='poly')
             map_canvas.update()
             map_canvas.after(self.speed.get())
-
-    # def _hill_climbing(self, problem, map_canvas):
-
 
 def main():
     all_cities = []
