@@ -338,6 +338,7 @@ def main():
     cities_selection_panel.create_checkboxes()
     cities_selection_panel.create_buttons()
     cities_selection_panel.create_dropdown_menu()
+    root.protocol('WM_DELETE_WINDOW', on_closing)
     root.mainloop()
 
 
