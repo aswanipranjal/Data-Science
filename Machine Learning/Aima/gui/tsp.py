@@ -191,14 +191,14 @@ class TSPGui():
 	def find_neighbors(self, state, number=10):
 		neighbors = []
 		for i in range(number):
-			neighbors.append(self.problem.two_opt(state))
+			neighbors.append(Node(self.problem.two_opt(state)))
 		return neighbors
 
 	def hill_climbing_test(self, map_canvas):
 		current = Node(self.problem.initial)
 		print(f'current: {current}')
 		while True:
-			neighbors = Node(self.find_neighbors(current.state))
+			neighbors = self.find_neighbors(current.state)
 			print(f'neighbors: {neighbors}')
 			if not neighbors:
 				break
