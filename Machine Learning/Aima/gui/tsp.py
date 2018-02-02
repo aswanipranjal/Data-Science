@@ -224,6 +224,7 @@ class TSPGui():
 			map_canvas.update()
 			if self.problem.value(neighbor) <= self.problem.value(current.state):
 				# print('neighbor is not better')
+				pass
 			else:
 				current.state = neighbor
 				print('Changed')
