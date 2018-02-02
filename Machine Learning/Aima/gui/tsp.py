@@ -200,8 +200,6 @@ class TSPGui():
 			print(f'neighbor: {neighbor}')
 			print(f'value(neighbor.state): {self.problem.value(neighbor.state)}')
 			print(f'value(current.state): {self.problem.value(current.state)}')
-			if self.problem.value(neighbor.state) <= self.problem.value(current.state):
-				break
 			map_canvas.delete('poly')
 			print(f'current.state: {current.state}')
 			points = []
@@ -210,6 +208,8 @@ class TSPGui():
 				points.append(self.frame_locations[city][1])
 			map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
 			map_canvas.update()
+			if self.problem.value(neighbor.state) <= self.problem.value(current.state):
+				print()
 			current = neighbor
 		# return current.state
 
