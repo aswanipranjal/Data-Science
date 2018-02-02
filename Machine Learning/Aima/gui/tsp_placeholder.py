@@ -184,7 +184,7 @@ class TSP_Gui():
             no_of_neighbors_scale = Scale(self.frame_canvas, from_=10, to=1000, orient=HORIZONTAL, 
                                           length=200, variable=self.no_of_neighbors, label='Number of neighbors ---->',
                                           font='Times 11',relief='sunken', showvalue=0, cursor='gumby')
-            
+
 
     def exp_schedule(k=100, lam=0.03, limit=1000):
         """ One possible schedule function for simulated annealing """
@@ -282,7 +282,7 @@ class TSP_Gui():
 
         def find_neighbors(state, number_of_neighbors=100):
             """ finds neighbors using two_opt method """
-
+            print(f'Debug no_of_neighbors scale: {number_of_neighbors}')
             neighbors = []
             for i in range(number_of_neighbors):
                 new_state = self.problem.two_opt(state)
@@ -292,7 +292,7 @@ class TSP_Gui():
 
         current = Node(problem.initial)
         while(1):
-            neighbors = find_neighbors(current.state)
+            neighbors = find_neighbors(current.state, self.no_of_neighbors)
             neighbor = utils.argmax_random_tie(neighbors, key=lambda node: problem.value(node.state))
             map_canvas.delete('poly')
             points = []
