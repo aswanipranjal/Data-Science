@@ -206,11 +206,11 @@ class TSPGui():
 			# 	break
 			# neighbor = argmax_random_tie(neighbors, key=lambda node: self.problem.value(node.state))
 			neighbor = argmax(neighbors, key=self.fitness_fn)
-			print(f'neighbor: {neighbor}')
-			print(f'value(neighbor.state): {self.problem.value(neighbor)}')
-			print(f'value(current.state): {self.problem.value(current.state)}')
+			# print(f'neighbor: {neighbor}')
+			# print(f'value(neighbor.state): {self.problem.value(neighbor)}')
+			# print(f'value(current.state): {self.problem.value(current.state)}')
 			map_canvas.delete('poly')
-			print(f'current.state: {current.state}')
+			# print(f'current.state: {current.state}')
 			points = []
 			for city in current.state:
 				points.append(self.frame_locations[city][0])
@@ -223,9 +223,10 @@ class TSPGui():
 			map_canvas.create_polygon(neighbor_points, outline='red', width=1, fill='', tag='poly')
 			map_canvas.update()
 			if self.problem.value(neighbor) <= self.problem.value(current.state):
-				print('neighbor is not better')
+				# print('neighbor is not better')
 			else:
 				current.state = neighbor
+				print('Changed')
 		# return current.state
 
 def main():
