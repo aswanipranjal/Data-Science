@@ -200,7 +200,8 @@ class TSPGui():
 			map_canvas.delete('poly')
 			points = []
 			for city in current.state:
-				
+				points.append(self.frame_locations[city][0])
+				points.append(self.frame_locations[city][1])
 			current = neighbor
 		# return current.state
 
