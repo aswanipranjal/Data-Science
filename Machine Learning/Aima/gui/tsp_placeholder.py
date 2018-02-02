@@ -88,7 +88,7 @@ class TSP_Gui():
 
         Button(self.frame_select_cities, textvariable=self.button_text,
                command=self.run_traveling_salesman).grid(row=5, column=4, sticky=E + W)
-        Button(self.frame_select_cities, text='Quit', command=self.root.destroy).grid(
+        Button(self.frame_select_cities, text='Quit', command=self.on_closing).grid(
             row=5, column=5, sticky=E + W)
 
     def create_dropdown_menu(self):
