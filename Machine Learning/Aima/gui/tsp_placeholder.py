@@ -283,7 +283,7 @@ class TSP_Gui():
 
         def find_neighbors(state, number_of_neighbors=100):
             """ finds neighbors using two_opt method """
-            print(f'Debug no_of_neighbors scale: {number_of_neighbors}')
+
             neighbors = []
             for i in range(number_of_neighbors):
                 new_state = problem.two_opt(state)
