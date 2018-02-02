@@ -223,11 +223,11 @@ class TSPGui():
 			map_canvas.create_polygon(neighbor_points, outline='red', width=1, fill='', tag='poly')
 			map_canvas.update()
 			map_canvas.after(self.speed.get())
-			if self.problem.value(neighbor) <= self.problem.value(current.state):
+			if self.problem.value(neighbor.state) <= self.problem.value(current.state):
 				# print('neighbor is not better')
 				pass
 			else:
-				current.state = neighbor
+				current.state = neighbor.state
 				print('Changed')
 		# return current.state
 
