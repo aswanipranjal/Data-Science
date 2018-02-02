@@ -286,7 +286,7 @@ class TSP_Gui():
             print(f'Debug no_of_neighbors scale: {number_of_neighbors}')
             neighbors = []
             for i in range(number_of_neighbors):
-                new_state = self.problem.two_opt(state)
+                new_state = problem.two_opt(state)
                 neighbors.append(Node(new_state))
                 state = new_state
             return neighbors
