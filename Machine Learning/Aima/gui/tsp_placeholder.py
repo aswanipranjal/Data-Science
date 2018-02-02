@@ -302,6 +302,7 @@ class TSP_Gui():
             map_canvas.after(self.speed.get())
             if self.problem.value(neighbor.state) > self.problem.value(current.state):
                 current.state = neighbor.state
+                self.cost.set("Cost = " + str('%0.3f' % (-1 * problem.value(current.state))))
 
 def main():
     all_cities = []
