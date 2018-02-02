@@ -205,7 +205,7 @@ class TSPGui():
 			# neighbor = argmax_random_tie(neighbors, key=lambda node: self.problem.value(node.state))
 			neighbor = argmax(neighbors, key=self.fitness_fn)
 			print(f'neighbor: {neighbor}')
-			print(f'value(neighbor.state): {self.problem.value(neighbor.state)}')
+			print(f'value(neighbor.state): {self.problem.value(neighbor)}')
 			print(f'value(current.state): {self.problem.value(current.state)}')
 			map_canvas.delete('poly')
 			print(f'current.state: {current.state}')
