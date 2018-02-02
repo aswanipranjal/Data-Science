@@ -215,7 +215,7 @@ class TSPGui():
 				points.append(self.frame_locations[city][1])
 			map_canvas.create_polygon(points, outline='red', width=3, fill='', tag='poly')
 			neighbor_points = []
-			for city in neighbor.state:
+			for city in neighbor:
 				neighbor_points.append(self.frame_locations[city][0])
 				neighbor_points.append(self.frame_locations[city][1])
 			map_canvas.create_polygon(neighbor_points, outline='red', width=1, fill='', tag='poly')
@@ -223,7 +223,7 @@ class TSPGui():
 			if self.problem.value(neighbor.state) <= self.problem.value(current.state):
 				print('neighbor is not better')
 			else:
-				current = neighbor
+				current.state = neighbor
 		# return current.state
 
 def main():
