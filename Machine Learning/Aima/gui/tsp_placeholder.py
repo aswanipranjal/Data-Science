@@ -298,6 +298,10 @@ class TSP_Gui():
                 neighbor_points.append(self.frame_locations[city][0])
                 neighbor_points.append(self.frame_locations[city][1])
             map_canvas.create_polygon(neighbor_points, outline='red', width=1, fill='', tag='poly')
+            map_canvas.update()
+            map_canvas.after(self.speed.get())
+            if self.problem.value(neighbor.state) > self.problem.value(current.state):
+                current.state = neighbor.state
 
 def main():
     all_cities = []
