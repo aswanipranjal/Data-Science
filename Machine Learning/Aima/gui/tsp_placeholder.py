@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 import sys
 import os.path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
@@ -313,7 +314,7 @@ class TSP_Gui():
                 self.cost.set("Cost = " + str('%0.3f' % (-1 * problem.value(current.state))))
 
     def on_closing(self):
-        if tkinter.messagebox.askokcancel('Quit', 'Do you want to quit?'):
+        if messagebox.askokcancel('Quit', 'Do you want to quit?'):
             self.root.destroy()
 
 def main():
