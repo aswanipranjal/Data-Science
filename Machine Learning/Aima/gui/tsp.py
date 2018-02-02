@@ -192,7 +192,7 @@ class TSPGui():
 		neighbors = []
 		for i in range(number):
 			new_state = self.problem.two_opt(state)
-			neighbors.append(new_state)
+			neighbors.append(Node(new_state))
 			state = new_state
 		return neighbors
 
@@ -201,11 +201,11 @@ class TSPGui():
 		print(f'current: {current}')
 		while True:
 			neighbors = self.find_neighbors(current.state)
-			# print(f'neighbors: {neighbors}')
+			print(f'neighbors: {neighbors}')
 			# if not neighbors:
 			# 	break
 			# neighbor = argmax_random_tie(neighbors, key=lambda node: self.problem.value(node.state))
-			neighbor = argmax(neighbors, key=self.fitness_fn)
+			neighbor = argmax_random_tie(neighbors, key=self.fitness_fn)
 			# print(f'neighbor: {neighbor}')
 			# print(f'value(neighbor.state): {self.problem.value(neighbor)}')
 			# print(f'value(current.state): {self.problem.value(current.state)}')
