@@ -271,15 +271,18 @@ class TSP_Gui():
             map_canvas.after(self.speed.get())
 
     def hill_climbing(self, problem, map_canvas):
-        """ Hill climbing where number of neighbors is taken as user input """
+        """ hill climbing where number of neighbors is taken as user input """
 
         def find_neighbors(state, number_of_neighbors=100):
+            """ finds neighbors using two_opt method """
+
             neighbors = []
             for i in range(number_of_neighbors):
                 new_state = self.problem.two_opt(state)
                 neighbors.append(new_state)
                 state = new_state
             return neighbors
+
 
 def main():
     all_cities = []
