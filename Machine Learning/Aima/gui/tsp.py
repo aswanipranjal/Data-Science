@@ -161,7 +161,7 @@ class TSPGui():
 			# map_canvas.after(self.speed.get())
 
 	def simulated_annealing_with_tunable_T(self, map_canvas, schedule=exp_schedule()):
-		self.hill_climbing_test(map_canvas)
+		self.greedy_algorithm(map_canvas)
 
 	def fitness_fn(self, state):
 		fitness = self.problem.value(state)
