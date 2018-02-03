@@ -231,7 +231,16 @@ class TSPGui():
 		# return current.state
 
 	def greedy_algorithm(self, map_canvas):
+		""" to implement naive greedy algorithm """
+
+		def minimum_distance():
+			
 		current = Node(self.problem.initial)
+		while True:
+			for city in current.state:
+				for other in current.state:
+					if other != city:
+
 
 def main():
 	all_cities = []
