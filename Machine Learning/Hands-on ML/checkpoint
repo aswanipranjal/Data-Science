@@ -1,2 +1,2 @@
-model_checkpoint_path: "elu_and_batch_normalization_mnist.ckpt"
-all_model_checkpoint_paths: "elu_and_batch_normalization_mnist.ckpt"
+model_checkpoint_path: "gradient_clipped_mnist.ckpt"
+all_model_checkpoint_paths: "gradient_clipped_mnist.ckpt"
