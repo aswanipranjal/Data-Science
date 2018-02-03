@@ -235,9 +235,10 @@ class TSPGui():
 
 		current = Node(self.problem.initial)
 		def minimum_distance(city):
+			print(city)
 			print(distances[city])
 			print(distances[city][city])
-			return min(distances[city].values())
+			return min(distances[city], key=distances[city].values())
 
 		while True:
 			for city in current.state:
