@@ -43,7 +43,7 @@ class HomePage(tk.Frame):
 		entry_w = ttk.Entry(frame2, font=('Verdana', 10))
 		entry_w.pack(pady=10, padx=10, side=tk.LEFT)
 		button = ttk.Button(self, text='Build a GridMDP', command=lambda: controller.show_frame(BuildMDP))
-		# button.pack()
+		button.pack(pady=10, padx=10, side=tk.TOP)
 
 class BuildMDP(tk.Frame):
 
