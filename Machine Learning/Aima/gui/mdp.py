@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
-height = None
-width = None
+height = 0
+width = 0
 
 class MDPapp(tk.Tk):
 
@@ -64,8 +64,8 @@ class BuildMDP(tk.Frame):
 
 	def create_buttons(self):
 		print('In create_buttons function')
-		for i in range(height):
-			for j in range(width):
+		for i in range(int(height)):
+			for j in range(int(width)):
 				print('Hi')
 
 app = MDPapp()
