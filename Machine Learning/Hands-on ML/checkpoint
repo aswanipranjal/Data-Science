@@ -1,2 +1,2 @@
-model_checkpoint_path: "learning_rate_decay_momentum_mnist.ckpt"
-all_model_checkpoint_paths: "learning_rate_decay_momentum_mnist.ckpt"
+model_checkpoint_path: "l1_regularization_mnist.ckpt"
+all_model_checkpoint_paths: "l1_regularization_mnist.ckpt"
