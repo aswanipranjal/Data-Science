@@ -28,7 +28,11 @@ class HomePage(tk.Frame):
 
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
-		label = ttk.Label(self, text='Home Page', font=('Verdana', 12))
+		frame1 = tk.Frame(self)
+		frame1.pack(side=tk.TOP, expand=tk.X)
+		frame2 = tk.Frame(self)
+		frame2.pack(side=tk.TOP, expand=tk.X)
+		label = ttk.Label(frame1, text='Home Page', font=('Verdana', 12))
 		label.pack(pady=10, padx=10, side=tk.LEFT)
 		label = ttk.Label(self, text='Dimensions', font=('Verdana', 10))
 		label.pack(pady=10, padx=10, side=tk.LEFT)
