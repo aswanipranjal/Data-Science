@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 
+height = None
+width = None
+
 class MDPapp(tk.Tk):
 
 	def __init__(self, *args, **kwargs):
@@ -36,13 +39,15 @@ class HomePage(tk.Frame):
 		label.pack(pady=10, padx=10, side=tk.TOP)
 		label = ttk.Label(frame1, text='Dimensions', font=('Verdana', 10))
 		label.pack(pady=10, padx=10, side=tk.TOP)
-		entry_h = ttk.Entry(frame2, font=('Verdana', 10), width=3, justify=tk.CENTER)
+		height = tk.IntVar()
+		entry_h = ttk.Entry(frame2, font=('Verdana', 10), width=3, justify=tk.CENTER, textvariable=height)
 		entry_h.pack(pady=10, padx=10, side=tk.LEFT)
 		label_x = ttk.Label(frame2, text='X', font=('Verdana', 10))
 		label_x.pack(pady=10, padx=4, side=tk.LEFT)
-		entry_w = ttk.Entry(frame2, font=('Verdana', 10), width=3, justify=tk.CENTER)
+		width = tk.IntVar()
+		entry_w = ttk.Entry(frame2, font=('Verdana', 10), width=3, justify=tk.CENTER, textvariable=width)
 		entry_w.pack(pady=10, padx=10, side=tk.LEFT)
-		button = ttk.Button(self, text='Build a GridMDP', command=lambda: controller.show_frame(BuildMDP))
+		button = ttk.Button(self, text='Build a GridMDP', command=lambda : controller.show_frame(BuildMDP))
 		button.pack(pady=10, padx=10, side=tk.TOP)
 
 class BuildMDP(tk.Frame):
@@ -51,6 +56,9 @@ class BuildMDP(tk.Frame):
 		tk.Frame.__init__(self, parent)
 		label = ttk.Label(self, text='Build MDP page', font=('Verdana', 12))
 		label.pack(pady=10, padx=10)
+
+	def create_buttons(self):
+		for i in range 
 
 app = MDPapp()
 app.geometry('1280x720')
