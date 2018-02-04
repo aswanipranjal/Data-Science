@@ -30,4 +30,10 @@ class HomePage(tk.Frame):
 		tk.Frame.__init__(self, parent)
 		label = ttk.Label(self, text='Home Page', font=('Verdana', 12))
 		label.pack(pady=10, padx=10)
-		
+
+class BuildMDP(tk.Frame):
+
+	def __init__(self, parent, controller):
+		tk.Frame.__init__(self, parent)
+		label = ttk.Label(self, text='Build MDP page', font=('Verdana', 12))
+		label.pack(pady=10, padx=10)
