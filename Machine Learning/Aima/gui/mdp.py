@@ -29,14 +29,13 @@ class HomePage(tk.Frame):
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
 		label = ttk.Label(self, text='Home Page', font=('Verdana', 12))
-		# label.pack(pady=10, padx=10, side=tk.TOP)
-		label.grid(row=0, column=0, columnspan=3, sticky='nsew')
+		label.pack(pady=10, padx=10, side=tk.LEFT)
 		label = ttk.Label(self, text='Dimensions', font=('Verdana', 10))
-		# label.pack(pady=10, padx=10, side=tk.TOP)
+		label.pack(pady=10, padx=10, side=tk.LEFT)
 		entry_h = ttk.Entry(self, font=('Verdana', 10))
-		# entry_h.pack(pady=10, padx=10, side=tk.TOP)
+		entry_h.pack(pady=10, padx=10, side=tk.LEFT)
 		entry_w = ttk.Entry(self, font=('Verdana', 10))
-		# entry_w.pack(pady=10, padx=10, side=tk.RIGHT)
+		entry_w.pack(pady=10, padx=10, side=tk.BOTTOM)
 		button = ttk.Button(self, text='Build a GridMDP', command=lambda: controller.show_frame(BuildMDP))
 		# button.pack()
 
