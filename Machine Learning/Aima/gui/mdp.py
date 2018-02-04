@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
-height = None
-width = None
+height = tk.IntVar()
+width = tk.IntVar()
 
 class MDPapp(tk.Tk):
 
@@ -31,6 +31,8 @@ class HomePage(tk.Frame):
 
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
+		global height
+		global width
 		frame1 = tk.Frame(self)
 		frame1.pack(side=tk.TOP)
 		frame2 = tk.Frame(self)
@@ -39,15 +41,15 @@ class HomePage(tk.Frame):
 		label.pack(pady=10, padx=10, side=tk.TOP)
 		label = ttk.Label(frame1, text='Dimensions', font=('Verdana', 10))
 		label.pack(pady=10, padx=10, side=tk.TOP)
-		height = tk.IntVar()
+		# height = tk.IntVar()
 		entry_h = ttk.Entry(frame2, font=('Verdana', 10), width=3, justify=tk.CENTER, textvariable=height)
 		entry_h.pack(pady=10, padx=10, side=tk.LEFT)
 		label_x = ttk.Label(frame2, text='X', font=('Verdana', 10))
 		label_x.pack(pady=10, padx=4, side=tk.LEFT)
-		width = tk.IntVar()
+		# width = tk.IntVar()
 		entry_w = ttk.Entry(frame2, font=('Verdana', 10), width=3, justify=tk.CENTER, textvariable=width)
 		entry_w.pack(pady=10, padx=10, side=tk.LEFT)
-		button = ttk.Button(self, text='Build a GridMDP', command=lambda : controller.show_frame(BuildMDP))
+		button = ttk.Button(self, text='Build a GridMDP', command=lambda: controller.show_frame(BuildMDP))
 		button.pack(pady=10, padx=10, side=tk.TOP)
 
 class BuildMDP(tk.Frame):
