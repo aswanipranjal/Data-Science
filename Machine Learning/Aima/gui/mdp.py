@@ -29,9 +29,9 @@ class HomePage(tk.Frame):
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
 		label = ttk.Label(self, text='Home Page', font=('Verdana', 12))
-		label.pack(pady=10, padx=10)
+		label.pack(pady=10, padx=10, side=tk.TOP)
 		label = ttk.Label(self, text='Dimensions', font=('Verdana', 10))
-		label.pack(pady=10, padx=10)
+		label.pack(pady=10, padx=10, side=tk.TOP)
 		button = ttk.Button(self, text='Build a GridMDP', command=lambda: controller.show_frame(BuildMDP))
 		button.pack()
 
