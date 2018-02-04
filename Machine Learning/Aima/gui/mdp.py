@@ -30,7 +30,7 @@ class HomePage(tk.Frame):
 		tk.Frame.__init__(self, parent)
 		label = ttk.Label(self, text='Home Page', font=('Verdana', 12))
 		# label.pack(pady=10, padx=10, side=tk.TOP)
-		label.grid(row=0, column=0, columnspan=3)
+		label.grid(row=0, column=0, columnspan=3, sticky='nsew')
 		label = ttk.Label(self, text='Dimensions', font=('Verdana', 10))
 		# label.pack(pady=10, padx=10, side=tk.TOP)
 		entry_h = ttk.Entry(self, font=('Verdana', 10))
