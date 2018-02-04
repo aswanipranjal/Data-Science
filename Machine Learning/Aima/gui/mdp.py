@@ -17,3 +17,8 @@ class MDPapp(tk.Tk):
 			frame = F(container, self)
 			self.frames[F] = frame
 			frame.gird(row=0, column=0, sticky='nsew')
+
+	def show_frame(self, controller):
+		frame = self.frames[controller]
+		frame.tkraise()
+		
