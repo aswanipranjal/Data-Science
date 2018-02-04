@@ -13,7 +13,7 @@ class MDPapp(tk.Tk):
 
 		self.frames = {}
 
-		for F in (HomePage):
+		for F in (HomePage, BuildMDP):
 			frame = F(container, self)
 			self.frames[F] = frame
 			frame.gird(row=0, column=0, sticky='nsew')
