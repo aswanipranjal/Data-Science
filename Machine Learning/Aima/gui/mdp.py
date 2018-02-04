@@ -58,9 +58,12 @@ class BuildMDP(tk.Frame):
 		tk.Frame.__init__(self, parent)
 		label = ttk.Label(self, text='Build MDP page', font=('Verdana', 12))
 		label.pack(pady=10, padx=10)
+		self.create_buttons()
 
 	def create_buttons(self):
-		for i in range 
+		for i in range height:
+			for j in range width:
+				print(i, j)
 
 app = MDPapp()
 app.geometry('1280x720')
