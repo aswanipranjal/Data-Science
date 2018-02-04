@@ -23,3 +23,11 @@ class MDPapp(tk.Tk):
 	def show_frame(self, controller):
 		frame = self.frames[controller]
 		frame.tkraise()
+
+class HomePage(tk.Frame):
+
+	def __init__(self, parent, controller):
+		tk.Frame.__init__(self, parent)
+		label = ttk.Label(self, text='Home Page', font=('Verdana', 12))
+		label.pack(pady=10, padx=10)
+		
