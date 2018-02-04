@@ -37,3 +37,7 @@ class BuildMDP(tk.Frame):
 		tk.Frame.__init__(self, parent)
 		label = ttk.Label(self, text='Build MDP page', font=('Verdana', 12))
 		label.pack(pady=10, padx=10)
+
+app = MDPapp()
+app.geometry('1280x720')
+app.mainloop()
