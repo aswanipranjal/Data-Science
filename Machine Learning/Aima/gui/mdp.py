@@ -64,9 +64,8 @@ class BuildMDP(tk.Frame):
 
 	def create_buttons(self):
 		print('In create_buttons function')
-		for i in range(int(height)):
-			for j in range(int(width)):
-				print('Hi')
+		print(height)
+		print(width)
 
 app = MDPapp()
 app.geometry('1280x720')
