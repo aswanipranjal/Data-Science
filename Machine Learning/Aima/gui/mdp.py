@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
-height = tk.IntVar()
-width = tk.IntVar()
+height = None
+width = None
 
 class MDPapp(tk.Tk):
 
@@ -33,6 +33,8 @@ class HomePage(tk.Frame):
 		tk.Frame.__init__(self, parent)
 		global height
 		global width
+		height = tk.IntVar()
+		width = tk.IntVar()
 		frame1 = tk.Frame(self)
 		frame1.pack(side=tk.TOP)
 		frame2 = tk.Frame(self)
