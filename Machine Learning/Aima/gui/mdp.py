@@ -18,7 +18,8 @@ class MDPapp(tk.Tk):
 			self.frames[F] = frame
 			frame.gird(row=0, column=0, sticky='nsew')
 
+		self.show_frame(HomePage)
+
 	def show_frame(self, controller):
 		frame = self.frames[controller]
 		frame.tkraise()
-		
