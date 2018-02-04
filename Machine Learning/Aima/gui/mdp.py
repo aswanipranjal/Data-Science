@@ -34,6 +34,8 @@ class HomePage(tk.Frame):
 		label.pack(pady=10, padx=10, side=tk.TOP)
 		entry_h = ttk.Entry(self, font=('Verdana', 10))
 		entry_h.pack(pady=10, padx=10, side=tk.TOP)
+		entry_w = ttk.Entry(self, font=('Verdana', 10))
+		entry_w.pack(pady=10, padx=10, side=tk.RIGHT)
 		button = ttk.Button(self, text='Build a GridMDP', command=lambda: controller.show_frame(BuildMDP))
 		button.pack()
 
