@@ -58,15 +58,11 @@ class BuildMDP(tk.Frame):
 
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
-		self.frame1 = tk.Frame(self)
-		self.frame1.pack(side=tk.TOP)
-		self.frame2 = tk.Frame(self)
-		self.frame2.pack(side=tk.TOP)
 
 	def create_buttons(self):
 		for i in range(int(height)):
 			for j in range(int(width)):
-				tk.Button(self.frame2, text='Hi', justify=tk.CENTER).grid(row=i + 1, column=j)
+				tk.Button(self, text='Hi', justify=tk.CENTER).grid(row=i + 1, column=j)
 
 app = MDPapp()
 app.geometry('1280x720')
