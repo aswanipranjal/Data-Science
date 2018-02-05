@@ -29,7 +29,7 @@ class MDPapp(tk.Tk):
 
 	def show_frame(self, controller, cb=False):
 		if cb:
-			build_page = self.controller.get_page(BuildMDP)
+			build_page = self.get_page(BuildMDP)
 			build_page.create_buttons()
 		frame = self.frames[controller]
 		frame.tkraise()
