@@ -23,6 +23,9 @@ class MDPapp(tk.Tk):
 
 		self.show_frame(HomePage)
 
+	def get_page(self, page_class):
+		return self.frames[page_class]
+
 	def show_frame(self, controller, _height=None, _width=None):
 		if _height and _width:
 			global height
