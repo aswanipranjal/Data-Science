@@ -65,7 +65,7 @@ class BuildMDP(tk.Frame):
 	def create_buttons(self):
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
-		ipady = int(128/_height)
+		ipady = int(108/_height)
 		for i in range(_height):
 			for j in range(_width):
 				ttk.Button(self, text=f'{i}, {j}', width=int(196/_width)).grid(row=i, column=j, ipady=ipady)
