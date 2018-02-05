@@ -63,7 +63,10 @@ class BuildMDP(tk.Frame):
 		self.canvas = tk.Canvas(root, borderwidth=0, background='#ffffff')
 		self.frame = tk.Frame(self.canvas, background='#ffffff')
 		self.vsb = tk.Scrollbar(parent, orient='vertical', command=self.canvas.yview)
-		
+		self.canvas.configure(yscrollcommand=self.vsb.set)
+		self.vsb.pack(side='left', fill=tk.BOTH, expand=True)
+		self.canvas.create_window((4, 4), window=self.frame, anchor='nw', tags='self.frame')
+		self.frame.bind('<Configure>', self.on_frame_configure)
 		self.controller = controller
 
 	def create_buttons(self):
