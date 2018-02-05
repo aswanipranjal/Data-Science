@@ -7,6 +7,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from tkinter import *
 from tkinter import ttk
 
+from functools import partial
+
 height = 0
 width = 0
 
@@ -37,7 +39,7 @@ label_x = ttk.Label(frame2, text='X', font=('Verdana', 10))
 label_x.pack(pady=10, padx=4, side=LEFT)
 entry_w = Entry(frame2, font=('Verdana', 10), width=3, justify=CENTER)
 entry_w.pack(pady=10, padx=10, side=LEFT)
-button = ttk.Button(frame2, text='Build a GridMDP')
+button = ttk.Button(frame2, text='Build a GridMDP', command=partial(create_grid, entry_h.get(), entry_w.get()))
 button.pack(pady=10, padx=10, side=TOP)
 
 def create_grid(_height, _width):
