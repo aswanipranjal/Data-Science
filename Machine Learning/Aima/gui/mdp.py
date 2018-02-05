@@ -59,13 +59,13 @@ class BuildMDP(tk.Frame):
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
 		label = ttk.Label(self, text='Build MDP page', font=('Verdana', 12))
-		label.pack(pady=10, padx=10)
+		label.grid(row=0, column=0, columnspan=5)
 
 	def create_buttons(self):
 		print('In create_buttons function')
 		for i in range(int(height)):
 			for j in range(int(width)):
-				tk.Button(self, text='Hi', justify=tk.CENTER).pack()
+				tk.Button(self, text='Hi', justify=tk.CENTER).grid(row=i, column=j)
 
 app = MDPapp()
 app.geometry('1280x720')
