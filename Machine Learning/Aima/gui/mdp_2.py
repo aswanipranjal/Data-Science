@@ -37,3 +37,6 @@ entry_w = Entry(frame2, font=('Verdana', 10), width=3, justify=CENTER)
 entry_w.pack(pady=10, padx=10, side=LEFT)
 button = ttk.Button(frame2, text='Build a GridMDP')
 button.pack(pady=10, padx=10, side=TOP)
+
+raise_frame(f1)
+root.mainloop()
