@@ -7,7 +7,7 @@ class MDPapp(tk.Tk):
 		tk.Tk.__init__(self, *args, **kwargs)
 		tk.Tk.wm_title(self, 'Grid MDP')
 		self.shared_data = {
-			'height': tk.IntVar()
+			'height': tk.IntVar(),
 			'width': tk.IntVar()
 		}
 		container = tk.Frame(self)
@@ -60,9 +60,11 @@ class BuildMDP(tk.Frame):
 		self.controller = controller
 
 	def create_buttons(self):
-		for i in range(int(height)):
-			for j in range(int(width)):
-				tk.Button(self, text='Hi', justify=tk.CENTER).grid(row=i + 1, column=j)
+		print(self.controller.shared_data['width'].get())
+		print(self.controller.shared_data['height'].get())
+		# for i in range(int(height)):
+		# 	for j in range(int(width)):
+		# 		tk.Button(self, text='Hi', justify=tk.CENTER).grid(row=i + 1, column=j)
 
 app = MDPapp()
 app.geometry('1280x720')
