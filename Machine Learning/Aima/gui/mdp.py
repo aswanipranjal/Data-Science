@@ -29,7 +29,7 @@ class MDPapp(tk.Tk):
 			global width
 			height = _height
 			width = _width
-			BuildMDP.create_buttons()
+			BuildMDP.create_buttons(self)
 		frame = self.frames[controller]
 		frame.tkraise()
 
@@ -61,11 +61,11 @@ class BuildMDP(tk.Frame):
 		label = ttk.Label(self, text='Build MDP page', font=('Verdana', 12))
 		label.pack(pady=10, padx=10)
 
-	def create_buttons():
+	def create_buttons(self):
 		print('In create_buttons function')
 		for i in range(int(height)):
 			for j in range(int(width)):
-				tk.Button(self, text=str(f'{height - i}, {j}'), justify=tk.CENTER).grid(row=i,  column=j)
+				tk.Button(self, text='Hi', justify=tk.CENTER).pack()
 
 app = MDPapp()
 app.geometry('1280x720')
