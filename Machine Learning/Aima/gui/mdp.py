@@ -16,6 +16,9 @@ class MDPapp(tk.Tk):
 
 		self.frames = {}
 
+		HPframe = HomePage(container, self)
+		self.frames[HomePage] = HPframe
+		HPframe.grid(row=0, column=0, sticky='nsew')
 		for F in (HomePage, BuildMDP):
 			frame = F(container, self)
 			self.frames[F] = frame
@@ -24,10 +27,10 @@ class MDPapp(tk.Tk):
 		self.show_frame(HomePage)
 
 	def show_frame(self, controller, _height=None, _width=None):
-		if _height:
+		if _height is not None:
 			global height
 			height = _height
-		if _width:
+		if _width is not None:
 			global width
 			width = _width
 		frame = self.frames[controller]
@@ -45,11 +48,11 @@ class HomePage(tk.Frame):
 		label.pack(pady=10, padx=10, side=tk.TOP)
 		label = ttk.Label(frame1, text='Dimensions', font=('Verdana', 10))
 		label.pack(pady=10, padx=10, side=tk.TOP)
-		entry_h = tk.Entry(frame2, font=('Verdana', 10), width=3, justify=tk.CENTER)
+		entry_h = ttk.Entry(frame2, font=('Verdana', 10), width=3, justify=tk.CENTER)
 		entry_h.pack(pady=10, padx=10, side=tk.LEFT)
 		label_x = ttk.Label(frame2, text='X', font=('Verdana', 10))
 		label_x.pack(pady=10, padx=4, side=tk.LEFT)
-		entry_w = tk.Entry(frame2, font=('Verdana', 10), width=3, justify=tk.CENTER)
+		entry_w = ttk.Entry(frame2, font=('Verdana', 10), width=3, justify=tk.CENTER)
 		entry_w.pack(pady=10, padx=10, side=tk.LEFT)
 		button = ttk.Button(self, text='Build a GridMDP', command=lambda: controller.show_frame(BuildMDP, entry_h.get(), entry_w.get()))
 		button.pack(pady=10, padx=10, side=tk.TOP)
