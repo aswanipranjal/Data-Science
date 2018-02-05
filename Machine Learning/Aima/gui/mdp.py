@@ -37,6 +37,7 @@ class HomePage(tk.Frame):
 
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
+		self.controller = controller
 		frame1 = tk.Frame(self)
 		frame1.pack(side=tk.TOP)
 		frame2 = tk.Frame(self)
@@ -58,6 +59,7 @@ class BuildMDP(tk.Frame):
 
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
+		self.controller = controller
 
 	def create_buttons(self):
 		for i in range(int(height)):
