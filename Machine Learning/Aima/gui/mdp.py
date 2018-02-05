@@ -27,7 +27,10 @@ class MDPapp(tk.Tk):
 	def get_page(self, page_class):
 		return self.frames[page_class]
 
-	def show_frame(self, controller):
+	def show_frame(self, controller, cb=False):
+		if cb:
+			build_page = self.controller.get_page(BuildMDP)
+			build_page.create_buttons()
 		frame = self.frames[controller]
 		frame.tkraise()
 
@@ -50,7 +53,7 @@ class HomePage(tk.Frame):
 		label_x.pack(pady=10, padx=4, side=tk.LEFT)
 		entry_w = tk.Entry(frame2, textvariable=self.controller.shared_data['width'], font=('Verdana', 10), width=3, justify=tk.CENTER)
 		entry_w.pack(pady=10, padx=10, side=tk.LEFT)
-		button = ttk.Button(self, text='Build a GridMDP', command=lambda: controller.show_frame(BuildMDP))
+		button = ttk.Button(self, text='Build a GridMDP', command=lambda: controller.show_frame(BuildMDP, cb=True))
 		button.pack(pady=10, padx=10, side=tk.TOP)
 
 class BuildMDP(tk.Frame):
