@@ -14,8 +14,10 @@ def raise_frame(frame):
 	frame.tkraise()
 
 root = Tk()
-f1 = Frame(root)
-f2 = Frame(root)
+root.grid_rowconfigure(0, weight=1)
+root.grid_columnconfigure(0, weight=1)
+f1 = Frame(root, background='black')
+f2 = Frame(root, background='blue')
 
 for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
