@@ -20,19 +20,21 @@ class MDPapp(tk.Tk):
 		self.frames[HomePage] = HPframe
 		HPframe.grid(row=0, column=0, sticky='nsew')
 
-		Appframe = BuildMDP(container, self)
-		self.frames[BuildMDP] = Appframe
-		Appframe.grid(row=0, column=0, sticky='nsew')
+		
 
 		self.show_frame(HomePage)
 
 	def show_frame(self, controller, _height=None, _width=None):
-		if _height is not None:
-			global height
-			height = _height
-		if _width is not None:
-			global width
-			width = _width
+		if controller == BuildMDP:
+			Appframe = BuildMDP(container, self)
+			self.frames[BuildMDP] = Appframe
+			Appframe.grid(row=0, column=0, sticky='nsew')
+			if _height is not None:
+				global height
+				height = _height
+			if _width is not None:
+				global width
+				width = _width
 		frame = self.frames[controller]
 		frame.tkraise()
 
