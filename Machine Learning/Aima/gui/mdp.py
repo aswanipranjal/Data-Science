@@ -19,10 +19,10 @@ class MDPapp(tk.Tk):
 		HPframe = HomePage(container, self)
 		self.frames[HomePage] = HPframe
 		HPframe.grid(row=0, column=0, sticky='nsew')
-		for F in (HomePage, BuildMDP):
-			frame = F(container, self)
-			self.frames[F] = frame
-			frame.grid(row=0, column=0, sticky='nsew')
+
+		Appframe = BuildMDP(container, self)
+		self.frames[BuildMDP] = Appframe
+		Appframe.grid(row=0, column=0, sticky='nsew')
 
 		self.show_frame(HomePage)
 
