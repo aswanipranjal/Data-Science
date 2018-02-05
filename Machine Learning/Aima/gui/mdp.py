@@ -77,6 +77,9 @@ class BuildMDP(tk.Frame):
 			for j in range(_width):
 				ttk.Button(self, text=f'{i}, {j}', width=w).grid(row=i, column=j)
 
+	def on_frame_configure(self, event):
+		self.canvas.configure(scrollregion=self.canvas.bbox('all'))
+
 app = MDPapp()
 app.geometry('1280x720')
 app.mainloop()
