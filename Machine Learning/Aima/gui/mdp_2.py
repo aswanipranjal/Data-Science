@@ -6,3 +6,9 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from tkinter import *
 from tkinter import ttk
+
+height = 0
+width = 0
+
+def raise_frame(frame):
+	frame.tkraise()
