@@ -9,10 +9,10 @@ class MDPapp(tk.Tk):
 	def __init__(self, *args, **kwargs):
 		tk.Tk.__init__(self, *args, **kwargs)
 		tk.Tk.wm_title(self, 'Grid MDP')
-		container = tk.Frame(self)
-		container.pack(side='top', fill='both', expand=True)
-		container.grid_rowconfigure(0, weight=1)
-		container.grid_columnconfigure(0, weight=1)
+		self.container = tk.Frame(self)
+		self.container.pack(side='top', fill='both', expand=True)
+		self.container.grid_rowconfigure(0, weight=1)
+		self.container.grid_columnconfigure(0, weight=1)
 
 		self.frames = {}
 
@@ -26,7 +26,7 @@ class MDPapp(tk.Tk):
 
 	def show_frame(self, controller, _height=None, _width=None):
 		if controller == BuildMDP:
-			Appframe = BuildMDP(container, self)
+			Appframe = BuildMDP(self.container, self)
 			self.frames[BuildMDP] = Appframe
 			Appframe.grid(row=0, column=0, sticky='nsew')
 			if _height is not None:
