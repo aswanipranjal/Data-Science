@@ -62,7 +62,7 @@ class BuildMDP(tk.Frame):
 		tk.Frame.__init__(self, parent)
 		self.grid_rowconfigure(0, weight=1)
 		self.grid_columnconfigure(0, weight=1)
-		self.frame = tk.Frame()
+		self.frame = tk.Frame(self)
 		self.frame.pack()
 		self.controller = controller
 
