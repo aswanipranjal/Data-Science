@@ -1,14 +1,15 @@
 import tkinter as tk
 from tkinter import ttk
 
-height = 0
-width = 0
-
 class MDPapp(tk.Tk):
 
 	def __init__(self, *args, **kwargs):
 		tk.Tk.__init__(self, *args, **kwargs)
 		tk.Tk.wm_title(self, 'Grid MDP')
+		self.shared_data = {
+			'height': tk.IntVar()
+			'width': tk.IntVar()
+		}
 		container = tk.Frame(self)
 		container.pack(side='top', fill='both', expand=True)
 		container.grid_rowconfigure(0, weight=1)
@@ -51,8 +52,6 @@ class HomePage(tk.Frame):
 		entry_w.pack(pady=10, padx=10, side=tk.LEFT)
 		button = ttk.Button(self, text='Build a GridMDP', command=lambda: controller.show_frame(BuildMDP, entry_h.get(), entry_w.get()))
 		button.pack(pady=10, padx=10, side=tk.TOP)
-
-	
 
 class BuildMDP(tk.Frame):
 
