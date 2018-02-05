@@ -24,14 +24,14 @@ class MDPapp(tk.Tk):
 		self.show_frame(HomePage)
 
 	def show_frame(self, controller, _height=None, _width=None):
-		if _height is not None and _width is not None:
-			BuildMDP.create_buttons()
 		if _height:
 			global height
 			height = _height
 		if _width:
 			global width
 			width = _width
+		if _height is not None and _width is not None:
+			BuildMDP.create_buttons()
 		frame = self.frames[controller]
 		frame.tkraise()
 
@@ -64,7 +64,7 @@ class BuildMDP(tk.Frame):
 		label.pack(pady=10, padx=10)
 		# self.create_buttons()
 
-	def create_buttons(self):
+	def create_buttons():
 		print('In create_buttons function')
 		print(height)
 		print(width)
