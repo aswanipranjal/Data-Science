@@ -63,8 +63,8 @@ class BuildMDP(tk.Frame):
 
 	def create_buttons():
 		print('In create_buttons function')
-		for i in range(height):
-			for j in range(width):
+		for i in range(int(height)):
+			for j in range(int(width)):
 				tk.Button(self, text=str(f'{height - i}, {j}'), justify=tk.CENTER).grid(row=i,  column=j)
 
 app = MDPapp()
