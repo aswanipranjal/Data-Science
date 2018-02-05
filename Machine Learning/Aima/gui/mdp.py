@@ -53,16 +53,16 @@ class HomePage(tk.Frame):
 
 class BuildMDP(tk.Frame):
 
-	def __init__(self, parent, controller):
+	def __init__(self, parent, controller, _height, _width):
 		tk.Frame.__init__(self, parent)
 		label = ttk.Label(self, text='Build MDP page', font=('Verdana', 12))
 		label.pack(pady=10, padx=10)
-		self.create_buttons()
+		self.create_buttons(_height, _width)
 
-	def create_buttons(self):
+	def create_buttons(self, _height, _width):
 		print('In create_buttons function')
-		print(height)
-		print(width)
+		print(_height)
+		print(_width)
 
 app = MDPapp()
 app.geometry('1280x720')
