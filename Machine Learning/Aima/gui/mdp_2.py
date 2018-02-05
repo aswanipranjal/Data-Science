@@ -9,15 +9,12 @@ from tkinter import ttk
 
 from functools import partial
 
-height = 0
-width = 0
-
 def raise_frame(frame):
 	frame.tkraise()
 
 def create_grid(_height, _width, frame):
 	frame.tkraise()
-	print(_height, _width)
+	print('Hi bitch', _height, 'sapace', _width)
 
 root = Tk()
 root.grid_rowconfigure(0, weight=1)
@@ -29,6 +26,8 @@ for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
 
 # Home Screen (f1) widgets
+height = IntVar()
+width = IntVar()
 frame1 = Frame(f1)
 frame1.pack(side=TOP, anchor=CENTER)
 frame2 = Frame(f1)
@@ -37,13 +36,13 @@ label = ttk.Label(frame1, text='Home Page', font=('Verdana', 12))
 label.pack(pady=10, padx=10, side=TOP)
 label = ttk.Label(frame1, text='Dimensions', font=('Verdana', 10))
 label.pack(pady=10, padx=10, side=TOP)
-entry_h = Entry(frame2, font=('Verdana', 10), width=3, justify=CENTER)
+entry_h = Entry(frame2, font=('Verdana', 10), width=3, justify=CENTER, textvariable=height)
 entry_h.pack(pady=10, padx=10, side=LEFT)
 label_x = ttk.Label(frame2, text='X', font=('Verdana', 10))
 label_x.pack(pady=10, padx=4, side=LEFT)
-entry_w = Entry(frame2, font=('Verdana', 10), width=3, justify=CENTER)
+entry_w = Entry(frame2, font=('Verdana', 10), width=3, justify=CENTER, textvariable=width)
 entry_w.pack(pady=10, padx=10, side=LEFT)
-button = ttk.Button(frame2, text='Build a GridMDP', command=partial(create_grid, entry_h.get(), entry_w.get(), f2))
+button = ttk.Button(frame2, text='Build a GridMDP', command=partial(create_grid, width, height, f2))
 button.pack(pady=10, padx=10, side=TOP)
 
 raise_frame(f1)
