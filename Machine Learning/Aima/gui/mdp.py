@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
+# To do: Handle zero error, when dimensions are zero
+
 class MDPapp(tk.Tk):
 
 	def __init__(self, *args, **kwargs):
