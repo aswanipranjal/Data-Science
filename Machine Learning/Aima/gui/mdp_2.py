@@ -15,6 +15,10 @@ width = 0
 def raise_frame(frame):
 	frame.tkraise()
 
+def create_grid(_height, _width, frame):
+	frame.tkraise()
+	print(_height, _width)
+
 root = Tk()
 root.grid_rowconfigure(0, weight=1)
 root.grid_columnconfigure(0, weight=1)
@@ -39,11 +43,8 @@ label_x = ttk.Label(frame2, text='X', font=('Verdana', 10))
 label_x.pack(pady=10, padx=4, side=LEFT)
 entry_w = Entry(frame2, font=('Verdana', 10), width=3, justify=CENTER)
 entry_w.pack(pady=10, padx=10, side=LEFT)
-button = ttk.Button(frame2, text='Build a GridMDP', command=partial(create_grid, entry_h.get(), entry_w.get()))
+button = ttk.Button(frame2, text='Build a GridMDP', command=partial(create_grid, entry_h.get(), entry_w.get(), f2))
 button.pack(pady=10, padx=10, side=TOP)
-
-def create_grid(_height, _width):
-	print(_height, _width)
 
 raise_frame(f1)
 root.geometry('1280x720')
