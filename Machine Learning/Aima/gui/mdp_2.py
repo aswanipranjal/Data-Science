@@ -9,18 +9,18 @@ from tkinter import ttk
 
 from functools import partial
 
+root = Tk()
+root.grid_rowconfigure(0, weight=1)
+root.grid_columnconfigure(0, weight=1)
+f1 = Frame(root)
+f2 = Frame(root)
+
 def raise_frame(frame):
 	frame.tkraise()
 
 def create_grid(_height, _width, frame):
 	frame.tkraise()
 	print(_height, _width)
-
-root = Tk()
-root.grid_rowconfigure(0, weight=1)
-root.grid_columnconfigure(0, weight=1)
-f1 = Frame(root)
-f2 = Frame(root)
 
 for frame in (f1, f2):
 	frame.grid(row=0, column=0, sticky='news')
