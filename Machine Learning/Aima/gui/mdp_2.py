@@ -40,6 +40,9 @@ entry_w.pack(pady=10, padx=10, side=LEFT)
 button = ttk.Button(frame2, text='Build a GridMDP')
 button.pack(pady=10, padx=10, side=TOP)
 
+def create_grid(_height, _width):
+	
+
 raise_frame(f1)
 root.geometry('1280x720')
 root.mainloop()
