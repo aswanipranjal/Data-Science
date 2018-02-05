@@ -7,9 +7,11 @@ class MDPapp(tk.Tk):
 		tk.Tk.__init__(self, *args, **kwargs)
 		tk.Tk.wm_title(self, 'Grid MDP')
 		self.shared_data = {
-			'height': tk.IntVar(1),
-			'width': tk.IntVar(1)
+			'height': tk.IntVar(),
+			'width': tk.IntVar()
 		}
+		self.shared_data['height'].set(1)
+		self.shared_data['width'].set(1)
 		container = tk.Frame(self)
 		container.pack(side='top', fill='both', expand=True)
 		container.grid_rowconfigure(0, weight=1)
