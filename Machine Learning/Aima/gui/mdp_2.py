@@ -12,3 +12,7 @@ width = 0
 
 def raise_frame(frame):
 	frame.tkraise()
+
+root = Tk()
+f1 = Frame(root)
+f2 = Frame(root)
