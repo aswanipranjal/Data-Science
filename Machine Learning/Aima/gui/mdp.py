@@ -7,8 +7,8 @@ class MDPapp(tk.Tk):
 		tk.Tk.__init__(self, *args, **kwargs)
 		tk.Tk.wm_title(self, 'Grid MDP')
 		self.shared_data = {
-			'height': tk.IntVar(),
-			'width': tk.IntVar()
+			'height': tk.IntVar(1),
+			'width': tk.IntVar(1)
 		}
 		container = tk.Frame(self)
 		container.pack(side='top', fill='both', expand=True)
