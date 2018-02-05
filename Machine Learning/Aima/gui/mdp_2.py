@@ -42,7 +42,7 @@ label_x = ttk.Label(frame2, text='X', font=('Verdana', 10))
 label_x.pack(pady=10, padx=4, side=LEFT)
 entry_w = Entry(frame2, font=('Verdana', 10), width=3, justify=CENTER, textvariable=width)
 entry_w.pack(pady=10, padx=10, side=LEFT)
-button = ttk.Button(frame2, text='Build a GridMDP', command=partial(create_grid, width, height, f2))
+button = ttk.Button(frame2, text='Build a GridMDP', command=partial(create_grid, width.get(), height.get(), f2))
 button.pack(pady=10, padx=10, side=TOP)
 
 raise_frame(f1)
