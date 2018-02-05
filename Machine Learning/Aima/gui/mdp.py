@@ -60,7 +60,7 @@ class BuildMDP(tk.Frame):
 
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
-		self.canvas = tk.Canvas(root, borderwidth=0, background='#ffffff')
+		self.canvas = tk.Canvas(parent, borderwidth=0, background='#ffffff')
 		self.frame = tk.Frame(self.canvas, background='#ffffff')
 		self.vsb = tk.Scrollbar(parent, orient='vertical', command=self.canvas.yview)
 		self.canvas.configure(yscrollcommand=self.vsb.set)
@@ -75,7 +75,7 @@ class BuildMDP(tk.Frame):
 		w = int(196/_width)
 		for i in range(_height):
 			for j in range(_width):
-				ttk.Button(self, text=f'{i}, {j}', width=w).grid(row=i, column=j)
+				ttk.Button(self.frame, text=f'{i}, {j}', width=w).grid(row=i, column=j)
 
 	def on_frame_configure(self, event):
 		self.canvas.configure(scrollregion=self.canvas.bbox('all'))
