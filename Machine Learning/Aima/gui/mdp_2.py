@@ -14,7 +14,7 @@ def raise_frame(frame):
 
 def create_grid(_height, _width, frame):
 	frame.tkraise()
-	print('Hi bitch', _height, 'sapace', _width)
+	print(_height, _width)
 
 root = Tk()
 root.grid_rowconfigure(0, weight=1)
