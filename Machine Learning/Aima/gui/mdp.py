@@ -23,7 +23,7 @@ def dialogbox(i, j, gridmdp, terminals):
 		elif wall.get() != WALL_VALUE:
 			if reward.get() != 0.0:
 				gridmdp[i][j] = reward.get()
-			elif rbtn_term.get() == TERM_VALUE:
+			elif term.get() == TERM_VALUE:
 				terminals.append((i, j))
 				rbtn_wall.state(['!focus', '!selected'])
 				rbtn_wall.config(state=tk.DISABLED)
