@@ -1,6 +1,15 @@
 import tkinter as tk
 from tkinter import ttk
 
+def popupmsg(msg):
+	popup = tk.Tk()
+	popup.wm_title('!')
+	label = ttk.Label(popup, text=msg, font=('Helvetica', 12))
+	label.pack(side=tk.TOP, fill=tk.X, pady=10)
+	b1 = ttk.Button(popup, text='Ok', command=popup.destroy)
+	b1.pack()
+	popup.mainloop()
+
 class MDPapp(tk.Tk):
 
 	def __init__(self, *args, **kwargs):
