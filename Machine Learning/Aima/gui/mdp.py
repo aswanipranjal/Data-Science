@@ -46,6 +46,10 @@ class MDPapp(tk.Tk):
 		container.grid_columnconfigure(0, weight=1)
 
 		self.menu_bar = tk.Menu(container)
+		self.file_menu = tk.Menu(self.menu_bar, tearoff=0)
+		self.file_menu.add_command(label='Exit', command=placeholder_function)
+		self.menu_bar.add_cascade(label='File', menu=file_menu)
+		
 		self.edit_menu = tk.Menu(self.menu_bar, tearoff=1)
 		self.edit_menu.add_command(label='Reset', command=placeholder_function)
 		self.edit_menu.add_command(label='Initialize', command=placeholder_function)
