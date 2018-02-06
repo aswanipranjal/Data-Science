@@ -41,7 +41,7 @@ def dialogbox(i, j, gridmdp, terminals):
 	wall = tk.IntVar()
 	wall.set(gridmdp[i][j])
 	term = tk.IntVar()
-	term.set(terminals.index((i, j)) if (i, j) in terminals else 0.0)
+	term.set(TERM_VALUE if (i, j) in terminals else 0.0)
 	reward = tk.DoubleVar()
 	reward.set(gridmdp[i][j] if gridmdp[i][j] != WALL_VALUE else 0.0)
 	label = ttk.Label(container, text=f'Configure cell {i}, {j}', font=('Helvetica', 12), anchor=tk.N)
