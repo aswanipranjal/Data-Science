@@ -1,5 +1,15 @@
 import tkinter as tk
 from tkinter import ttk
+from functools import partial
+
+def popupmsg(msg):
+	popup = tk.Tk()
+	popup.wm_title('!')
+	label = ttk.Label(popup, text=msg, font=('Helvetica', 12))
+	label.pack(side=tk.TOP, fill=tk.X, pady=10)
+	b1 = ttk.Button(popup, text='Ok', command=popup.destroy)
+	b1.pack()
+	popup.mainloop()
 
 class MDPapp(tk.Tk):
 
@@ -67,20 +77,12 @@ class BuildMDP(tk.Frame):
 		self.controller = controller
 
 	def create_buttons(self):
-		def popupmsg(msg):
-			popup = tk.Tk()
-			popup.wm_title('!')
-			label = ttk.Label(popup, text=msg, font=('Helvetica', 12))
-			label.pack(side=tk.TOP, fill=tk.X, pady=10)
-			b1 = ttk.Button(popup, text='Ok', command=popup.destroy)
-			b1.pack()
-			popup.mainloop()
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
 		gridmdp = [[0]*_width for _ in range(_height)]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
-				ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width))).grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
+				ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(popupmsg, 'Hello bitch!')).grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 app = MDPapp()
 app.geometry('1280x720')
