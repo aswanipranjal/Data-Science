@@ -35,6 +35,7 @@ def dialogbox(i, j, gridmdp, terminals):
 		label_reward.config(foreground='#000')
 		entry_reward.config(state=tk.NORMAL)
 		rbtn_term.config(state=tk.NORMAL)
+		rbtn_wall.config(state=tk.NORMAL)
 		rbtn_wall.state(['!focus', '!selected'])
 		rbtn_term.state(['!focus', '!selected'])
 
