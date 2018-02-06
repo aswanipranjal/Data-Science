@@ -19,7 +19,7 @@ def popupmsg(msg, i, j, gridmdp):
 	label = ttk.Label(container, text=msg, font=('Helvetica', 12), anchor=tk.CENTER)
 	label.grid(row=0, column=0, sticky='new', pady=5, padx=5)
 	wall = tk.IntVar()
-	wall.set(0)
+	wall.set(gridmdp[i][j])
 	print(f'IntVar: {wall.get()}')
 	rb = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=1)
 	rb.grid(row=1, column=0, columnspan=4, sticky='nsew', padx=156, pady=5)
