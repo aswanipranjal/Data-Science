@@ -5,13 +5,14 @@ from functools import partial
 def popupmsg(msg, i, j):
 	popup = tk.Toplevel()
 	popup.wm_title('!')
-	container = tk.Frame(popup, background='black')
+	container = tk.Frame(popup)
 	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
 	label = ttk.Label(container, text=msg, font=('Helvetica', 12), anchor=tk.CENTER)
-	label.grid(row=0, column=0, sticky='news')
+	label.grid(row=0, column=0, sticky='nsew')
 	b1 = ttk.Button(container, text='Ok', command=popup.destroy)
+	b1.grid(row=0, column=0, sticky='nsew')
 	popup.mainloop()
 
 class MDPapp(tk.Tk):
