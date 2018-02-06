@@ -58,6 +58,7 @@ def dialogbox(i, j, gridmdp, terminals):
 	if gridmdp[i][j] == WALL_VALUE:
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
+		rbtn_term.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', 'selected'])
 		rbtn_term.state(['!focus', '!selected'])
 
