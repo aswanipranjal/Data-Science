@@ -26,7 +26,7 @@ def dialogbox(i, j, gridmdp):
 	label_reward.grid(row=1, column=0, columnspan=3, sticky='new', pady=5, padx=5)
 	entry_reward = ttk.Entry(container, font=('Helvetica', 10), justify=tk.CENTER, exportselection=0, textvariable=reward)
 	entry_reward.grid(row=2, column=0, columnspan=3, sticky='new', pady=5, padx=50)
-	rb = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=-99999)
+	rb = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=-99999.0)
 	rb.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=156, pady=5)
 	btn_apply = ttk.Button(container, text='Apply', command=update_table)
 	btn_apply.grid(row=4, column=0, sticky='nsew', pady=5, padx=5)
