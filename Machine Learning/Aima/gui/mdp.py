@@ -20,7 +20,7 @@ def popupmsg(msg, i, j, gridmdp):
 	wall.set(gridmdp[i][j])
 	print(f'IntVar: {wall.get()}')
 	rb = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=-99999)
-	rb.grid(row=1, column=0, sticky='nsew', padx=156, pady=5)
+	rb.grid(row=1, column=0, columnspan=3, sticky='nsew', padx=156, pady=5)
 	btn_apply = ttk.Button(container, text='Apply', command=partial(update_table, popup))
 	btn_apply.grid(row=2, column=0, sticky='nsew', pady=5, padx=5)
 	btn_reset = ttk.Button(container, text='Reset', command=partial(update_table, popup))
