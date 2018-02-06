@@ -21,6 +21,7 @@ def dialogbox(i, j, gridmdp):
 			gridmdp[i][j] = reward.get()
 
 	def reset_radio_button(radio_btn):
+		gridmdp[i][j] = 0.0
 		label_reward.config(foreground='#000')
 		entry_reward.config(state=tk.NORMAL)
 		radio_btn.state(['!focus', '!selected'])
