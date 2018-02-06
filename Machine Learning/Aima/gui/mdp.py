@@ -9,8 +9,14 @@ def popupmsg(msg, i, j, gridmdp):
 	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
+
+	def partial_function():
+		print(gridmdp[i][j])
+		popup.destroy
+
 	label = ttk.Label(container, text=msg, font=('Helvetica', 12), anchor=tk.CENTER)
 	label.grid(row=0, column=0, sticky='new', pady=5, padx=5)
+	print(gridmdp[i][j])
 	rb = ttk.Radiobutton(container, text='Create Wall', variable=gridmdp[i][j], value=1)
 	rb.grid(row=1, column=0, columnspan=4, sticky='nsew', padx=156, pady=5)
 	b1 = ttk.Button(container, text='Ok', command=popup.destroy)
