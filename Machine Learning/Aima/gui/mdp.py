@@ -108,7 +108,6 @@ class BuildMDP(tk.Frame):
 	def create_buttons(self):
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
-		self.controller.edit_menu['menu'].entryconfig(state=tk.ACTIVE)
 		gridmdp = [[0]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
