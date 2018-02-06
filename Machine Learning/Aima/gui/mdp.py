@@ -44,7 +44,11 @@ class MDPapp(tk.Tk):
 
 		menu_bar = tk.Menu(container)
 		edit_menu = tk.Menu(menu_bar, tearoff=1)
-		
+		edit_menu.add_command(label='Reset')
+		edit_menu.add_command(label='Initialize')
+		edit_menu.add_separator()
+		edit_menu.add_command(label='Exit')
+		edit_menu.add_cascade(label='Edit', menu=edit_menu)
 
 		self.frames = {}
 
