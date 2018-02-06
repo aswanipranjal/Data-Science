@@ -56,6 +56,8 @@ class MDPapp(tk.Tk):
 		container.grid_rowconfigure(0, weight=1)
 		container.grid_columnconfigure(0, weight=1)
 
+		self.frames = {}
+
 		self.menu_bar = tk.Menu(container)
 		self.file_menu = tk.Menu(self.menu_bar, tearoff=0)
 		self.file_menu.add_command(label='Exit', command=placeholder_function)
@@ -68,8 +70,6 @@ class MDPapp(tk.Tk):
 		self.menu_bar.add_cascade(label='Edit', menu=self.edit_menu)
 		self.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 		tk.Tk.config(self, menu=self.menu_bar)
-
-		self.frames = {}
 
 		for F in (HomePage, BuildMDP):
 			frame = F(container, self)
