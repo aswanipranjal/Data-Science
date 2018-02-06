@@ -13,7 +13,10 @@ def dialogbox(i, j, gridmdp):
 	container.grid_columnconfigure(0, weight=1)
 
 	def update_table():
-		gridmdp[i][j] = wall.get()
+		if wall.get() == WALL_VALUE:
+			gridmdp[i][j] = WALL_VALUE
+		elif reward.get() != 0.0:
+			gridmdp[i][j] = reward.get()
 
 	def reset_radio_button(radio_btn):
 		radio_btn.state(['!focus', '!selected'])
