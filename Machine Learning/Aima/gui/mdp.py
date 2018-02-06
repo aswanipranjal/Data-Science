@@ -47,12 +47,13 @@ class MDPapp(tk.Tk):
 
 		self.menu_bar = tk.Menu(container)
 		self.edit_menu = tk.Menu(self.menu_bar, tearoff=1)
-		self.edit_menu.add_command(label='Reset', command=placeholder_function, state=tk.DISABLED)
-		self.edit_menu.add_command(label='Initialize', command=placeholder_function, state=tk.DISABLED)
+		self.edit_menu.add_command(label='Reset', command=placeholder_function)
+		self.edit_menu.add_command(label='Initialize', command=placeholder_function)
 		self.edit_menu.add_separator()
 		self.edit_menu.add_command(label='Exit', command=placeholder_function)
 		self.menu_bar.add_cascade(label='Edit', menu=self.edit_menu)
 		tk.Tk.config(self, menu=self.menu_bar)
+		self.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 
 		self.frames = {}
 
@@ -108,6 +109,7 @@ class BuildMDP(tk.Frame):
 	def create_buttons(self):
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
+		self.controller.menu_bar.entryconfig('Edit', state=tk.NORMAL)
 		gridmdp = [[0]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
