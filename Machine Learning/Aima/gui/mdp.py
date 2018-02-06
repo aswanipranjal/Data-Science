@@ -19,7 +19,7 @@ def popupmsg(msg, i, j, gridmdp):
 	print(gridmdp[i][j])
 	rb = ttk.Radiobutton(container, text='Create Wall', variable=gridmdp[i][j], value=1)
 	rb.grid(row=1, column=0, columnspan=4, sticky='nsew', padx=156, pady=5)
-	b1 = ttk.Button(container, text='Ok', command=popup.destroy)
+	b1 = ttk.Button(container, text='Ok', command=partial_function)
 	b1.grid(row=2, column=0, sticky='nsew', pady=5, padx=5)
 	popup.geometry('400x300')
 	popup.mainloop()
