@@ -49,6 +49,7 @@ class MDPapp(tk.Tk):
 		edit_menu.add_separator()
 		edit_menu.add_command(label='Exit')
 		edit_menu.add_cascade(label='Edit', menu=edit_menu)
+		tk.Tk.config(self, menu=menu_bar)
 
 		self.frames = {}
 
