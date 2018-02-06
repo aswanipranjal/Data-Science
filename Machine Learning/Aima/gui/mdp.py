@@ -13,7 +13,7 @@ def popupmsg(msg, i, j, gridmdp):
 	label.grid(row=0, column=0, sticky='nsew', pady=5, padx=5)
 	wall = tk.BoolVar()
 	wall.set(False)
-	ttk.RadioButton(container, text='Create Wall', variable=wall, value=True).grid(row=1, column=0, sticky='nsew', padx=5, pady5)
+	ttk.RadioButton(container, text='Create Wall', variable=wall, value=True).grid(row=1, column=0, sticky='nsew', padx=5, pady=5)
 	b1 = ttk.Button(container, text='Ok', command=popup.destroy)
 	b1.grid(row=1, column=0, sticky='nsew', pady=5, padx=5)
 	popup.geometry('400x300')
