@@ -115,7 +115,11 @@ class MDPapp(tk.Tk):
 
 	def view_matrix(self):
 		build_page = self.get_page(BuildMDP)
-		print(build_page.gridmdp)
+		print('GridMDP', build_page.gridmdp)
+
+	def view_terminals(self):
+		build_page = self.get_page(BuildMDP)
+		print('Terminals', build_page.terminals)
 
 	def show_frame(self, controller, cb=False):
 		if cb:
