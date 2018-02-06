@@ -37,9 +37,6 @@ def dialogbox(i, j, gridmdp):
 	dialog.geometry('400x300')
 	dialog.mainloop()
 
-def placeholder_function():
-	print('Not supported yet!')
-
 class MDPapp(tk.Tk):
 
 	def __init__(self, *args, **kwargs):
@@ -65,7 +62,7 @@ class MDPapp(tk.Tk):
 
 		self.edit_menu = tk.Menu(self.menu_bar, tearoff=1)
 		self.edit_menu.add_command(label='Reset', command=placeholder_function)
-		self.edit_menu.add_command(label='Initialize', command=placeholder_function)
+		self.edit_menu.add_command(label='Initialize', command=self.placeholder_function)
 		self.edit_menu.add_command(label='View matrix', command=self.view_matrix)
 		self.menu_bar.add_cascade(label='Edit', menu=self.edit_menu)
 		self.menu_bar.entryconfig('Edit', state=tk.DISABLED)
@@ -77,6 +74,9 @@ class MDPapp(tk.Tk):
 			frame.grid(row=0, column=0, sticky='nsew')
 
 		self.show_frame(HomePage)
+
+	def placeholder_function(self):
+		print('Not supported yet!')
 
 	def get_page(self, page_class):
 		return self.frames[page_class]
