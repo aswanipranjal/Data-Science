@@ -122,7 +122,7 @@ class BuildMDP(tk.Frame):
 		print(buttons)
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
-				ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(popupmsg, 'Hello bitch!', i, j, gridmdp)).grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
+				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(popupmsg, 'Hello bitch!', i, j, gridmdp)).grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 app = MDPapp()
 app.geometry('1280x720')
