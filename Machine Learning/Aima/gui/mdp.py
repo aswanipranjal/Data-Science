@@ -20,11 +20,14 @@ def dialogbox(i, j, gridmdp, terminals):
 		elif reward.get() != 0.0:
 			gridmdp[i][j] = reward.get()
 
-	def reset_radio_button(radio_btn):
+	def reset_radio_button(rbtn_wall, rbtn_term):
 		gridmdp[i][j] = 0.0
+		if (i, j) in terminals:
+			terminals.remove((i, j))
 		label_reward.config(foreground='#000')
 		entry_reward.config(state=tk.NORMAL)
-		radio_btn.state(['!focus', '!selected'])
+		rbtn_wall.state(['!focus', '!selected'])
+		rbtn_term.state(['!focus', '!selected'])
 
 	wall = tk.IntVar()
 	wall.set(gridmdp[i][j])
@@ -33,11 +36,11 @@ def dialogbox(i, j, gridmdp, terminals):
 	label = ttk.Label(container, text=f'Configure cell {i}, {j}', font=('Helvetica', 12), anchor=tk.N)
 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=15, padx=5)
 	label_reward = ttk.Label(container, text='Reward', font=('Helvetica', 10), anchor=tk.N)
-	label_reward.grid(row=1, column=0, columnspan=3, sticky='new', pady=5, padx=5)
+	label_reward.grid(row=1, column=0, columnspan=3, sticky='new', pady=1, padx=5)
 	entry_reward = ttk.Entry(container, font=('Helvetica', 10), justify=tk.CENTER, exportselection=0, textvariable=reward)
 	entry_reward.grid(row=2, column=0, columnspan=3, sticky='new', pady=5, padx=50)
 	rbtn_term = ttk.Radiobutton(container, text='Terminal State')
-	rbtn_term.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=144, pady=5)
+	rbtn_term.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=148, pady=5)
 	rbtn_wall = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=WALL_VALUE)
 	rbtn_wall.grid(row=4, column=0, columnspan=3, sticky='nsew', padx=156, pady=5)
 
@@ -48,7 +51,7 @@ def dialogbox(i, j, gridmdp, terminals):
 
 	btn_apply = ttk.Button(container, text='Apply', command=update_table)
 	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
-	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_radio_button, rbtn_wall))
+	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_radio_button, rbtn_wall, rbtn_term))
 	btn_reset.grid(row=5, column=1, sticky='nsew', pady=5, padx=5)
 	btn_ok = ttk.Button(container, text='Ok', command=dialog.destroy)
 	btn_ok.grid(row=5, column=2, sticky='nsew', pady=5, padx=5)
