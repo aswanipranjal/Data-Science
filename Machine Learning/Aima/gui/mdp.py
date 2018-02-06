@@ -21,7 +21,7 @@ def dialogbox(i, j, gridmdp):
 	wall = tk.IntVar()
 	wall.set(gridmdp[i][j])
 	reward = tk.DoubleVar()
-	reward.set(gridmdp[i][j])
+	reward.set(gridmdp[i][j] if gridmdp[i][j] != WALL_VALUE else 0.0)
 	label = ttk.Label(container, text=f'Configure cell {i}, {j}', font=('Helvetica', 12), anchor=tk.N)
 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=15, padx=5)
 	label_reward = ttk.Label(container, text='Reward', font=('Helvetica', 10), anchor=tk.N)
