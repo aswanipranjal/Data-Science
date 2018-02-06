@@ -73,7 +73,7 @@ class BuildMDP(tk.Frame):
 		_width = self.controller.shared_data['width'].get()
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
-				ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/_width)).grid(row=i, column=j, ipady=int(336/_height) - 12)
+				ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width))).grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 app = MDPapp()
 app.geometry('1280x720')
