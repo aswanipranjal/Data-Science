@@ -36,16 +36,18 @@ def dialogbox(i, j, gridmdp):
 	label_reward.grid(row=1, column=0, columnspan=3, sticky='new', pady=5, padx=5)
 	entry_reward = ttk.Entry(container, font=('Helvetica', 10), justify=tk.CENTER, exportselection=0, textvariable=reward)
 	entry_reward.grid(row=2, column=0, columnspan=3, sticky='new', pady=5, padx=50)
-	rb = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=WALL_VALUE)
-	rb.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=156, pady=5)
+	rbtn_wall = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=WALL_VALUE)
+	rbtn_wall.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=156, pady=5)
+	rbtn_term = ttk.Radiobutton(container, text='Terminal State', variable=)
+
 	if gridmdp[i][j] == WALL_VALUE:
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
-		rb.state(['!focus', 'selected'])
+		rbtn_wall.state(['!focus', 'selected'])
 
 	btn_apply = ttk.Button(container, text='Apply', command=update_table)
 	btn_apply.grid(row=4, column=0, sticky='nsew', pady=5, padx=5)
-	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_radio_button, rb))
+	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_radio_button, rbtn_wall))
 	btn_reset.grid(row=4, column=1, sticky='nsew', pady=5, padx=5)
 	btn_ok = ttk.Button(container, text='Ok', command=dialog.destroy)
 	btn_ok.grid(row=4, column=2, sticky='nsew', pady=5, padx=5)
@@ -144,10 +146,11 @@ class BuildMDP(tk.Frame):
 		_width = self.controller.shared_data['width'].get()
 		self.controller.menu_bar.entryconfig('Edit', state=tk.NORMAL)
 		self.gridmdp = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
+		self.terminals = []
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
-				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp))
+				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals))
 				buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 app = MDPapp()
