@@ -64,6 +64,7 @@ class MDPapp(tk.Tk):
 		self.edit_menu = tk.Menu(self.menu_bar, tearoff=1)
 		self.edit_menu.add_command(label='Reset', command=placeholder_function)
 		self.edit_menu.add_command(label='Initialize', command=placeholder_function)
+		self.edit_menu.add_command(label='View matrix', command=view_matrix)
 		self.menu_bar.add_cascade(label='Edit', menu=self.edit_menu)
 		self.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 		tk.Tk.config(self, menu=self.menu_bar)
@@ -123,11 +124,11 @@ class BuildMDP(tk.Frame):
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
 		self.controller.menu_bar.entryconfig('Edit', state=tk.NORMAL)
-		gridmdp = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
+		self.gridmdp = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
-				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, gridmdp))
+				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp))
 				buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 app = MDPapp()
