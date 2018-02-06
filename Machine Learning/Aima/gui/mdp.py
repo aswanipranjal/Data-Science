@@ -118,7 +118,7 @@ class BuildMDP(tk.Frame):
 		_width = self.controller.shared_data['width'].get()
 		self.controller.menu_bar.entryconfig('Edit', state=tk.NORMAL)
 		gridmdp = [[0]*max(1, _width) for _ in range(max(1, _height))]
-		buttons = [[None]*max(1, width) for _ in range(max(1, _height))]
+		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		print(buttons)
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
