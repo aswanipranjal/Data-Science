@@ -24,7 +24,9 @@ def dialogbox(i, j, gridmdp, terminals):
 			if reward.get() != 0.0:
 				gridmdp[i][j] = reward.get()
 			elif rbtn_term.get() == TERM_VALUE:
-
+				terminals.append((i, j))
+				rbtn_wall.state(['!focus', '!selected'])
+				rbtn_wall.config(state=tk.DISABLED)
 
 	def reset_radio_button(rbtn_wall, rbtn_term):
 		gridmdp[i][j] = 0.0
