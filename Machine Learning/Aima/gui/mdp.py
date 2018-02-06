@@ -47,11 +47,11 @@ def dialogbox(i, j, gridmdp, terminals):
 		rbtn_wall.state(['!focus', 'selected'])
 
 	btn_apply = ttk.Button(container, text='Apply', command=update_table)
-	btn_apply.grid(row=4, column=0, sticky='nsew', pady=5, padx=5)
+	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
 	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_radio_button, rbtn_wall))
-	btn_reset.grid(row=4, column=1, sticky='nsew', pady=5, padx=5)
+	btn_reset.grid(row=5, column=1, sticky='nsew', pady=5, padx=5)
 	btn_ok = ttk.Button(container, text='Ok', command=dialog.destroy)
-	btn_ok.grid(row=4, column=2, sticky='nsew', pady=5, padx=5)
+	btn_ok.grid(row=5, column=2, sticky='nsew', pady=5, padx=5)
 	dialog.geometry('400x300')
 	dialog.mainloop()
 
