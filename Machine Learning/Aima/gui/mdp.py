@@ -3,7 +3,7 @@ from tkinter import ttk
 from functools import partial
 
 def popupmsg(msg):
-	popup = tk.TopLevel()
+	popup = tk.Toplevel()
 	popup.wm_title('!')
 	label = ttk.Label(popup, text=msg, font=('Helvetica', 12))
 	label.pack(side=tk.TOP, fill=tk.X, pady=10)
