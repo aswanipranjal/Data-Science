@@ -64,7 +64,7 @@ class MDPapp(tk.Tk):
 		self.edit_menu = tk.Menu(self.menu_bar, tearoff=1)
 		self.edit_menu.add_command(label='Reset', command=placeholder_function)
 		self.edit_menu.add_command(label='Initialize', command=placeholder_function)
-		self.edit_menu.add_command(label='View matrix', command=view_matrix)
+		self.edit_menu.add_command(label='View matrix', command=partial(print, self.get_page(BuildMDP).gridmdp))
 		self.menu_bar.add_cascade(label='Edit', menu=self.edit_menu)
 		self.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 		tk.Tk.config(self, menu=self.menu_bar)
