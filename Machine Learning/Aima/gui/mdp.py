@@ -40,6 +40,8 @@ class MDPapp(tk.Tk):
 			'height': tk.IntVar(),
 			'width': tk.IntVar()
 		}
+		self.shared_data['height'].set(1)
+		self.shared_data['width'].set(1)
 		container = tk.Frame(self)
 		container.pack(side='top', fill='both', expand=True)
 		container.grid_rowconfigure(0, weight=1)
