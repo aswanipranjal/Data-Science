@@ -59,6 +59,10 @@ def dialogbox(i, j, gridmdp, terminals):
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', 'selected'])
+		rbtn_term.state(['!focus', '!selected'])
+
+	if (i, j) in terminals:
+		rbtn_wall.state(['!focus', '!selected'])
 
 	btn_apply = ttk.Button(container, text='Apply', command=update_table)
 	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
