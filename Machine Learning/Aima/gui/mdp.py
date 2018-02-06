@@ -34,6 +34,8 @@ def dialogbox(i, j, gridmdp):
 	rb = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=WALL_VALUE)
 	rb.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=156, pady=5)
 	if gridmdp[i][j] == WALL_VALUE:
+		label_reward.config(fg='#ddd')
+		entry_reward.config(state=tk.DISABLED)
 		rb.state(['!focus', 'selected'])
 
 	btn_apply = ttk.Button(container, text='Apply', command=update_table)
