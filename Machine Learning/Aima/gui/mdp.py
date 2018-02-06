@@ -3,6 +3,7 @@ from tkinter import ttk
 from functools import partial
 
 WALL_VALUE = -99999.0
+TERM_VALUE = -999999.0
 
 def dialogbox(i, j, gridmdp, terminals):
 	dialog = tk.Toplevel()
@@ -33,6 +34,8 @@ def dialogbox(i, j, gridmdp, terminals):
 
 	wall = tk.IntVar()
 	wall.set(gridmdp[i][j])
+	term = tk.IntVar()
+	term.set(terminals.index((i, j)) if (i, j) in terminals else 0.0)
 	reward = tk.DoubleVar()
 	reward.set(gridmdp[i][j] if gridmdp[i][j] != WALL_VALUE else 0.0)
 	label = ttk.Label(container, text=f'Configure cell {i}, {j}', font=('Helvetica', 12), anchor=tk.N)
@@ -41,7 +44,7 @@ def dialogbox(i, j, gridmdp, terminals):
 	label_reward.grid(row=1, column=0, columnspan=3, sticky='new', pady=1, padx=5)
 	entry_reward = ttk.Entry(container, font=('Helvetica', 10), justify=tk.CENTER, exportselection=0, textvariable=reward)
 	entry_reward.grid(row=2, column=0, columnspan=3, sticky='new', pady=5, padx=50)
-	rbtn_term = ttk.Radiobutton(container, text='Terminal State')
+	rbtn_term = ttk.Radiobutton(container, text='Terminal State', variable=term, value=TERM_VALUE)
 	rbtn_term.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=148, pady=5)
 	rbtn_wall = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=WALL_VALUE)
 	rbtn_wall.grid(row=4, column=0, columnspan=3, sticky='nsew', padx=156, pady=5)
