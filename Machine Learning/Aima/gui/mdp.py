@@ -12,6 +12,7 @@ def popupmsg(msg, i, j, gridmdp):
 
 	def partial_function():
 		print(gridmdp[i][j])
+		print(f'IntVar: {wall.get()}')
 		popup.destroy
 
 	label = ttk.Label(container, text=msg, font=('Helvetica', 12), anchor=tk.CENTER)
