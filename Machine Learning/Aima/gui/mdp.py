@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from functools import partial
 
-def dialogbox(msg, i, j, gridmdp):
+def dialogbox(i, j, gridmdp):
 	dialog = tk.Toplevel()
 	dialog.wm_title(f'{i}, {j}')
 	container = tk.Frame(dialog)
@@ -16,8 +16,9 @@ def dialogbox(msg, i, j, gridmdp):
 	def reset_radio_button(radio_btn):
 		radio_btn.state(['!focus', '!selected'])
 
-	label = ttk.Label(container, text=msg, font=('Helvetica', 12), anchor=tk.CENTER)
+	label = ttk.Label(container, text=f'Configure cell {i}, {j}, font=('Helvetica', 12), anchor=tk.CENTER)
 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=5, padx=5)
+	# label_reward = 
 	wall = tk.IntVar()
 	wall.set(gridmdp[i][j])
 	rb = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=-99999)
@@ -121,7 +122,7 @@ class BuildMDP(tk.Frame):
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
-				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(dialogbox, 'Hello bitch!', i, j, gridmdp))
+				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, gridmdp))
 				buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 app = MDPapp()
