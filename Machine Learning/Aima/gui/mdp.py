@@ -6,6 +6,7 @@ def popupmsg(msg, i, j):
 	popup = tk.Toplevel()
 	popup.wm_title('!')
 	container = tk.Frame(popup)
+	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
 	label = ttk.Label(container, text=msg, font=('Helvetica', 12))
