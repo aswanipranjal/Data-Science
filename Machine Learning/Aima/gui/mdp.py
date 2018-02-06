@@ -17,11 +17,14 @@ def dialogbox(i, j, gridmdp, terminals):
 		if wall.get() == WALL_VALUE:
 			label_reward.config(foreground='#999')
 			entry_reward.config(state=tk.DISABLED)
+			rbtn_term.state(['!focus', '!selected'])
+			rbtn_term.config(state=tk.DISABLED)
 			gridmdp[i][j] = WALL_VALUE
 		elif wall.get() != WALL_VALUE:
 			if reward.get() != 0.0:
 				gridmdp[i][j] = reward.get()
-			elif rbtn_term.get()
+			elif rbtn_term.get() == TERM_VALUE:
+
 
 	def reset_radio_button(rbtn_wall, rbtn_term):
 		gridmdp[i][j] = 0.0
@@ -29,6 +32,7 @@ def dialogbox(i, j, gridmdp, terminals):
 			terminals.remove((i, j))
 		label_reward.config(foreground='#000')
 		entry_reward.config(state=tk.NORMAL)
+		# rbtn_term.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', '!selected'])
 		rbtn_term.state(['!focus', '!selected'])
 
