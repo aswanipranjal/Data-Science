@@ -16,7 +16,7 @@ def dialogbox(i, j, gridmdp):
 	def reset_radio_button(radio_btn):
 		radio_btn.state(['!focus', '!selected'])
 
-	label = ttk.Label(container, text=f'Configure cell {i}, {j}, font=('Helvetica', 12), anchor=tk.CENTER)
+	label = ttk.Label(container, text=f'Configure cell {i}, {j}', font=('Helvetica', 12), anchor=tk.CENTER)
 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=5, padx=5)
 	# label_reward = 
 	wall = tk.IntVar()
