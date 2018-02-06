@@ -14,6 +14,8 @@ def dialogbox(i, j, gridmdp):
 
 	def update_table():
 		if wall.get() == WALL_VALUE:
+			label_reward.config(foreground='#999')
+			entry_reward.config(state=tk.DISABLED)
 			gridmdp[i][j] = WALL_VALUE
 		elif reward.get() != 0.0:
 			gridmdp[i][j] = reward.get()
@@ -34,7 +36,7 @@ def dialogbox(i, j, gridmdp):
 	rb = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=WALL_VALUE)
 	rb.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=156, pady=5)
 	if gridmdp[i][j] == WALL_VALUE:
-		label_reward.config(fg='#ddd')
+		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
 		rb.state(['!focus', 'selected'])
 
