@@ -2,12 +2,15 @@ import tkinter as tk
 from tkinter import ttk
 from functools import partial
 
-def popupmsg(msg):
+def popupmsg(msg, i, j):
 	popup = tk.Toplevel()
 	popup.wm_title('!')
-	label = ttk.Label(popup, text=msg, font=('Helvetica', 12))
+	container = tk.Frame(popup)
+	container.grid_rowconfigure(0, weight=1)
+	container.grid_columnconfigure(0, weight=1)
+	label = ttk.Label(container, text=msg, font=('Helvetica', 12))
 	label.pack(side=tk.TOP, fill=tk.X, pady=10)
-	b1 = ttk.Button(popup, text='Ok', command=popup.destroy)
+	b1 = ttk.Button(container, text='Ok', command=popup.destroy)
 	b1.pack()
 	popup.mainloop()
 
@@ -82,7 +85,7 @@ class BuildMDP(tk.Frame):
 		gridmdp = [[0]*_width for _ in range(_height)]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
-				ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(popupmsg, 'Hello bitch!')).grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
+				ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(popupmsg, 'Hello bitch!', i, j)).grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 app = MDPapp()
 app.geometry('1280x720')
