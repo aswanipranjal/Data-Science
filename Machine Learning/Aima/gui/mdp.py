@@ -34,7 +34,7 @@ def dialogbox(i, j, gridmdp, terminals):
 			terminals.remove((i, j))
 		label_reward.config(foreground='#000')
 		entry_reward.config(state=tk.NORMAL)
-		# rbtn_term.config(state=tk.DISABLED)
+		rbtn_term.config(state=tk.NORMAL)
 		rbtn_wall.state(['!focus', '!selected'])
 		rbtn_term.state(['!focus', '!selected'])
 
