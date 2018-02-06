@@ -27,7 +27,7 @@ def popupmsg(msg, i, j, gridmdp):
 	btn_apply.grid(row=2, column=0, sticky='nsew', pady=5, padx=5)
 	btn_reset = ttk.Button(container, text='Reset', command=reset_radio_button)
 	btn_reset.grid(row=2, column=1, sticky='nsew', pady=5, padx=5)
-	btn_ok = ttk.Button(container, text='Ok', command=partial(update_table, popup))
+	btn_ok = ttk.Button(container, text='Ok', command=popup.destroy)
 	btn_ok.grid(row=2, column=2, sticky='nsew', pady=5, padx=5)
 	popup.geometry('400x300')
 	popup.mainloop()
