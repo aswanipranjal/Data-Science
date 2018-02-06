@@ -12,17 +12,19 @@ def popupmsg(msg, i, j, gridmdp):
 
 	def update_table(popup):
 		gridmdp[i][j] = wall.get()
-		popup.destroy
+		# popup.destroy
 
 	label = ttk.Label(container, text=msg, font=('Helvetica', 12), anchor=tk.CENTER)
-	label.grid(row=0, column=0, sticky='new', pady=5, padx=5)
+	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=5, padx=5)
 	wall = tk.IntVar()
 	wall.set(gridmdp[i][j])
 	print(f'IntVar: {wall.get()}')
 	rb = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=-99999)
-	rb.grid(row=1, column=0, columnspan=4, sticky='nsew', padx=156, pady=5)
-	b1 = ttk.Button(container, text='Ok', command=partial(update_table, popup))
-	b1.grid(row=2, column=0, sticky='nsew', pady=5, padx=5)
+	rb.grid(row=1, column=0, sticky='nsew', padx=156, pady=5)
+	btn_apply = ttk.Button(container, text='Apply', command=partial(update_table, popup))
+	btn_apply.grid(row=2, column=0, sticky='nsew', pady=5, padx=5)
+	btn_reset = ttk.Button(container, text='Reset', command=partial(update_table, popup))
+	btn_reset.grid(row=2, column=1, sticky='nsew', pady=5, padx=5)
 	popup.geometry('400x300')
 	popup.mainloop()
 
