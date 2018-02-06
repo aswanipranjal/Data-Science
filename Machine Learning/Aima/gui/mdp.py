@@ -10,9 +10,9 @@ def popupmsg(msg, i, j):
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
 	label = ttk.Label(container, text=msg, font=('Helvetica', 12), anchor=tk.CENTER)
-	label.grid(row=0, column=0, sticky='nsew')
+	label.grid(row=0, column=0, sticky='nsew', pady=5, padx=5)
 	b1 = ttk.Button(container, text='Ok', command=popup.destroy)
-	b1.grid(row=0, column=0, sticky='nsew')
+	b1.grid(row=1, column=0, sticky='nsew', pady=5, padx=5)
 	popup.mainloop()
 
 class MDPapp(tk.Tk):
