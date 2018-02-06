@@ -21,7 +21,7 @@ def popupmsg(msg, i, j, gridmdp):
 	wall = tk.IntVar()
 	wall.set(gridmdp[i][j])
 	print(f'IntVar: {wall.get()}')
-	rb = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=None)
+	rb = ttk.Radiobutton(container, text='Create Wall', variable=wall, value='None')
 	rb.grid(row=1, column=0, columnspan=4, sticky='nsew', padx=156, pady=5)
 	b1 = ttk.Button(container, text='Ok', command=partial_function)
 	b1.grid(row=2, column=0, sticky='nsew', pady=5, padx=5)
@@ -41,6 +41,10 @@ class MDPapp(tk.Tk):
 		container.pack(side='top', fill='both', expand=True)
 		container.grid_rowconfigure(0, weight=1)
 		container.grid_columnconfigure(0, weight=1)
+
+		menu_bar = tk.Menu(container)
+		edit_menu = tk.Menu(menu_bar, tearoff=1)
+		
 
 		self.frames = {}
 
