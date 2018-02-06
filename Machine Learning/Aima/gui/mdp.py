@@ -16,14 +16,16 @@ def dialogbox(i, j, gridmdp):
 	def reset_radio_button(radio_btn):
 		radio_btn.state(['!focus', '!selected'])
 
+	wall = tk.IntVar()
+	wall.set(gridmdp[i][j])
+	reward = tk.DoubleVar()
+	reward.set(gridmdp[i][j])
 	label = ttk.Label(container, text=f'Configure cell {i}, {j}', font=('Helvetica', 12), anchor=tk.N)
 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=15, padx=5)
 	label_reward = ttk.Label(container, text='Reward', font=('Helvetica', 10), anchor=tk.N)
 	label_reward.grid(row=1, column=0, columnspan=3, sticky='new', pady=5, padx=5)
 	entry_reward = ttk.Entry(container, font=('Helvetica', 10), justify=tk.CENTER, exportselection=0)
-	entry_reward.grid(row=2, column=0, columnspan=3, sticky='new', pady=5, padx=5)
-	wall = tk.IntVar()
-	wall.set(gridmdp[i][j])
+	entry_reward.grid(row=2, column=0, columnspan=3, sticky='new', pady=5, padx=50)
 	rb = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=-99999)
 	rb.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=156, pady=5)
 	btn_apply = ttk.Button(container, text='Apply', command=update_table)
@@ -121,7 +123,7 @@ class BuildMDP(tk.Frame):
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
 		self.controller.menu_bar.entryconfig('Edit', state=tk.NORMAL)
-		gridmdp = [[0]*max(1, _width) for _ in range(max(1, _height))]
+		gridmdp = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
