@@ -14,7 +14,7 @@ def popupmsg(msg, i, j, gridmdp):
 		gridmdp[i][j] = wall.get()
 
 	def reset_radio_button(radio_btn):
-		radio_btn.set(None)
+		radio_btn.state(['!focus', '!selected'])
 
 	label = ttk.Label(container, text=msg, font=('Helvetica', 12), anchor=tk.CENTER)
 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=5, padx=5)
@@ -24,7 +24,7 @@ def popupmsg(msg, i, j, gridmdp):
 	rb.grid(row=1, column=0, columnspan=3, sticky='nsew', padx=156, pady=5)
 	btn_apply = ttk.Button(container, text='Apply', command=update_table)
 	btn_apply.grid(row=2, column=0, sticky='nsew', pady=5, padx=5)
-	btn_reset = ttk.Button(container, text='Reset', command=reset_radio_button)
+	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_radio_button, rb))
 	btn_reset.grid(row=2, column=1, sticky='nsew', pady=5, padx=5)
 	btn_ok = ttk.Button(container, text='Ok', command=popup.destroy)
 	btn_ok.grid(row=2, column=2, sticky='nsew', pady=5, padx=5)
@@ -119,7 +119,6 @@ class BuildMDP(tk.Frame):
 		self.controller.menu_bar.entryconfig('Edit', state=tk.NORMAL)
 		gridmdp = [[0]*max(1, _width) for _ in range(max(1, _height))]
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
-		print(buttons)
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
 				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(popupmsg, 'Hello bitch!', i, j, gridmdp))
