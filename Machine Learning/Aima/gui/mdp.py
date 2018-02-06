@@ -4,7 +4,7 @@ from functools import partial
 
 WALL_VALUE = -99999.0
 
-def dialogbox(i, j, gridmdp):
+def dialogbox(i, j, gridmdp, terminals):
 	dialog = tk.Toplevel()
 	dialog.wm_title(f'{i}, {j}')
 	container = tk.Frame(dialog)
