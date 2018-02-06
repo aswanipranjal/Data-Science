@@ -28,6 +28,9 @@ def popupmsg(msg, i, j, gridmdp):
 	popup.geometry('400x300')
 	popup.mainloop()
 
+def placeholder_function():
+	print('Not supported yet!')
+
 class MDPapp(tk.Tk):
 
 	def __init__(self, *args, **kwargs):
@@ -44,10 +47,10 @@ class MDPapp(tk.Tk):
 
 		menu_bar = tk.Menu(container)
 		edit_menu = tk.Menu(menu_bar, tearoff=1)
-		edit_menu.add_command(label='Reset')
-		edit_menu.add_command(label='Initialize')
+		edit_menu.add_command(label='Reset', command=placeholder_function)
+		edit_menu.add_command(label='Initialize', command=placeholder_function)
 		edit_menu.add_separator()
-		edit_menu.add_command(label='Exit')
+		edit_menu.add_command(label='Exit', command=placeholder_function)
 		edit_menu.add_cascade(label='Edit', menu=edit_menu)
 		tk.Tk.config(self, menu=menu_bar)
 
