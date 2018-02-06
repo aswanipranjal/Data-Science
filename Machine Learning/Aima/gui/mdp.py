@@ -2,10 +2,10 @@ import tkinter as tk
 from tkinter import ttk
 from functools import partial
 
-def popupmsg(msg, i, j, gridmdp):
-	popup = tk.Toplevel()
-	popup.wm_title(f'{i}, {j}')
-	container = tk.Frame(popup)
+def dialogbox(msg, i, j, gridmdp):
+	dialog = tk.Toplevel()
+	dialog.wm_title(f'{i}, {j}')
+	container = tk.Frame(dialog)
 	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
@@ -26,10 +26,10 @@ def popupmsg(msg, i, j, gridmdp):
 	btn_apply.grid(row=2, column=0, sticky='nsew', pady=5, padx=5)
 	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_radio_button, rb))
 	btn_reset.grid(row=2, column=1, sticky='nsew', pady=5, padx=5)
-	btn_ok = ttk.Button(container, text='Ok', command=popup.destroy)
+	btn_ok = ttk.Button(container, text='Ok', command=dialog.destroy)
 	btn_ok.grid(row=2, column=2, sticky='nsew', pady=5, padx=5)
-	popup.geometry('400x300')
-	popup.mainloop()
+	dialog.geometry('400x300')
+	dialog.mainloop()
 
 def placeholder_function():
 	print('Not supported yet!')
@@ -121,7 +121,7 @@ class BuildMDP(tk.Frame):
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
-				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(popupmsg, 'Hello bitch!', i, j, gridmdp))
+				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(dialogbox, 'Hello bitch!', i, j, gridmdp))
 				buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 app = MDPapp()
