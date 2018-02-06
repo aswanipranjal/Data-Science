@@ -63,6 +63,7 @@ def dialogbox(i, j, gridmdp, terminals):
 		rbtn_term.state(['!focus', '!selected'])
 
 	if (i, j) in terminals:
+		rbtn_wall.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', '!selected'])
 
 	btn_apply = ttk.Button(container, text='Apply', command=update_table)
