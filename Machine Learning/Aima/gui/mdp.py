@@ -5,6 +5,8 @@ from functools import partial
 WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
 
+def initialize_dialogbox()
+
 def dialogbox(i, j, gridmdp, terminals, buttons):
 	dialog = tk.Toplevel()
 	dialog.wm_title(f'{i}, {j}')
@@ -203,7 +205,8 @@ class BuildMDP(tk.Frame):
 				buttons[i][j] = ttk.Button(self.frame, text=f'({i}, {j})', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, buttons))
 				buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
-	# def initialize
+	def initialize(self):
+		initialize_dialogbox(self.gridmdp)
 
 app = MDPapp()
 app.geometry('1280x720')
