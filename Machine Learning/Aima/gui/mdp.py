@@ -30,7 +30,9 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 				rbtn_wall.state(['!focus', '!selected'])
 				rbtn_wall.config(state=tk.DISABLED)
 				if gridmdp[i][j] < 0:
-
+					buttons[i][j].configure(style='-term.TButton')
+				elif gridmdp[i][j] > 0:
+					buttons[i][j].configure(style='+term.TButton')
 
 	def reset_radio_button(rbtn_wall, rbtn_term):
 		gridmdp[i][j] = 0.0
