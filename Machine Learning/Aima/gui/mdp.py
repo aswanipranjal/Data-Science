@@ -18,7 +18,10 @@ def initialize_dialogbox(gridmdp):
 	label_reward.grid(row=1, column=0, columnspan=3, sticky='new', pady=1, padx=5)
 	entry_reward = ttk.Entry(container, font=('Helvetica', 10), justify=tk.CENTER, exportselection=0, textvariable=reward)
 	entry_reward.grid(row=2, column=0, columnspan=3, sticky='new', pady=5, padx=50)
-	
+	rbtn_term = ttk.Radiobutton(container, text='Terminal', variable=term, value=TERM_VALUE)
+	rbtn_term.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=160, pady=5)
+	rbtn_wall = ttk.Radiobutton(container, text='Wall', variable=wall, value=WALL_VALUE)
+	rbtn_wall.grid(row=4, column=0, columnspan=3, sticky='nsew', padx=172, pady=5)
 
 def update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
 	if wall.get() == WALL_VALUE:
