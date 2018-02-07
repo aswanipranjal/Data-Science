@@ -186,14 +186,14 @@ class BuildMDP(tk.Frame):
 		self.controller.menu_bar.entryconfig('Edit', state=tk.NORMAL)
 		self.gridmdp = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
 		self.terminals = []
-		s_wall = ttk.Style()
-		s_wall.theme_use('clam')
-		s_wall.configure('TButton', background='#ddd', padding=0)
-		s_wall.configure('wall.TButton', background='#222', foreground='#fff')
-		s_wall.configure('reward.TButton', background='#999')
-		s_wall.configure('+term.TButton', background='#008080')
-		s_wall.configure('-term.TButton', background='#000040', foreground='#fff')
-		s_wall.configure('=term.TButton', background='#004040')
+		s = ttk.Style()
+		s.theme_use('clam')
+		s.configure('TButton', background='#ddd', padding=0)
+		s.configure('wall.TButton', background='#222', foreground='#fff')
+		s.configure('reward.TButton', background='#999')
+		s.configure('+term.TButton', background='#008080')
+		s.configure('-term.TButton', background='#000040', foreground='#fff')
+		s.configure('=term.TButton', background='#004040')
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
