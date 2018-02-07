@@ -14,7 +14,8 @@ TERM_VALUE = -999999.0
 # 	container.grid_columnconfigure(0, weight=1)
 # 	label = ttk.Label(container, text='Initialize', font=('Helvetica', 12), anchor=tk.N)
 # 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=15, padx=5)
-def update_table(i, j, gridmdp, terminals, buttons, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
+
+def update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
 	if wall.get() == WALL_VALUE:
 		buttons[i][j].configure(style='wall.TButton')
 		label_reward.config(foreground='#999')
@@ -58,9 +59,6 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
-
-
-
 	wall = tk.IntVar()
 	wall.set(gridmdp[i][j])
 	term = tk.IntVar()
@@ -89,7 +87,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 		rbtn_wall.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', '!selected'])
 
-	btn_apply = ttk.Button(container, text='Apply', command=partial(update_table, i, j, gridmdp, terminals, buttons, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall))
+	btn_apply = ttk.Button(container, text='Apply', command=partial(update_table, i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall))
 	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
 	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_radio_button, i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term))
 	btn_reset.grid(row=5, column=1, sticky='nsew', pady=5, padx=5)
