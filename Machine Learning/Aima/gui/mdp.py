@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from functools import partial
+from PIL import Image, ImageTk
 
 WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
@@ -175,6 +176,7 @@ class BuildMDP(tk.Frame):
 		self.controller.menu_bar.entryconfig('Edit', state=tk.NORMAL)
 		self.gridmdp = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
 		self.terminals = []
+		button_image = Image.open('../images/cell.png')
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
