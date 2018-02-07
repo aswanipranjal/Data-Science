@@ -189,7 +189,7 @@ class BuildMDP(tk.Frame):
 		s_wall = ttk.Style()
 		s_wall.theme_use('clam')
 		s_wall.configure('TButton', background='#ddd', padding=0)
-		s_wall.configure('wall.TButton', background='#222')
+		s_wall.configure('wall.TButton', background='#222', foreground='#fff')
 		s_wall.configure('reward.TButton', background='#999')
 		s_wall.configure('+term.TButton', background='#008080')
 		s_wall.configure('-term.TButton', background='#000040', foreground='#fff')
