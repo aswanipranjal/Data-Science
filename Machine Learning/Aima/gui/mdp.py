@@ -52,7 +52,7 @@ def reset_radio_button(i, j, gridmdp, terminals, buttons, label_reward, entry_re
 	rbtn_wall.state(['!focus', '!selected'])
 	rbtn_term.state(['!focus', '!selected'])
 
-def widget_disability_checks():
+def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
 	if gridmdp[i][j] == WALL_VALUE:
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
