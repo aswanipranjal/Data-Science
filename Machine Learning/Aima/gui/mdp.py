@@ -25,6 +25,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 			if reward.get() != 0.0:
 				gridmdp[i][j] = reward.get()
 				buttons[i][j].configure(style='reward.TButton')
+				buttons[i][j].config(text=f'{i}, {j}\n{reward.get()}')
 			if term.get() == TERM_VALUE:
 				if (i, j) not in terminals:
 					terminals.append((i, j))
