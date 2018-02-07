@@ -5,13 +5,15 @@ from functools import partial
 WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
 
-def initialize_dialogbox(gridmdp):
-	dialog = tk.Toplevel()
-	dialog.wm_title('Initialize')
-	container = tk.Frame(dialog)
-	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
-	container.grid_rowconfigure(0, weight=1)
-	container.grid_columnconfigure(0, weight=1)
+# def initialize_dialogbox(gridmdp):
+# 	dialog = tk.Toplevel()
+# 	dialog.wm_title('Initialize')
+# 	container = tk.Frame(dialog)
+# 	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+# 	container.grid_rowconfigure(0, weight=1)
+# 	container.grid_columnconfigure(0, weight=1)
+# 	label = ttk.Label(container, text='Initialize', font=('Helvetica', 12), anchor=tk.N)
+# 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=15, padx=5)
 
 def dialogbox(i, j, gridmdp, terminals, buttons):
 	dialog = tk.Toplevel()
@@ -211,8 +213,8 @@ class BuildMDP(tk.Frame):
 				buttons[i][j] = ttk.Button(self.frame, text=f'({i}, {j})', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, buttons))
 				buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
-	def initialize(self):
-		initialize_dialogbox(self.gridmdp)
+	# def initialize(self):
+	# 	initialize_dialogbox(self.gridmdp)
 
 app = MDPapp()
 app.geometry('1280x720')
