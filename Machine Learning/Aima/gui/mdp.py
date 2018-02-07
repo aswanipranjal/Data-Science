@@ -22,6 +22,15 @@ def initialize_dialogbox(gridmdp):
 	rbtn_term.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=160, pady=5)
 	rbtn_wall = ttk.Radiobutton(container, text='Wall', variable=wall, value=WALL_VALUE)
 	rbtn_wall.grid(row=4, column=0, columnspan=3, sticky='nsew', padx=172, pady=5)
+	# widget_disability_checks
+	btn_apply = ttk.Button(container, text='Apply', # command=partial(update_table, i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall))
+	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
+	btn_reset = ttk.Button(container, text='Reset', # command=partial(reset_radio_button, i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term))
+	btn_reset.grid(row=5, column=1, sticky='nsew', pady=5, padx=5)
+	btn_ok = ttk.Button(container, text='Ok', command=dialog.destroy)
+	btn_ok.grid(row=5, column=2, sticky='nsew', pady=5, padx=5)
+	dialog.geometry('400x300')
+	dialog.mainloop()
 
 def update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
 	if wall.get() == WALL_VALUE:
