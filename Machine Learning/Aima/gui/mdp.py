@@ -15,7 +15,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 
 	def update_table():
 		if wall.get() == WALL_VALUE:
-			buttons[i][j].config(class_='btn_wall')
+			buttons[i][j].config(class_='wall.TButton')
 			label_reward.config(foreground='#999')
 			entry_reward.config(state=tk.DISABLED)
 			rbtn_term.state(['!focus', '!selected'])
