@@ -89,9 +89,9 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 		rbtn_wall.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', '!selected'])
 
-	btn_apply = ttk.Button(container, text='Apply', command=update_table)
+	btn_apply = ttk.Button(container, text='Apply', command=partial(update_table, i, j, gridmdp, terminals, buttons, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall))
 	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
-	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_radio_button, rbtn_wall, rbtn_term))
+	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_radio_button, i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term))
 	btn_reset.grid(row=5, column=1, sticky='nsew', pady=5, padx=5)
 	btn_ok = ttk.Button(container, text='Ok', command=dialog.destroy)
 	btn_ok.grid(row=5, column=2, sticky='nsew', pady=5, padx=5)
