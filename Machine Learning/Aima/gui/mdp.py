@@ -87,6 +87,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 	dialog.geometry('400x300')
 	dialog.mainloop()
 
+
 class MDPapp(tk.Tk):
 
 	def __init__(self, *args, **kwargs):
@@ -148,6 +149,7 @@ class MDPapp(tk.Tk):
 		frame = self.frames[controller]
 		frame.tkraise()
 
+
 class HomePage(tk.Frame):
 
 	def __init__(self, parent, controller):
@@ -169,6 +171,7 @@ class HomePage(tk.Frame):
 		entry_w.pack(pady=10, padx=10, side=tk.LEFT)
 		button = ttk.Button(self, text='Build a GridMDP', command=lambda: controller.show_frame(BuildMDP, cb=True))
 		button.pack(pady=10, padx=10, side=tk.TOP)
+
 
 class BuildMDP(tk.Frame):
 
