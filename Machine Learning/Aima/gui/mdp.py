@@ -192,7 +192,7 @@ class BuildMDP(tk.Frame):
 		s_wall.configure('wall.TButton', background='#222')
 		s_wall.configure('reward.TButton', background='#999')
 		s_wall.configure('+term.TButton', background='#008080')
-		s_wall.configure('-term.TButton', background='#000040')
+		s_wall.configure('-term.TButton', background='#000040', foreground='#fff')
 		s_wall.configure('=term.TButton', background='#004040')
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
