@@ -181,7 +181,7 @@ class BuildMDP(tk.Frame):
 		s_wall.theme_use('clam')
 		s_wall.configure('TButton', background='#ddd', padding=0)
 		s_wall.configure('wall.TButton', background='#222')
-		s_wall.configure('reward.TButton', background='#eaeaea')
+		s_wall.configure('reward.TButton', background='#666')
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
