@@ -25,7 +25,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 			if reward.get() != 0.0:
 				gridmdp[i][j] = reward.get()
 				buttons[i][j].configure(style='reward.TButton')
-				buttons[i][j].config(text=f'{i}, {j}\n{reward.get()}')
+				buttons[i][j].config(text=f'({i}, {j}), r={reward.get()}')
 			if term.get() == TERM_VALUE:
 				if (i, j) not in terminals:
 					terminals.append((i, j))
@@ -197,7 +197,7 @@ class BuildMDP(tk.Frame):
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
-				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, buttons))
+				buttons[i][j] = ttk.Button(self.frame, text=f'({i}, {j})', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, buttons))
 				buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 app = MDPapp()
