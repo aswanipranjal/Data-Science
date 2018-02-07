@@ -52,6 +52,18 @@ def reset_radio_button(i, j, gridmdp, terminals, buttons, label_reward, entry_re
 	rbtn_wall.state(['!focus', '!selected'])
 	rbtn_term.state(['!focus', '!selected'])
 
+def widget_disability_checks():
+	if gridmdp[i][j] == WALL_VALUE:
+		label_reward.config(foreground='#999')
+		entry_reward.config(state=tk.DISABLED)
+		rbtn_term.config(state=tk.DISABLED)
+		rbtn_wall.state(['!focus', 'selected'])
+		rbtn_term.state(['!focus', '!selected'])
+
+	if (i, j) in terminals:
+		rbtn_wall.config(state=tk.DISABLED)
+		rbtn_wall.state(['!focus', '!selected'])
+
 def dialogbox(i, j, gridmdp, terminals, buttons):
 	dialog = tk.Toplevel()
 	dialog.wm_title(f'{i}, {j}')
@@ -76,16 +88,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 	rbtn_wall = ttk.Radiobutton(container, text='Wall', variable=wall, value=WALL_VALUE)
 	rbtn_wall.grid(row=4, column=0, columnspan=3, sticky='nsew', padx=172, pady=5)
 
-	if gridmdp[i][j] == WALL_VALUE:
-		label_reward.config(foreground='#999')
-		entry_reward.config(state=tk.DISABLED)
-		rbtn_term.config(state=tk.DISABLED)
-		rbtn_wall.state(['!focus', 'selected'])
-		rbtn_term.state(['!focus', '!selected'])
-
-	if (i, j) in terminals:
-		rbtn_wall.config(state=tk.DISABLED)
-		rbtn_wall.state(['!focus', '!selected'])
+	
 
 	btn_apply = ttk.Button(container, text='Apply', command=partial(update_table, i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall))
 	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
