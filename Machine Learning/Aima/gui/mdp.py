@@ -26,7 +26,8 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 				gridmdp[i][j] = reward.get()
 				buttons[i][j].configure(style='reward.TButton')
 			if term.get() == TERM_VALUE:
-				terminals.append((i, j))
+				if (i, j) not in terminals:
+					terminals.append((i, j))
 				rbtn_wall.state(['!focus', '!selected'])
 				rbtn_wall.config(state=tk.DISABLED)
 				if gridmdp[i][j] < 0:
