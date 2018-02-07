@@ -32,6 +32,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 
 	def reset_radio_button(rbtn_wall, rbtn_term):
 		gridmdp[i][j] = 0.0
+		buttons[i][j].configure(style='TButton')
 		if (i, j) in terminals:
 			terminals.remove((i, j))
 		label_reward.config(foreground='#000')
