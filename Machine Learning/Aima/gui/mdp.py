@@ -5,7 +5,13 @@ from functools import partial
 WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
 
-def initialize_dialogbox()
+def initialize_dialogbox(gridmdp):
+	dialog = tk.Toplevel()
+	dialog.wm_title('Initialize')
+	container = tk.Frame(dialog)
+	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+	container.grid_rowconfigure(0, weight=1)
+	container.grid_columnconfigure(0, weight=1)
 
 def dialogbox(i, j, gridmdp, terminals, buttons):
 	dialog = tk.Toplevel()
