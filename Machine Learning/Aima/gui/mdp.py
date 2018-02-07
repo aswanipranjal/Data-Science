@@ -14,6 +14,42 @@ TERM_VALUE = -999999.0
 # 	container.grid_columnconfigure(0, weight=1)
 # 	label = ttk.Label(container, text='Initialize', font=('Helvetica', 12), anchor=tk.N)
 # 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=15, padx=5)
+def update_table(gridmdp, buttons, terminals, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
+	if wall.get() == WALL_VALUE:
+		buttons[i][j].configure(style='wall.TButton')
+		label_reward.config(foreground='#999')
+		entry_reward.config(state=tk.DISABLED)
+		rbtn_term.state(['!focus', '!selected'])
+		rbtn_term.config(state=tk.DISABLED)
+		gridmdp[i][j] = WALL_VALUE
+	elif wall.get() != WALL_VALUE:
+		if reward.get() != 0.0:
+			gridmdp[i][j] = reward.get()
+			buttons[i][j].configure(style='reward.TButton')
+			buttons[i][j].config(text=f'R = {reward.get()}')
+		if term.get() == TERM_VALUE:
+			if (i, j) not in terminals:
+				terminals.append((i, j))
+			rbtn_wall.state(['!focus', '!selected'])
+			rbtn_wall.config(state=tk.DISABLED)
+			if gridmdp[i][j] < 0:
+				buttons[i][j].configure(style='-term.TButton')
+			elif gridmdp[i][j] > 0:
+				buttons[i][j].configure(style='+term.TButton')
+			elif gridmdp[i][j] == 0.0:
+				buttons[i][j].configure(style='=term.TButton')
+
+def reset_radio_button(rbtn_wall, rbtn_term):
+	gridmdp[i][j] = 0.0
+	buttons[i][j].configure(style='TButton')
+	if (i, j) in terminals:
+		terminals.remove((i, j))
+	label_reward.config(foreground='#000')
+	entry_reward.config(state=tk.NORMAL)
+	rbtn_term.config(state=tk.NORMAL)
+	rbtn_wall.config(state=tk.NORMAL)
+	rbtn_wall.state(['!focus', '!selected'])
+	rbtn_term.state(['!focus', '!selected'])
 
 def dialogbox(i, j, gridmdp, terminals, buttons):
 	dialog = tk.Toplevel()
@@ -23,42 +59,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
 
-	def update_table():
-		if wall.get() == WALL_VALUE:
-			buttons[i][j].configure(style='wall.TButton')
-			label_reward.config(foreground='#999')
-			entry_reward.config(state=tk.DISABLED)
-			rbtn_term.state(['!focus', '!selected'])
-			rbtn_term.config(state=tk.DISABLED)
-			gridmdp[i][j] = WALL_VALUE
-		elif wall.get() != WALL_VALUE:
-			if reward.get() != 0.0:
-				gridmdp[i][j] = reward.get()
-				buttons[i][j].configure(style='reward.TButton')
-				buttons[i][j].config(text=f'R = {reward.get()}')
-			if term.get() == TERM_VALUE:
-				if (i, j) not in terminals:
-					terminals.append((i, j))
-				rbtn_wall.state(['!focus', '!selected'])
-				rbtn_wall.config(state=tk.DISABLED)
-				if gridmdp[i][j] < 0:
-					buttons[i][j].configure(style='-term.TButton')
-				elif gridmdp[i][j] > 0:
-					buttons[i][j].configure(style='+term.TButton')
-				elif gridmdp[i][j] == 0.0:
-					buttons[i][j].configure(style='=term.TButton')
 
-	def reset_radio_button(rbtn_wall, rbtn_term):
-		gridmdp[i][j] = 0.0
-		buttons[i][j].configure(style='TButton')
-		if (i, j) in terminals:
-			terminals.remove((i, j))
-		label_reward.config(foreground='#000')
-		entry_reward.config(state=tk.NORMAL)
-		rbtn_term.config(state=tk.NORMAL)
-		rbtn_wall.config(state=tk.NORMAL)
-		rbtn_wall.state(['!focus', '!selected'])
-		rbtn_term.state(['!focus', '!selected'])
 
 	wall = tk.IntVar()
 	wall.set(gridmdp[i][j])
