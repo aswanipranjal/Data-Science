@@ -14,7 +14,7 @@ TERM_VALUE = -999999.0
 # 	container.grid_columnconfigure(0, weight=1)
 # 	label = ttk.Label(container, text='Initialize', font=('Helvetica', 12), anchor=tk.N)
 # 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=15, padx=5)
-def update_table(gridmdp, buttons, terminals, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
+def update_table(i, j, gridmdp, terminals, buttons, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
 	if wall.get() == WALL_VALUE:
 		buttons[i][j].configure(style='wall.TButton')
 		label_reward.config(foreground='#999')
@@ -39,7 +39,7 @@ def update_table(gridmdp, buttons, terminals, term, wall, label_reward, entry_re
 			elif gridmdp[i][j] == 0.0:
 				buttons[i][j].configure(style='=term.TButton')
 
-def reset_radio_button(rbtn_wall, rbtn_term):
+def reset_radio_button(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term):
 	gridmdp[i][j] = 0.0
 	buttons[i][j].configure(style='TButton')
 	if (i, j) in terminals:
