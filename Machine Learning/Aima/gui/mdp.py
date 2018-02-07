@@ -29,6 +29,8 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 				terminals.append((i, j))
 				rbtn_wall.state(['!focus', '!selected'])
 				rbtn_wall.config(state=tk.DISABLED)
+				if gridmdp[i][j] < 0:
+
 
 	def reset_radio_button(rbtn_wall, rbtn_term):
 		gridmdp[i][j] = 0.0
@@ -183,6 +185,8 @@ class BuildMDP(tk.Frame):
 		s_wall.configure('TButton', background='#ddd', padding=0)
 		s_wall.configure('wall.TButton', background='#222')
 		s_wall.configure('reward.TButton', background='#999')
+		s_wall.configure('+term.TButton', background='#008080')
+		s_wall.configure('-term.TButton', background='#000040')
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
