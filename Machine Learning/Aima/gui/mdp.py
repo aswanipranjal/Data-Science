@@ -15,6 +15,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 
 	def update_table():
 		if wall.get() == WALL_VALUE:
+			buttons[i][j].config(class_='btn_wall')
 			label_reward.config(foreground='#999')
 			entry_reward.config(state=tk.DISABLED)
 			rbtn_term.state(['!focus', '!selected'])
@@ -181,7 +182,7 @@ class BuildMDP(tk.Frame):
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
-				buttons[i][j] = ttk.Button(class_=btn_wall, self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, buttons))
+				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, buttons))
 				buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 app = MDPapp()
