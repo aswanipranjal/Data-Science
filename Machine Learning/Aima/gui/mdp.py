@@ -178,8 +178,8 @@ class BuildMDP(tk.Frame):
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
-				pixel = tk.PhotoImage(width=1, height=1)
-				buttons[i][j] = tk.Button(self.frame, text=f'{i}, {j}', image=pixel, width=int(1280/max(1, _width)), background='#ddd', padx=0, pady=0, command=partial(dialogbox, i, j, self.gridmdp, self.terminals, buttons))
+				# pixel = tk.PhotoImage(width=1, height=1)
+				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, buttons))
 				buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 app = MDPapp()
