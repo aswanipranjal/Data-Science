@@ -15,7 +15,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 
 	def update_table():
 		if wall.get() == WALL_VALUE:
-			buttons[i][j].configure(style='wall.TButton') # reset when not wall
+			buttons[i][j].configure(style='wall.TButton')
 			label_reward.config(foreground='#999')
 			entry_reward.config(state=tk.DISABLED)
 			rbtn_term.state(['!focus', '!selected'])
@@ -62,9 +62,9 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 	label_reward.grid(row=1, column=0, columnspan=3, sticky='new', pady=1, padx=5)
 	entry_reward = ttk.Entry(container, font=('Helvetica', 10), justify=tk.CENTER, exportselection=0, textvariable=reward)
 	entry_reward.grid(row=2, column=0, columnspan=3, sticky='new', pady=5, padx=50)
-	rbtn_term = ttk.Radiobutton(container, text='Terminal State', variable=term, value=TERM_VALUE)
+	rbtn_term = ttk.Radiobutton(container, text='Terminal', variable=term, value=TERM_VALUE)
 	rbtn_term.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=148, pady=5)
-	rbtn_wall = ttk.Radiobutton(container, text='Create Wall', variable=wall, value=WALL_VALUE)
+	rbtn_wall = ttk.Radiobutton(container, text='Wall', variable=wall, value=WALL_VALUE)
 	rbtn_wall.grid(row=4, column=0, columnspan=3, sticky='nsew', padx=156, pady=5)
 
 	if gridmdp[i][j] == WALL_VALUE:
