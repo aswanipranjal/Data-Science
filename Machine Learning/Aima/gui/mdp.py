@@ -176,7 +176,7 @@ class BuildMDP(tk.Frame):
 		self.gridmdp = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
 		self.terminals = []
 		s_wall = ttk.Style()
-		s_wall.configure('TButton', foreground='green')
+		s_wall.configure('TButton', background='green')
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
