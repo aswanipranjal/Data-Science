@@ -14,6 +14,9 @@ def initialize_dialogbox(gridmdp):
 	container.grid_columnconfigure(0, weight=1)
 	label = ttk.Label(container, text='Initialize', font=('Helvetica', 12), anchor=tk.N)
 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=15, padx=5)
+	label_reward = ttk.Label(container, text='Reward', font=('Helvetica', 10), anchor=tk.N)
+	label_reward.grid(row=1, column=0, columnspan=3, sticky='new', pady=1, padx=5)
+	
 
 def update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
 	if wall.get() == WALL_VALUE:
