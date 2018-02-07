@@ -178,7 +178,8 @@ class BuildMDP(tk.Frame):
 		self.terminals = []
 		s_wall = ttk.Style()
 		s_wall.theme_use('clam')
-		s_wall.configure('TButton.btn_wall', background='green')
+		s_wall.configure('TButton', background='#ddd')
+		s_wall.configure('wall.TButton', background='#222')
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
