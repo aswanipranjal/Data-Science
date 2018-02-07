@@ -176,11 +176,12 @@ class BuildMDP(tk.Frame):
 		self.gridmdp = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
 		self.terminals = []
 		s_wall = ttk.Style()
-		s_wall.configure('TButton', background='green')
+		s_wall.theme_use('clam')
+		s_wall.configure('TButton.btn_wall', background='green')
 		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
-				buttons[i][j] = ttk.Button(self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, buttons))
+				buttons[i][j] = ttk.Button(class_=btn_wall, self.frame, text=f'{i}, {j}', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, buttons))
 				buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 app = MDPapp()
