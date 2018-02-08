@@ -80,6 +80,7 @@ def reset_all(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbt
 
 	gridmdp[i][j] = 0.0
 	buttons[i][j].configure(style='TButton')
+	# fix text
 	buttons[i][j].config(text=f'({i}, {j})')
 	if (i, j) in terminals:
 		terminals.remove((i, j))
@@ -95,6 +96,15 @@ def initialize_reset_all(_width, _height, gridmdp, terminals, buttons, label_rew
 	for i in range(max(1, _height)):
 		for j in range(max(1, _width)):
 			reset_all(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term)
+
+def external_reset(_width, _height, gridmdp, terminals, buttons):
+
+	terminals = []
+	for i in range(max(1, _height)):
+		for j in range(max(1, _width)):
+			gridmdp[i][j] = 0.0
+			buttons[i][j].configure(style='TButton')
+			buttons[i][j].config(text=f'({_height - i - 1}, {j}')
 
 def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
 
@@ -309,6 +319,11 @@ class BuildMDP(tk.Frame):
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
 		initialize_dialogbox(_width, _height, self.gridmdp, self.terminals, self.buttons)
+
+	def master_reset(self):
+		_height = self.controller.shared_data['height'].get()
+		_width = self.controller.shared_data['width'].get()
+		initialize_reset_all()
 
 app = MDPapp()
 app.geometry('1280x720')
