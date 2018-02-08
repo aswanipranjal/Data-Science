@@ -93,7 +93,7 @@ def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_rewar
 def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 	dialog = tk.Toplevel()
 	#
-	dialog.wm_title(f'{_height - i}, {j}')
+	dialog.wm_title(f'{_height - i - 1}, {j}')
 	container = tk.Frame(dialog)
 	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 	container.grid_rowconfigure(0, weight=1)
@@ -105,7 +105,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 	reward = tk.DoubleVar()
 	reward.set(gridmdp[i][j] if gridmdp[i][j] != WALL_VALUE else 0.0)
 	#
-	label = ttk.Label(container, text=f'Configure cell {_height - i}, {j}', font=('Helvetica', 12), anchor=tk.N)
+	label = ttk.Label(container, text=f'Configure cell {_height - i - 1}, {j}', font=('Helvetica', 12), anchor=tk.N)
 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=15, padx=5)
 	label_reward = ttk.Label(container, text='Reward', font=('Helvetica', 10), anchor=tk.N)
 	label_reward.grid(row=1, column=0, columnspan=3, sticky='new', pady=1, padx=5)
@@ -243,7 +243,7 @@ class BuildMDP(tk.Frame):
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
 				#
-				self.buttons[i][j] = ttk.Button(self.frame, text=f'({_height - i}, {j})', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, self.buttons, _height))
+				self.buttons[i][j] = ttk.Button(self.frame, text=f'({_height - i - 1}, {j})', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, self.buttons, _height))
 				self.buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 	def initialize(self):
