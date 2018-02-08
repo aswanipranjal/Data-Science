@@ -35,7 +35,7 @@ def initialize_dialogbox(gridmdp, terminals, buttons):
 	btn_reset.grid(row=5, column=1, sticky='nsew', pady=5, padx=5)
 	btn_ok = ttk.Button(container, text='Ok', command=dialog.destroy)
 	btn_ok.grid(row=5, column=2, sticky='nsew', pady=5, padx=5)
-	dialog.geometry('400x300')
+	dialog.geometry('400x200')
 	dialog.mainloop()
 
 def update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
@@ -117,7 +117,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons):
 	btn_reset.grid(row=5, column=1, sticky='nsew', pady=5, padx=5)
 	btn_ok = ttk.Button(container, text='Ok', command=dialog.destroy)
 	btn_ok.grid(row=5, column=2, sticky='nsew', pady=5, padx=5)
-	dialog.geometry('400x300')
+	dialog.geometry('400x200')
 	dialog.mainloop()
 
 
