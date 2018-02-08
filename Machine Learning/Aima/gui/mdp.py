@@ -82,6 +82,11 @@ def reset_all(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbt
 	rbtn_wall.state(['!focus', '!selected'])
 	rbtn_term.state(['!focus', '!selected'])
 
+def initialize_reset_all(_width, _height, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term):
+	for i in range(max(1, _width)):
+		for j in range(max(1, _height)):
+			reset_all(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term)
+
 def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
 	if gridmdp[i][j] == WALL_VALUE:
 		label_reward.config(foreground='#999')
