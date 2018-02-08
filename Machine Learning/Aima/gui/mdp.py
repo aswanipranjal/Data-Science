@@ -45,6 +45,7 @@ def update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_re
 
 	if wall.get() == WALL_VALUE:
 		buttons[i][j].configure(style='wall.TButton')
+		buttons[i][j].config(text='Wall')
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
 		rbtn_term.state(['!focus', '!selected'])
@@ -110,7 +111,7 @@ def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_rewar
 # 	bool_Walls = [[False]*max(1, _width) for _ in range(max(1, _height))]
 # 	for i in range(1, _height):
 # 		for j in range(1, _width):
-			
+
 
 def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 
