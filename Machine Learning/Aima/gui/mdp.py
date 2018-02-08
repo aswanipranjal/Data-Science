@@ -90,7 +90,7 @@ def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_rewar
 		rbtn_wall.state(['!focus', '!selected'])
 
 #
-def dialogbox(i, j, gridmdp, terminals, buttons):
+def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 	dialog = tk.Toplevel()
 	#
 	dialog.wm_title(f'{i}, {j}')
@@ -243,7 +243,7 @@ class BuildMDP(tk.Frame):
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
 				#
-				self.buttons[i][j] = ttk.Button(self.frame, text=f'({i}, {j})', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, self.buttons))
+				self.buttons[i][j] = ttk.Button(self.frame, text=f'({_height - i}, {j})', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, self.buttons, _height))
 				self.buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 	def initialize(self):
