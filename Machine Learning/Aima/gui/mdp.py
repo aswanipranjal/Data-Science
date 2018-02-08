@@ -322,7 +322,7 @@ class BuildMDP(tk.Frame):
 	def master_reset(self):
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
-		external_reset(_width, _height, gridmdp, terminals, buttons)
+		external_reset(_width, _height, self.gridmdp, self.terminals, self.buttons)
 
 app = MDPapp()
 app.geometry('1280x720')
