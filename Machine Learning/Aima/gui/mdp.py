@@ -103,7 +103,7 @@ def external_reset(_width, _height, gridmdp, terminals, buttons):
 		for j in range(max(1, _width)):
 			gridmdp[i][j] = 0.0
 			buttons[i][j].configure(style='TButton')
-			buttons[i][j].config(text=f'({_height - i - 1}, {j}')
+			buttons[i][j].config(text=f'({_height - i - 1}, {j})')
 
 def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
 
