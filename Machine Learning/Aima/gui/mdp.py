@@ -70,7 +70,7 @@ def initialize_update_table(_width, _height, gridmdp, terminals, buttons, reward
 		for j in range(max(1, _width)):
 			update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall)
 
-def reset_radio_button(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term):
+def reset_all(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term):
 	gridmdp[i][j] = 0.0
 	buttons[i][j].configure(style='TButton')
 	if (i, j) in terminals:
@@ -120,7 +120,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 	widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term)
 	btn_apply = ttk.Button(container, text='Apply', command=partial(update_table, i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall))
 	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
-	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_radio_button, i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term))
+	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_all, i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term))
 	btn_reset.grid(row=5, column=1, sticky='nsew', pady=5, padx=5)
 	btn_ok = ttk.Button(container, text='Ok', command=dialog.destroy)
 	btn_ok.grid(row=5, column=2, sticky='nsew', pady=5, padx=5)
