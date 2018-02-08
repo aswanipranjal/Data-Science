@@ -8,6 +8,7 @@ WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
 
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
+
 	dialog = tk.Toplevel()
 	dialog.wm_title('Initialize')
 	container = tk.Frame(dialog)
@@ -41,6 +42,7 @@ def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	dialog.mainloop()
 
 def update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
+
 	if wall.get() == WALL_VALUE:
 		buttons[i][j].configure(style='wall.TButton')
 		label_reward.config(foreground='#999')
@@ -66,11 +68,13 @@ def update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_re
 				buttons[i][j].configure(style='=term.TButton')
 
 def initialize_update_table(_width, _height, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
+
 	for i in range(max(1, _height)):
 		for j in range(max(1, _width)):
 			update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall)
 
 def reset_all(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term):
+
 	gridmdp[i][j] = 0.0
 	buttons[i][j].configure(style='TButton')
 	if (i, j) in terminals:
@@ -83,11 +87,13 @@ def reset_all(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbt
 	rbtn_term.state(['!focus', '!selected'])
 
 def initialize_reset_all(_width, _height, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term):
+
 	for i in range(max(1, _width)):
 		for j in range(max(1, _height)):
 			reset_all(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term)
 
 def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
+
 	if gridmdp[i][j] == WALL_VALUE:
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
@@ -100,6 +106,7 @@ def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_rewar
 		rbtn_wall.state(['!focus', '!selected'])
 
 def dialogbox(i, j, gridmdp, terminals, buttons, _height):
+
 	dialog = tk.Toplevel()
 	dialog.wm_title(f'{_height - i - 1}, {j}')
 	container = tk.Frame(dialog)
@@ -136,6 +143,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 class MDPapp(tk.Tk):
 
 	def __init__(self, *args, **kwargs):
+
 		tk.Tk.__init__(self, *args, **kwargs)
 		tk.Tk.wm_title(self, 'Grid MDP')
 		self.shared_data = {
@@ -174,24 +182,30 @@ class MDPapp(tk.Tk):
 		self.show_frame(HomePage)
 
 	def placeholder_function(self):
+
 		print('Not supported yet!')
 
 	def get_page(self, page_class):
+
 		return self.frames[page_class]
 
 	def view_matrix(self):
+
 		build_page = self.get_page(BuildMDP)
 		print('GridMDP', build_page.gridmdp)
 
 	def view_terminals(self):
+
 		build_page = self.get_page(BuildMDP)
 		print('Terminals', build_page.terminals)
 
 	def initialize(self):
+
 		build_page = self.get_page(BuildMDP)
 		build_page.initialize()
 
 	def show_frame(self, controller, cb=False):
+
 		if cb:
 			build_page = self.get_page(BuildMDP)
 			build_page.create_buttons()
@@ -202,6 +216,7 @@ class MDPapp(tk.Tk):
 class HomePage(tk.Frame):
 
 	def __init__(self, parent, controller):
+
 		tk.Frame.__init__(self, parent)
 		self.controller = controller
 		frame1 = tk.Frame(self)
@@ -225,6 +240,7 @@ class HomePage(tk.Frame):
 class BuildMDP(tk.Frame):
 
 	def __init__(self, parent, controller):
+
 		tk.Frame.__init__(self, parent)
 		self.grid_rowconfigure(0, weight=1)
 		self.grid_columnconfigure(0, weight=1)
@@ -233,6 +249,7 @@ class BuildMDP(tk.Frame):
 		self.controller = controller
 
 	def create_buttons(self):
+
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
 		self.controller.menu_bar.entryconfig('Edit', state=tk.NORMAL)
@@ -253,6 +270,7 @@ class BuildMDP(tk.Frame):
 				self.buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 	def initialize(self):
+		
 		initialize_dialogbox(self.gridmdp, self.terminals, self.buttons)
 
 app = MDPapp()
