@@ -123,6 +123,7 @@ def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, lab
 	print(bool_walls)
 	print(bool_terms)
 	if all(bool_walls):
+		print('in if statement')
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
 		rbtn_term.config(state=tk.DISABLED)
@@ -130,6 +131,7 @@ def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, lab
 		rbtn_term.state(['!focus', '!selected'])
 
 	if all(bool_terms):
+		print('in another if statement')
 		rbtn_wall.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', '!selected'])
 
