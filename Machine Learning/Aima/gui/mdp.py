@@ -108,7 +108,7 @@ def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_rewar
 		rbtn_wall.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', '!selected'])\
 
-def initialize_widget_disability_checks(_weight, _height, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
+def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
 	
 	bool_walls = [[False]*max(1, _width) for _ in range(max(1, _height))]
 	bool_terms = [[False]*max(1, _width) for _ in range(max(1, _height))]
