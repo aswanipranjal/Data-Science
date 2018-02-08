@@ -117,7 +117,8 @@ def initialize_widget_disability_checks():
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
 		rbtn_term.config(state=tk.DISABLED)
-
+		rbtn_wall.state(['!focus', 'selected'])
+		rbtn_term.state(['!focus', '!selected'])
 
 def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 
