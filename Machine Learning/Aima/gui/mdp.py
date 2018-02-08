@@ -15,6 +15,7 @@ def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
+	# Todo: Fix initialization
 	wall = tk.IntVar()
 	wall.set(0)
 	term = tk.IntVar()
@@ -78,6 +79,7 @@ def reset_all(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbt
 
 	gridmdp[i][j] = 0.0
 	buttons[i][j].configure(style='TButton')
+	buttons[i][j].config(text=f'({i}, {j})')
 	if (i, j) in terminals:
 		terminals.remove((i, j))
 	label_reward.config(foreground='#000')
