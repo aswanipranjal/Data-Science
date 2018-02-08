@@ -234,14 +234,14 @@ class BuildMDP(tk.Frame):
 		s.configure('+term.TButton', background='#008080')
 		s.configure('-term.TButton', background='#000040', foreground='#fff')
 		s.configure('=term.TButton', background='#004040')
-		buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
+		self.buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
-				buttons[i][j] = ttk.Button(self.frame, text=f'({i}, {j})', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, buttons))
-				buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
+				self.buttons[i][j] = ttk.Button(self.frame, text=f'({i}, {j})', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, self.buttons))
+				self.buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 	def initialize(self):
-		initialize_dialogbox(self.gridmdp, self.terminals, buttons)
+		initialize_dialogbox(self.gridmdp, self.terminals, self.buttons)
 
 app = MDPapp()
 app.geometry('1280x720')
