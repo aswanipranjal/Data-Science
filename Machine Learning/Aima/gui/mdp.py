@@ -32,7 +32,7 @@ def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	rbtn_term.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=160, pady=5)
 	rbtn_wall = ttk.Radiobutton(container, text='Wall', variable=wall, value=WALL_VALUE)
 	rbtn_wall.grid(row=4, column=0, columnspan=3, sticky='nsew', padx=172, pady=5)
-	# widget_disability_checks
+
 	btn_apply = ttk.Button(container, text='Apply', command=partial(initialize_update_table, _width, _height, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall))
 	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
 	btn_reset = ttk.Button(container, text='Reset', command=partial(initialize_reset_all, _width, _height, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term))
@@ -108,7 +108,7 @@ def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_rewar
 		rbtn_wall.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', '!selected'])\
 
-def initialize_widget_disability_checks():
+def initialize_widget_disability_checks(_weight, _height, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
 	
 	bool_walls = [[False]*max(1, _width) for _ in range(max(1, _height))]
 	bool_terms = [[False]*max(1, _width) for _ in range(max(1, _height))]
