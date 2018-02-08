@@ -5,7 +5,7 @@ from functools import partial
 WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
 
-def initialize_dialogbox(i, j, gridmdp, terminals, buttons):
+def initialize_dialogbox(gridmdp, terminals, buttons):
 	dialog = tk.Toplevel()
 	dialog.wm_title('Initialize')
 	container = tk.Frame(dialog)
@@ -13,11 +13,11 @@ def initialize_dialogbox(i, j, gridmdp, terminals, buttons):
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
 	wall = tk.IntVar()
-	wall.set(gridmdp[i][j])
+	# wall.set(gridmdp[i][j])
 	term = tk.IntVar()
-	term.set(TERM_VALUE if (i, j) in terminals else 0.0)
+	# term.set(TERM_VALUE if (i, j) in terminals else 0.0)
 	reward = tk.DoubleVar()
-	reward.set(gridmdp[i][j] if gridmdp[i][j] != WALL_VALUE else 0.0)
+	# reward.set(gridmdp[i][j] if gridmdp[i][j] != WALL_VALUE else 0.0)
 	label = ttk.Label(container, text='Initialize', font=('Helvetica', 12), anchor=tk.N)
 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=15, padx=5)
 	label_reward = ttk.Label(container, text='Reward', font=('Helvetica', 10), anchor=tk.N)
@@ -241,7 +241,7 @@ class BuildMDP(tk.Frame):
 				buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 	def initialize(self):
-		initialize_dialogbox(i, j, self.gridmdp, self.terminals, buttons)
+		initialize_dialogbox(self.gridmdp, self.terminals, buttons)
 
 app = MDPapp()
 app.geometry('1280x720')
