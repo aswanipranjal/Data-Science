@@ -111,16 +111,23 @@ def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_rewar
 def initialize_widget_disability_checks():
 	
 	bool_walls = [[False]*max(1, _width) for _ in range(max(1, _height))]
+	bool_terms = [[False]*max(1, _width) for _ in range(max(1, _height))]
 	for i in range(1, _height):
 		for j in range(1, _width):
 			if gridmdp[i][j] == WALL_VALUE:
 				bool_walls[i][j] = True
+
+			if (i, j) in terminals:
+				bool_terms[i][j] = True
+
 	if all(bool_walls):
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
 		rbtn_term.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', 'selected'])
 		rbtn_term.state(['!focus', '!selected'])
+
+
 
 def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 
