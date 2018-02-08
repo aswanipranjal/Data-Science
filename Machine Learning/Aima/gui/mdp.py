@@ -146,7 +146,7 @@ class MDPapp(tk.Tk):
 
 		self.edit_menu = tk.Menu(self.menu_bar, tearoff=1)
 		self.edit_menu.add_command(label='Reset', command=self.placeholder_function)
-		self.edit_menu.add_command(label='Initialize', command=self.placeholder_function)
+		self.edit_menu.add_command(label='Initialize', command=self.initialize)
 		self.edit_menu.add_separator()
 		self.edit_menu.add_command(label='View matrix', command=self.view_matrix)
 		self.edit_menu.add_command(label='View terminals', command=self.view_terminals)
