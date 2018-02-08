@@ -65,8 +65,10 @@ def update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_re
 			elif gridmdp[i][j] == 0.0:
 				buttons[i][j].configure(style='=term.TButton')
 
-def initialize_update_table(gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
-	for i in range()
+def initialize_update_table(_width, _height, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
+	for i in range(max(1, _height)):
+		for j in range(max(1, _width)):
+			update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall)
 
 def reset_radio_button(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term):
 	gridmdp[i][j] = 0.0
