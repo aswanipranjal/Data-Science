@@ -120,8 +120,8 @@ def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, lab
 			if (i, j) in terminals:
 				bool_terms[i][j] = True
 				
-	print(bool_walls)
-	print(bool_terms)
+	print(sum(bool_walls, []))
+	print(sum(bool_terms, []))
 	if all(bool_walls):
 		print('in if statement')
 		label_reward.config(foreground='#999')
