@@ -7,7 +7,7 @@ from functools import partial
 WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
 
-def initialize_dialogbox(gridmdp, terminals, buttons):
+def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	dialog = tk.Toplevel()
 	dialog.wm_title('Initialize')
 	container = tk.Frame(dialog)
@@ -64,6 +64,9 @@ def update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_re
 				buttons[i][j].configure(style='+term.TButton')
 			elif gridmdp[i][j] == 0.0:
 				buttons[i][j].configure(style='=term.TButton')
+
+def initialize_update_table(gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
+	for i in range()
 
 def reset_radio_button(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term):
 	gridmdp[i][j] = 0.0
