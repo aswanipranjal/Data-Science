@@ -32,7 +32,7 @@ def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	rbtn_wall = ttk.Radiobutton(container, text='Wall', variable=wall, value=WALL_VALUE)
 	rbtn_wall.grid(row=4, column=0, columnspan=3, sticky='nsew', padx=172, pady=5)
 	# widget_disability_checks
-	btn_apply = ttk.Button(container, text='Apply')
+	btn_apply = ttk.Button(container, text='Apply', command=partial(initialize_update_table, _width, _height, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall))
 	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
 	btn_reset = ttk.Button(container, text='Reset')
 	btn_reset.grid(row=5, column=1, sticky='nsew', pady=5, padx=5)
@@ -270,7 +270,7 @@ class BuildMDP(tk.Frame):
 				self.buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 	def initialize(self):
-		
+
 		initialize_dialogbox(self.gridmdp, self.terminals, self.buttons)
 
 app = MDPapp()
