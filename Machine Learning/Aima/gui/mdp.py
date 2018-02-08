@@ -175,6 +175,10 @@ class MDPapp(tk.Tk):
 		build_page = self.get_page(BuildMDP)
 		print('Terminals', build_page.terminals)
 
+	def initialize(self):
+		build_page = self.get_page(BuildMDP)
+		build_page.initialize()
+
 	def show_frame(self, controller, cb=False):
 		if cb:
 			build_page = self.get_page(BuildMDP)
