@@ -88,8 +88,8 @@ def reset_all(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbt
 
 def initialize_reset_all(_width, _height, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term):
 
-	for i in range(max(1, _width)):
-		for j in range(max(1, _height)):
+	for i in range(max(1, _height)):
+		for j in range(max(1, _width)):
 			reset_all(i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term)
 
 def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
