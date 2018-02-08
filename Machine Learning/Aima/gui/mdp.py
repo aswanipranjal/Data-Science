@@ -195,7 +195,7 @@ class MDPapp(tk.Tk):
 		self.menu_bar.add_cascade(label='File', menu=self.file_menu)
 
 		self.edit_menu = tk.Menu(self.menu_bar, tearoff=1)
-		self.edit_menu.add_command(label='Reset', command=self.placeholder_function)
+		self.edit_menu.add_command(label='Reset', command=self.master_reset)
 		self.edit_menu.add_command(label='Initialize', command=self.initialize)
 		self.edit_menu.add_separator()
 		self.edit_menu.add_command(label='View matrix', command=self.view_matrix)
@@ -233,6 +233,11 @@ class MDPapp(tk.Tk):
 
 		build_page = self.get_page(BuildMDP)
 		build_page.initialize()
+
+	def master_reset(self):
+
+		build_page = self.get_page(BuildMDP)
+		build_page.master_reset()
 
 	def show_frame(self, controller, cb=False):
 
