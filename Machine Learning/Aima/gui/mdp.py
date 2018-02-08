@@ -127,7 +127,9 @@ def initialize_widget_disability_checks():
 		rbtn_wall.state(['!focus', 'selected'])
 		rbtn_term.state(['!focus', '!selected'])
 
-
+	if all(bool_terms):
+		rbtn_wall.config(state=tk.DISABLED)
+		rbtn_wall.satte(['!focus', '!selected'])
 
 def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 
