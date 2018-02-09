@@ -393,7 +393,7 @@ class SolveMDP(tk.Frame):
 
 		# sub.clear()
 		# sub.plot(x_list, y_list)
-		a = np.random.randn((16, 16))
+		a = np.random.random((16, 16))
 		sub.clear()
 		sub.imshow(a, cmap='Oranges', interpolation='nearest')
 
