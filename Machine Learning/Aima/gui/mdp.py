@@ -3,6 +3,15 @@ from tkinter import ttk
 import tkinter.messagebox
 from functools import partial
 
+import matplotlib
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+from matplotlib.figure import Figure
+import matplotlib.animation as animation
+from matplotlib import style
+from matplotlib import pyplot as plt
+matplotlib.use('TkAgg')
+style.use('ggplot')
+
 # TODO: flip terminals horizontally before solving
 
 WALL_VALUE = -99999.0
@@ -349,7 +358,7 @@ class SolveMDP(tk.Frame):
 
 	def build(self, gridmdp):
 
-		
+
 
 
 app = MDPapp()
