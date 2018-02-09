@@ -393,6 +393,8 @@ class HomePage(tk.Frame):
 		self.controller = controller
 		frame1 = tk.Frame(self)
 		frame1.pack(side=tk.TOP)
+		frame3 = tk.Frame(self)
+		frame3.pack(side=tk.TOP)
 		frame2 = tk.Frame(self)
 		frame2.pack(side=tk.TOP)
 
