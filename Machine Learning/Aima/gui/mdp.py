@@ -277,7 +277,7 @@ class HomePage(tk.Frame):
 		frame1.pack(side=tk.TOP)
 		frame2 = tk.Frame(self)
 		frame2.pack(side=tk.TOP)
-		label = ttk.Label(frame1, text='Home Page', font=('Verdana', 12))
+		label = ttk.Label(frame1, text='GridMDP builder', font=('Verdana', 12))
 		label.pack(pady=10, padx=10, side=tk.TOP)
 		label = ttk.Label(frame1, text='Dimensions', font=('Verdana', 10))
 		label.pack(pady=10, padx=10, side=tk.TOP)
