@@ -392,6 +392,7 @@ class BuildMDP(tk.Frame):
 		initialize_dialogbox(_width, _height, self.gridmdp, self.terminals, self.buttons)
 
 	def master_reset(self):
+		
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
 		if tkinter.messagebox.askokcancel('Reset', 'Are you sure you want to reset all cells?'):
@@ -412,16 +413,19 @@ class SolveMDP(tk.Frame):
 	def process_data(self, terminals, _height, _width, gridmdp):
 
 		flipped_terminals = []
+
 		for terminal in terminals:
 			flipped_terminals.append((terminal[1], _height - terminal[0] - 1))
 
 		grid_to_solve = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
 		grid_to_show = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
+
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
 				if gridmdp[i][j] == WALL_VALUE:
 					grid_to_show[i][j] = 0.0
 					grid_to_solve[i][j] = None
+
 				else:
 					grid_to_show[i][j] = grid_to_solve[i][j] = gridmdp[i][j]
 
@@ -448,9 +452,11 @@ class SolveMDP(tk.Frame):
 		y_interval = max(2, len(self.gridmdp))
 		x = np.linspace(0, len(self.gridmdp[0]) - 1, x_interval)
 		y = np.linspace(0, len(self.gridmdp) - 1, y_interval)
+
 		sub.clear()
 		sub.imshow(self.grid_to_show, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
 		fig.tight_layout()
+		
 		ax = fig.gca()
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
 		ax.yaxis.set_major_locator(MaxNLocator(integer=True))
