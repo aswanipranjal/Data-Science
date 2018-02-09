@@ -124,24 +124,24 @@ def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, lab
 	
 	bool_walls = [[False]*max(1, _width) for _ in range(max(1, _height))]
 	bool_terms = [[False]*max(1, _width) for _ in range(max(1, _height))]
-	for i in range(1, _height):
-		for j in range(1, _width):
+	for i in range(max(1, _height)):
+		for j in range(max(1, _width)):
 			if gridmdp[i][j] == WALL_VALUE:
 				bool_walls[i][j] = True
 
 			if (i, j) in terminals:
 				bool_terms[i][j] = True
 				
-	print(sum(bool_walls, []))
-	print(sum(bool_terms, []))
-	if all(sum(bool_walls, [])):
+	print(bool_walls)
+	print(bool_terms)
+	if all(bool_walls):
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
 		rbtn_term.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', 'selected'])
 		rbtn_term.state(['!focus', '!selected'])
 
-	if all(sum(bool_terms, [])):
+	if all(bool_terms):
 		rbtn_wall.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', '!selected'])
 
