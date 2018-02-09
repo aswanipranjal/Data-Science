@@ -387,7 +387,7 @@ class SolveMDP(tk.Frame):
 
 		# convert -99999 to None before plotting
 		sub.clear()
-		sub.imshow(np.random.random((10, 10)), cmap='Oranges', interpolation='spline16')
+		sub.imshow(np.random.random((10, 10)), cmap='spectral', aspect='auto')
 		fig.tight_layout()
 
 app = MDPapp()
