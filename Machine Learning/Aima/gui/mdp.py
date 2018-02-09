@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import tkinter.messagebox
+
 from functools import partial
 
 import matplotlib
