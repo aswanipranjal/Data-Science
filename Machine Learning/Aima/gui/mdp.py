@@ -381,18 +381,21 @@ class SolveMDP(tk.Frame):
 
 	def animate_graph(self, i):
 
-		pull_data = open('C:/Users/Aman Deep Singh/Documents/Python/Data Science/Data Visualization/GUI/sampledata.txt', 'r').read()
-		data_list = pull_data.split('\n')
-		x_list = []
-		y_list = []
-		for line in data_list:
-			if len(line) > 1:
-				x, y = line.split(',')
-				x_list.append(int(x))
-				y_list.append(int(y))
+		# pull_data = open('C:/Users/Aman Deep Singh/Documents/Python/Data Science/Data Visualization/GUI/sampledata.txt', 'r').read()
+		# data_list = pull_data.split('\n')
+		# x_list = []
+		# y_list = []
+		# for line in data_list:
+		# 	if len(line) > 1:
+		# 		x, y = line.split(',')
+		# 		x_list.append(int(x))
+		# 		y_list.append(int(y))
 
+		# sub.clear()
+		# sub.plot(x_list, y_list)
+		a = np.random.randn((16, 16))
 		sub.clear()
-		sub.plot(x_list, y_list)
+		sub.imshow(a, cmap='Oranges', interpolation='nearest')
 
 app = MDPapp()
 app.geometry('1280x720')
