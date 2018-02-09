@@ -415,7 +415,7 @@ class SolveMDP(tk.Frame):
 		x = np.linspace(0, len(self.gridmdp[0]), 1)
 		y = np.linspace(0, len(self.gridmdp), 1)
 		sub.clear()
-		sub.imshow(self.gridmdp, cmap='bone_r', aspect='auto')
+		sub.imshow(self.gridmdp, cmap='bone_r', aspect='auto', extents=extents(x) + extents(y), origin='lower')
 		fig.tight_layout()
 
 app = MDPapp()
