@@ -381,7 +381,11 @@ class SolveMDP(tk.Frame):
 	# 	self.toolbar = NavigationToolbar2TkAgg(self.canvas, self)
 	# 	self.toolbar.update()
 	# 	self.canvas._tkcanvas.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
-	
+
+	def create_graph(self):
+
+		self.controller.menu_bar.entryconfig('Build', state=tk.NORMAL)
+		self.canvas = 
 
 	def animate_graph(self, i):
 
