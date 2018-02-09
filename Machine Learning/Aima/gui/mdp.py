@@ -387,4 +387,5 @@ class SolveMDP(tk.Frame):
 
 app = MDPapp()
 app.geometry('1280x720')
+ani = animation.FuncAnimation(fig, animate, interval=1000)
 app.mainloop()
