@@ -21,21 +21,6 @@ sub = fig.add_subplot(111)
 WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
 
-def animate(i):
-
-	pull_data = open('C:/Users/Aman Deep Singh/Documents/Python/Data Science/Data Visualization/GUI/sampledata.txt', 'r').read()
-	data_list = pull_data.split('\n')
-	x_list = []
-	y_list = []
-	for line in data_list:
-		if len(line) > 1:
-			x, y = line.split(',')
-			x_list.append(int(x))
-			y_list.append(int(y))
-
-	sub.clear()
-	sub.plot(x_list, y_list)
-
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 
 	dialog = tk.Toplevel()
@@ -396,8 +381,22 @@ class SolveMDP(tk.Frame):
 		self.toolbar.update()
 		self.canvas._tkcanvas.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
 
+	def animate_graph(self, i):
+
+		pull_data = open('C:/Users/Aman Deep Singh/Documents/Python/Data Science/Data Visualization/GUI/sampledata.txt', 'r').read()
+		data_list = pull_data.split('\n')
+		x_list = []
+		y_list = []
+		for line in data_list:
+			if len(line) > 1:
+				x, y = line.split(',')
+				x_list.append(int(x))
+				y_list.append(int(y))
+
+		sub.clear()
+		sub.plot(x_list, y_list)
 
 app = MDPapp()
 app.geometry('1280x720')
-ani = animation.FuncAnimation(fig, animate, interval=1000)
+# ani = animation.FuncAnimation(fig, animate, interval=1000)
 app.mainloop()
