@@ -436,12 +436,12 @@ class SolveMDP(tk.Frame):
 		self._height = _height
 		self._width = _width
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
-		self.terminals, self.gridmdp, self.grid_to_show = self.process_data(terminals, _height, _width, gridmdp)
 		self.sequential_decision_environment = GridMDP(self.gridmdp, terminals=self.terminals)
+
+		self.terminals, self.gridmdp, self.grid_to_show = self.process_data(terminals, _height, _width, gridmdp)
+
 		self.initialize_value_iteration_parameters(self.sequential_decision_environment)
-		print('create_graph self.gridmdp', self.gridmdp)
-		print('create_graph self.grid_to_show', self.grid_to_show)
-		print('create_graph self.terminals', self.terminals)
+
 		self.canvas = FigureCanvasTkAgg(fig, self.frame)
 		self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 		self.anim = animation.FuncAnimation(fig, self.animate_graph, interval=50)
