@@ -288,10 +288,11 @@ class MDPapp(tk.Tk):
 
 	def build(self):
 
-		solve_page = self.get_page(SolveMDP)
-		solve_page.__init__()
-		frame = self.frames[controller]
-		frame.tkraise()
+		# solve_page = self.get_page(SolveMDP)
+		frame = SolveMDP(container, self)
+		self.frames[SolveMDP] = frame
+		frame.grid(row=0, column=0, sticky='nsew')
+		self.show_frame(SolveMDP)
 
 	def show_frame(self, controller, cb=False):
 
