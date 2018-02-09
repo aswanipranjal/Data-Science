@@ -410,28 +410,28 @@ class HomePage(tk.Frame):
 		label = ttk.Label(frame1, text='GridMDP builder', font=('Verdana', 18), justify=tk.CENTER)
 		label.pack(ipady=75, ipadx=500, side=tk.TOP)
 
-		ec_btn = ttk.Button(frame1, text='Empty cells', width=20)
-		ec_btn.pack(pady=0, padx=10, side=tk.TOP, ipady=10)
+		ec_btn = ttk.Button(frame3, text='Empty cells', width=20)
+		ec_btn.pack(pady=0, padx=10, side=tk.LEFT, ipady=10)
 		ec_btn.configure(style='TButton')
 
-		w_btn = ttk.Button(frame1, text='Walls', width=20)
-		w_btn.pack(pady=0, padx=10, side=tk.TOP, ipady=10)
+		w_btn = ttk.Button(frame3, text='Walls', width=20)
+		w_btn.pack(pady=0, padx=10, side=tk.LEFT, ipady=10)
 		w_btn.configure(style='wall.TButton')
 
-		r_btn = ttk.Button(frame1, text='Rewards', width=20)
-		r_btn.pack(pady=0, padx=10, side=tk.TOP, ipady=10)
+		r_btn = ttk.Button(frame3, text='Rewards', width=20)
+		r_btn.pack(pady=0, padx=10, side=tk.LEFT, ipady=10)
 		r_btn.configure(style='reward.TButton')
 
-		term_z = ttk.Button(frame1, text='Neutral terminals', width=20)
-		term_z.pack(pady=0, padx=10, side=tk.TOP, ipady=10)
+		term_z = ttk.Button(frame3, text='Neutral terminals', width=20)
+		term_z.pack(pady=0, padx=10, side=tk.LEFT, ipady=10)
 		term_z.configure(style='=term.TButton')
 
-		term_p = ttk.Button(frame1, text='Positive terminals', width=20)
-		term_p.pack(pady=0, padx=10, side=tk.TOP, ipady=10)
+		term_p = ttk.Button(frame3, text='Positive terminals', width=20)
+		term_p.pack(pady=0, padx=10, side=tk.LEFT, ipady=10)
 		term_p.configure(style='+term.TButton')
 
-		term_n = ttk.Button(frame1, text='Negative terminals', width=20)
-		term_n.pack(pady=0, padx=10, side=tk.TOP, ipady=10)
+		term_n = ttk.Button(frame3, text='Negative terminals', width=20)
+		term_n.pack(pady=0, padx=10, side=tk.LEFT, ipady=10)
 		term_n.configure(style='-term.TButton')
 
 		label = ttk.Label(frame1, text='Dimensions', font=('Verdana', 12))
