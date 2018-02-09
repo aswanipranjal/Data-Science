@@ -2,6 +2,10 @@ import tkinter as tk
 import tkinter.messagebox
 from tkinter import ttk
 
+import sys
+import os.path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 from functools import partial
 
 from mdp import *
