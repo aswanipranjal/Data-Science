@@ -24,6 +24,11 @@ plt.rcParams['axes.grid'] = False
 WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
 
+def extents(f):
+	
+	delta = f[1] - f[0]
+	return [f[0] - delta/2, f[-1] + delta/2]
+
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 
 	dialog = tk.Toplevel()
