@@ -396,9 +396,18 @@ class HomePage(tk.Frame):
 		frame2 = tk.Frame(self)
 		frame2.pack(side=tk.TOP)
 
+		s = ttk.Style()
+		s.theme_use('clam')
+		s.configure('TButton', background='#ddd', padding=0)
+		s.configure('wall.TButton', background='#222', foreground='#fff')
+		s.configure('reward.TButton', background='#999')
+		s.configure('+term.TButton', background='#008080')
+		s.configure('-term.TButton', background='#000040', foreground='#fff')
+		s.configure('=term.TButton', background='#004040')
+
 		label = ttk.Label(frame1, text='GridMDP builder', font=('Verdana', 18))
 		label.pack(pady=15, padx=10, side=tk.TOP)
-		
+
 		ec_btn = ttk.Button(frame1, text='Empty cells')
 		ec_btn.pack(pady=10, padx=10, side=tk.TOP)
 		ec_btn.configure(style='TButton')
