@@ -424,6 +424,7 @@ class SolveMDP(tk.Frame):
 		fig.tight_layout()
 		ax = fig.gca()
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
+		ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
 app = MDPapp()
 app.geometry('1280x720')
