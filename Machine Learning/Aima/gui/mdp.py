@@ -16,7 +16,6 @@ def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
-	# Todo: Fix initialization
 	wall = tk.IntVar()
 	wall.set(0)
 	term = tk.IntVar()
@@ -33,7 +32,6 @@ def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	rbtn_term.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=160, pady=5)
 	rbtn_wall = ttk.Radiobutton(container, text='Wall', variable=wall, value=WALL_VALUE)
 	rbtn_wall.grid(row=4, column=0, columnspan=3, sticky='nsew', padx=172, pady=5)
-	# Fix this function
 	initialize_widget_disability_checks(_width, _height, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term)
 	btn_apply = ttk.Button(container, text='Apply', command=partial(initialize_update_table, _width, _height, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall))
 	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
@@ -120,9 +118,9 @@ def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_rewar
 		rbtn_wall.state(['!focus', '!selected'])
 
 def flatten_list(_list):
+
 	return sum(_list, [])
 
-# Todo: fix this function to do something useful
 def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
 	
 	bool_walls = [['False']*max(1, _width) for _ in range(max(1, _height))]
@@ -135,11 +133,6 @@ def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, lab
 			if (i, j) in terminals:
 				bool_terms[i][j] = 'True'
 				
-	# print(bool_walls)
-	# print(sum(bool_walls, []).count('False'))
-	# print(len(sum(bool_walls, [])))
-	# print(bool_terms)
-	# print(bool_walls)
 	bool_walls_fl = flatten_list(bool_walls)
 	bool_terms_fl = flatten_list(bool_terms)
 	if bool_walls_fl.count('True') == len(bool_walls_fl):
