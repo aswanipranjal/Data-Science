@@ -1,13 +1,13 @@
 import tkinter as tk
-from tkinter import ttk
 import tkinter.messagebox
+from tkinter import ttk
 
 from functools import partial
 
 import matplotlib
+import matplotlib.animation as animation
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
-import matplotlib.animation as animation
 from matplotlib import style
 from matplotlib import pyplot as plt
 matplotlib.use('TkAgg')
