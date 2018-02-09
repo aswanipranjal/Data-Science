@@ -20,6 +20,10 @@ sub = fig.add_subplot(111)
 WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
 
+def animate(i):
+
+	pull_data = open('C:/Users/Aman Deep Singh/Python/Data Science/Data Visualization/GUI/sampledata.txt', 'r').read()
+
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 
 	dialog = tk.Toplevel()
