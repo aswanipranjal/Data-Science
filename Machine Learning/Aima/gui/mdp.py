@@ -32,7 +32,8 @@ def animate(i):
 			x_list.append(int(x))
 			y_list.append(int(y))
 
-	
+	sub.clear()
+	sub.plot(x_list, y_list)
 
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 
