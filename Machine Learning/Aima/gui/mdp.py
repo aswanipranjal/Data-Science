@@ -3,8 +3,6 @@ from tkinter import ttk
 import tkinter.messagebox
 from functools import partial
 
-import numpy as np
-
 # TODO: flip terminals horizontally before solving
 
 WALL_VALUE = -99999.0
@@ -36,7 +34,7 @@ def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	rbtn_wall = ttk.Radiobutton(container, text='Wall', variable=wall, value=WALL_VALUE)
 	rbtn_wall.grid(row=4, column=0, columnspan=3, sticky='nsew', padx=172, pady=5)
 	# Fix this function
-	initialize_widget_disability_checks(_width, _height, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term)
+	# initialize_widget_disability_checks(_width, _height, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term)
 	btn_apply = ttk.Button(container, text='Apply', command=partial(initialize_update_table, _width, _height, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall))
 	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
 	btn_reset = ttk.Button(container, text='Reset', command=partial(initialize_reset_all, _width, _height, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term))
@@ -124,34 +122,28 @@ def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_rewar
 # Todo: fix this function to do something useful
 def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
 	
-	# bool_walls_mask = [[(False,)]*max(1, _width) for _ in range(max(1, _height))]
-	# bool_terms_mask = [[(False,)]*max(1, _width) for _ in range(max(1, _height))]
-	# bool_walls_mask = np.full((_height, _width), False)
-	np_gridmdp = np.array(gridmdp)
-	# for i in range(1, _height):
-		# for j in range(1, _width):
-			# if gridmdp[i][j] == WALL_VALUE:
-				# bool_walls_mask[i][j] = (True,)
-# 
-			# if (i, j) in terminals:
-				# bool_terms_mask[i][j] = (True,)
-	np_bool_walls_mask = (np_gridmdp == WALL_VALUE)
+	bool_walls = [[False]*max(1, _width) for _ in range(max(1, _height))]
+	bool_terms = [[False]*max(1, _width) for _ in range(max(1, _height))]
+	for i in range(1, _height):
+		for j in range(1, _width):
+			if gridmdp[i][j] == WALL_VALUE:
+				bool_walls[i][j] = True
 
-	print(np_bool_walls_mask)
-	# print(bool_terms_mask)
-	print(np_bool_walls_mask.all())
-	# if all(bool_walls_mask):
-	# 	print('`')
-	# 	label_reward.config(foreground='#999')
-	# 	entry_reward.config(state=tk.DISABLED)
-	# 	rbtn_term.config(state=tk.DISABLED)
-	# 	rbtn_wall.state(['!focus', 'selected'])
-	# 	rbtn_term.state(['!focus', '!selected'])
+			if (i, j) in terminals:
+				bool_terms[i][j] = True
+				
+	print(sum(bool_walls, []))
+	print(sum(bool_terms, []))
+	if all(sum(bool_walls, [])):
+		label_reward.config(foreground='#999')
+		entry_reward.config(state=tk.DISABLED)
+		rbtn_term.config(state=tk.DISABLED)
+		rbtn_wall.state(['!focus', 'selected'])
+		rbtn_term.state(['!focus', '!selected'])
 
-	# if all(bool_terms_mask):
-	# 	print('``')
-	# 	rbtn_wall.config(state=tk.DISABLED)
-	# 	rbtn_wall.state(['!focus', '!selected'])
+	if all(sum(bool_terms, [])):
+		rbtn_wall.config(state=tk.DISABLED)
+		rbtn_wall.state(['!focus', '!selected'])
 
 def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 
