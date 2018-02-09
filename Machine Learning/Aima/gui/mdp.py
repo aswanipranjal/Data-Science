@@ -122,20 +122,20 @@ def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_rewar
 # Todo: fix this function to do something useful
 def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
 	
-	bool_walls = [[False]*max(1, _width) for _ in range(max(1, _height))]
-	bool_terms = [[False]*max(1, _width) for _ in range(max(1, _height))]
+	bool_walls = [['False']*max(1, _width) for _ in range(max(1, _height))]
+	bool_terms = [['False']*max(1, _width) for _ in range(max(1, _height))]
 	for i in range(max(1, _height)):
 		for j in range(max(1, _width)):
 			if gridmdp[i][j] == WALL_VALUE:
-				bool_walls[i][j] = True
+				bool_walls[i][j] = 'True'
 
 			if (i, j) in terminals:
-				bool_terms[i][j] = True
+				bool_terms[i][j] = 'True'
 				
 	print(bool_walls)
 	print(bool_terms)
 	print(all(bool_walls))
-	if all(bool_walls):
+	if bool_walls.count('False') == len(sum(bool_walls, [])):
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
 		rbtn_term.config(state=tk.DISABLED)
