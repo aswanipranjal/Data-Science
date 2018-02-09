@@ -37,7 +37,8 @@ def extents(f):
 	delta = f[1] - f[0]
 	return [f[0] - delta/2, f[-1] + delta/2]
 
-def display(gridmdp):
+def display(gridmdp, _height, _width):
+	''' displays matrix '''
 
 	dialog = tk.Toplevel()
 	dialog.wm_title('Values')
