@@ -461,6 +461,15 @@ class SolveMDP(tk.Frame):
 		U1 = {s: 0 for s in mdp.states}
 		R, T, gamma = mdp.R, mdp.T, mdp.gamma
 
+		for _ in range(iterations):
+			U = U1.copy()
+
+			for s in mdp.states:
+				U1[s] = R(s) + gamma * max([sum([p * U[s1] for (p, s1) in T(s, a)]) for a in mdp.actions(s)])
+
+			U_over_time.append(U)
+		return U_over_time
+
 app = MDPapp()
 app.geometry('1280x720')
 app.mainloop()
