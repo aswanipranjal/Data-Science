@@ -47,6 +47,9 @@ def display(gridmdp):
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
 
+	label = ttk.Label(container, text=gridmdp, font=('Helvetica', 12), anchor=tk.N)
+	label.pack(fill=tk.BOTH, expand=True)
+
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	''' creates dialogbox for initialization '''
 
