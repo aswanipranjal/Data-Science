@@ -412,23 +412,23 @@ class HomePage(tk.Frame):
 		ec_btn.pack(pady=0, padx=10, side=tk.TOP)
 		ec_btn.configure(style='TButton')
 
-		w_btn = ttk.Button(frame1, text='Walls')
+		w_btn = ttk.Button(frame1, text='Walls', width=20)
 		w_btn.pack(pady=0, padx=10, side=tk.TOP)
 		w_btn.configure(style='wall.TButton')
 
-		r_btn = ttk.Button(frame1, text='Rewards')
+		r_btn = ttk.Button(frame1, text='Rewards', width=20)
 		r_btn.pack(pady=0, padx=10, side=tk.TOP)
 		r_btn.configure(style='reward.TButton')
 
-		term_z = ttk.Button(frame1, text='Neutral terminals')
+		term_z = ttk.Button(frame1, text='Neutral terminals', width=20)
 		term_z.pack(pady=0, padx=10, side=tk.TOP)
 		term_z.configure(style='=term.TButton')
 
-		term_p = ttk.Button(frame1, text='Positive terminals')
+		term_p = ttk.Button(frame1, text='Positive terminals', width=20)
 		term_p.pack(pady=0, padx=10, side=tk.TOP)
 		term_p.configure(style='+term.TButton')
 
-		term_n = ttk.Button(frame1, text='Negative terminals')
+		term_n = ttk.Button(frame1, text='Negative terminals', width=20)
 		term_n.pack(pady=0, padx=10, side=tk.TOP)
 		term_n.configure(style='-term.TButton')
 
