@@ -470,7 +470,7 @@ class SolveMDP(tk.Frame):
 
 		# recreate self.grid_to_show from U
 		self.grid_to_show = grid_to_show = [[0.0]*max(1, self._width) for _ in range(max(1, self._height))]
-		for k, v in U.iteritems():
+		for k, v in U.items():
 			print(k, v)
 		
 		ax = fig.gca()
