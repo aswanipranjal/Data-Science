@@ -443,7 +443,7 @@ class SolveMDP(tk.Frame):
 		x = np.linspace(0, len(self.gridmdp[0]) - 1, x_interval)
 		y = np.linspace(0, len(self.gridmdp) - 1, y_interval)
 		sub.clear()
-		sub.imshow(self.grid_to_show.reverse(), cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
+		sub.imshow(np.flipud(self.grid_to_show), cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
 		fig.tight_layout()
 		ax = fig.gca()
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
