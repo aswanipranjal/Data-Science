@@ -454,6 +454,8 @@ class SolveMDP(tk.Frame):
 		self.frame = tk.Frame(self)
 		self.frame.pack()
 		self.controller = controller
+		self.terminated = False
+		self.delta = 0
 
 	def process_data(self, terminals, _height, _width, gridmdp):
 		''' preprocess variables '''
