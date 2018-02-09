@@ -369,17 +369,6 @@ class SolveMDP(tk.Frame):
 		self.controller = controller
 		self.create_graph()
 
-	# def build(self):
-
-	# 	self.controller.menu_bar.entryconfig('Build', state=tk.NORMAL)
-	# 	self.canvas = FigureCanvasTkAgg(fig, self)
-	# 	self.canvas.show()
-	# 	self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
-
-	# 	self.toolbar = NavigationToolbar2TkAgg(self.canvas, self)
-	# 	self.toolbar.update()
-	# 	self.canvas._tkcanvas.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
-
 	def create_graph(self):
 
 		self.controller.menu_bar.entryconfig('Build', state=tk.NORMAL)
@@ -405,5 +394,4 @@ class SolveMDP(tk.Frame):
 
 app = MDPapp()
 app.geometry('1280x720')
-# ani = animation.FuncAnimation(fig, animate, interval=1000)
 app.mainloop()
