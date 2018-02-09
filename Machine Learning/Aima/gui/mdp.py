@@ -385,6 +385,7 @@ class SolveMDP(tk.Frame):
 
 	def animate_graph(self, i):
 
+		# convert -99999 to None before plotting
 		sub.clear()
 		sub.imshow(self.gridmdp, cmap='Oranges', interpolation='nearest')
 
