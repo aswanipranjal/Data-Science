@@ -570,6 +570,7 @@ class SolveMDP(tk.Frame):
 			U_over_time.append(U)
 		return U_over_time
 
+
 if __name__ == '__main__':
 	app = MDPapp()
 	app.geometry('1280x720')
