@@ -404,6 +404,7 @@ class SolveMDP(tk.Frame):
 
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 		self.gridmdp = gridmdp
+		print('create_graph self.gridmdp', self.gridmdp)
 		self.canvas = FigureCanvasTkAgg(fig, self.frame)
 		self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 		self.anim = animation.FuncAnimation(fig, self.animate_graph, interval=50)
@@ -416,7 +417,7 @@ class SolveMDP(tk.Frame):
 		x = np.linspace(0, len(self.gridmdp[0]), 1)
 		y = np.linspace(0, len(self.gridmdp), 1)
 		sub.clear()
-		sub.imshow(self.gridmdp, cmap='bone_r', aspect='auto', extents=extents(x) + extents(y), origin='lower')
+		sub.imshow(self.gridmdp, cmap='bone_r', aspect='auto', interpolation='none', extents=extents(x) + extents(y), origin='lower')
 		fig.tight_layout()
 
 app = MDPapp()
