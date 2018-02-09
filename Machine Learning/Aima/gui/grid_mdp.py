@@ -409,8 +409,8 @@ class HomePage(tk.Frame):
 		s.configure('-term.TButton', background='#000040', foreground='#fff')
 		s.configure('=term.TButton', background='#004040')
 
-		label = ttk.Label(frame1, text='GridMDP builder', font=('Verdana', 18), justify=tk.CENTER)
-		label.pack(ipady=75, ipadx=500, side=tk.TOP)
+		label = ttk.Label(frame1, text='GridMDP builder', font=('Helvetica', 18, 'bold'), justify=tk.CENTER)
+		label.pack(pady=75, padx=50, side=tk.TOP)
 
 		ec_btn = ttk.Button(frame3, text='Empty cells', width=20)
 		ec_btn.pack(pady=0, padx=0, side=tk.LEFT, ipady=10)
