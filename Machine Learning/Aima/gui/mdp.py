@@ -410,6 +410,8 @@ class SolveMDP(tk.Frame):
 		for terminal in terminals:
 			flipped_terminals.append((terminal[1], _height - terminal[0] - 1))
 
+		grid_to_solve = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
+		grid_to_show = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
 				if gridmdp[i][j] == WALL_VALUE:
