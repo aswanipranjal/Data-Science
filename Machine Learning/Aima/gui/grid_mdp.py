@@ -292,34 +292,41 @@ class MDPapp(tk.Tk):
 		self.show_frame(HomePage)
 
 	def placeholder_function(self):
+		''' placeholder function '''
 
 		print('Not supported yet!')
 
 	def get_page(self, page_class):
+		''' returns pages from stored frames '''
 
 		return self.frames[page_class]
 
 	def view_matrix(self):
+		''' prints current matrix to console '''
 
 		build_page = self.get_page(BuildMDP)
 		print('GridMDP', build_page.gridmdp)
 
 	def view_terminals(self):
+		''' prints current terminals to console '''
 
 		build_page = self.get_page(BuildMDP)
 		print('Terminals', build_page.terminals)
 
 	def initialize(self):
+		''' calls initialize from BuildMDP '''
 
 		build_page = self.get_page(BuildMDP)
 		build_page.initialize()
 
 	def master_reset(self):
+		''' calls master_reset from BuildMDP '''
 
 		build_page = self.get_page(BuildMDP)
 		build_page.master_reset()
 
 	def build(self):
+		''' runs specified mdp solving algorithm '''
 
 		frame = SolveMDP(self.container, self)
 		self.frames[SolveMDP] = frame
@@ -334,6 +341,7 @@ class MDPapp(tk.Tk):
 		solve_page.create_graph(gridmdp, terminals, _height, _width)
 
 	def show_frame(self, controller, cb=False):
+		''' shows specified frame and optionally runs create_buttons '''
 
 		if cb:
 			build_page = self.get_page(BuildMDP)
@@ -345,6 +353,7 @@ class MDPapp(tk.Tk):
 class HomePage(tk.Frame):
 
 	def __init__(self, parent, controller):
+		''' HomePage constructor '''
 
 		tk.Frame.__init__(self, parent)
 		self.controller = controller
@@ -379,6 +388,7 @@ class BuildMDP(tk.Frame):
 		self.controller = controller
 
 	def create_buttons(self):
+		''' creates interactive cells to build MDP '''
 
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
