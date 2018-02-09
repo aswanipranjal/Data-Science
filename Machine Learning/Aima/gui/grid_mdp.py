@@ -48,10 +48,13 @@ def display(gridmdp, _height, _width):
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
 
+	label = ttk.Label(container, text='Values', font=('Helvetica', 8), anchor=tk.N)
+	label.grid(row=0, column=0, columnspan=_width)
+
 	for i in range(max(1, _height)):
 		for j in range(max(1, _width)):
 			label = ttk.Label(container, text=f'{gridmdp[i][j]:.2f}', font=('Helvetica', 12), anchor=tk.N)
-			label.grid(row=i, column=j)
+			label.grid(row=i + 1, column=j + 1)
 
 	dialog.geometry('1280x720')
 	dialog.mainloop()
