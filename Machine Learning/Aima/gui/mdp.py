@@ -217,7 +217,7 @@ class MDPapp(tk.Tk):
 		self.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 		tk.Tk.config(self, menu=self.menu_bar)
 
-		for F in (HomePage, BuildMDP):
+		for F in (HomePage, BuildMDP, SolveMDP):
 			frame = F(container, self)
 			self.frames[F] = frame
 			frame.grid(row=0, column=0, sticky='nsew')
