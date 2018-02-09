@@ -396,8 +396,10 @@ class HomePage(tk.Frame):
 		frame2 = tk.Frame(self)
 		frame2.pack(side=tk.TOP)
 
-		label = ttk.Label(frame1, text='GridMDP builder', font=('Verdana', 12))
-		label.pack(pady=10, padx=10, side=tk.TOP)
+		label = ttk.Label(frame1, text='GridMDP builder', font=('Verdana', 18))
+		label.pack(pady=15, padx=10, side=tk.TOP)
+		label = ttk.Label(frame1, text='Empty cells', font=('Verdana', 10))
+		label.pack(pady=5, padx=10, side=tk.TOP)
 		label = ttk.Label(frame1, text='Dimensions', font=('Verdana', 10))
 		label.pack(pady=10, padx=10, side=tk.TOP)
 		entry_h = tk.Entry(frame2, textvariable=self.controller.shared_data['height'], font=('Verdana', 10), width=3, justify=tk.CENTER)
