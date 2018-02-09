@@ -413,11 +413,11 @@ class HomePage(tk.Frame):
 		s.configure('TButton', background=grayd, padding=0)
 		s.configure('wall.TButton', background=gray2, foreground=white)
 		s.configure('reward.TButton', background='#999')
-		s.configure('+term.TButton', background='#008080')
+		s.configure('+term.TButton', background=green8)
 		s.configure('-term.TButton', background=pblue, foreground=white)
-		s.configure('=term.TButton', background='#004040')
+		s.configure('=term.TButton', background=green4)
 
-		label = ttk.Label(frame1, text='GridMDP builder', font=('Helvetica', 18, 'bold'), background='#efefef')
+		label = ttk.Label(frame1, text='GridMDP builder', font=('Helvetica', 18, 'bold'), background=grayef)
 		label.pack(pady=75, padx=50, side=tk.TOP)
 
 		ec_btn = ttk.Button(frame3, text='Empty cells', width=20)
@@ -448,7 +448,7 @@ class HomePage(tk.Frame):
 		label.pack(pady=15, padx=10, side=tk.TOP)
 		entry_h = tk.Entry(frame2, textvariable=self.controller.shared_data['height'], font=('Verdana', 10), width=3, justify=tk.CENTER)
 		entry_h.pack(pady=10, padx=10, side=tk.LEFT)
-		label_x = ttk.Label(frame2, text='X', font=('Verdana', 10), background='#efefef')
+		label_x = ttk.Label(frame2, text='X', font=('Verdana', 10), background=grayef)
 		label_x.pack(pady=10, padx=4, side=tk.LEFT)
 		entry_w = tk.Entry(frame2, textvariable=self.controller.shared_data['width'], font=('Verdana', 10), width=3, justify=tk.CENTER)
 		entry_w.pack(pady=10, padx=10, side=tk.LEFT)
