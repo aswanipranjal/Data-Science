@@ -134,15 +134,16 @@ def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, lab
 				
 	print(bool_walls)
 	print(bool_terms)
-	print(all(bool_walls))
+	# print(bool_walls)
 	if bool_walls.count('False') == len(sum(bool_walls, [])):
+		print('`')
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
 		rbtn_term.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', 'selected'])
 		rbtn_term.state(['!focus', '!selected'])
 
-	if all(bool_terms):
+	if bool_terms.count('False') -- len(sum(bool_terms, [])):
 		rbtn_wall.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', '!selected'])
 
