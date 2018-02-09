@@ -386,8 +386,9 @@ class SolveMDP(tk.Frame):
 	def animate_graph(self, i):
 
 		# convert -99999 to None before plotting
+		# cmaps to use: bone_r, Oranges, inferno, BrBG, copper
 		sub.clear()
-		sub.imshow(np.random.random((10, 10)), cmap='spectral', aspect='auto')
+		sub.imshow(np.random.random((10, 10)), cmap='CMRmap', aspect='auto')
 		fig.tight_layout()
 
 app = MDPapp()
