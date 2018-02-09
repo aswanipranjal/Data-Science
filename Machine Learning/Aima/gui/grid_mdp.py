@@ -446,6 +446,7 @@ class HomePage(tk.Frame):
 		entry_w.pack(pady=10, padx=10, side=tk.LEFT)
 		button = ttk.Button(self, text='Build a GridMDP', command=lambda: controller.show_frame(BuildMDP, cb=True))
 		button.pack(pady=10, padx=10, side=tk.TOP, ipadx=20, ipady=10)
+		button.configure(style='wall.TButton')
 
 
 class BuildMDP(tk.Frame):
