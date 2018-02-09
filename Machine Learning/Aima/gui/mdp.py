@@ -289,7 +289,9 @@ class MDPapp(tk.Tk):
 	def build(self):
 
 		solve_page = self.get_page(SolveMDP)
-		solve_page.build()
+		solve_page.__init__()
+		frame = self.frames[controller]
+		frame.tkraise()
 
 	def show_frame(self, controller, cb=False):
 
@@ -374,13 +376,9 @@ class SolveMDP(tk.Frame):
 	def __init__(self, parent, controller):
 
 		tk.Frame.__init__(self, parent)
-		self.grid_rowconfigure(0, weight=1)
-		self.grid_columnconfigure(0, weight=1)
-		self.frame = tk.Frame(self)
-		self.frame.pack()
 		self.controller = controller
 
-	def build(self, gridmdp):
+	# def build(self, gridmdp):
 
 		self.controller.menu_bar.entryconfig('Build', state=tk.NORMAL)
 		canvas = FigureCanvasTkAgg(fig, self)
