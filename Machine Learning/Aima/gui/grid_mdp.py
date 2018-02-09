@@ -487,7 +487,7 @@ class BuildMDP(tk.Frame):
 		s.configure('wall.TButton', background=gray2, foreground=white)
 		s.configure('reward.TButton', background=gray9)
 		s.configure('+term.TButton', background=green8)
-		s.configure('-term.TButton', background=green4, foreground=white)
+		s.configure('-term.TButton', background=pblue, foreground=white)
 		s.configure('=term.TButton', background=green4)
 
 		for i in range(max(1, _height)):
