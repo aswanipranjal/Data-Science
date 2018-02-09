@@ -527,7 +527,7 @@ class SolveMDP(tk.Frame):
 
 		if (self.delta < self.epsilon * (1 - self.gamma) / self.gamma) or (self.iterations > 150) and self.terminated == False:
 			self.terminated = True
-			display(self.grid_to_show)
+			display(self.grid_to_show, self._height, self._width)
 		
 		ax = fig.gca()
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
