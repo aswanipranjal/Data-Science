@@ -409,27 +409,27 @@ class HomePage(tk.Frame):
 		label.pack(pady=15, padx=10, side=tk.TOP)
 
 		ec_btn = ttk.Button(frame1, text='Empty cells', width=20)
-		ec_btn.pack(pady=10, padx=10, side=tk.TOP)
+		ec_btn.pack(pady=0, padx=10, side=tk.TOP)
 		ec_btn.configure(style='TButton')
 
 		w_btn = ttk.Button(frame1, text='Walls')
-		w_btn.pack(pady=10, padx=10, side=tk.TOP)
+		w_btn.pack(pady=0, padx=10, side=tk.TOP)
 		w_btn.configure(style='wall.TButton')
 
 		r_btn = ttk.Button(frame1, text='Rewards')
-		r_btn.pack(pady=10, padx=10, side=tk.TOP)
+		r_btn.pack(pady=0, padx=10, side=tk.TOP)
 		r_btn.configure(style='reward.TButton')
 
 		term_z = ttk.Button(frame1, text='Neutral terminals')
-		term_z.pack(pady=10, padx=10, side=tk.TOP)
+		term_z.pack(pady=0, padx=10, side=tk.TOP)
 		term_z.configure(style='=term.TButton')
 
 		term_p = ttk.Button(frame1, text='Positive terminals')
-		term_p.pack(pady=10, padx=10, side=tk.TOP)
+		term_p.pack(pady=0, padx=10, side=tk.TOP)
 		term_p.configure(style='+term.TButton')
 
 		term_n = ttk.Button(frame1, text='Negative terminals')
-		term_n.pack(pady=10, padx=10, side=tk.TOP)
+		term_n.pack(pady=0, padx=10, side=tk.TOP)
 		term_n.configure(style='-term.TButton')
 
 		label = ttk.Label(frame1, text='Dimensions', font=('Verdana', 12))
