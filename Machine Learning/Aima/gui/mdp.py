@@ -3,6 +3,8 @@ from tkinter import ttk
 import tkinter.messagebox
 from functools import partial
 
+import numpy as np
+
 # TODO: flip terminals horizontally before solving
 
 WALL_VALUE = -99999.0
@@ -122,18 +124,22 @@ def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_rewar
 # Todo: fix this function to do something useful
 def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
 	
-	bool_walls_mask = [[(False,)]*max(1, _width) for _ in range(max(1, _height))]
-	bool_terms_mask = [[(False,)]*max(1, _width) for _ in range(max(1, _height))]
-	for i in range(1, _height):
-		for j in range(1, _width):
-			if gridmdp[i][j] == WALL_VALUE:
-				bool_walls_mask[i][j] = (True,)
+	# bool_walls_mask = [[(False,)]*max(1, _width) for _ in range(max(1, _height))]
+	# bool_terms_mask = [[(False,)]*max(1, _width) for _ in range(max(1, _height))]
+	# bool_walls_mask = np.full((_height, _width), False)
+	np_gridmdp = np.array(gridmdp)
+	# for i in range(1, _height):
+		# for j in range(1, _width):
+			# if gridmdp[i][j] == WALL_VALUE:
+				# bool_walls_mask[i][j] = (True,)
+# 
+			# if (i, j) in terminals:
+				# bool_terms_mask[i][j] = (True,)
+	np_bool_walls_mask = (np_gridmdp == WALL_VALUE)
 
-			if (i, j) in terminals:
-				bool_terms_mask[i][j] = (True,)
-
-	print(bool_walls_mask)
-	print(bool_terms_mask)
+	print(np_bool_walls_mask)
+	# print(bool_terms_mask)
+	print(np_bool_walls_mask.all())
 	if all(bool_walls_mask):
 		print('`')
 		label_reward.config(foreground='#999')
