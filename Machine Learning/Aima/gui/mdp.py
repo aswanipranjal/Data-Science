@@ -387,7 +387,8 @@ class SolveMDP(tk.Frame):
 
 		# convert -99999 to None before plotting
 		sub.clear()
-		sub.imshow(self.gridmdp, cmap='Oranges', interpolation='nearest')
+		sub.imshow(np.random.random((10, 10)), cmap='Oranges', interpolation='spline16')
+		fig.tight_layout()
 
 app = MDPapp()
 app.geometry('1280x720')
