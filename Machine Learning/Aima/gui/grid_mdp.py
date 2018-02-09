@@ -410,6 +410,10 @@ class HomePage(tk.Frame):
 		r_btn.pack(pady=10, padx=10, dife=tk.TOP)
 		r_btn.configure(style='reward.TButton')
 
+		term_n = ttk.Button(frame1, text='Neutral terminals', font=('Verdana',  10))
+		term_n.pack(pady=10, padx=10, dife=tk.TOP)
+		term_n.configure(style='term.TButton')
+
 		label = ttk.Label(frame1, text='Dimensions', font=('Verdana', 10))
 		label.pack(pady=10, padx=10, side=tk.TOP)
 		entry_h = tk.Entry(frame2, textvariable=self.controller.shared_data['height'], font=('Verdana', 10), width=3, justify=tk.CENTER)
