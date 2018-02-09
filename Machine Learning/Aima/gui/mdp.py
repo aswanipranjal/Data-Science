@@ -347,6 +347,10 @@ class SolveMDP(tk.Frame):
 		self.frame.pack()
 		self.controller = controller
 
+	def build(self, gridmdp):
+
+		
+
 
 app = MDPapp()
 app.geometry('1280x720')
