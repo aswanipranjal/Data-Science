@@ -205,7 +205,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 	rbtn_wall.grid(row=4, column=0, columnspan=3, sticky='nsew', padx=172, pady=5)
 
 	widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term)
-	
+
 	btn_apply = ttk.Button(container, text='Apply', command=partial(update_table, i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall))
 	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
 	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_all, _height, i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term))
@@ -408,8 +408,11 @@ class SolveMDP(tk.Frame):
 		# convert -99999 to None before plotting
 		# cmaps to use: bone_r, Oranges, inferno, BrBG, copper
 		sub.clear()
-		sub.imshow(np.random.random((10, 10)), cmap='bone_r', aspect='auto')
+		sub.imshow(self.gridmdp, cmap='bone_r', aspect='auto')
 		fig.tight_layout()
+		axes = plt.gca()
+		axes.set_xlim([0, len(self.gridmdp[0])])
+		axes.set_ylim([0, len(self.gridmdp)])
 
 app = MDPapp()
 app.geometry('1280x720')
