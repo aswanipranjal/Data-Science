@@ -521,7 +521,7 @@ class SolveMDP(tk.Frame):
 			self.grid_to_show[k[1]][k[0]] = v
 
 		if self.delta < self.epsilon * (1 - self.gamma) / self.gamma and self.terminated = False:
-			display()
+			display(self.grid_to_show)
 		
 		ax = fig.gca()
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
