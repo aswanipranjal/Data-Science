@@ -459,7 +459,7 @@ class SolveMDP(tk.Frame):
 		sub.clear()
 		sub.imshow(self.grid_to_show, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
 		fig.tight_layout()
-		
+
 		# self.grid_to_show = self.value_iteration_metastep()
 		U = self.U1.copy()
 
@@ -469,13 +469,9 @@ class SolveMDP(tk.Frame):
 		print(U)
 
 		# recreate self.grid_to_show from U
-		for i in range(max(1, self._height)):
-			for j in range(max(1, self._width)):
-				if U[i][j] == None:
-					self.grid_to_show[i][j] = 0.0
-
-				else:
-					self.grid_to_show[i][j] = U[i][j]
+		self.grid_to_show = grid_to_show = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
+		for k, v in U.iteritems():
+			print(k, v)
 		
 		ax = fig.gca()
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
