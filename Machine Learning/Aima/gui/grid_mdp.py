@@ -554,6 +554,7 @@ class SolveMDP(tk.Frame):
 		self._height = _height
 		self._width = _width
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
+		self.controller.menu_bar.entryconfig('Build', state=tk.DISABLED)
 
 		self.terminals, self.gridmdp, self.grid_to_show = self.process_data(terminals, _height, _width, gridmdp)
 		self.sequential_decision_environment = GridMDP(self.gridmdp, terminals=self.terminals)
