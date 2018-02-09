@@ -33,7 +33,10 @@ TERM_VALUE = -999999.0
 white = '#fff'
 gray2 = '#222'
 grayd = '#ddd'
+grayef = '#efefef'
 pblue = '#000040'
+green8 = '#008080'
+green4 = '#004040'
 
 
 def extents(f):
