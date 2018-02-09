@@ -25,7 +25,7 @@ WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
 
 def extents(f):
-	
+
 	delta = f[1] - f[0]
 	return [f[0] - delta/2, f[-1] + delta/2]
 
@@ -412,6 +412,8 @@ class SolveMDP(tk.Frame):
 
 		# convert -99999 to None before plotting
 		# cmaps to use: bone_r, Oranges, inferno, BrBG, copper
+		x = np.linspace(0, len(self.gridmdp[0]), 1)
+		y = np.linspace(0, len(self.gridmdp), 1)
 		sub.clear()
 		sub.imshow(self.gridmdp, cmap='bone_r', aspect='auto')
 		fig.tight_layout()
