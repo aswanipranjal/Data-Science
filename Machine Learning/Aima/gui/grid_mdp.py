@@ -423,21 +423,21 @@ class HomePage(tk.Frame):
 		r_btn = ttk.Button(frame3, text='Rewards', width=20)
 		r_btn.pack(pady=0, padx=0, side=tk.LEFT, ipady=10)
 		r_btn.configure(style='reward.TButton')
+		
+		term_p = ttk.Button(frame3, text='Positive terminals', width=20)
+		term_p.pack(pady=0, padx=0, side=tk.LEFT, ipady=10)
+		term_p.configure(style='+term.TButton')
 
 		term_z = ttk.Button(frame3, text='Neutral terminals', width=20)
 		term_z.pack(pady=0, padx=0, side=tk.LEFT, ipady=10)
 		term_z.configure(style='=term.TButton')
 
-		term_p = ttk.Button(frame3, text='Positive terminals', width=20)
-		term_p.pack(pady=0, padx=0, side=tk.LEFT, ipady=10)
-		term_p.configure(style='+term.TButton')
-
 		term_n = ttk.Button(frame3, text='Negative terminals', width=20)
 		term_n.pack(pady=0, padx=0, side=tk.LEFT, ipady=10)
 		term_n.configure(style='-term.TButton')
 
-		label = ttk.Label(frame4, text='Dimensions', font=('Verdana', 12))
-		label.pack(pady=12, padx=10, side=tk.TOP)
+		label = ttk.Label(frame4, text='Dimensions', font=('Verdana', 14))
+		label.pack(pady=15, padx=10, side=tk.TOP)
 		entry_h = tk.Entry(frame2, textvariable=self.controller.shared_data['height'], font=('Verdana', 10), width=3, justify=tk.CENTER)
 		entry_h.pack(pady=10, padx=10, side=tk.LEFT)
 		label_x = ttk.Label(frame2, text='X', font=('Verdana', 10))
