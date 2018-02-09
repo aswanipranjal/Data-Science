@@ -473,7 +473,7 @@ class SolveMDP(tk.Frame):
 		self.grid_to_show = grid_to_show = [[0.0]*max(1, self._width) for _ in range(max(1, self._height))]
 		for k, v in U.items():
 			print(k[0], k[1])
-			self.grid_to_show[k[0]][k[1]] = v
+			self.grid_to_show[k[1]][k[0]] = v
 
 		print(self.grid_to_show)
 		
