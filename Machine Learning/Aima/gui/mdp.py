@@ -275,6 +275,10 @@ class MDPapp(tk.Tk):
 
 	def build(self):
 
+		frame = SolveMDP(self.container, self)
+		self.frames[SolveMDP] = frame
+		frame.grid(row=0, column=0, sticky='nsew')
+		self.show_frame(SolveMDP)
 		solve_page = self.get_page(SolveMDP)
 		solve_page.create_graph()
 
