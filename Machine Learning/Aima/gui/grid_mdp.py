@@ -32,11 +32,13 @@ TERM_VALUE = -999999.0
 
 
 def extents(f):
+	''' adjusts axis markers for heatmap '''
 
 	delta = f[1] - f[0]
 	return [f[0] - delta/2, f[-1] + delta/2]
 
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
+	''' creates dialogbox for initialization '''
 
 	dialog = tk.Toplevel()
 	dialog.wm_title('Initialize')
@@ -78,6 +80,7 @@ def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	dialog.mainloop()
 
 def update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
+	''' functionality for 'apply' button '''
 
 	if wall.get() == WALL_VALUE:
 		buttons[i][j].configure(style='wall.TButton')
@@ -110,12 +113,14 @@ def update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_re
 				buttons[i][j].configure(style='=term.TButton')
 
 def initialize_update_table(_width, _height, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall):
+	''' runs update_table for all cells '''
 
 	for i in range(max(1, _height)):
 		for j in range(max(1, _width)):
 			update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall)
 
 def reset_all(_height, i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term):
+	''' functionality for reset button '''
 
 	gridmdp[i][j] = 0.0
 	buttons[i][j].configure(style='TButton')
@@ -132,12 +137,14 @@ def reset_all(_height, i, j, gridmdp, terminals, buttons, label_reward, entry_re
 	rbtn_term.state(['!focus', '!selected'])
 
 def initialize_reset_all(_width, _height, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term):
+	''' runs reset_all for all cells '''
 
 	for i in range(max(1, _height)):
 		for j in range(max(1, _width)):
 			reset_all(_height, i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term)
 
 def external_reset(_width, _height, gridmdp, terminals, buttons):
+	''' reset from edit menu '''
 
 	terminals = []
 	for i in range(max(1, _height)):
@@ -147,6 +154,7 @@ def external_reset(_width, _height, gridmdp, terminals, buttons):
 			buttons[i][j].config(text=f'({_height - i - 1}, {j})')
 
 def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
+	''' checks for required state of widgets in dialogboxes '''
 
 	if gridmdp[i][j] == WALL_VALUE:
 		label_reward.config(foreground='#999')
@@ -160,10 +168,12 @@ def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_rewar
 		rbtn_wall.state(['!focus', '!selected'])
 
 def flatten_list(_list):
+	''' returns a flattened list '''
 
 	return sum(_list, [])
 
 def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
+	''' checks for required state of widgets when cells are initialized '''
 	
 	bool_walls = [['False']*max(1, _width) for _ in range(max(1, _height))]
 	bool_terms = [['False']*max(1, _width) for _ in range(max(1, _height))]
@@ -193,6 +203,7 @@ def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, lab
 		rbtn_term.state(['!focus', 'selected'])
 
 def dialogbox(i, j, gridmdp, terminals, buttons, _height):
+	''' creates dialogbox for each cell '''
 
 	dialog = tk.Toplevel()
 	dialog.wm_title(f'{_height - i - 1}, {j}')
@@ -229,7 +240,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 	btn_reset.grid(row=5, column=1, sticky='nsew', pady=5, padx=5)
 	btn_ok = ttk.Button(container, text='Ok', command=dialog.destroy)
 	btn_ok.grid(row=5, column=2, sticky='nsew', pady=5, padx=5)
-	
+
 	dialog.geometry('400x200')
 	dialog.mainloop()
 
