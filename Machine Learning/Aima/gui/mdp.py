@@ -256,8 +256,7 @@ class MDPapp(tk.Tk):
 		self.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 
 		self.build_menu = tk.Menu(self.menu_bar, tearoff=1)
-		self.build_menu.add_command(label='Build', command=self.build)
-		self.build_menu.add_command(label='Build and Run', command=self.placeholder_function)
+		self.build_menu.add_command(label='Build and Run', command=self.build)
 		self.menu_bar.add_cascade(label='Build', menu=self.build_menu)
 		self.menu_bar.entryconfig('Build', state=tk.DISABLED)
 		tk.Tk.config(self, menu=self.menu_bar)
