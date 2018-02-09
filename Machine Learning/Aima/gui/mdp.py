@@ -12,6 +12,9 @@ from matplotlib import pyplot as plt
 matplotlib.use('TkAgg')
 style.use('ggplot')
 
+fig = Figure()
+sub = fig.add_subplot(111)
+
 # TODO: flip terminals horizontally before solving
 
 WALL_VALUE = -99999.0
