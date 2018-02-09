@@ -385,10 +385,8 @@ class SolveMDP(tk.Frame):
 
 	def animate_graph(self, i):
 
-		a = np.random.random((3, 4))
-		a[1][1] = None
 		sub.clear()
-		sub.imshow(a, cmap='Oranges', interpolation='nearest')
+		sub.imshow(self.gridmdp, cmap='Oranges', interpolation='nearest')
 
 app = MDPapp()
 app.geometry('1280x720')
