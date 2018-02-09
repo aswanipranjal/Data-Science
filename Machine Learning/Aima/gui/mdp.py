@@ -134,6 +134,7 @@ def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, lab
 				
 	print(bool_walls)
 	print(bool_terms)
+	print(all(bool_walls))
 	if all(bool_walls):
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
