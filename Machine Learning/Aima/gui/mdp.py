@@ -286,6 +286,11 @@ class MDPapp(tk.Tk):
 		build_page = self.get_page(BuildMDP)
 		build_page.master_reset()
 
+	def build(self):
+
+		solve_page = self.get_page(SolveMDP)
+		solve_page.build()
+
 	def show_frame(self, controller, cb=False):
 
 		if cb:
