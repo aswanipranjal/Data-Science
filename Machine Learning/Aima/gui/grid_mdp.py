@@ -45,10 +45,10 @@ def display(gridmdp, _height, _width):
 
 	container = tk.Frame(dialog)
 	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
-	
+
 	for i in range(max(1, _height)):
 		for j in range(max(1, _width)):
-			label = ttk.Label(container, text=f'{gridmdp[_height - i - 1][j]:.2f}', font=('Helvetica', 12))
+			label = ttk.Label(container, text=f'{gridmdp[_height - i - 1][j]:.3f}', font=('Helvetica', 12))
 			label.grid(row=i + 1, column=j + 1, padx=3, pady=3)
 
 	dialog.mainloop()
@@ -522,7 +522,7 @@ class SolveMDP(tk.Frame):
 		for k, v in U.items():
 			self.grid_to_show[k[1]][k[0]] = v
 
-		if (self.delta < self.epsilon * (1 - self.gamma) / self.gamma) or (self.iterations > 20) and self.terminated == False:
+		if (self.delta < self.epsilon * (1 - self.gamma) / self.gamma) or (self.iterations > 100) and self.terminated == False:
 			self.terminated = True
 			display(self.grid_to_show, self._height, self._width)
 		
