@@ -457,6 +457,9 @@ class SolveMDP(tk.Frame):
 
 	def value_iteration_metastep(self, mdp, iterations=20):
 
+		U_over_time = []
+		U1 = {s: 0 for s in mdp.states}
+		R, T, gamma = mdp.R, mdp.T, mdp.gamma
 
 app = MDPapp()
 app.geometry('1280x720')
