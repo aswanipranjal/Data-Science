@@ -40,6 +40,7 @@ def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 
 	dialog = tk.Toplevel()
 	dialog.wm_title('Initialize')
+
 	container = tk.Frame(dialog)
 	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 	container.grid_rowconfigure(0, weight=1)
@@ -58,6 +59,7 @@ def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	label_reward.grid(row=1, column=0, columnspan=3, sticky='new', pady=1, padx=5)
 	entry_reward = ttk.Entry(container, font=('Helvetica', 10), justify=tk.CENTER, exportselection=0, textvariable=reward)
 	entry_reward.grid(row=2, column=0, columnspan=3, sticky='new', pady=5, padx=50)
+
 	rbtn_term = ttk.Radiobutton(container, text='Terminal', variable=term, value=TERM_VALUE)
 	rbtn_term.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=160, pady=5)
 	rbtn_wall = ttk.Radiobutton(container, text='Wall', variable=wall, value=WALL_VALUE)
@@ -71,6 +73,7 @@ def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	btn_reset.grid(row=5, column=1, sticky='nsew', pady=5, padx=5)
 	btn_ok = ttk.Button(container, text='Ok', command=dialog.destroy)
 	btn_ok.grid(row=5, column=2, sticky='nsew', pady=5, padx=5)
+
 	dialog.geometry('400x200')
 	dialog.mainloop()
 
@@ -193,6 +196,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 
 	dialog = tk.Toplevel()
 	dialog.wm_title(f'{_height - i - 1}, {j}')
+
 	container = tk.Frame(dialog)
 	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 	container.grid_rowconfigure(0, weight=1)
@@ -211,6 +215,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 	label_reward.grid(row=1, column=0, columnspan=3, sticky='new', pady=1, padx=5)
 	entry_reward = ttk.Entry(container, font=('Helvetica', 10), justify=tk.CENTER, exportselection=0, textvariable=reward)
 	entry_reward.grid(row=2, column=0, columnspan=3, sticky='new', pady=5, padx=50)
+
 	rbtn_term = ttk.Radiobutton(container, text='Terminal', variable=term, value=TERM_VALUE)
 	rbtn_term.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=160, pady=5)
 	rbtn_wall = ttk.Radiobutton(container, text='Wall', variable=wall, value=WALL_VALUE)
@@ -224,6 +229,7 @@ def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 	btn_reset.grid(row=5, column=1, sticky='nsew', pady=5, padx=5)
 	btn_ok = ttk.Button(container, text='Ok', command=dialog.destroy)
 	btn_ok.grid(row=5, column=2, sticky='nsew', pady=5, padx=5)
+	
 	dialog.geometry('400x200')
 	dialog.mainloop()
 
