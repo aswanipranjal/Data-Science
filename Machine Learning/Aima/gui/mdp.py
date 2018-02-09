@@ -132,9 +132,9 @@ def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, lab
 			if (i, j) in terminals:
 				bool_terms_mask[i][j] = (True,)
 
-	print((bool_walls_mask,))
-	print((bool_terms_mask,))
-	if all(bool(bool_walls_mask)):
+	print(bool_walls_mask)
+	print(bool_terms_mask)
+	if all(bool_walls_mask):
 		print('`')
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
