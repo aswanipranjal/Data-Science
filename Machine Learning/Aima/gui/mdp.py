@@ -425,7 +425,7 @@ class SolveMDP(tk.Frame):
 				else:
 					grid_to_show[i][j] = grid_to_solve[i][j] = gridmdp[i][j]
 
-		return flipped_terminals, grid_to_solve, grid_to_show
+		return flipped_terminals, grid_to_solve, np.flipud(grid_to_show)
 
 	def create_graph(self, gridmdp, terminals, _height, _width):
 
@@ -449,7 +449,7 @@ class SolveMDP(tk.Frame):
 		x = np.linspace(0, len(self.gridmdp[0]) - 1, x_interval)
 		y = np.linspace(0, len(self.gridmdp) - 1, y_interval)
 		sub.clear()
-		sub.imshow(np.flipud(self.grid_to_show), cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
+		sub.imshow(self.grid_to_show, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
 		fig.tight_layout()
 		ax = fig.gca()
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
