@@ -17,6 +17,7 @@ style.use('ggplot')
 
 fig = Figure()
 sub = fig.add_subplot(111)
+plt.rcParams['axes.grid'] = False
 
 # TODO: flip terminals horizontally before solving
 
