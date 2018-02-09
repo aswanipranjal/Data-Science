@@ -455,6 +455,9 @@ class SolveMDP(tk.Frame):
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
 		ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
+	def value_iteration_metastep(self, mdp, iterations=20):
+
+
 app = MDPapp()
 app.geometry('1280x720')
 app.mainloop()
