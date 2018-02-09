@@ -456,11 +456,17 @@ class SolveMDP(tk.Frame):
 		x = np.linspace(0, len(self.gridmdp[0]) - 1, x_interval)
 		y = np.linspace(0, len(self.gridmdp) - 1, y_interval)
 
+		sub.clear()
+		sub.imshow(self.grid_to_show, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
+		fig.tight_layout()
+		
 		# self.grid_to_show = self.value_iteration_metastep()
 		U = self.U1.copy()
 
 		for s in self.sequential_decision_environment.states:
 			self.U1[s] = self.R(s) + self.gamma * max([sum([p * U[s1] for (p, s1) in self.T(s, a)]) for a in self.sequential_decision_environment.actions(s)])
+
+		print(U)
 
 		# recreate self.grid_to_show from U
 		for i in range(max(1, self._height)):
@@ -470,10 +476,6 @@ class SolveMDP(tk.Frame):
 
 				else:
 					self.grid_to_show[i][j] = U[i][j]
-
-		sub.clear()
-		sub.imshow(self.grid_to_show, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
-		fig.tight_layout()
 		
 		ax = fig.gca()
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
