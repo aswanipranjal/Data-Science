@@ -392,7 +392,7 @@ class BuildMDP(tk.Frame):
 		initialize_dialogbox(_width, _height, self.gridmdp, self.terminals, self.buttons)
 
 	def master_reset(self):
-		
+
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
 		if tkinter.messagebox.askokcancel('Reset', 'Are you sure you want to reset all cells?'):
@@ -436,6 +436,7 @@ class SolveMDP(tk.Frame):
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 		self.terminals, self.gridmdp, self.grid_to_show = self.process_data(terminals, _height, _width, gridmdp)
 		self.sequential_decision_environment = GridMDP(self.gridmdp, terminals=self.terminals)
+		self.initialize_value_iteration_parameters()
 		print('create_graph self.gridmdp', self.gridmdp)
 		print('create_graph self.grid_to_show', self.grid_to_show)
 		print('create_graph self.terminals', self.terminals)
@@ -453,6 +454,8 @@ class SolveMDP(tk.Frame):
 		x = np.linspace(0, len(self.gridmdp[0]) - 1, x_interval)
 		y = np.linspace(0, len(self.gridmdp) - 1, y_interval)
 
+		# self.grid_to_show = self.value_iteration_metastep()
+
 		sub.clear()
 		sub.imshow(self.grid_to_show, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
 		fig.tight_layout()
@@ -460,6 +463,10 @@ class SolveMDP(tk.Frame):
 		ax = fig.gca()
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
 		ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+
+	def initialize_value_iteration_parameters(self):
+
+		
 
 	def value_iteration_metastep(self, mdp, iterations=20):
 
