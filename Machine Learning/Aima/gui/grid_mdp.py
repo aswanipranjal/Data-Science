@@ -314,7 +314,10 @@ class MDPapp(tk.Tk):
 		print('Not supported yet!')
 
 	def new(self):
+		''' function to create new GridMDP '''
 
+		self.master_reset()
+		self.show_frame(HomePage)
 
 	def get_page(self, page_class):
 		''' returns pages from stored frames '''
