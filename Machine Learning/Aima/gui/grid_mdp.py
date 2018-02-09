@@ -282,7 +282,7 @@ class MDPapp(tk.Tk):
 
 		self.menu_bar = tk.Menu(self.container)
 		self.file_menu = tk.Menu(self.menu_bar, tearoff=0)
-		self.file_menu.add_command(label='Exit', command=self.placeholder_function)
+		self.file_menu.add_command(label='Exit', command=quit)
 		self.menu_bar.add_cascade(label='File', menu=self.file_menu)
 
 		self.edit_menu = tk.Menu(self.menu_bar, tearoff=1)
