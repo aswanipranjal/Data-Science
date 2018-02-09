@@ -455,6 +455,7 @@ class SolveMDP(tk.Frame):
 		self.frame.pack()
 		self.controller = controller
 		self.terminated = False
+		self.iterations = 0
 		self.epsilon = 0.001
 		self.delta = 0
 
@@ -501,6 +502,7 @@ class SolveMDP(tk.Frame):
 		''' performs value iteration and animates graph '''
 
 		# cmaps to use: bone_r, Oranges, inferno, BrBG, copper
+		self.iterations += 1
 		x_interval = max(2, len(self.gridmdp[0]))
 		y_interval = max(2, len(self.gridmdp))
 		x = np.linspace(0, len(self.gridmdp[0]) - 1, x_interval)
