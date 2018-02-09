@@ -369,17 +369,19 @@ class SolveMDP(tk.Frame):
 		self.frame = tk.Frame(self)
 		self.frame.pack()
 		self.controller = controller
+		self.create_graph()
 
-	def build(self):
+	# def build(self):
 
-		self.controller.menu_bar.entryconfig('Build', state=tk.NORMAL)
-		self.canvas = FigureCanvasTkAgg(fig, self)
-		self.canvas.show()
-		self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+	# 	self.controller.menu_bar.entryconfig('Build', state=tk.NORMAL)
+	# 	self.canvas = FigureCanvasTkAgg(fig, self)
+	# 	self.canvas.show()
+	# 	self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
-		self.toolbar = NavigationToolbar2TkAgg(self.canvas, self)
-		self.toolbar.update()
-		self.canvas._tkcanvas.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
+	# 	self.toolbar = NavigationToolbar2TkAgg(self.canvas, self)
+	# 	self.toolbar.update()
+	# 	self.canvas._tkcanvas.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
+	
 
 	def animate_graph(self, i):
 
