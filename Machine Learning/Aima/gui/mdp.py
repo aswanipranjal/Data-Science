@@ -403,7 +403,7 @@ class SolveMDP(tk.Frame):
 		self.frame.pack()
 		self.controller = controller
 
-	def process_data(terminals, _height):
+	def flip_terminals(terminals, _height):
 
 		flipped_terminals = []
 		for terminal in terminals:
