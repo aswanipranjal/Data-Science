@@ -316,7 +316,14 @@ class MDPapp(tk.Tk):
 	def new(self):
 		''' function to create new GridMDP '''
 
-		self.master_reset()
+		_height = self.shared_data['height'].get()
+		_width = self.shared_data['width'].get()
+		if tkinter.messagebox.askokcancel('Reset', 'Are you sure you want to reset all cells?'):
+			external_reset(_width, _height, self.gridmdp, self.terminals, self.buttons)
+		build_page = self.get_page(BuildMDP)
+		build_page.gridmdp = None
+		build_page.terminals = None
+		build_page.buttons = None
 		self.show_frame(HomePage)
 
 	def get_page(self, page_class):
