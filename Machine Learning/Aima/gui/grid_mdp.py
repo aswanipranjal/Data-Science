@@ -521,7 +521,8 @@ class SolveMDP(tk.Frame):
 			self.grid_to_show[k[1]][k[0]] = v
 
 		print(self.delta)
-		if self.delta < self.epsilon * (1 - self.gamma) / self.gamma and self.terminated == False:
+		if (self.delta < self.epsilon * (1 - self.gamma) / self.gamma) and self.terminated == False:
+			print('Conditional')
 			self.terminated = True
 			display(self.grid_to_show)
 		
