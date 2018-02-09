@@ -15,7 +15,7 @@ import time
 
 import matplotlib
 import matplotlib.animation as animation
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.ticker import MaxNLocator
 from matplotlib.figure import Figure
 from matplotlib import style
