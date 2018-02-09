@@ -416,8 +416,8 @@ class SolveMDP(tk.Frame):
 		# cmaps to use: bone_r, Oranges, inferno, BrBG, copper
 		x_interval = max(2, len(self.gridmdp[0]))
 		y_interval = max(2, len(self.gridmdp))
-		x = np.linspace(0, len(self.gridmdp[0]), x_interval)
-		y = np.linspace(0, len(self.gridmdp), y_interval)
+		x = np.linspace(0, len(self.gridmdp[0]) - 1, x_interval)
+		y = np.linspace(0, len(self.gridmdp) - 1, y_interval)
 		sub.clear()
 		sub.imshow(self.gridmdp, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
 		fig.tight_layout()
