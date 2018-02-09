@@ -403,10 +403,13 @@ class SolveMDP(tk.Frame):
 		self.frame.pack()
 		self.controller = controller
 
-	# def process_data(terminals, _height):
+	def process_data(terminals, _height):
 
-	# 	for terminal in terminals:
-	# 		terminal[0] = 
+		flipped_terminals = []
+		for terminal in terminals:
+			flipped_terminals.append((terminal[1], _height - terminal[0] - 1))
+
+		return flipped_terminals
 
 	def create_graph(self, gridmdp, terminals, _height):
 
