@@ -361,7 +361,9 @@ class SolveMDP(tk.Frame):
 
 	def build(self, gridmdp):
 
-
+		canvas = FigureCanvasTkAgg(fig, self)
+		canvas.show()
+		canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
 
 app = MDPapp()
