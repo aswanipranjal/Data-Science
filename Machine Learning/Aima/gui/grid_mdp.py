@@ -398,27 +398,28 @@ class HomePage(tk.Frame):
 
 		label = ttk.Label(frame1, text='GridMDP builder', font=('Verdana', 18))
 		label.pack(pady=15, padx=10, side=tk.TOP)
-		ec_btn = ttk.Button(frame1, text='Empty cells', font=('Verdana', 10))
+		
+		ec_btn = ttk.Button(frame1, text='Empty cells')
 		ec_btn.pack(pady=10, padx=10, side=tk.TOP)
 		ec_btn.configure(style='TButton')
 
-		w_btn = ttk.Button(frame1, text='Walls', font=('Verdana',  10))
+		w_btn = ttk.Button(frame1, text='Walls')
 		w_btn.pack(pady=10, padx=10, side=tk.TOP)
 		w_btn.configure(style='wall.TButton')
 
-		r_btn = ttk.Button(frame1, text='Rewards', font=('Verdana',  10))
+		r_btn = ttk.Button(frame1, text='Rewards')
 		r_btn.pack(pady=10, padx=10, side=tk.TOP)
 		r_btn.configure(style='reward.TButton')
 
-		term_z = ttk.Button(frame1, text='Neutral terminals', font=('Verdana',  10))
+		term_z = ttk.Button(frame1, text='Neutral terminals')
 		term_z.pack(pady=10, padx=10, side=tk.TOP)
 		term_z.configure(style='term.TButton')
 
-		term_p = ttk.Button(frame1, text='Positive terminals', font=('Verdana',  10))
+		term_p = ttk.Button(frame1, text='Positive terminals')
 		term_p.pack(pady=10, padx=10, side=tk.TOP)
 		term_p.configure(style='+term.TButton')
 
-		term_n = ttk.Button(frame1, text='Negative terminals', font=('Verdana',  10))
+		term_n = ttk.Button(frame1, text='Negative terminals')
 		term_n.pack(pady=10, padx=10, side=tk.TOP)
 		term_n.configure(style='-term.TButton')
 
