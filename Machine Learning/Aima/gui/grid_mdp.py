@@ -531,7 +531,7 @@ class SolveMDP(tk.Frame):
 		ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
 	def initialize_value_iteration_parameters(self, mdp):
-		''' initializes value_iteration paramters '''
+		''' initializes value_iteration parameters '''
 
 		self.U1 = {s: 0 for s in mdp.states}
 		self.R, self.T, self.gamma = mdp.R, mdp.T, mdp.gamma
