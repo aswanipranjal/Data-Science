@@ -449,7 +449,6 @@ class SolveMDP(tk.Frame):
 
 	def animate_graph(self, i):
 
-		# convert -99999 to None before plotting
 		# cmaps to use: bone_r, Oranges, inferno, BrBG, copper
 		x_interval = max(2, len(self.gridmdp[0]))
 		y_interval = max(2, len(self.gridmdp))
@@ -460,16 +459,11 @@ class SolveMDP(tk.Frame):
 		sub.imshow(self.grid_to_show, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
 		fig.tight_layout()
 
-		# self.grid_to_show = self.value_iteration_metastep()
 		U = self.U1.copy()
 
 		for s in self.sequential_decision_environment.states:
 			self.U1[s] = self.R(s) + self.gamma * max([sum([p * U[s1] for (p, s1) in self.T(s, a)]) for a in self.sequential_decision_environment.actions(s)])
 
-		print(f'U: {U}')
-		print(f'len(U): {len(U)}')
-
-		# recreate self.grid_to_show from U
 		self.grid_to_show = grid_to_show = [[0.0]*max(1, self._width) for _ in range(max(1, self._height))]
 		for k, v in U.items():
 			print(k[0], k[1])
