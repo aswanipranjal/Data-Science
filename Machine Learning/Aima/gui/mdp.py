@@ -223,14 +223,14 @@ class MDPapp(tk.Tk):
 		}
 		self.shared_data['height'].set(1)
 		self.shared_data['width'].set(1)
-		container = tk.Frame(self)
-		container.pack(side='top', fill='both', expand=True)
-		container.grid_rowconfigure(0, weight=1)
-		container.grid_columnconfigure(0, weight=1)
+		self.container = tk.Frame(self)
+		self.container.pack(side='top', fill='both', expand=True)
+		self.container.grid_rowconfigure(0, weight=1)
+		self.container.grid_columnconfigure(0, weight=1)
 
 		self.frames = {}
 
-		self.menu_bar = tk.Menu(container)
+		self.menu_bar = tk.Menu(self.container)
 		self.file_menu = tk.Menu(self.menu_bar, tearoff=0)
 		self.file_menu.add_command(label='Exit', command=self.placeholder_function)
 		self.menu_bar.add_cascade(label='File', menu=self.file_menu)
@@ -252,7 +252,7 @@ class MDPapp(tk.Tk):
 		tk.Tk.config(self, menu=self.menu_bar)
 
 		for F in (HomePage, BuildMDP, SolveMDP):
-			frame = F(container, self)
+			frame = F(self.container, self)
 			self.frames[F] = frame
 			frame.grid(row=0, column=0, sticky='nsew')
 
@@ -289,7 +289,7 @@ class MDPapp(tk.Tk):
 	def build(self):
 
 		# solve_page = self.get_page(SolveMDP)
-		frame = SolveMDP(container, self)
+		frame = SolveMDP(self.container, self)
 		self.frames[SolveMDP] = frame
 		frame.grid(row=0, column=0, sticky='nsew')
 		self.show_frame(SolveMDP)
