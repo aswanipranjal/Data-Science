@@ -312,6 +312,12 @@ class MDPapp(tk.Tk):
 
 		print('Not supported yet!')
 
+	def exit(self):
+		''' function to exit '''
+
+		if tkinter.messagebox.askokcancel('Exit?', 'All changes will be lost'):
+			quit()
+
 	def new(self):
 		''' function to create new GridMDP '''
 
