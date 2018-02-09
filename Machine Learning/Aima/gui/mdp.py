@@ -27,10 +27,9 @@ fig = Figure(figsize=(20, 15))
 sub = fig.add_subplot(111)
 plt.rcParams['axes.grid'] = False
 
-# TODO: flip terminals horizontally before solving
-
 WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
+
 
 def extents(f):
 
