@@ -23,7 +23,7 @@ TERM_VALUE = -999999.0
 
 def animate(i):
 
-	pull_data = open('C:/Users/Aman Deep Singh/Python/Data Science/Data Visualization/GUI/sampledata.txt', 'r').read()
+	pull_data = open('C:/Users/Aman Deep Singh/Documents/Python/Data Science/Data Visualization/GUI/sampledata.txt', 'r').read()
 	data_list = pull_data.split('\n')
 	x_list = []
 	y_list = []
