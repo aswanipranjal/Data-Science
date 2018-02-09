@@ -50,6 +50,9 @@ def display(gridmdp):
 	label = ttk.Label(container, text=gridmdp, font=('Helvetica', 12), anchor=tk.N)
 	label.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
 
+	dialog.geometry('400x300')
+	dialog.mainloop()
+
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	''' creates dialogbox for initialization '''
 
