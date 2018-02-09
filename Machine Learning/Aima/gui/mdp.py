@@ -15,7 +15,7 @@ from matplotlib import pyplot as plt
 matplotlib.use('TkAgg')
 style.use('ggplot')
 
-fig = Figure()
+fig = Figure(figsize=(20, 15))
 sub = fig.add_subplot(111)
 plt.rcParams['axes.grid'] = False
 
@@ -380,7 +380,7 @@ class SolveMDP(tk.Frame):
 		self.gridmdp = gridmdp
 		self.canvas = FigureCanvasTkAgg(fig, self.frame)
 		self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
-		self.anim = animation.FuncAnimation(fig, self.animate_graph, interval=500)
+		self.anim = animation.FuncAnimation(fig, self.animate_graph, interval=50)
 		self.canvas.show()
 
 	def animate_graph(self, i):
