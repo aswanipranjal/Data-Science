@@ -436,9 +436,9 @@ class SolveMDP(tk.Frame):
 		self._height = _height
 		self._width = _width
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
-		self.sequential_decision_environment = GridMDP(self.gridmdp, terminals=self.terminals)
 
 		self.terminals, self.gridmdp, self.grid_to_show = self.process_data(terminals, _height, _width, gridmdp)
+		self.sequential_decision_environment = GridMDP(self.gridmdp, terminals=self.terminals)
 
 		self.initialize_value_iteration_parameters(self.sequential_decision_environment)
 
@@ -456,7 +456,7 @@ class SolveMDP(tk.Frame):
 		y = np.linspace(0, len(self.gridmdp) - 1, y_interval)
 
 		sub.clear()
-		sub.imshow(self.grid_to_show, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
+		sub.imshow(self.grid_to_show, cmap='copper', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
 		fig.tight_layout()
 
 		U = self.U1.copy()
