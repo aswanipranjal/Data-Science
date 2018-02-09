@@ -273,7 +273,6 @@ class MDPapp(tk.Tk):
 
 	def build(self):
 
-		# solve_page = self.get_page(SolveMDP)
 		frame = SolveMDP(self.container, self)
 		self.frames[SolveMDP] = frame
 		frame.grid(row=0, column=0, sticky='nsew')
@@ -367,7 +366,6 @@ class SolveMDP(tk.Frame):
 		self.frame = tk.Frame(self)
 		self.frame.pack()
 		self.controller = controller
-		self.create_graph()
 
 	def create_graph(self):
 
