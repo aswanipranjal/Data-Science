@@ -410,13 +410,17 @@ class HomePage(tk.Frame):
 		r_btn.pack(pady=10, padx=10, dife=tk.TOP)
 		r_btn.configure(style='reward.TButton')
 
-		term_n = ttk.Button(frame1, text='Neutral terminals', font=('Verdana',  10))
-		term_n.pack(pady=10, padx=10, dife=tk.TOP)
-		term_n.configure(style='term.TButton')
+		term_z = ttk.Button(frame1, text='Neutral terminals', font=('Verdana',  10))
+		term_z.pack(pady=10, padx=10, dife=tk.TOP)
+		term_z.configure(style='term.TButton')
 
 		term_p = ttk.Button(frame1, text='Positive terminals', font=('Verdana',  10))
 		term_p.pack(pady=10, padx=10, dife=tk.TOP)
 		term_p.configure(style='+term.TButton')
+
+		term_n = ttk.Button(frame1, text='Walls', font=('Verdana',  10))
+		term_n.pack(pady=10, padx=10, dife=tk.TOP)
+		term_n.configure(style='wall.TButton')
 
 		label = ttk.Label(frame1, text='Dimensions', font=('Verdana', 10))
 		label.pack(pady=10, padx=10, side=tk.TOP)
