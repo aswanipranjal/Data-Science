@@ -119,6 +119,9 @@ def widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_rewar
 		rbtn_wall.config(state=tk.DISABLED)
 		rbtn_wall.state(['!focus', '!selected'])
 
+def flatten_list(_list):
+	return sum(_list, [])
+
 # Todo: fix this function to do something useful
 def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term):
 	
