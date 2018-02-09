@@ -387,6 +387,8 @@ class SolveMDP(tk.Frame):
 		self.controller.menu_bar.entryconfig('Build', state=tk.NORMAL)
 		self.canvas = FigureCanvasTkAgg(fig, self.frame)
 		self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+		self.anim = animation.FuncAnimation(fig, self.animate_graph, frames=12, interval=500, repeat=True)
+		self.canvas.show()
 
 	def animate_graph(self, i):
 
