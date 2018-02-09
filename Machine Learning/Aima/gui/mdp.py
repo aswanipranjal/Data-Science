@@ -293,6 +293,8 @@ class MDPapp(tk.Tk):
 		self.frames[SolveMDP] = frame
 		frame.grid(row=0, column=0, sticky='nsew')
 		self.show_frame(SolveMDP)
+		solve_page = self.get_page(SolveMDP)
+		solve_page.build()
 
 	def show_frame(self, controller, cb=False):
 
@@ -378,14 +380,17 @@ class SolveMDP(tk.Frame):
 
 		tk.Frame.__init__(self, parent)
 		self.controller = controller
-		self.controller.menu_bar.entryconfig('Build', state=tk.NORMAL)
-		canvas = FigureCanvasTkAgg(fig, self)
-		canvas.show()
-		canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
-		toolbar = NavigationToolbar2TkAgg(canvas, self)
-		toolbar.update()
-		canvas._tkcanvas.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
+	def build(self):
+
+		self.controller.menu_bar.entryconfig('Build', state=tk.NORMAL)
+		self.canvas = FigureCanvasTkAgg(fig, self)
+		self.canvas.show()
+		self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+
+		self.toolbar = NavigationToolbar2TkAgg(self.canvas, self)
+		self.toolbar.update()
+		self.canvas._tkcanvas.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
 
 
 app = MDPapp()
