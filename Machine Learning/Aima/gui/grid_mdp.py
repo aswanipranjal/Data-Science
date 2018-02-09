@@ -414,7 +414,7 @@ class HomePage(tk.Frame):
 		s.theme_use('clam')
 		s.configure('TButton', background=grayd, padding=0)
 		s.configure('wall.TButton', background=gray2, foreground=white)
-		s.configure('reward.TButton', background='#999')
+		s.configure('reward.TButton', background=gray9)
 		s.configure('+term.TButton', background=green8)
 		s.configure('-term.TButton', background=pblue, foreground=white)
 		s.configure('=term.TButton', background=green4)
@@ -483,12 +483,12 @@ class BuildMDP(tk.Frame):
 
 		s = ttk.Style()
 		s.theme_use('clam')
-		s.configure('TButton', background='#ddd', padding=0)
-		s.configure('wall.TButton', background='#222', foreground='#fff')
-		s.configure('reward.TButton', background='#999')
-		s.configure('+term.TButton', background='#008080')
-		s.configure('-term.TButton', background='#000040', foreground='#fff')
-		s.configure('=term.TButton', background='#004040')
+		s.configure('TButton', background=grayd, padding=0)
+		s.configure('wall.TButton', background=gray2, foreground=white)
+		s.configure('reward.TButton', background=gray9)
+		s.configure('+term.TButton', background=green8)
+		s.configure('-term.TButton', background=green4, foreground=white)
+		s.configure('=term.TButton', background=green4)
 
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
