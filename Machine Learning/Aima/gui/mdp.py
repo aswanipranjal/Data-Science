@@ -32,12 +32,14 @@ def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
+
 	wall = tk.IntVar()
 	wall.set(0)
 	term = tk.IntVar()
 	term.set(0)
 	reward = tk.DoubleVar()
 	reward.set(0.0)
+
 	label = ttk.Label(container, text='Initialize', font=('Helvetica', 12), anchor=tk.N)
 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=15, padx=5)
 	label_reward = ttk.Label(container, text='Reward', font=('Helvetica', 10), anchor=tk.N)
@@ -48,7 +50,9 @@ def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	rbtn_term.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=160, pady=5)
 	rbtn_wall = ttk.Radiobutton(container, text='Wall', variable=wall, value=WALL_VALUE)
 	rbtn_wall.grid(row=4, column=0, columnspan=3, sticky='nsew', padx=172, pady=5)
+
 	initialize_widget_disability_checks(_width, _height, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term)
+
 	btn_apply = ttk.Button(container, text='Apply', command=partial(initialize_update_table, _width, _height, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall))
 	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
 	btn_reset = ttk.Button(container, text='Reset', command=partial(initialize_reset_all, _width, _height, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term))
@@ -68,20 +72,25 @@ def update_table(i, j, gridmdp, terminals, buttons, reward, term, wall, label_re
 		rbtn_term.state(['!focus', '!selected'])
 		rbtn_term.config(state=tk.DISABLED)
 		gridmdp[i][j] = WALL_VALUE
+
 	elif wall.get() != WALL_VALUE:
 		if reward.get() != 0.0:
 			gridmdp[i][j] = reward.get()
 			buttons[i][j].configure(style='reward.TButton')
 			buttons[i][j].config(text=f'R = {reward.get()}')
+
 		if term.get() == TERM_VALUE:
 			if (i, j) not in terminals:
 				terminals.append((i, j))
 			rbtn_wall.state(['!focus', '!selected'])
 			rbtn_wall.config(state=tk.DISABLED)
+
 			if gridmdp[i][j] < 0:
 				buttons[i][j].configure(style='-term.TButton')
+
 			elif gridmdp[i][j] > 0:
 				buttons[i][j].configure(style='+term.TButton')
+
 			elif gridmdp[i][j] == 0.0:
 				buttons[i][j].configure(style='=term.TButton')
 
@@ -96,8 +105,10 @@ def reset_all(_height, i, j, gridmdp, terminals, buttons, label_reward, entry_re
 	gridmdp[i][j] = 0.0
 	buttons[i][j].configure(style='TButton')
 	buttons[i][j].config(text=f'({_height - i - 1}, {j})')
+
 	if (i, j) in terminals:
 		terminals.remove((i, j))
+
 	label_reward.config(foreground='#000')
 	entry_reward.config(state=tk.NORMAL)
 	rbtn_term.config(state=tk.NORMAL)
@@ -141,6 +152,7 @@ def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, lab
 	
 	bool_walls = [['False']*max(1, _width) for _ in range(max(1, _height))]
 	bool_terms = [['False']*max(1, _width) for _ in range(max(1, _height))]
+
 	for i in range(max(1, _height)):
 		for j in range(max(1, _width)):
 			if gridmdp[i][j] == WALL_VALUE:
@@ -151,6 +163,7 @@ def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, lab
 				
 	bool_walls_fl = flatten_list(bool_walls)
 	bool_terms_fl = flatten_list(bool_terms)
+
 	if bool_walls_fl.count('True') == len(bool_walls_fl):
 		print('`')
 		label_reward.config(foreground='#999')
@@ -172,12 +185,14 @@ def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
+
 	wall = tk.IntVar()
 	wall.set(gridmdp[i][j])
 	term = tk.IntVar()
 	term.set(TERM_VALUE if (i, j) in terminals else 0.0)
 	reward = tk.DoubleVar()
 	reward.set(gridmdp[i][j] if gridmdp[i][j] != WALL_VALUE else 0.0)
+
 	label = ttk.Label(container, text=f'Configure cell {_height - i - 1}, {j}', font=('Helvetica', 12), anchor=tk.N)
 	label.grid(row=0, column=0, columnspan=3, sticky='new', pady=15, padx=5)
 	label_reward = ttk.Label(container, text='Reward', font=('Helvetica', 10), anchor=tk.N)
@@ -188,7 +203,9 @@ def dialogbox(i, j, gridmdp, terminals, buttons, _height):
 	rbtn_term.grid(row=3, column=0, columnspan=3, sticky='nsew', padx=160, pady=5)
 	rbtn_wall = ttk.Radiobutton(container, text='Wall', variable=wall, value=WALL_VALUE)
 	rbtn_wall.grid(row=4, column=0, columnspan=3, sticky='nsew', padx=172, pady=5)
+
 	widget_disability_checks(i, j, gridmdp, terminals, label_reward, entry_reward, rbtn_wall, rbtn_term)
+	
 	btn_apply = ttk.Button(container, text='Apply', command=partial(update_table, i, j, gridmdp, terminals, buttons, reward, term, wall, label_reward, entry_reward, rbtn_term, rbtn_wall))
 	btn_apply.grid(row=5, column=0, sticky='nsew', pady=5, padx=5)
 	btn_reset = ttk.Button(container, text='Reset', command=partial(reset_all, _height, i, j, gridmdp, terminals, buttons, label_reward, entry_reward, rbtn_wall, rbtn_term))
@@ -304,6 +321,7 @@ class HomePage(tk.Frame):
 		frame1.pack(side=tk.TOP)
 		frame2 = tk.Frame(self)
 		frame2.pack(side=tk.TOP)
+
 		label = ttk.Label(frame1, text='GridMDP builder', font=('Verdana', 12))
 		label.pack(pady=10, padx=10, side=tk.TOP)
 		label = ttk.Label(frame1, text='Dimensions', font=('Verdana', 10))
@@ -336,7 +354,9 @@ class BuildMDP(tk.Frame):
 		self.controller.menu_bar.entryconfig('Edit', state=tk.NORMAL)
 		self.controller.menu_bar.entryconfig('Build', state=tk.NORMAL)
 		self.gridmdp = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
+		self.buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
 		self.terminals = []
+
 		s = ttk.Style()
 		s.theme_use('clam')
 		s.configure('TButton', background='#ddd', padding=0)
@@ -345,7 +365,7 @@ class BuildMDP(tk.Frame):
 		s.configure('+term.TButton', background='#008080')
 		s.configure('-term.TButton', background='#000040', foreground='#fff')
 		s.configure('=term.TButton', background='#004040')
-		self.buttons = [[None]*max(1, _width) for _ in range(max(1, _height))]
+
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
 				self.buttons[i][j] = ttk.Button(self.frame, text=f'({_height - i - 1}, {j})', width=int(196/max(1, _width)), command=partial(dialogbox, i, j, self.gridmdp, self.terminals, self.buttons, _height))
@@ -388,7 +408,7 @@ class SolveMDP(tk.Frame):
 		# convert -99999 to None before plotting
 		# cmaps to use: bone_r, Oranges, inferno, BrBG, copper
 		sub.clear()
-		sub.imshow(np.random.random((10, 10)), cmap='CMRmap', aspect='auto')
+		sub.imshow(np.random.random((10, 10)), cmap='bone_r', aspect='auto')
 		fig.tight_layout()
 
 app = MDPapp()
