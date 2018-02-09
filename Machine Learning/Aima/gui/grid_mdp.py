@@ -47,10 +47,12 @@ def display(gridmdp):
 	container.grid_rowconfigure(0, weight=1)
 	container.grid_columnconfigure(0, weight=1)
 
-	label = ttk.Label(container, text=gridmdp, font=('Helvetica', 12), anchor=tk.N)
-	label.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+	for i in range(max(1, _height)):
+		for j in range(max(1, _width)):
+			label = ttk.Label(container, text=gridmdp[i][j], font=('Helvetica', 12), anchor=tk.N)
+			label.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
 
-	dialog.geometry('400x300')
+	dialog.geometry('1280x720')
 	dialog.mainloop()
 
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
