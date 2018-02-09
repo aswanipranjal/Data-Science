@@ -520,6 +520,7 @@ class SolveMDP(tk.Frame):
 		for k, v in U.items():
 			self.grid_to_show[k[1]][k[0]] = v
 
+		print(self.delta)
 		if self.delta < self.epsilon * (1 - self.gamma) / self.gamma and self.terminated == False:
 			self.terminated = True
 			display(self.grid_to_show)
