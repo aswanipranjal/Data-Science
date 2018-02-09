@@ -329,6 +329,19 @@ class BuildMDP(tk.Frame):
 		if tkinter.messagebox.askokcancel('Reset', 'Are you sure you want to reset all cells?'):
 			external_reset(_width, _height, self.gridmdp, self.terminals, self.buttons)
 
+
+class SolveMDP(tk.Frame):
+
+	def __init__(self, parent, controller):
+
+		tk.Frame.__init__(self, parent)
+		self.grid_rowconfigure(0, weight=1)
+		self.grid_columnconfigure(0, weight=1)
+		self.frame = tk.Frame(self)
+		self.frame.pack()
+		self.controller = controller
+
+
 app = MDPapp()
 app.geometry('1280x720')
 app.mainloop()
