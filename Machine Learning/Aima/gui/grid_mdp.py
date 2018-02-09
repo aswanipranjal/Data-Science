@@ -455,6 +455,10 @@ class SolveMDP(tk.Frame):
 		y = np.linspace(0, len(self.gridmdp) - 1, y_interval)
 
 		# self.grid_to_show = self.value_iteration_metastep()
+		U = self.U1.copy()
+
+		for s in self.sequential_decision_environment.states:
+			self.U1[s] = 
 
 		sub.clear()
 		sub.imshow(self.grid_to_show, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
