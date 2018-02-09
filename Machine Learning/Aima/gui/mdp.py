@@ -220,7 +220,7 @@ class MDPapp(tk.Tk):
 		self.build_menu.add_command(label='Build', command=self.placeholder_function)
 		self.build_menu.add_command(label='Build and Run', command=self.placeholder_function)
 		self.menu_bar.add_cascade(label='Build', menu=self.build_menu)
-		self.menu_bar.entryconfig('Edit', state=tk.DISABLED)
+		self.menu_bar.entryconfig('Build', state=tk.DISABLED)
 		tk.Tk.config(self, menu=self.menu_bar)
 
 		for F in (HomePage, BuildMDP, SolveMDP):
