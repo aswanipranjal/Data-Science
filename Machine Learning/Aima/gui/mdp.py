@@ -403,16 +403,17 @@ class SolveMDP(tk.Frame):
 		self.frame.pack()
 		self.controller = controller
 
-	def process_data(terminals):
+	# def process_data(terminals, _height):
 
-		for (i, j) in terminals:
+	# 	for terminal in terminals:
+	# 		terminal[0] = 
 
-
-	def create_graph(self, gridmdp, terminals):
+	def create_graph(self, gridmdp, terminals, _height):
 
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 		self.gridmdp = gridmdp
 		print('create_graph self.gridmdp', self.gridmdp)
+		print('create_graph self.terminals', self.terminals)
 		self.canvas = FigureCanvasTkAgg(fig, self.frame)
 		self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 		self.anim = animation.FuncAnimation(fig, self.animate_graph, interval=50)
