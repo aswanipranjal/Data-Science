@@ -410,9 +410,6 @@ class SolveMDP(tk.Frame):
 		sub.clear()
 		sub.imshow(self.gridmdp, cmap='bone_r', aspect='auto')
 		fig.tight_layout()
-		axes = plt.gca()
-		axes.set_xlim([0, len(self.gridmdp[0])])
-		axes.set_ylim([0, len(self.gridmdp)])
 
 app = MDPapp()
 app.geometry('1280x720')
