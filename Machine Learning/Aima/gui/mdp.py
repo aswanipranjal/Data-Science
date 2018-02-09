@@ -425,8 +425,9 @@ class SolveMDP(tk.Frame):
 	def create_graph(self, gridmdp, terminals, _height, _width):
 
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
-		self.terminals, self.gridmdp = self.process_data(terminals, _height, _width, gridmdp)
+		self.terminals, self.gridmdp, self.grid_to_show = self.process_data(terminals, _height, _width, gridmdp)
 		print('create_graph self.gridmdp', self.gridmdp)
+		print('create_graph self.grid_to_show', self.grid_to_show)
 		print('create_graph self.terminals', self.terminals)
 		self.canvas = FigureCanvasTkAgg(fig, self.frame)
 		self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
@@ -442,7 +443,7 @@ class SolveMDP(tk.Frame):
 		x = np.linspace(0, len(self.gridmdp[0]) - 1, x_interval)
 		y = np.linspace(0, len(self.gridmdp) - 1, y_interval)
 		sub.clear()
-		sub.imshow(self.gridmdp, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
+		sub.imshow(self.grid_to_show, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
 		fig.tight_layout()
 		ax = fig.gca()
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
