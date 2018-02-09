@@ -446,7 +446,7 @@ class HomePage(tk.Frame):
 		term_n.pack(pady=0, padx=0, side=tk.LEFT, ipady=10)
 		term_n.configure(style='-term.TButton')
 
-		label = ttk.Label(frame4, text='Dimensions', font=('Verdana', 14))
+		label = ttk.Label(frame4, text='Dimensions', font=('Verdana', 14), background=grayef)
 		label.pack(pady=15, padx=10, side=tk.TOP)
 		entry_h = tk.Entry(frame2, textvariable=self.controller.shared_data['height'], font=('Verdana', 10), width=3, justify=tk.CENTER)
 		entry_h.pack(pady=10, padx=10, side=tk.LEFT)
