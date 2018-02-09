@@ -431,6 +431,7 @@ class SolveMDP(tk.Frame):
 
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 		self.terminals, self.gridmdp, self.grid_to_show = self.process_data(terminals, _height, _width, gridmdp)
+		self.sequential_decision_environment = GridMDP(self.gridmdp, terminals=self.terminals)
 		print('create_graph self.gridmdp', self.gridmdp)
 		print('create_graph self.grid_to_show', self.grid_to_show)
 		print('create_graph self.terminals', self.terminals)
