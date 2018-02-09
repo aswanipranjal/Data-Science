@@ -455,6 +455,7 @@ class SolveMDP(tk.Frame):
 		self.frame.pack()
 		self.controller = controller
 		self.terminated = False
+		self.epsilon = 0.001
 		self.delta = 0
 
 	def process_data(self, terminals, _height, _width, gridmdp):
