@@ -30,6 +30,11 @@ plt.rcParams['axes.grid'] = False
 WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
 
+white = '#fff'
+gray2 = '#222'
+grayd = '#ddd'
+pblue = '#000040'
+
 
 def extents(f):
 	''' adjusts axis markers for heatmap '''
@@ -402,11 +407,11 @@ class HomePage(tk.Frame):
 
 		s = ttk.Style()
 		s.theme_use('clam')
-		s.configure('TButton', background='#ddd', padding=0)
-		s.configure('wall.TButton', background='#222', foreground='#fff')
+		s.configure('TButton', background=grayd, padding=0)
+		s.configure('wall.TButton', background=gray2, foreground=white)
 		s.configure('reward.TButton', background='#999')
 		s.configure('+term.TButton', background='#008080')
-		s.configure('-term.TButton', background='#000040', foreground='#fff')
+		s.configure('-term.TButton', background=pblue, foreground=white)
 		s.configure('=term.TButton', background='#004040')
 
 		label = ttk.Label(frame1, text='GridMDP builder', font=('Helvetica', 18, 'bold'), background='#efefef')
