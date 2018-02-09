@@ -469,7 +469,7 @@ class SolveMDP(tk.Frame):
 		print(U)
 
 		# recreate self.grid_to_show from U
-		self.grid_to_show = grid_to_show = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
+		self.grid_to_show = grid_to_show = [[0.0]*max(1, self._width) for _ in range(max(1, self._height))]
 		for k, v in U.iteritems():
 			print(k, v)
 		
