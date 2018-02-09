@@ -56,7 +56,6 @@ def display(gridmdp, _height, _width):
 			label = ttk.Label(container, text=f'{gridmdp[i][j]:.2f}', font=('Helvetica', 12))
 			label.grid(row=i + 1, column=j + 1)
 
-	dialog.geometry('1280x720')
 	dialog.mainloop()
 
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
