@@ -308,7 +308,8 @@ class MDPapp(tk.Tk):
 		terminals = build_page.terminals
 		solve_page = self.get_page(SolveMDP)
 		_height = self.shared_data['height'].get()
-		solve_page.create_graph(gridmdp, terminals, _height)
+		_width = self.shared_data['width'].get()
+		solve_page.create_graph(gridmdp, terminals, _height, _width)
 
 	def show_frame(self, controller, cb=False):
 
@@ -416,7 +417,7 @@ class SolveMDP(tk.Frame):
 
 		return flipped_terminals, gridmdp
 
-	def create_graph(self, gridmdp, terminals, _height):
+	def create_graph(self, gridmdp, terminals, _height, _width):
 
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 		self.terminals, self.gridmdp = self.process_data(terminals, _height, _width, gridmdp)
