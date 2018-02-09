@@ -365,6 +365,10 @@ class SolveMDP(tk.Frame):
 		canvas.show()
 		canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 
+		toolbar = NavigationToolbar2TkAgg(canvas, self)
+		toolbar.update()
+		canvas._tkcanvas.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
+
 
 app = MDPapp()
 app.geometry('1280x720')
