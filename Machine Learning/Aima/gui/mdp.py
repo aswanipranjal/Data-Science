@@ -133,6 +133,8 @@ def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, lab
 				bool_terms[i][j] = 'True'
 				
 	print(bool_walls)
+	print(sum(bool_walls, []).count('False'))
+	print(len(sum(bool_walls, [])))
 	print(bool_terms)
 	# print(bool_walls)
 	if bool_walls.count('False') == len(sum(bool_walls, [])):
