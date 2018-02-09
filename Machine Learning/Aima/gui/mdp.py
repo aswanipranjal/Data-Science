@@ -415,7 +415,7 @@ class SolveMDP(tk.Frame):
 
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 		self.gridmdp = gridmdp
-		self.terminals = terminals
+		self.terminals = flip_terminals(terminals, _height)
 		print('create_graph self.gridmdp', self.gridmdp)
 		print('create_graph self.terminals', self.terminals)
 		self.canvas = FigureCanvasTkAgg(fig, self.frame)
