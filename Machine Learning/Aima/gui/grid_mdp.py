@@ -413,12 +413,14 @@ class BuildMDP(tk.Frame):
 				self.buttons[i][j].grid(row=i, column=j, ipady=int(336/max(1, _height)) - 12)
 
 	def initialize(self):
+		''' runs initialize_dialogbox '''
 
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
 		initialize_dialogbox(_width, _height, self.gridmdp, self.terminals, self.buttons)
 
 	def master_reset(self):
+		''' runs external reset '''
 
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
@@ -438,6 +440,7 @@ class SolveMDP(tk.Frame):
 		self.controller = controller
 
 	def process_data(self, terminals, _height, _width, gridmdp):
+		''' preprocess variables '''
 
 		flipped_terminals = []
 
@@ -459,6 +462,7 @@ class SolveMDP(tk.Frame):
 		return flipped_terminals, grid_to_solve, np.flipud(grid_to_show)
 
 	def create_graph(self, gridmdp, terminals, _height, _width):
+		''' creates canvas and initializes value_iteration_paramteres '''
 
 		self._height = _height
 		self._width = _width
@@ -475,6 +479,7 @@ class SolveMDP(tk.Frame):
 		self.canvas.show()
 
 	def animate_graph(self, i):
+		''' performs value iteration and animates graph '''
 
 		# cmaps to use: bone_r, Oranges, inferno, BrBG, copper
 		x_interval = max(2, len(self.gridmdp[0]))
@@ -500,11 +505,13 @@ class SolveMDP(tk.Frame):
 		ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
 	def initialize_value_iteration_parameters(self, mdp):
+		''' initializes value_iteration paramters '''
 
 		self.U1 = {s: 0 for s in mdp.states}
 		self.R, self.T, self.gamma = mdp.R, mdp.T, mdp.gamma
 
 	def value_iteration_metastep(self, mdp, iterations=20):
+		''' runs value_iteration '''
 
 		U_over_time = []
 		U1 = {s: 0 for s in mdp.states}
