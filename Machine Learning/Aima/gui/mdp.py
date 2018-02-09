@@ -402,6 +402,10 @@ class SolveMDP(tk.Frame):
 		self.frame.pack()
 		self.controller = controller
 
+	def process_data(gridmdp, terminals):
+
+		
+
 	def create_graph(self, gridmdp, terminals):
 
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
