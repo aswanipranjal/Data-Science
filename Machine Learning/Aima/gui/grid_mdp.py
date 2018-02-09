@@ -401,6 +401,12 @@ class HomePage(tk.Frame):
 		ec_btn = ttk.Button(frame1, text='Empty cells', font=('Verdana', 10))
 		ec_btn.pack(pady=10, padx=10, side=tk.TOP)
 		ec_btn.configure(style='TButton')
+
+		w_btn = ttk.Button(frame1, text='Walls', font=('Verdana',  10))
+		w_btn.pack(pady=10, padx=10, dife=tk.TOP)
+		w_btn.configure(style='wall.TButton')
+
+		
 		label = ttk.Label(frame1, text='Dimensions', font=('Verdana', 10))
 		label.pack(pady=10, padx=10, side=tk.TOP)
 		entry_h = tk.Entry(frame2, textvariable=self.controller.shared_data['height'], font=('Verdana', 10), width=3, justify=tk.CENTER)
