@@ -4,6 +4,8 @@ from tkinter import ttk
 
 from functools import partial
 
+import numpy as np
+
 import matplotlib
 import matplotlib.animation as animation
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
