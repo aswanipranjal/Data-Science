@@ -37,6 +37,16 @@ def extents(f):
 	delta = f[1] - f[0]
 	return [f[0] - delta/2, f[-1] + delta/2]
 
+def display(gridmdp):
+
+	dialog = tk.Toplevel()
+	dialog.wm_title('Values')
+
+	container = tk.Frame(dialog)
+	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+	container.grid_rowconfigure(0, weight=1)
+	container.grid_columnconfigure(0, weight=1)
+
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	''' creates dialogbox for initialization '''
 
@@ -488,7 +498,7 @@ class SolveMDP(tk.Frame):
 		y = np.linspace(0, len(self.gridmdp) - 1, y_interval)
 
 		sub.clear()
-		sub.imshow(self.grid_to_show, cmap='copper', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
+		sub.imshow(self.grid_to_show, cmap='BrBG', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
 		fig.tight_layout()
 
 		U = self.U1.copy()
