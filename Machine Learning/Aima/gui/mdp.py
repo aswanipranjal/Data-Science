@@ -329,6 +329,7 @@ class BuildMDP(tk.Frame):
 		_height = self.controller.shared_data['height'].get()
 		_width = self.controller.shared_data['width'].get()
 		self.controller.menu_bar.entryconfig('Edit', state=tk.NORMAL)
+		self.controller.menu_bar.entryconfig('Build', state=tk.NORMAL)
 		self.gridmdp = [[0.0]*max(1, _width) for _ in range(max(1, _height))]
 		self.terminals = []
 		s = ttk.Style()
@@ -371,7 +372,6 @@ class SolveMDP(tk.Frame):
 
 	def create_graph(self):
 
-		self.controller.menu_bar.entryconfig('Build', state=tk.NORMAL)
 		self.canvas = FigureCanvasTkAgg(fig, self.frame)
 		self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
 		self.anim = animation.FuncAnimation(fig, self.animate_graph, interval=500)
