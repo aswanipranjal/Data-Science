@@ -30,8 +30,10 @@ plt.rcParams['axes.grid'] = False
 WALL_VALUE = -99999.0
 TERM_VALUE = -999999.0
 
+black = '#000'
 white = '#fff'
 gray2 = '#222'
+gray9 = '#999'
 grayd = '#ddd'
 grayef = '#efefef'
 pblue = '#000040'
