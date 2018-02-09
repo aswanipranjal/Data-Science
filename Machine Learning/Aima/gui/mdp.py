@@ -135,12 +135,14 @@ def initialize_widget_disability_checks(_width, _height, gridmdp, terminals, lab
 			if (i, j) in terminals:
 				bool_terms[i][j] = 'True'
 				
-	print(bool_walls)
-	print(sum(bool_walls, []).count('False'))
-	print(len(sum(bool_walls, [])))
-	print(bool_terms)
 	# print(bool_walls)
-	if bool_walls.count('False') == len(sum(bool_walls, [])):
+	# print(sum(bool_walls, []).count('False'))
+	# print(len(sum(bool_walls, [])))
+	# print(bool_terms)
+	# print(bool_walls)
+	bool_walls_fl = flatten_list(bool_walls)
+	bool_terms_fl = flatten_list(bool_terms)
+	if bool_walls_fl.count('False') == len(sum(bool_walls_fl, [])):
 		print('`')
 		label_reward.config(foreground='#999')
 		entry_reward.config(state=tk.DISABLED)
