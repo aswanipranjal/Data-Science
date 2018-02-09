@@ -463,7 +463,13 @@ class SolveMDP(tk.Frame):
 			self.U1[s] = self.R(s) + self.gamma * max([sum([p * U[s1] for (p, s1) in self.T(s, a)]) for a in self.sequential_decision_environment.actions(s)])
 
 		# recreate self.grid_to_show from U
-		for 
+		for i in range(max(1, _height)):
+			for j in range(max(1, _width)):
+				if U[i][j] == None:
+					self.grid_to_show[i][j] = 0.0
+					
+				else:
+					self.grid_to_show[i][j] = U[i][j]
 
 		sub.clear()
 		sub.imshow(self.grid_to_show, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
