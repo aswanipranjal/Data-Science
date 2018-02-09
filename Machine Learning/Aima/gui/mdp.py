@@ -403,7 +403,7 @@ class SolveMDP(tk.Frame):
 		self.frame.pack()
 		self.controller = controller
 
-	def flip_terminals(self, terminals, _height):
+	def process_data(self, terminals, _height, gridmdp):
 
 		flipped_terminals = []
 		for terminal in terminals:
@@ -411,11 +411,16 @@ class SolveMDP(tk.Frame):
 
 		return flipped_terminals
 
+		for i in range(max(1, _height)):
+			for j in range(max(1, _width)):
+				if gridmdp[i][j] == WALL_VALUE:
+					gridmdp[i][j] = None
+
 	def create_graph(self, gridmdp, terminals, _height):
 
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 		self.gridmdp = gridmdp
-		self.terminals = self.flip_terminals(terminals, _height)
+		self.terminals = self.process_data(terminals, _height)
 		print('create_graph self.gridmdp', self.gridmdp)
 		print('create_graph self.terminals', self.terminals)
 		self.canvas = FigureCanvasTkAgg(fig, self.frame)
