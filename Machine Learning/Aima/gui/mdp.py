@@ -307,7 +307,8 @@ class MDPapp(tk.Tk):
 		gridmdp = build_page.gridmdp
 		terminals = build_page.terminals
 		solve_page = self.get_page(SolveMDP)
-		solve_page.create_graph(gridmdp, terminals)
+		_height = self.shared_data['height']
+		solve_page.create_graph(gridmdp, terminals, _height)
 
 	def show_frame(self, controller, cb=False):
 
@@ -402,9 +403,10 @@ class SolveMDP(tk.Frame):
 		self.frame.pack()
 		self.controller = controller
 
-	def process_data(gridmdp, terminals):
+	def process_data(terminals):
 
-		
+		for (i, j) in terminals:
+
 
 	def create_graph(self, gridmdp, terminals):
 
