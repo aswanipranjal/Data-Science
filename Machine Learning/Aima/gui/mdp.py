@@ -403,7 +403,7 @@ class SolveMDP(tk.Frame):
 		self.frame.pack()
 		self.controller = controller
 
-	def flip_terminals(terminals, _height):
+	def flip_terminals(self, terminals, _height):
 
 		flipped_terminals = []
 		for terminal in terminals:
@@ -415,7 +415,7 @@ class SolveMDP(tk.Frame):
 
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 		self.gridmdp = gridmdp
-		self.terminals = flip_terminals(terminals, _height)
+		self.terminals = self.flip_terminals(terminals, _height)
 		print('create_graph self.gridmdp', self.gridmdp)
 		print('create_graph self.terminals', self.terminals)
 		self.canvas = FigureCanvasTkAgg(fig, self.frame)
