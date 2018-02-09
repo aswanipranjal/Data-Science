@@ -433,6 +433,8 @@ class SolveMDP(tk.Frame):
 
 	def create_graph(self, gridmdp, terminals, _height, _width):
 
+		self._height = _height
+		self._width = _width
 		self.controller.menu_bar.entryconfig('Edit', state=tk.DISABLED)
 		self.terminals, self.gridmdp, self.grid_to_show = self.process_data(terminals, _height, _width, gridmdp)
 		self.sequential_decision_environment = GridMDP(self.gridmdp, terminals=self.terminals)
@@ -460,7 +462,8 @@ class SolveMDP(tk.Frame):
 		for s in self.sequential_decision_environment.states:
 			self.U1[s] = self.R(s) + self.gamma * max([sum([p * U[s1] for (p, s1) in self.T(s, a)]) for a in self.sequential_decision_environment.actions(s)])
 
-		self.grid_to_show = U
+		# recreate self.grid_to_show from U
+		for 
 
 		sub.clear()
 		sub.imshow(self.grid_to_show, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
