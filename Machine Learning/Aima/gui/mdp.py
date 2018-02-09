@@ -402,6 +402,7 @@ class SolveMDP(tk.Frame):
 
 	def create_graph(self, gridmdp):
 
+		self.controller.menu_bar.entryconfig(state=tk.DISABLED)
 		self.gridmdp = gridmdp
 		self.canvas = FigureCanvasTkAgg(fig, self.frame)
 		self.canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=True)
