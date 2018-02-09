@@ -423,7 +423,7 @@ class HomePage(tk.Frame):
 		r_btn = ttk.Button(frame3, text='Rewards', width=20)
 		r_btn.pack(pady=0, padx=0, side=tk.LEFT, ipady=10)
 		r_btn.configure(style='reward.TButton')
-		
+
 		term_p = ttk.Button(frame3, text='Positive terminals', width=20)
 		term_p.pack(pady=0, padx=0, side=tk.LEFT, ipady=10)
 		term_p.configure(style='+term.TButton')
@@ -440,7 +440,7 @@ class HomePage(tk.Frame):
 		label.pack(pady=15, padx=10, side=tk.TOP)
 		entry_h = tk.Entry(frame2, textvariable=self.controller.shared_data['height'], font=('Verdana', 10), width=3, justify=tk.CENTER)
 		entry_h.pack(pady=10, padx=10, side=tk.LEFT)
-		label_x = ttk.Label(frame2, text='X', font=('Verdana', 10))
+		label_x = ttk.Label(frame2, text='X', font=('Verdana', 10), background='#efefef')
 		label_x.pack(pady=10, padx=4, side=tk.LEFT)
 		entry_w = tk.Entry(frame2, textvariable=self.controller.shared_data['width'], font=('Verdana', 10), width=3, justify=tk.CENTER)
 		entry_w.pack(pady=10, padx=10, side=tk.LEFT)
