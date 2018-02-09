@@ -23,6 +23,16 @@ TERM_VALUE = -999999.0
 def animate(i):
 
 	pull_data = open('C:/Users/Aman Deep Singh/Python/Data Science/Data Visualization/GUI/sampledata.txt', 'r').read()
+	data_list = pull_data.split('\n')
+	x_list = []
+	y_list = []
+	for line in data_list:
+		if len(line) > 1:
+			x, y = line.split(',')
+			x_list.append(int(x))
+			y_list.append(int(y))
+
+	
 
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 
