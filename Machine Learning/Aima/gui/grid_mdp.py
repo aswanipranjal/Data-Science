@@ -516,12 +516,12 @@ class SolveMDP(tk.Frame):
 			self.U1[s] = self.R(s) + self.gamma * max([sum([p * U[s1] for (p, s1) in self.T(s, a)]) for a in self.sequential_decision_environment.actions(s)])
 			self.delta = max(self.delta, abs(U1[s] - U[s]))
 
-		if self.delta < self.epsilon * (1 - self.gamma) / self.gamma:
-			pass
-
 		self.grid_to_show = grid_to_show = [[0.0]*max(1, self._width) for _ in range(max(1, self._height))]
 		for k, v in U.items():
 			self.grid_to_show[k[1]][k[0]] = v
+
+		if self.delta < self.epsilon * (1 - self.gamma) / self.gamma and self.terminated = False:
+			display()
 		
 		ax = fig.gca()
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
