@@ -514,7 +514,7 @@ class SolveMDP(tk.Frame):
 
 		for s in self.sequential_decision_environment.states:
 			self.U1[s] = self.R(s) + self.gamma * max([sum([p * U[s1] for (p, s1) in self.T(s, a)]) for a in self.sequential_decision_environment.actions(s)])
-			self.delta = max(self.delta, abs(U1[s] - U[s]))
+			self.delta = max(self.delta, abs(self.U1[s] - U[s]))
 
 		self.grid_to_show = grid_to_show = [[0.0]*max(1, self._width) for _ in range(max(1, self._height))]
 		for k, v in U.items():
