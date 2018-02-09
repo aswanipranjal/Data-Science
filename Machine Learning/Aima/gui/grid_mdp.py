@@ -472,7 +472,7 @@ class SolveMDP(tk.Frame):
 
 	def initialize_value_iteration_parameters(self, mdp):
 
-		self.U1 = {S: 0 for s in mdp.states}
+		self.U1 = {s: 0 for s in mdp.states}
 		self.R, self.T, self.gamma = mdp.R, mdp.T, mdp.gamma
 
 	def value_iteration_metastep(self, mdp, iterations=20):
