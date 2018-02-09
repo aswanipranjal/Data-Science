@@ -321,7 +321,9 @@ class MDPapp(tk.Tk):
 		''' prints current matrix to console '''
 
 		build_page = self.get_page(BuildMDP)
-		print('GridMDP', build_page.gridmdp)
+		_height = self.shared_data['height'].get()
+		_width = self.shared_data['width'].get()
+		display(build_page.gridmdp, _height, _width)
 
 	def view_terminals(self):
 		''' prints current terminals to console '''
