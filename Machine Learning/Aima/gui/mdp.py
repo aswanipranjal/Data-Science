@@ -415,9 +415,12 @@ class SolveMDP(tk.Frame):
 		for i in range(max(1, _height)):
 			for j in range(max(1, _width)):
 				if gridmdp[i][j] == WALL_VALUE:
-					gridmdp[i][j] = None
+					grid_to_show[i][j] = 0.0
+					grid_to_solve[i][j] = None
+				else:
+					grid_to_show[i][j] = grid_to_solve[i][j] = gridmdp[i][j]
 
-		return flipped_terminals, gridmdp
+		return flipped_terminals, grid_to_solve, grid_to_show
 
 	def create_graph(self, gridmdp, terminals, _height, _width):
 
