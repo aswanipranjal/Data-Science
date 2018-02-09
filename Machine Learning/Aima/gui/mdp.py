@@ -9,6 +9,7 @@ import numpy as np
 import matplotlib
 import matplotlib.animation as animation
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+from matplotlib.ticker import MaxNLocator
 from matplotlib.figure import Figure
 from matplotlib import style
 from matplotlib import pyplot as plt
@@ -421,6 +422,8 @@ class SolveMDP(tk.Frame):
 		sub.clear()
 		sub.imshow(self.gridmdp, cmap='bone_r', aspect='auto', interpolation='none', extent=extents(x) + extents(y), origin='lower')
 		fig.tight_layout()
+		ax = fig.gca()
+		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
 
 app = MDPapp()
 app.geometry('1280x720')
