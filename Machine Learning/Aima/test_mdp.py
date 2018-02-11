@@ -1,9 +1,9 @@
 from mdp import *
 
 sequential_decision_environment_1 = GridMDP([[-0.1, -0.1, -0.1, +1],
-                                           [-0.1, None, -0.1, -1],
-                                           [-0.1, -0.1, -0.1, -0.1]],
-                                          terminals=[(3, 2), (3, 1)])
+                                             [-0.1, None, -0.1, -1],
+                                             [-0.1, -0.1, -0.1, -0.1]],
+                                            terminals=[(3, 2), (3, 1)])
 
 def test_value_iteration():
     assert value_iteration(sequential_decision_environment, .01) == {
