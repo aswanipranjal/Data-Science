@@ -42,7 +42,7 @@ def test_value_iteration():
         (2, 0): -5.3099468802901630, (2, 1): -3.3543366255753995,
         (2, 2): -1.7383376462930498}
 
-    assert value_iteration(sequential_decision_environment_3, .01) == 
+    # assert value_iteration(sequential_decision_environment_3, .01) == 
 
 def test_policy_iteration():
     assert policy_iteration(sequential_decision_environment) == {
