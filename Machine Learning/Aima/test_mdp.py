@@ -77,6 +77,7 @@ def test_policy_iteration():
         (3, 0): (-1, 0), (3, 2): None, (3, 3): (1, 0), (3, 4): (1, 0),
         (4, 0): (-1, 0), (4, 3): (1, 0), (4, 4): (1, 0),
         (5, 0): None, (5, 1): (0, 1), (5, 2): (0, 1), (5, 3): (0, 1), (5, 4): (1, 0)}
+        
 
 def test_best_policy():
     pi = best_policy(sequential_decision_environment,
