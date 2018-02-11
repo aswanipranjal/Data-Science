@@ -5,6 +5,11 @@ sequential_decision_environment_1 = GridMDP([[-0.1, -0.1, -0.1, +1],
                                              [-0.1, -0.1, -0.1, -0.1]],
                                             terminals=[(3, 2), (3, 1)])
 
+sequential_decision_environment_2 = GridMDP([[-0.2, -0.2, -0.2, +1],
+                                             [-0.2, None, -0.2, -1],
+                                             [-0.2, -0.2, -0.2, -0.2]],
+                                            terminals=[(3, 2), (3, 1)])
+
 def test_value_iteration():
     assert value_iteration(sequential_decision_environment, .01) == {
         (3, 2): 1.0, (3, 1): -1.0,
