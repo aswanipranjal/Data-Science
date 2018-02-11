@@ -30,6 +30,12 @@ def test_policy_iteration():
         (2, 1): (0, 1), (2, 2): (1, 0), (3, 0): (-1, 0),
         (3, 1): None, (3, 2): None}
 
+    assert policy_iteration(sequential_decision_environment_1) == {
+        (0, 0): (0, 1), (0, 1): (0, 1), (0, 2): (1, 0),
+        (1, 0): (1, 0), (1, 2): (1, 0), (2, 0): (0, 1),
+        (2, 1): (0, 1), (2, 2): (1, 0), (3, 0): (-1, 0),
+        (3, 1): None, (3, 2): None}
+
 
 def test_best_policy():
     pi = best_policy(sequential_decision_environment,
