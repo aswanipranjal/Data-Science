@@ -14,7 +14,8 @@ sequential_decision_environment_3 = GridMDP([[-0.04, -0.04, -0.04, -0.04, -0.04,
                                              [-0.04, None, -1.0, -0.04, -0.04, -0.04, -0.04],
                                              [-0.04, None, None, 4.0, None, None, -0.04],
                                              [-0.04, -0.04, -0.04, -0.04, -1.0, None, -0.04],
-                                             [-1.0, 1.0, -0.04, -0.04, -0.04, -0.04 -0.04]])
+                                             [-1.0, 1.0, -0.04, -0.04, -0.04, -0.04 -0.04]], 
+                                             terminals=[(3, 2), (2, 3), (4, 1), (1, 0), (5, 4)])
 
 def test_value_iteration():
     assert value_iteration(sequential_decision_environment, .01) == {
