@@ -73,7 +73,7 @@ def test_best_policy():
                      value_iteration(sequential_decision_environment_2, .01))
     assert sequential_decision_environment_2.to_arrows(pi_2) == [['>', '>', '>', '.'],
                                                                  ['^', None, '>', '.'],
-                                                                 ['^', '>', '>', '^']]                                                             
+                                                                 ['>', '>', '>', '^']]                                                             
 
 
 def test_transition_model():
