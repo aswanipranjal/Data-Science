@@ -98,9 +98,9 @@ def test_best_policy():
                                                                  ['^', None, '>', '.'],
                                                                  ['>', '>', '>', '^']]
 
-    pi_2 = best_policy(sequential_decision_environment_2,
-                     value_iteration(sequential_decision_environment_2, .01))
-    assert sequential_decision_environment_2.to_arrows(pi_2) == [['>', '>', '>', '.'],
+    pi_3 = best_policy(sequential_decision_environment_3,
+                     value_iteration(sequential_decision_environment_3, .01))
+    assert sequential_decision_environment_3.to_arrows(pi_3) == [['>', '>', '>', '.'],
                                                                  ['^', None, '>', '.'],
                                                                  ['>', '>', '>', '^']]                                                                 
 
