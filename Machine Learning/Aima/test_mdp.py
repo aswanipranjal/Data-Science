@@ -44,6 +44,12 @@ def test_best_policy():
                                                              ['^', None, '^', '.'],
                                                              ['^', '>', '^', '<']]
 
+    pi_1 = best_policy(sequential_decision_environment_1,
+                     value_iteration(sequential_decision_environment_1, .01))
+    assert sequential_decision_environment_1.to_arrows(pi_1) == [['>', '>', '>', '.'],
+                                                             ['^', None, '^', '.'],
+                                                             ['^', '>', '^', '<']]
+
 
 def test_transition_model():
     transition_model = {
