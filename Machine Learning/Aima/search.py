@@ -201,9 +201,9 @@ def graph_search(problem, frontier):
         node = frontier.pop()
         if problem.goal_test(node.state):
             return node
-        explored.add(node.state)
+        explored.add(tuple(node.state))
         frontier.extend(child for child in node.expand(problem)
-                        if child.state not in explored and
+                        if tuple(child.state) not in explored and
                         child not in frontier)
     return None
 
