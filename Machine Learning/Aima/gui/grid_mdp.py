@@ -64,9 +64,19 @@ def display(gridmdp, _height, _width):
 
 	dialog.mainloop()
 
-def display_best_policy(_best_policy):
+def display_best_policy(_best_policy, _height, _width):
 	''' displays best policy '''
-	
+
+	dialog = tk.Toplevel()
+	dialog.wm_title('Best Policy')
+
+	container = tk.Frame(dialog)
+	container.pack(side=tk.TOP, fill=tk.BOTH, expand=True)
+
+	for i in range(max(1, _height)):
+		for j in range(max(1, _width)):
+			label = ttk.Label(container, text=_best_policy[i][j], font=('Helvetica', 12, 'bold'))
+
 
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	''' creates dialogbox for initialization '''
