@@ -615,8 +615,8 @@ class SolveMDP(tk.Frame):
 			self.terminated = True
 			display(self.grid_to_show, self._height, self._width)
 
-			pi = best_policy(self.gridmdp, value_iteration(self.gridmdp, .01))
-			display_best_policy(self.gridmdp.to_arrows(pi))
+			pi = best_policy(self.sequential_decision_environment, value_iteration(self.sequential_decision_environment, .01))
+			display_best_policy(self.sequential_decision_environment.to_arrows(pi))
 		
 		ax = fig.gca()
 		ax.xaxis.set_major_locator(MaxNLocator(integer=True))
