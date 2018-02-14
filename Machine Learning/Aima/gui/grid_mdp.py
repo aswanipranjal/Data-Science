@@ -64,6 +64,10 @@ def display(gridmdp, _height, _width):
 
 	dialog.mainloop()
 
+def display_best_policy(_best_policy):
+	''' displays best policy '''
+	
+
 def initialize_dialogbox(_width, _height, gridmdp, terminals, buttons):
 	''' creates dialogbox for initialization '''
 
