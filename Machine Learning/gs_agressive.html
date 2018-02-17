@@ -1,0 +1,720 @@
+<soc-organizations-list organization-categories="::organizationsList.orgCategories" organizations="organizationsList.orgs"><div class="layout-wrap layout-row" layout="" layout-wrap="">
+	<!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for aimacode" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/6iWHAJ0GSuYnGcD-Uzxj3DX2ai_Hq3GlYGEziwBRSIfkM8MqYfsDsZ6ARvuKCWOszF3rtAXEkbhfAEoOvXDlpRegk4iwoQ=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">aimacode</div>
+				<div class="organization-card__tagline font-black-54">Code for the book "Artificial Intelligence: A Modern Approach"</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><div class="organization-card--detail flex-100 ng-hide" aria-hidden="true" flex="100" ng-show="orgDetail.organization" organization="orgList.selectedOrg">
+	<md-card class="_md md-soc-theme layout-gt-sm-row" layout-gt-sm="row">
+		<div class="md-padding flex-order-gt-sm-2 flex-gt-sm-66" flex-gt-sm="66" flex-order-gt-sm="2">
+			<div class="layout-align-space-between-start layout-row" layout="" layout-align="space-between start">
+				<h2 class="organization-card__title md-display-2"></h2>
+				<button class="organization-card__close-detail md-button md-soc-theme md-ink-ripple" aria-label="Close organization detail" type="button" ng-click="orgList.deselectOrganization()" ng-transclude="">
+					<i class="material-icons">close</i>
+				<div class="md-ripple-container"></div></button>
+			</div>
+			<!---->
+			<p class="organization-card__precis"></p>
+			<div class="layout-align-end-center layout-row" layout="" layout-align="end center">
+				<a class="md-primary md-button md-soc-theme md-ink-ripple" href="/organizations//" ui-sref="base.app.public.organizations.detail({ 'id': orgDetail.organization.id })" ng-transclude=""><span>
+					Learn more
+					</span><!---->
+					<!---->
+				</a>
+			</div>
+		</div>
+		<div class="organization-card__meta md-padding flex-order-gt-sm-1 flex-gt-sm-33" flex-gt-sm="33" flex-order-gt-sm="1">
+			<h3 class="organization-card__tag-title md-body-1">Technologies</h3>
+			<ul class="organization-card__tag-container layout-wrap layout-row" layout="" layout-wrap="">
+				<!---->
+			</ul>
+			<md-divider class="organization__meta-divider md-soc-theme"></md-divider>
+			<h3 class="organization-card__tag-title md-body-1">Topics</h3>
+			<ul class="organization-card__tag-container layout-wrap layout-row" layout="" layout-wrap="">
+				<!---->
+				<!---->
+			</ul>
+		</div>
+	</md-card>
+</div><!----><!----><!----><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Catrobat" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/AbTjPOjC771F5R2LOyxzdnPEy0G1ilJ_c5xoqdEtVRltLwQB2gHc68KG40tY3XrGdk5pDzxv0bJ8gcX0OC932Nhs5KnpNSc=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Catrobat</div>
+				<div class="organization-card__tagline font-black-54">Computational Thinking for all through visual programming on phones</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for CERN-HSF" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/q6OBCzxGyvqIIGkRM9EOg5pQu2hmw4AFL8SZVj4hMGkhnfLkHZoJGVgOYsrT3DWraaDXfkJrlkSHof9rrNsQAdqxX_itjRs=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">CERN-HSF</div>
+				<div class="organization-card__tagline font-black-54">Umbrella organization for Particle (High-energy) Physics-related projects</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for CHAOSS: Community Health Analytics Open Source Software" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(255, 255, 255);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/lmamELvHGQ2r_NKaRQVBhfdbOIFG4Wz2SYKG8zFs_b-PxPNipL3pIo2kfYmJmfgzv7baQEsimX5CiQ1nQe-boMsjtLSkSEQ=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">CHAOSS: Community Health Analytics Open Source Software</div>
+				<div class="organization-card__tagline font-black-54">Advacing open source project health and sustainability</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Classical Language Toolkit" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/CKCUu4iWJwdYiZN3iTns4NDVc-_rPltAk4ktzHQJcmfVsZQRHZRJlhHUlUge-Ahe3O3CrnONguwIEbfsJsTpBy1BzYtqfHU=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Classical Language Toolkit</div>
+				<div class="organization-card__tagline font-black-54">NLP for the Ancient World</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for CLiPS, University of Antwerp" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/D_C7uJjwDFU-9qxb21PF93nKuyl6Sw21r1w_aeFBJgOX6FTyyihB105bu0Mg0GBShTNXW0GDxdnfPTSDI580-HRlzO2EFF96=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">CLiPS, University of Antwerp</div>
+				<div class="organization-card__tagline font-black-54">Computational (Psycho)Linguistics</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for CloudCV" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/8wutKBb4zhfO_f-jQ1Ffbd3ib_pzwurtAtH4M7UInkYXW6Cofn-A4YaHBweI8eRz2zKldohP3ovMsHFwrH6laU0j31icjiDQ=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">CloudCV</div>
+				<div class="organization-card__tagline font-black-54">Building platforms for reproducible AI research</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for coala" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/wDrytfhfMNK4vvg7hIkUMyZRTTPW9y125eE9wusFTC6vNK2yoPVykwOLb5crWKzuP7hgq8JZlIOkiukibGo4lL5B5Me4cK2L=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">coala</div>
+				<div class="organization-card__tagline font-black-54">Linting and Fixing Code for All Languages</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Cuneiform Digital Library Initiative" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(0, 0, 0);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/m7L08sPGT79rfxse_KjjZm2B8kLFVLCmjHwUHT8TNXIqLhCnsrELCaGnAOC-GlR6LrLmzIdVx65Q7TaxeBPC9-wg6_AzpQw=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Cuneiform Digital Library Initiative</div>
+				<div class="organization-card__tagline font-black-54">International digital library of artifacts inscribed with cuneiform writing</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Digital Impact Alliance" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(255, 255, 255);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/Ht37bphpyM-RMzxgJjiQZkakv00CgEizDDjqz3Ws3xfIYxoIQzDdAH477gegRNSpGSQccrow9OdmBZsW_2MZmrM8KGd5-3k=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Digital Impact Alliance</div>
+				<div class="organization-card__tagline font-black-54">Supporting open source projects for a digital society that serves everyone.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Django Software Foundation" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(9, 46, 32);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/VPbYEgPfnoJkCua2Ck09hgQbE36RrtthJmaR7To3W0UepyGwgJ-3xBpsAzi_zZo8aZM8HQPovzaQmX4cf_HxzEihxc8A9F0=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Django Software Foundation</div>
+				<div class="organization-card__tagline font-black-54">The web framework for perfectionists with deadlines.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for FOSSASIA" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/hYP83k9BWNrIyPa0eE-DYgzk0sWBOPa__03xGMUUQM6mj3N2w9zXDnNdOEFJ4SvX56U1LqXRiPga7nU20A_NBxcusVkghzs=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">FOSSASIA</div>
+				<div class="organization-card__tagline font-black-54">Improve People's Lives</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for freifunk" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/F_FWRzu838WIU-EDb-Teq9Y7OxaJSmqqIsl_aWHUQba98QrinymiU6iwPJYKSYcw5ghNPwVN6Ln3jsukc5Cam4gizRflkw=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">freifunk</div>
+				<div class="organization-card__tagline font-black-54">Freifunk is a non-commercial initiative for free and open wireless networks.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Global Alliance for Genomics and Health" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/JhhDbXP-zktUoddrD0VYmLDsrrGv_yslcnG3Q_LyIWjmrRIJdhqOPR98r1_eZts3Lhjc2KD3FtNQGSs7fDo0oAI1rMyypa7t=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Global Alliance for Genomics and Health</div>
+				<div class="organization-card__tagline font-black-54">We develop open standards and tools for genomics to benefit human health.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for INCF" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(255, 255, 255);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/E5iLl4_Tg2i1SSASg9cMB_yY1xwyQN6WfFuAs76mIDKvbk6zathfoH8syV4VYdFc31mS9ys7IsiscRS07M7yWgQ4-185UmU=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">INCF</div>
+				<div class="organization-card__tagline font-black-54">Advancing global collaborative brain research</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Institute for Artificial Intelligence" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/rFm-Vagm1OaUcioy9RHBVq-T3POHZMYL6s8eHeFqzMU91bJ01Cpap5aVE-KdQwaanCZUDma0YmkqHrv77sH_gjxXWn_j0w=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Institute for Artificial Intelligence</div>
+				<div class="organization-card__tagline font-black-54">Research in Artificial Intelligence for Autonomous Mobile Robots</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Internet Archive" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/Adu49H_Uub1z65XykkqzvrSbGVSrzzkkiMhLLnCihSd7a7g4sPYbV3y3nwhzfnRmnWn6ZAQufoOQlpQA4glqL9vp4WIwsUQ=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Internet Archive</div>
+				<div class="organization-card__tagline font-black-54">Universal Access to All Knowledge</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow ng-hide layout-align-center-center layout-row organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for JdeRobot - Universidad Rey Juan Carlos" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/6FSFjgdnmU31E2Ppx2xn8qYaKRFepFD31zJ7sMECmyg4el2CXZHbj-_Yryrz4usHUHCI-yiaUGwe6dRnP9ZBgY3KRqEGHGc=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">JdeRobot - Universidad Rey Juan Carlos</div>
+				<div class="organization-card__tagline font-black-54">A software framework for developing applications in robotics and computer vision</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for JSK Robotics Laboratory / The University of Tokyo" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/XQ7aXaQXcV1MRkaScJhI01B2zK7EnieLq3OK49D5VuhWBKqD5Oq6DQUo-IsphHe-IPWuD37T12x1CeQs76YvWvAC7x3SjTGA=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">JSK Robotics Laboratory / The University of Tokyo</div>
+				<div class="organization-card__tagline font-black-54">JSK is focusing on the fundamental functions &amp; systems for intelligent robots .</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Kiwix" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/VXhrMpNEvBCyUaKuCRtQQngddrYs7RQHgk-dlALxgcn-4tNxSLfAgDlj21YYsT5yUgBYKNVu-ceFgX0HIOkb_WfMyPI6og=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Kiwix</div>
+				<div class="organization-card__tagline font-black-54">Internet content for people without internet access</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for languagetool.org" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(255, 255, 255);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/CPpkJMcdc1eqEOFgZJvynGCeeuhxqv27U_Q7ag1i16Qiy9yqcZ1AM1xOjrKrSHs5YGchUnQm_BRDKhdFJdUTrZlKK39owA=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">languagetool.org</div>
+				<div class="organization-card__tagline font-black-54">Style and grammar checker</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for LEAP Encryption Access Project" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/mFSTc-0kBDxavaRe7oDS5b7Rz8f-b8kleQbgWShrg5F5eta1a0F2FOp3QFKD7DS1KhT7gNO1WkbP5Cr758NtEVYMT4MlJ_jw=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">LEAP Encryption Access Project</div>
+				<div class="organization-card__tagline font-black-54">We make encryption easy to use.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for LibreOffice" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/O95m5reO6o-koX6olazgJEd18frr4_ZCBENbFopAjRKdSUXj3ldlG5OOBnFk5QI-Dzt7_0zFP3Mqx-RUOiwJINig1rn_Vcc=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">LibreOffice</div>
+				<div class="organization-card__tagline font-black-54">LibreOffice is the leading free and open source office suite.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Matrix.org" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(255, 255, 255);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/lj4cCPcRF75WxmtxvnsuTVQ9DqfoGWVHiUuVgV_RIQ11qa4xywfxjEjHxNimWmRkdWYp6HI-CG-kDXcvunZ5ARgRHP1xgg=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Matrix.org</div>
+				<div class="organization-card__tagline font-black-54">An ambitious open ecosystem for decentralised, encrypted communication.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for MetaBrainz Foundation Inc." flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(255, 255, 255);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/xvZY_s1qERltlQwlbBiCkjFwMV-jwDJVT6bEipJsbrl48tJLQG2veTrbMLIwCyvyo930AAoMNyxqXo9YIY_yW9IsQqD0aQ=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">MetaBrainz Foundation Inc.</div>
+				<div class="organization-card__tagline font-black-54">Curating open data sets with open source softer and loads of volunteers.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for mlpack" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/EdpxaoTqWrgWQ0ysJV2uIqqr2A8UVIx_R2baIQtCxo7l_XeZYZyMGb3e8uYHPOon7Y14jHIEDgh7sp76ynHmealKJapKTzw=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">mlpack</div>
+				<div class="organization-card__tagline font-black-54">a scalable C++ machine learning library</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Mobile Robot Programming Toolkit (MRPT)" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/VZgvfqW31Q3EctVEPysaswKWlrZQjWs9Tnmkd8q4B-r5913jplXaw6r58ULBC024nFs0zHBMgIyzTN4rITT_MiQEcwMhga_R=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Mobile Robot Programming Toolkit (MRPT)</div>
+				<div class="organization-card__tagline font-black-54">Empowering C++ development in robotics</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Mozilla" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/DlMf46pIN7yBoNGmGG4z45N1eIf5L7QFDj99V4TgDe2h13S64XM363nYx9Xq59REqQ0fURgzdwng4XP2d6eYx40aVPQb_ZVB=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Mozilla</div>
+				<div class="organization-card__tagline font-black-54">Internet for people, not profit.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for MuseScore" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/NxECs9k5nZwknABQy7m_KkdJADOGaezVMI4_xXTC0Sljdnn4EzFrebqHm6Nu2rH6Rwguws7XkU4VnHP870WTGccvL5Iti2Gg=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">MuseScore</div>
+				<div class="organization-card__tagline font-black-54">Create, play and print beautiful sheet music</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for NumFOCUS" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/HVjtQ2I4zfHth4wsGMFWynoFYktTBGviap7IKNbbXqj_jUjs0xBKayi8mvVv4gYe3g3wstalV3dG2UdmWSbYMOA0uG84uPw=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">NumFOCUS</div>
+				<div class="organization-card__tagline font-black-54">Open Code = Better Science</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for omegaUp.com" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/C-T7W78lGR4ns_hATPKOwIKvp5vCon9icSYHXtqhWCsjpBIpX93nEqeoaLS4H02OcCq4HI0YdsWPPrQY1LegmZiyX4haqQ=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">omegaUp.com</div>
+				<div class="organization-card__tagline font-black-54">omegaUp is aimed to increase the number of talented Software Engineers in LatAm.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Open Bioinformatics Foundation" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/Qb4tmcBsYukuV7FDBE3hYoDRajqiqc5ZqygMFQMF0IRdG84NPpSpo9-BxBC6xkyTLIC_jwuhkd4C-iwJsKqkqT8KCotiCDmK=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Open Bioinformatics Foundation</div>
+				<div class="organization-card__tagline font-black-54">Promoting practice &amp; philosophy of OSS &amp; Open Science in biological research.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Open Chemistry" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/BLtUXRdmCUvAfn4DZDP3jZHPuvH8i7O9PEDViyk5m5j-3MM8he2yhaTtxjEix_DNZ-CBahfLVPUTNr6XfyDONaXXss1WGXo=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Open Chemistry</div>
+				<div class="organization-card__tagline font-black-54">Advancing Open Source and Open Science for Chemistry</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Open Source Robotics Foundation" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/FhUm1cIMJ0mm6xFYTb4QD8b5YdG0Z72w3gqHpTSdqPnbeuoFhwdZJbTQ_yJxS6i4OPXK8azlSf0qyvCg03jdw_PI3AoCfw=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Open Source Robotics Foundation</div>
+				<div class="organization-card__tagline font-black-54">Our mission is to support the development of OSS for use in robotics</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Open States" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/nu51z6QaV-UJxy3KZ4dVR-huhfj0BKkgVn_TX_aK8yKMlavjYw8QZmNuaH0ALkbz0WYqMkdZPo9y_S7kATGU3cNj3EEQlE4=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Open States</div>
+				<div class="organization-card__tagline font-black-54">Open Source State Legislative Data</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for OpenAstronomy" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(255, 255, 255);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/FL30n87tZ0jG3w7DLl5Fa6oG_PhdKCTXub0TS67vZLet7tMaT-yQM6ePapW43UFLs2nDStR0O8L1DqB0Sod05LnXexh0H2M=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">OpenAstronomy</div>
+				<div class="organization-card__tagline font-black-54">Opening the eyes of research astronomy software to the whole world.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for OpenCensus" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/Ot70FKdFxHaTx52DN6eaFkwlI6RRFmFDSvlCWvT_FzTdP9_opOyQ45VpkohODW777o-QnDR-xqSrIo11H_-U2fkIDf4EGFh1=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">OpenCensus</div>
+				<div class="organization-card__tagline font-black-54">Planet Scale Tracing and Monitoring</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for OpenSIPS" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/QYE048vwAoYTtv0gKaCZ1WRYuxM4pSRqL_mCGFWtiYLHoDtYG312Bp5rdQn_XowAImNvXE5pveZj_EQXZL66ukSQKaAcaw=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">OpenSIPS</div>
+				<div class="organization-card__tagline font-black-54">A multi-purpose Open Source SIP proxy/server for carriers, telecoms or ITSPs</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for OpnTec" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/1Wd-4GNFH3Pb4CcwKiwkVdfFIhcwgEO3XN-RieQBVZ9XzkkdVQFsSb8wiu6VDCEJjXWYRB72QR6ZO1ILpW5NQPrqQLmYnw=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">OpnTec</div>
+				<div class="organization-card__tagline font-black-54">Developing Open Event Solutions for Everyone</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Oppia Foundation" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(255, 255, 255);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/uPrh_zcYp8CqY-ZRhss_xilMEfuxv-pHZywKZrdlRR1_3EslMluFLRVKkH1YaBAFCajGlyIYTMrv7XjWPxHFXj12rlAS1fZg=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Oppia Foundation</div>
+				<div class="organization-card__tagline font-black-54">Oppia is used for collaboratively building interactive and intelligent tutors.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for OSGeo" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/YsAUhayPhGjaONNRQxWt33xOrn1gs0GsGBGZ7zeLYlSyQ1c_Xby2cDUtrbD3AxXVRQz11pwnRLVkc_ZEmGUD9ANVKu_aJA=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">OSGeo</div>
+				<div class="organization-card__tagline font-black-54">The Open Source Geospatial Foundation</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for OWASP Foundation" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/P7KtwG37uUNdfdMX-zmU1WQZ-mgcRs--_TP8k1yvwMaMrCEuYfiD1uAxK12OGMO4T11bc5AWtN5sgJFXlfXqFFKMUXPJqSFA=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">OWASP Foundation</div>
+				<div class="organization-card__tagline font-black-54">OWASP, The Open Web Application Security Project.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for P2PSP.org" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(255, 255, 255);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/rDcLY70rmk1P-FDRzlPs1Yin4DJCzHTq3ha6m4xQl9M9t6naboQihRSVfv5_kaU8BEBF5xZmGwzM_SxrYWr5MPfqo7bQR_M=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">P2PSP.org</div>
+				<div class="organization-card__tagline font-black-54">Shaping the future Internet TV</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Performance Co-Pilot" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/gr9udpX4JDUyWK8k4Mk-F0oliRuwpm6dFNLFBskI4tz47SdTk5kwJv1mOoKBrI17dMjKKE2O1cvtldYeiU8lEkAaM97D7kdD=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Performance Co-Pilot</div>
+				<div class="organization-card__tagline font-black-54">Performance Co-Pilot - system-level performance analysis toolkit</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Plone" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(255, 255, 255);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/3IdyHVn0u8cGuTrIafLsiDjDCmlsBXcTI2gws8G2oLBScK5RnQL5mGr7k5FvCeEZrr5dKLXQVmkfZ41S1NtdQvRaVM7ZcKDF=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Plone</div>
+				<div class="organization-card__tagline font-black-54">The premier python-based open source CMS</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Python HYDRA" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(56, 56, 56);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/RuqjlLHTklIpMldCfOra_LeVoWTt6RVZDvjUhej6sDU--t7RAifdqjPLPRX2q91iOL8MFbFauVhW47FALEhTwsp21yzsjIPk=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Python HYDRA</div>
+				<div class="organization-card__tagline font-black-54">Build better Web APIs. Enable smart clients.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Python Software Foundation" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(255, 255, 255);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/2u8NbRuB_HFXdeLllcGRjp2RpviU4GRzu1LjPZhqGC3sSn3R025RyDXB7tIJ5zkXcWn0DDU8wFsQlx_1-qRNiTA4IO4iRW4=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Python Software Foundation</div>
+				<div class="organization-card__tagline font-black-54">Python is a programming language used by software developers and scientists.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Read the Docs" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/pPSHWLXzdnqACLZiVS5EB4Wac5Uj-ogCPe_aLYpWNlUxxTQfHDOrvopK9cnHy5RmpsqGhIqMmSJIlXE3WwPGimcwDG-0Vvg=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Read the Docs</div>
+				<div class="organization-card__tagline font-black-54">Read the Docs hosts documentation for the open source community.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Red Hen Lab" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(255, 255, 255);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/vlmM_3zq2IInjm-ehx2_t3xFaYNAi9Fn7CnAkazxQvvrovmQqqgBiiwXJoKrcXO2fAxJZ87rZkSM6Gbws6gqNf9ax7-cHQM=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Red Hen Lab</div>
+				<div class="organization-card__tagline font-black-54">Research on Multimodal Communication</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for RoboComp" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/mi9Z9-PZ05YOCxJhSZeTWKMhEfwwixIsAY3W_bvMQpAW817z1EMrRhk-nAmffH7SI5TmxpIprMhdkl8L4lKw7WOO9l8iGFKV=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">RoboComp</div>
+				<div class="organization-card__tagline font-black-54">RoboComp is an open-source framework to develop and manage robot components.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Rspamd" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/UQcgP34LnEpw0cKQCW2hyPC9sXq-5zDkbLuj1-VMkCbg9iTT73R584PF9r5HxXN87VRY0vAFo6BrKmiP1ihSVepOPjJPMI1c=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Rspamd</div>
+				<div class="organization-card__tagline font-black-54">An advanced spam filtering system</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Software and Computational Systems Lab at LMU Munich" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/_SmtUTRVnV6LqBmKBQzXeCJFJcco9om-enDey659C1TbneaLHrdBmnPzqjpt7GQsR5aMwXEsAucf4pu01fvxmUznZwwNojI=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Software and Computational Systems Lab at LMU Munich</div>
+				<div class="organization-card__tagline font-black-54">Software Analysis, Software Verification, and Benchmarking</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Stony Brook University Biomedical Informatics" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/yMv_eE5186Q-YHYiaWj0ASR-8HXfYCMGIdZGdSkH35uzjT8ZJDGNUHzPrkI5fdBI5L7gyx3TWbNSClj33JNOH_CM6tq2dA=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Stony Brook University Biomedical Informatics</div>
+				<div class="organization-card__tagline font-black-54">Advance biomedical knowledge through innovative data science research</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Submitty" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/FLRWAXOdIRaYKzSA7YULWdjVDGqdcOC5p4n0XEu2zDyachPeNHrF6Roz_6dCtkSFTnL_7PYtldjFyJJlIM8MHsJ5EgEz9A=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Submitty</div>
+				<div class="organization-card__tagline font-black-54">Programming assignment submission with automated grading and manual TA grading</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for SymPy" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" style="background-color: rgb(255, 255, 255);" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/fTyY5S9LSIajtZ6TKWoLqWZurkLvf-AMYNbk831tYNRQfO_Mlbi9nP7y5KROdD1T9_wsFebiSfVF3FWnQuSxVyQWP_6W6f0=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">SymPy</div>
+				<div class="organization-card__tagline font-black-54">SymPy is a Python library for symbolic mathematics.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for XBMC Foundation" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/aIl6XKpfFObcroDTvToeSNW_AiiyNXJpWGJYm-WDSwAv4SfIe6623Ry8Z3kkjFlJA5GOiaBkfmVZHsAgtl9U2iXEvKtvkQ=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">XBMC Foundation</div>
+				<div class="organization-card__tagline font-black-54">The ultimate entertainment center</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide organization-card__detail-arrow--secondary" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!----><!----><!----><!----><div class="organization-card__container flex-xs-100 flex-sm-50 flex-33" role="button" aria-label="Show details for Zulip" flex="33" ng-repeat="org in orgList.getOrganizations() track by org.id" flex-sm="50" flex-xs="100">
+		<md-card tabindex="0" class="organization-card _md md-soc-theme flex" role="button" flex="" ng-click="orgList.selectOrganization(org, $index, $event)">
+			<org-logo data="org"><div class="org__logo-container" ng-style="{ 'background-color': orgLogo.backgroundColor }">
+	<div class="org__logo" style='background-image: url("//lh3.googleusercontent.com/Am08vt8SXNBprT5_Or4nYAmNyKU9ZaXPOMDrRqK6lOEDWwhnQ01fg2BdQ0hoWgIF0ShsFJ0f3b_KcIRq2uBco28Xlex0Wg=h128");' ng-style="{ 'background-image': orgLogo.backgroundImage }">
+	</div>
+</div></org-logo>
+			<div class="organization-card__footer md-padding">
+				<div class="organization-card__name font-black-54">Zulip</div>
+				<div class="organization-card__tagline font-black-54">Powerful, modern, open source team chat, complete with apps for every platform.</div>
+			</div>
+		</md-card>
+		<div class="organization-card__detail-arrow layout-align-center-center layout-row ng-hide" aria-hidden="true" layout="" layout-align="center center" ng-class="{ 'organization-card__detail-arrow--secondary': orgList.isSecondaryArrow($index) }" ng-show="orgList.isOrgSelectedByIndex($index)"></div>
+	</div><!---->
+</div>
+</soc-organizations-list>
