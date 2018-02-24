@@ -1,4 +1,10 @@
 t = csvRead('sce_data_classification.csv')
-P = t(:, 1:2)';
-T = t(:, 3)';
-plot_2group(P, T);
+
+t0 = t(find(t(:, $)==0), :);
+t1 = t(find(t(:, $)==1), :);
+
+clf(0);
+scf(0);
+
+plot(t0(:, 1), t0(:, 2), 'bo')
+plot(t1(:, 1), t0(:, 2), 'rx')
