@@ -1,0 +1,1050 @@
+From announce-return-168-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org  Tue Jul  5 13:10:27 2016
+Return-Path: <announce-return-168-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id ED88019263
+	for <apmail-httpd-announce-archive@www.apache.org>; Tue,  5 Jul 2016 13:10:27 +0000 (UTC)
+Received: (qmail 87022 invoked by uid 500); 5 Jul 2016 13:09:01 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 84822 invoked by uid 500); 5 Jul 2016 13:08:51 -0000
+Mailing-List: contact announce-help@httpd.apache.org; run by ezmlm
+Precedence: bulk
+list-help: <mailto:announce-help@httpd.apache.org>
+list-unsubscribe: <mailto:announce-unsubscribe@httpd.apache.org>
+List-Post: <mailto:announce@httpd.apache.org>
+List-Id: <announce.httpd.apache.org>
+Delivered-To: mailing list announce@httpd.apache.org
+Delivered-To: moderator for announce@httpd.apache.org
+Received: (qmail 73184 invoked by uid 99); 5 Jul 2016 13:08:12 -0000
+X-Virus-Scanned: Debian amavisd-new at spamd4-us-west.apache.org
+X-Spam-Flag: NO
+X-Spam-Score: -0.001
+X-Spam-Level:
+X-Spam-Status: No, score=-0.001 tagged_above=-999 required=6.31
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, RCVD_IN_DNSWL_NONE=-0.0001,
+	RCVD_IN_MSPIKE_H2=-0.001] autolearn=disabled
+Authentication-Results: spamd4-us-west.apache.org (amavisd-new);
+	dkim=pass (2048-bit key) header.d=comcast.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=comcast.net;
+	s=q20140121; t=1467724082;
+	bh=+4noOLzzrCDUMpdmYJUqt/JMcTXlHPAr2vhKyFryBUY=;
+	h=Received:Received:From:Content-Type:Subject:Message-Id:Date:To:
+	 Mime-Version;
+	b=jlfQ9jFzyv9EP/ioD4B3TgJF7U3S60MygklSXCmpSftTp78gxYY502XgMsV5WAYaK
+	 t9a2O7Hssmbfi5U+rZ8R0hhtFqDyfsbE6xxUvfHvSyHAjJ7XISwxQnvEJ/EhLeN3G7
+	 Ht/mIz9uim8atrnxSaZDyO09t5JoM70aPFBmbTSE9+3bWJDi8M/Apvsj/q+Zu1jHJ1
+	 buxk9iitgmFegKUfSktydc6tFE4y8yObF41n4EAHC2uuURPbtXwWHWRH/nap4sK/aI
+	 FwIMTEbbNyEC0/wEqy0dktUYX2pnakh8DdH+TX34ozKKr9exGAFYwgoGQEvnPAhRJi
+	 FdxJf5QfRfMeg==
+From: Jim Jagielski <jim@apache.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+Subject: [ANNOUNCE] Apache HTTP Server 2.4.23 Released
+Message-Id: <892CD0C4-4FC4-452D-BFF3-4C80B1C81EF0@apache.org>
+Date: Tue, 5 Jul 2016 09:08:01 -0400
+To: announce@httpd.apache.org
+Mime-Version: 1.0 (Mac OS X Mail 9.3 \(3124\))
+X-Mailer: Apple Mail (2.3124)
+
+
+          Apache HTTP Server 2.4.23 Released
+
+The Apache Software Foundation and the Apache HTTP Server Project
+are pleased to announce the release of version 2.4.23 of the Apache
+HTTP Server ("Apache").  This version of Apache is our latest GA
+release of the new generation 2.4.x branch of Apache HTTPD and
+represents fifteen years of innovation by the project, and is
+recommended over all previous releases. This release of Apache is
+principally a feature and bug fix release.
+
+NOTE: Versions 2.4.22 and 2.4.21 were not released.
+
+We consider this release to be the best version of Apache available, and
+encourage users of all prior versions to upgrade.
+
+Apache HTTP Server 2.4.23 is available for download from:
+
+http://httpd.apache.org/download.cgi
+
+Apache 2.4 offers numerous enhancements, improvements, and performance
+boosts over the 2.2 codebase.  For an overview of new features
+introduced since 2.4 please see:
+
+http://httpd.apache.org/docs/trunk/new_features_2_4.html
+
+Of particular note are 2 reverse proxy additions: Support of
+HTTP/2 and dynamic health checks.
+
+Please see the CHANGES_2.4 file, linked from the download page, for a
+full list of changes. A condensed list, CHANGES_2.4.23 includes only
+those changes introduced since the prior 2.4 release.  A summary of all 
+of the security vulnerabilities addressed in this and earlier releases 
+is available:
+
+http://httpd.apache.org/security/vulnerabilities_24.html
+
+This release requires the Apache Portable Runtime (APR) version 1.5.x
+and APR-Util version 1.5.x. The APR libraries must be upgraded for all
+features of httpd to operate correctly.
+
+This release builds on and extends the Apache 2.2 API.  Modules written
+for Apache 2.2 will need to be recompiled in order to run with Apache
+2.4, and require minimal or no source code changes.
+
+http://svn.apache.org/repos/asf/httpd/httpd/trunk/VERSIONING
+
+When upgrading or installing this version of Apache, please bear in mind
+that if you intend to use Apache with one of the threaded MPMs (other
+than the Prefork MPM), you must ensure that any modules you will be
+using (and the libraries they depend on) are thread-safe.
+
+Please note that Apache Web Server Project will only provide maintenance
+releases of the 2.2.x flavor through June of 2017, and will provide some
+security patches beyond this date through at least December of 2017.
+Minimal maintenance patches of 2.2.x are expected throughout this period,
+and users are strongly encouraged to promptly complete their transitions
+to the the 2.4.x flavor of httpd to benefit from a much larger assortment
+of minor security and bug fixes as well as new features.
+
+
+From announce-return-169-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org  Tue Jul  5 15:03:21 2016
+Return-Path: <announce-return-169-apmail-httpd-announce-archive=httpd.apache.org@httpd.apache.org>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id 067501968E
+	for <apmail-httpd-announce-archive@www.apache.org>; Tue,  5 Jul 2016 15:03:21 +0000 (UTC)
+Received: (qmail 91219 invoked by uid 500); 5 Jul 2016 15:02:20 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 91156 invoked by uid 500); 5 Jul 2016 15:02:20 -0000
+Mailing-List: contact announce-help@httpd.apache.org; run by ezmlm
+Precedence: bulk
+list-help: <mailto:announce-help@httpd.apache.org>
+list-unsubscribe: <mailto:announce-unsubscribe@httpd.apache.org>
+List-Post: <mailto:announce@httpd.apache.org>
+List-Id: <announce.httpd.apache.org>
+Delivered-To: mailing list announce@httpd.apache.org
+Delivered-To: moderator for announce@httpd.apache.org
+Received: (qmail 32437 invoked by uid 99); 5 Jul 2016 13:24:45 -0000
+X-Virus-Scanned: Debian amavisd-new at spamd1-us-west.apache.org
+X-Spam-Flag: NO
+X-Spam-Score: 2.967
+X-Spam-Level: **
+X-Spam-Status: No, score=2.967 tagged_above=-999 required=6.31
+	tests=[INVALID_MSGID=1.167, KAM_ASCII_DIVIDERS=0.8,
+	KAM_LAZY_DOMAIN_SECURITY=1] autolearn=disabled
+Date: Tue, 5 Jul 2016 15:24:31 +0200 (CEST)
+From: Dirk-Willem van Gulik <dirkx@apache.org>
+To: announce@httpd.apache.org
+Subject: CVE-2016-4979: HTTPD webserver - X509 Client certificate based authentication can be bypassed when HTTP/2 is used [vs]
+Message-Id: CVE-2016-4979-68283
+Mime-Version: 1.00
+Content-Type: text/plain
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.4.3 (weser.webweaving.org [127.0.0.1]); Tue, 05 Jul 2016 15:24:31 +0200 (CEST)
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+
+          Security Advisory - Apache Software Foundation
+                Apache HTTPD WebServer  / httpd.apache.org
+
+	X509 Client certificate based authentication can
+           be bypassed when HTTP/2 is used
+
+                   CVE-2016-4979 / CVSS 7.5
+
+The Apache HTTPD web server (from 2.4.18-2.4.20) did not validate a X509 
+client certificate correctly when experimental module for the HTTP/2 
+protocol is used to access a resource. 
+
+The net result is that a resource that should require a valid client certificate
+in order to get access can be accessed without that credential.
+
+Background:
+- -----------
+
+Apache can control access to resources based on various things; such as 
+a password, IP address and so on. One of the options, when SSL or TLS is
+used, is gating access based on the client having access to a private-key of 
+a X509 client certificate. These client certificates are typically held on
+a chipcard (e.g. the CAC card in the US, national identity, banking cards
+or, for example, medical-chip cards in Europe). In some cases they
+are 'soft tokens' - i.e. files, often called PKCS#12 files, which are loaded
+into the browser or the 'keychain'.
+
+Gating access based on a client certificate is done by adding a line such as
+
+	SSLVerifyClient require 
+
+to the httpd configuration; along with a list of trusted client certificate
+authorities (SSLCACertificateFile).
+
+Version 2.4.17 of the Apache HTTP Server introduced an experimental feature:
+mod_http2 for the HTTP/2 protocol (RFC7540, previous versions were known as 
+Google SPDY).
+
+This module is NOT compiled in by default -and- is not enabled by default, 
+although some distribution may have chosen to do so.
+
+It is generally needs to be enabled in the 'Protocols' line in httpd by 
+adding 'h2' and/or 'h2c' to the 'http/1.1' only default. 
+
+The default distributions of the Apache Software Foundation do not include 
+this experimental feature. 
+
+Details:
+- --------
+
+- From version 2.4.18, upto and including version 2.4.20 the server failed
+to take the (failed/absent) client certificate validation into account
+when providing access to a resource over HTTP/2. This issue has been fixed 
+in version 2.4.23 (r1750779).
+
+As a result - a resource thought to be secure and requiring a valid
+client certificate - would be accessible without authentication 
+provided that the mod_http2 was loaded, h2 or h2c activated, that
+that the browser used the HTTP/2 protocol and it would do more than
+one request over a given connection.
+
+Impact:
+- -------
+
+A third party can gain access to resources on the web server without
+the requisite credentials.
+
+This can then lead to unauthorised disclosure of information.
+
+Versions affected: 
+- ------------------
+All versions from  2.4.18 to  2.4.20. The issue is fixed in
+version 2.4.23 (released 2015-6-5)
+
+Resolution:
+- -----------
+
+Upgrade to version 2.4.23 or newer.
+
+Mitigations and work arounds:
+- -----------------------------
+
+As a temporary workaround - HTTP/2 can be disabled by changing
+the configuration by removing h2 and h2c from the Protocols
+line(s) in the configuration file. 
+
+The resulting line should read:
+
+		Protocols http/1.1
+
+Credits and timeline
+- --------------------
+
+The flaw was found and reported by Erki Aring <erki@example.ee> 
+from Liewenthal Electronics Ltd on 2016-06-30. The issue was 
+resolved by Stefan Eissing that same day and incorporated in 
+the  release of 5th of July 2015 (thus avoiding a bank holiday).
+ 
+Apache would like to thank all involved for their help with this.
+
+Common Vulnerability Scoring (Version 3) and vector
+- ---------------------------------------------------
+
+CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N/E:F/RL:O/RC:C
+
+CVSS Base Score         7.5
+CVSS Temporal Score     7.0 
+
+1.05 / : 2339 $
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4
+Comment: This message is encrypted and/or signed with PGP (gnu-pg, gpg). Contact dirkx@webweaving.org if you cannot read it.
+
+iEYEARECAAYFAld7tREACgkQ/W+IxiHQpxssBwCg2PU1xiye20scB23ZEAdhuEjA
+JPoAmwUaZFh/tr2tR3opAVnFo+mSgMDi
+=zNG2
+-----END PGP SIGNATURE-----
+
+From AlWvNmYBDQCq7ba9iBgRL2w==_1103299326490_zoG0oL6cEeSQ+tSuUo65hg==@in.constantcontact.com  Tue Jul 19 11:08:11 2016
+Return-Path: <AlWvNmYBDQCq7ba9iBgRL2w==_1103299326490_zoG0oL6cEeSQ+tSuUo65hg==@in.constantcontact.com>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id 3AF8619A72
+	for <apmail-httpd-announce-archive@www.apache.org>; Tue, 19 Jul 2016 11:08:11 +0000 (UTC)
+Received: (qmail 46297 invoked by uid 500); 19 Jul 2016 11:08:11 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 46294 invoked by uid 99); 19 Jul 2016 11:08:11 -0000
+Received: from pnap-us-west-generic-nat.apache.org (HELO spamd4-us-west.apache.org) (209.188.14.142)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Tue, 19 Jul 2016 11:08:11 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by spamd4-us-west.apache.org (ASF Mail Server at spamd4-us-west.apache.org) with ESMTP id 931D0C0958
+	for <announce-archive@httpd.apache.org>; Tue, 19 Jul 2016 11:08:10 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at spamd4-us-west.apache.org
+X-Spam-Flag: NO
+X-Spam-Score: -2.622
+X-Spam-Level:
+X-Spam-Status: No, score=-2.622 tagged_above=-999 required=6.31
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1,
+	HEADER_FROM_DIFFERENT_DOMAINS=0.001, HTML_MESSAGE=2,
+	KAM_INFOUSMEBIZ=0.75, RCVD_IN_DNSWL_NONE=-0.0001,
+	RCVD_IN_IADB_DK=-0.223, RCVD_IN_IADB_LISTED=-0.38,
+	RCVD_IN_IADB_OPTIN=-2.057, RCVD_IN_IADB_RDNS=-0.167,
+	RCVD_IN_IADB_SENDERID=-0.001, RCVD_IN_IADB_SPF=-0.001,
+	RCVD_IN_IADB_VOUCHED=-2.2, RCVD_IN_MSPIKE_H2=-0.001,
+	RP_MATCHES_RCVD=-1.426, SPF_PASS=-0.001, URIBL_GREY=1.084]
+	autolearn=disabled
+Authentication-Results: spamd4-us-west.apache.org (amavisd-new);
+	dkim=pass (1024-bit key) header.d=auth.ccsend.com
+Received: from mx2-lw-us.apache.org ([10.40.0.8])
+	by localhost (spamd4-us-west.apache.org [10.40.0.11]) (amavisd-new, port 10024)
+	with ESMTP id MsDPH4O5fNcV for <announce-archive@httpd.apache.org>;
+	Tue, 19 Jul 2016 11:08:08 +0000 (UTC)
+Received: from ccm181.constantcontact.com (ccm181.constantcontact.com [208.75.123.181])
+	by mx2-lw-us.apache.org (ASF Mail Server at mx2-lw-us.apache.org) with ESMTPS id 273455FACF
+	for <announce-archive@httpd.apache.org>; Tue, 19 Jul 2016 11:08:08 +0000 (UTC)
+Received: from p2-jbsvcs5192.ad.prodcc.net (p2-pen2.ad.prodcc.net [10.252.0.102])
+	by p2-mail216.ccm181.constantcontact.com (Postfix) with ESMTP id 8A192119BEC3
+	for <announce-archive@httpd.apache.org>; Tue, 19 Jul 2016 07:07:16 -0400 (EDT)
+DKIM-Signature: v=1; q=dns/txt; a=rsa-sha256; c=relaxed/relaxed; s=1000073432; d=auth.ccsend.com; h=date:mime-version:subject:X-Feedback-ID:message-id:from:reply-to:list-unsubscribe:to; bh=IWb5fKydhNmszEa1gT002MnNp3k7BnIT3G3Enmx/8IA=; b=CsWo4d+ybxMz3QtWGt09cmE552HKVgNC8CN+zvClEP5F941gjQZTs1+hp3fTCVMhLKkwXJmwHckhePauOsJ7k3GkTwo1+D88+dbSdSK8WjDhP7RJgZaZcLkGG0NG6DUO4PWFBJiorA/0ZL/mge9WShiOV6hqFmttRcsgAL8p0U4=
+Message-ID: <1125327554119.1103299326490.1546345285.0.130705JL.1002@scheduler.constantcontact.com>
+Date: Tue, 19 Jul 2016 07:07:16 -0400 (EDT)
+From: Simpatico Network srl <web.info@simpaticotech.it>
+Reply-To: web.info@simpaticotech.it
+To: announce-archive@httpd.apache.org
+Subject: PC Prfoessional per Scuole e Enti Pubblici da 90 Euro
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_338453373_96484223.1468926436549"
+List-Unsubscribe: http://visitor.constantcontact.com/do?p=un&m=001ppwvHtrFNf1h59YxsVHM6Q%3D%3D&se=001UIvxZCGpjWvM4PB5bakA0g%3D%3D&t=001EkZLEx15CcE%3D&llr=9qmh7qdab
+X-Campaign-Activity-ID: 956bcd99-8043-402a-bb6d-af6206044bdb
+X-Channel-ID: ce81b4a0-be9c-11e4-90fa-d4ae528eb986
+X-Mailer: Roving Constant Contact 2012 (http://www.constantcontact.com)
+X-Return-Path-Hint: AlWvNmYBDQCq7ba9iBgRL2w==_1103299326490_zoG0oL6cEeSQ+tSuUo65hg==@in.constantcontact.com
+X-Roving-Campaignid: 1125327554119
+X-Roving-Id: 1103299326490.1546345285
+X-Feedback-ID: ce81b4a0-be9c-11e4-90fa-d4ae528eb986:956bcd99-8043-402a-bb6d-af6206044bdb:1103299326490:CTCT
+X-CTCT-ID: cd9eceb0-be9c-11e4-8f99-d4ae528eb986
+
+------=_Part_338453373_96484223.1468926436549
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Non vedi il contenuto di questa Email?
+Clicca Qu=C3=AC
+http://campaign.r20.constantcontact.com/render?m=3D1103299326490&ca=3D956bc=
+d99-8043-402a-bb6d-af6206044bdb
+Greetings!
+
+
+Questa mail =C3=A8 stata inviata a announce-archive@httpd.apache.org,
+da parte di web.info@simpaticotech.it
+
+Aggiorna profilo/indirizzo e-mail
+http://visitor.constantcontact.com/do?p=3Doo&m=3D001ppwvHtrFNf1h59YxsVHM6Q%=
+3D%3D&ch=3Dce81b4a0-be9c-11e4-90fa-d4ae528eb986&ca=3D956bcd99-8043-402a-bb6=
+d-af6206044bdb
+
+
+Rimozione istantanea con SafeUnsubscribe(TM)
+http://visitor.constantcontact.com/do?p=3Dun&m=3D001ppwvHtrFNf1h59YxsVHM6Q%=
+3D%3D&ch=3Dce81b4a0-be9c-11e4-90fa-d4ae528eb986&ca=3D956bcd99-8043-402a-bb6=
+d-af6206044bdb
+
+
+Informativa sulla privacy:
+http://ui.constantcontact.com/roving/it/CCPrivacyPolicy.jsp
+
+
+
+
+
+Online Marketing by
+Constant Contact(R)
+www.constantcontact.com
+
+
+
+Simpatico Network srl | Via Volta 7 | BUCCINASCO | 20090 | Italy
+
+
+
+
+
+
+
+
+
+------=_Part_338453373_96484223.1468926436549
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<head >
+<STYLE>
+ .headerTop { background-color:#FFCC66; border-top:0px solid #000000; borde=
+r-bottom:1px solid #FFFFFF; text-align:center; }
+ .adminText { font-size:10px; color:#996600; line-height:200%; font-family:=
+verdana; text-decoration:none; }
+ .headerBar { background-color:#FFFFFF; border-top:0px solid #333333; borde=
+r-bottom:10px solid #FFFFFF; }
+ .title { font-size:20px; font-weight:bold; color:#CC6600; font-family:aria=
+l; line-height:110%; }
+ .subTitle { font-size:11px; font-weight:normal; color:#666666; font-style:=
+italic; font-family:arial; }
+ td { font-size:12px; color:#000000; line-height:150%; font-family:trebuche=
+t ms; }
+ .sideColumn { background-color:#FFFFFF; border-left:1px dashed #CCCCCC; te=
+xt-align:left; }
+ .sideColumnText { font-size:11px; font-weight:normal; color:#999999; font-=
+family:arial; line-height:150%; }
+ .sideColumnTitle { font-size:15px; font-weight:bold; color:#333333; font-f=
+amily:arial; line-height:150%; }
+ .footerRow { background-color:#FFFFCC; border-top:9px solid #FFFFFF; }
+ .footerText { font-size:10px; color:#996600; line-height:100%; font-family=
+:verdana; }
+ a { color:#FF6600; color:#FF6600; color:#FF6600; }
+</STYLE>
+
+
+
+<title></title>
+
+
+
+</head><body leftmargin=3D"0" marginheight=3D"0" marginwidth=3D"0" offset=
+=3D"0" topmargin=3D"0" ><center><table bgcolor=3D"#ffffff" id=3D"VWPLINK" w=
+idth=3D"595"><tr><td style=3D"font-size: 8pt; font-family: Verdana, Arial, =
+Helvetica, sans-serif; color: #000000;" width=3D"100%">Non vedi il contenut=
+o di questa Email?
+<a href=3D"http://campaign.r20.constantcontact.com/render?m=3D1103299326490=
+&ca=3D956bcd99-8043-402a-bb6d-af6206044bdb" track=3D"off">Clicca Qu=C3=AC
+</a></td></tr></table></center><img alt=3D" " height=3D"1" src=3D"http://r2=
+0.rs6.net/on.jsp?a=3D1103299326490&r=3D3&c=3Dcd9eceb0-be9c-11e4-8f99-d4ae52=
+8eb986&d=3D1125327554119&ch=3Dce81b4a0-be9c-11e4-90fa-d4ae528eb986&ca=3D956=
+bcd99-8043-402a-bb6d-af6206044bdb&o=3Dhttps://imgssl.constantcontact.com/ui=
+/images1/s.gif" width=3D"1"/>
+
+
+
+<table width=3D"102%" cellpadding=3D"10" cellspacing=3D"0" bgcolor=3D'#5337=
+11' height=3D"250" >
+<tr>
+<td valign=3D"top" align=3D"center" height=3D"230">
+
+<table cellpadding=3D"20" cellspacing=3D"0" bgcolor=3D"#FFFFFF" width=3D"10=
+84" height=3D"1603">
+<tr>
+=09<td width=3D"1042" height=3D"129">
+      <div align=3D"center">
+        <center>
+        <table border=3D"0" cellpadding=3D"0">
+          <tr>
+            <td><a alt=3D"http://bit.ly/Syjfwl" href=3D"http://r20.rs6.net/=
+tn.jsp?f=3D001gkdmEWbk2jV14HWdK4q1O4oadrPdOSmtPTSOuoYh9_RYk6bBQPQ5p_3Td7uZ_=
+KqgxMMLZO11wFbfq9Lybwv4ILVhyx_9eMtTvbqEVzASA0yIJuOLfelCvVkp_qc9s_RivTU1D6Wb=
+5YCDYevWG_6-oBjyUxeiOcWq3b-KfrpmpeM=3D&c=3DfAV0V9k_UCnWdfyPeuYF0I4dwZfUNsuJ=
+2VfTn8NIBGwTbzIC0J81oQ=3D=3D&ch=3D_IKm66fa7XllmiTD2_02ikjY881c09HXHEjFzal-x=
+-MubwYCQiwLTw=3D=3D"><map name=3D"FPMap0">
+              <area href=3D"http://on.fb.me/V82GWv" shape=3D"rect" coords=
+=3D"613, 0, 651, 41">
+              <area href=3D"http://bit.ly/iFcMxX" shape=3D"rect" coords=3D"=
+659, 4, 690, 38">
+              <area href=3D"http://bit.ly/Syjfwl" shape=3D"rect" coords=3D"=
+395, 49, 536, 85">
+              <area href=3D"http://bit.ly/Syjfwl" shape=3D"rect" coords=3D"=
+10, 3, 379, 84"></map><img src=3D"http://www.simpaticotech.it/img/logomail.=
+jpg" alt=3D"SimpaticoTech" BORDER=3D0 usemap=3D"#FPMap0" width=3D"750" heig=
+ht=3D"112" /></a></td>
+            <td>
+      <a alt=3D"http://bit.ly/UvNQg9" href=3D"http://r20.rs6.net/tn.jsp?f=
+=3D001gkdmEWbk2jV14HWdK4q1O4oadrPdOSmtPTSOuoYh9_RYk6bBQPQ5p_3Td7uZ_KqgE-R13=
+TV44qYHje1UlFzsRPR4eYowNAAG_rrXkyboElNy7XmB7B_p88fMKf6Bcn-rfIc27V5x7Igwv8z2=
+vw1Z66w31rW_o4jggRoxowVoOo8=3D&c=3DfAV0V9k_UCnWdfyPeuYF0I4dwZfUNsuJ2VfTn8NI=
+BGwTbzIC0J81oQ=3D=3D&ch=3D_IKm66fa7XllmiTD2_02ikjY881c09HXHEjFzal-x-MubwYCQ=
+iwLTw=3D=3D" target=3D"_blank"><img src=3D"http://bit.ly/1dzAp9f" alt=3D"Si=
+mpaticoTech con Microsoft" border=3D"0" width=3D"150" height=3D"85"></a>
+            </td>
+          </tr>
+        </table>
+        </center>
+      </div>
+    </td>
+</tr>
+<tr>
+=09<td height=3D"56" align=3D"center" bgcolor=3D"#ECECFF" width=3D"1042">
+      <h3><font size=3D"4"><strong><font color=3D"#FF0000">Tantissimi Comun=
+i e enti pubblici hanno scelto di usare PC Ricondizionati per contenere i c=
+osti senza rinunciare alle prestazioni</font></strong></font></h3>
+      <h3><font size=3D"4"><strong><font color=3D"#FF0000">PC PRONTI PER LA=
+ PUBBLICA         AMMINISTRAZIONE&nbsp;&nbsp;GARANZIA 1 ANNO<br>
+      </font></strong>Potenti ed         economici, con Windows 7 o 10 Prof=
+essional installato e pronto all'uso&nbsp; a         partire da <font color=
+=3D"#008000">90,00 Euro</font></font></h3>
+      <h3><font color=3D"#008000" face=3D"Tw Cen MT" size=3D"5">&nbsp;Tutti=
+ i nostri PC </font><font color=3D"#FF0000" face=3D"Tw Cen MT" size=3D"5">s=
+ono dotati di Antivirus  gi&agrave; installato e con           codice di at=
+tivazione per 1 Anno e software per Backup e Recovery Acronis True Image a =
+titolo gratuito</font><font color=3D"#008000" face=3D"Tw Cen MT" size=3D"5"=
+><a alt=3D"http://www.simpaticotech.it/windows10.php" href=3D"http://r20.rs=
+6.net/tn.jsp?f=3D001gkdmEWbk2jV14HWdK4q1O4oadrPdOSmtPTSOuoYh9_RYk6bBQPQ5pyp=
+1pWxcvscapGQlMeQRWeptRotYkxRA9Y70NNpKF9SGU-DsP9mlbrjt45rUbK8kZKV4p_8g3Qw2HV=
+zZpNMAPSEhPKWm5NZc3vKdqWJbFqx7rbn0-d__n9SulOmMBNfWMvGWITm8SkSz&c=3DfAV0V9k_=
+UCnWdfyPeuYF0I4dwZfUNsuJ2VfTn8NIBGwTbzIC0J81oQ=3D=3D&ch=3D_IKm66fa7XllmiTD2=
+_02ikjY881c09HXHEjFzal-x-MubwYCQiwLTw=3D=3D"><br>
+      </a></font></h3>
+    </td>
+</tr>
+<tr>
+=09<td height=3D"120" align=3D"center" width=3D"1042">
+      <div align=3D"center">
+        <center>
+        <table border=3D"0" cellpadding=3D"2">
+          <tr>
+            <td><a alt=3D"http://www.simpaticotech.it/" href=3D"http://r20.=
+rs6.net/tn.jsp?f=3D001gkdmEWbk2jV14HWdK4q1O4oadrPdOSmtPTSOuoYh9_RYk6bBQPQ5p=
+2lfijWWcDNBO8MbKfpB9-DYNttB7rLA8OiQ8IvdB70O63CYh9oX-WyLQLOYr7_bR8tNV6weO5fx=
+E_04r3yyDcU5osKgB4xRAMZ-fU43sk-vgZkDe-_vjvxkRdT3Z911DQ=3D=3D&c=3DfAV0V9k_UC=
+nWdfyPeuYF0I4dwZfUNsuJ2VfTn8NIBGwTbzIC0J81oQ=3D=3D&ch=3D_IKm66fa7XllmiTD2_0=
+2ikjY881c09HXHEjFzal-x-MubwYCQiwLTw=3D=3D"><img border=3D"0" src=3D"http://=
+www.simpaticotech.it/load/bigimage/win10.jpg" ></a></td>
+          </tr>
+        </table>
+        </center>
+      </div>
+    </td>
+</tr>
+<tr>
+=09<td height=3D"28" align=3D"center" bgcolor=3D"#ECECFF" width=3D"1042"><h=
+3 align=3D"left"><font size=3D"3" color=3D"#FF0000">Visita il nostro catalo=
+go         completo sul portale MEPA nome azienda: &quot;Simpatico Network =
+srl&quot;         PIVA 13221010153</font></h3>
+      <h3 align=3D"left"><font color=3D"#008000" size=3D"4" face=3D"Tw Cen =
+MT">Disponibili       anche altri prodotti e offerte personalizzate PC Core=
+ i5 - Notebook Core i5 - Tablet e tanto altro</font></h3>
+      <h3 align=3D"left"><u><i><font size=3D"3">I prezzi non comprendono: M=
+onitor,Tastiera e Mouse       e IVA</font></i></u>       </h3>     =20
+      <h3 align=3D"left"><font size=3D"4" face=3D"Tw Cen MT"><i>Scrivi a qu=
+esta e-mail lasciando i vostri       recapiti e sarete contattati da un nos=
+tro esperto per fare un'offerta       personalizzata. email: <a href=3D"mai=
+lto:scuola@simpaticotech.it">servizioclienti@simpaticotech.it</a>       Tel=
+.&nbsp; 895-5698707 9:00-13:00 e 14:00-18:00</i></font></h3></td>
+</tr>
+
+
+<tr>
+=09<td height=3D"28" align=3D"center" bgcolor=3D"#FFFFFF" width=3D"1042"><h=
+3>Tutti i nostri PC con il 7 sono pronti per passare a Windows 10 gratis!</=
+h3>
+      <p><font size=3D"3">Grazie
+      all'accordo con Microsoft la nostra azienda =C3=A8 unica in Italia a =
+diventare
+      &quot;Microsoft Authorized Refurbisher&quot; questo significa che pos=
+siamo
+      rivendere dei computer usati e ricondizionati installando nuovi siste=
+mi
+      operativi Windows 7 oppure 10 con licenza d'uso originale e immagine =
+sul
+      hard disk come se fosse un PC nuovo. Inoltre avrete Acronis a titolo =
+gratuito</font>
+      </p>
+      <p><span itemprop=3D"description"><strong><font size=3D"3"><a alt=3D"=
+http://bit.ly/UvNQg9" href=3D"http://r20.rs6.net/tn.jsp?f=3D001gkdmEWbk2jV1=
+4HWdK4q1O4oadrPdOSmtPTSOuoYh9_RYk6bBQPQ5p_3Td7uZ_KqgE-R13TV44qYHje1UlFzsRPR=
+4eYowNAAG_rrXkyboElNy7XmB7B_p88fMKf6Bcn-rfIc27V5x7Igwv8z2vw1Z66w31rW_o4jggR=
+oxowVoOo8=3D&c=3DfAV0V9k_UCnWdfyPeuYF0I4dwZfUNsuJ2VfTn8NIBGwTbzIC0J81oQ=3D=
+=3D&ch=3D_IKm66fa7XllmiTD2_02ikjY881c09HXHEjFzal-x-MubwYCQiwLTw=3D=3D"><img=
+ title=3D"Microsoft Authorized refurbisher" src=3D"http://www.simpaticotech=
+.it/microsoft/logo_scheda_10.jpg" alt=3D"Microsoft Authorized refurbisher">=
+</a></font></strong>
+            </span>
+      </p>
+      <p><font size=3D"3">Se state ancora usando dei computer con Windows X=
+P
+      questo comporta un grosso rischio per la vostra struttura perch=C3=A8=
+ dal 8 aprile 2014 il supporto tecnico per
+    Windows&nbsp;XP non =C3=A8 pi=C3=B9 disponibile, inclusi gli aggiorname=
+nti
+    automatici per la sicurezza che ti aiutano a proteggere il tuo PC. Inol=
+tre, poich=C3=A9 il
+    numero di produttori hardware e software che continuano a ottimizzare l=
+e
+    loro soluzioni per le versioni pi=C3=B9 recenti di Windows =C3=A8 in co=
+stante
+    aumento, sempre pi=C3=B9 app e dispositivi non funzioneranno con Window=
+s&nbsp;XP.</font></p>
+    </td>
+</tr>
+
+
+<tr>
+=09<td height=3D"28" align=3D"center" bgcolor=3D"#ECECFF" width=3D"1042">
+      <h1><b>SIAMO PRESENTI SUL MEPA E EMETTIAMO FATTURA ELETTRONICA</b></h=
+1>
+    </td>
+</tr>
+
+
+<tr>
+<td style=3D"background-color: #FFFFCC; border-top: 10px solid #FFFFFF" val=
+ign=3D"top" height=3D"503" width=3D"1042">
+
+=09=09<p align=3D"center">"tutti i loghi e i marchi sono propriet&agrave; d=
+elle relative case produttrici"<br />
+        =C2=A9 Copyright 2000-2016 SIMPATICOTECH.IT, All rights reserved</p=
+> =20
+        <p align=3D"center"><font style=3D"font-size: 8pt; color: #808080; =
+font-family: Verdana; text-decoration: none">Ricevi
+        questa email perch=C3=A8 il tuo indirizzo email risulta iscritto al=
+la nostra
+        mailing list. Se cos=C3=AC non fosse ci scusiamo!</font>
+        <p align=3D"center"><font size=3D"3"><b>Noi rispettiamo la tua priv=
+acy, per
+        non ricevere pi=C3=B9 le nostre email clicca sotto&nbsp;</b></font>
+        <p><!-- area unsub --><FONT=20
+style=3D"FONT-SIZE: 7pt; COLOR: #808080; FONT-FAMILY: Verdana; TEXT-DECORAT=
+ION: none">La  =20
+presente newsletter =C3=A8 da considerarsi una comunicazione commerciale. A=
+i sensi  =20
+dell'art. 13 del Decreto legislativo 30 giugno 2003, n. 196 (Codice della  =
+=20
+Privacy) La informiamo che i Suoi dati personali sono utilizzati da Simpati=
+co =20
+  Network srl  =20
+per finalita' promozionali e pubblicitarie e, in particolare, per l'invio d=
+ella  =20
+nostra newsletter. Il conferimento dei Suoi dati personali, per le indicate
+        finalita', =C3=A8 una Sua facolta', ma ha il diritto di opporSi all=
+a prosecuzione del  =20
+trattamento in qualsiasi momento, provvedendo alla cancellazione dei dati d=
+a Lei  =20
+forniti. Lei =C3=A8 titolare dei diritti di cui all'art. 7 del Codice della=
+ Privacy.  =20
+Il trattamento si svolge, con l'ausilio di mezzi elettronici, nel rispetto =
+delle  =20
+modalita' che il Codice della Privacy pone a Sua garanzia e, in generale,  =
+=20
+tutelando i Suoi diritti, liberta' fondamentali e dignita', con particolare=
+  =20
+riferimento alla riservatezza e all'identita' personale. Il trattamento si =
+ =20
+svolgera' per il periodo da Te consentito e cessera' a seguito  =20
+dell'intervenuta cancellazione dei Suoi dati personali, a Te i consentita i=
+n  =20
+qualsiasi momento. I dati personali da Te forniti non sono comunicati a sog=
+getti  =20
+terzi. Simpatico Network srl ha adottato le misure di sicurezza per il trat=
+tamento dei Suoi  =20
+dati personali previste dagli artt. 33 ss. del Codice della Privacy e dal  =
+=20
+Disciplinare Tecnico di cui All'allegato B) del medesimo. Simpatico Network=
+ srl si impegna,
+        altresi', ad adeguare le suddette misure in modo conforme a quanto =
+stabilito  =20
+dalle successive modifiche legislative, nonch=C3=A9 in relazione all'evoluz=
+ione  =20
+tecnica del settore e all'esperienza maturata. Simpatico Network srl, con s=
+ede  =20
+operativa in Buccinasco (MI), Via Enrico Fermi 10/6 =C3=A8 la titolare del =
+trattamento , e a  =20
+lei competono le decisioni in ordine alle finalita' ed alle modalita' del  =
+=20
+trattamento dei dati personali.</FONT> =20
+
+</td>
+</tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+<br />
+<table bgcolor=3D"#ffffff" padding=3D"0" width=3D"100%" ><tr align=3D"cente=
+r" ><td ><table bgcolor=3D"#ffffff" id=3D"footerContainer" width=3D"595" ><=
+tr ><td ><FooterContent ><a href=3D"http://visitor.constantcontact.com/do?p=
+=3Dun&m=3D001ppwvHtrFNf1h59YxsVHM6Q%3D%3D&ch=3Dce81b4a0-be9c-11e4-90fa-d4ae=
+528eb986&ca=3D956bcd99-8043-402a-bb6d-af6206044bdb" target=3D"_blank"><img =
+border=3D"0" src=3D"http://img.constantcontact.com/letters/images/SafeUnsub=
+scribe_Footer_Logo_New.png"/></a><br /></FooterContent></td><td align=3D"ri=
+ght" ><font face=3D"tahoma,sans-serif" size=3D"1" ><FooterLogo ><a href=3D"=
+http://www.constantcontact.com/index.jsp?cc=3Dcustom01"><img border=3D"0" s=
+rc=3D"http://img.constantcontact.com/letters/images/CC_Footer_Logo_New.png"=
+/></a></FooterLogo></font>
+</td>
+</tr><tr ><td colspan=3D"2" ><font face=3D"tahoma,sans-serif" size=3D"1" ><=
+FooterContent ><div >Questa mail &#232; stata inviata a announce-archive@ht=
+tpd.apache.org, da parte di <a href=3D"mailto:web.info@simpaticotech.it" st=
+yle=3D"color:#0000ff;">web.info@simpaticotech.it</a> <span style=3D"color: =
+#bababa;" > | </span> &nbsp;  </div>
+<div ><a href=3D"http://visitor.constantcontact.com/do?p=3Doo&m=3D001ppwvHt=
+rFNf1h59YxsVHM6Q%3D%3D&ch=3Dce81b4a0-be9c-11e4-90fa-d4ae528eb986&ca=3D956bc=
+d99-8043-402a-bb6d-af6206044bdb" style=3D"color:#0000ff;" target=3D"_blank"=
+>Aggiorna profilo/indirizzo e-mail</a> <span style=3D"color: #bababa;" >|</=
+span> Rimozione istantanea con <a href=3D"http://visitor.constantcontact.co=
+m/do?p=3Dun&m=3D001ppwvHtrFNf1h59YxsVHM6Q%3D%3D&ch=3Dce81b4a0-be9c-11e4-90f=
+a-d4ae528eb986&ca=3D956bcd99-8043-402a-bb6d-af6206044bdb" style=3D"color:#0=
+000ff;" target=3D"_blank">SafeUnsubscribe</a>&trade;  <span style=3D"color:=
+ #bababa;" >|</span>  <a href=3D"http://ui.constantcontact.com/roving/it/CC=
+PrivacyPolicy.jsp" style=3D"color:#0000ff;" target=3D"_blank">Informativa s=
+ulla privacy</a>.</div></FooterContent></font>
+</td>
+</tr>
+<tr ><td colspan=3D"2" ><font face=3D"tahoma,sans-serif" size=3D"1" ><br />=
+Simpatico Network srl | Via Volta 7 | BUCCINASCO | 20090 | Italy</font>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br />
+</body>
+
+
+
+
+------=_Part_338453373_96484223.1468926436549--
+
+From mahibestseoservices@outlook.com  Thu Jul 21 13:11:39 2016
+Return-Path: <mahibestseoservices@outlook.com>
+X-Original-To: apmail-httpd-announce-archive@www.apache.org
+Delivered-To: apmail-httpd-announce-archive@www.apache.org
+Received: from mail.apache.org (hermes.apache.org [140.211.11.3])
+	by minotaur.apache.org (Postfix) with SMTP id A5EC7192A9
+	for <apmail-httpd-announce-archive@www.apache.org>; Thu, 21 Jul 2016 13:11:39 +0000 (UTC)
+Received: (qmail 18220 invoked by uid 500); 21 Jul 2016 13:11:39 -0000
+Delivered-To: apmail-httpd-announce-archive@httpd.apache.org
+Received: (qmail 18217 invoked by uid 99); 21 Jul 2016 13:11:39 -0000
+Received: from pnap-us-west-generic-nat.apache.org (HELO spamd3-us-west.apache.org) (209.188.14.142)
+    by apache.org (qpsmtpd/0.29) with ESMTP; Thu, 21 Jul 2016 13:11:39 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by spamd3-us-west.apache.org (ASF Mail Server at spamd3-us-west.apache.org) with ESMTP id 3B3621889EC
+	for <announce-archive@httpd.apache.org>; Thu, 21 Jul 2016 13:11:39 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at spamd3-us-west.apache.org
+X-Spam-Flag: NO
+X-Spam-Score: 3.029
+X-Spam-Level: ***
+X-Spam-Status: No, score=3.029 tagged_above=-999 required=6.31
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+	HTML_MESSAGE=2, KAM_ADVERT2=0.55, LOW_PRICE=0.6,
+	RCVD_IN_DNSWL_NONE=-0.0001, RCVD_IN_MSPIKE_H3=-0.01,
+	RCVD_IN_MSPIKE_WL=-0.01, SPF_PASS=-0.001] autolearn=disabled
+Authentication-Results: spamd3-us-west.apache.org (amavisd-new);
+	dkim=pass (2048-bit key) header.d=outlook.com
+Received: from mx1-lw-us.apache.org ([10.40.0.8])
+	by localhost (spamd3-us-west.apache.org [10.40.0.10]) (amavisd-new, port 10024)
+	with ESMTP id zMMJaHVHHKwI for <announce-archive@httpd.apache.org>;
+	Thu, 21 Jul 2016 13:11:37 +0000 (UTC)
+Received: from SNT004-OMC3S50.hotmail.com (snt004-omc3s50.hotmail.com [65.54.51.87])
+	by mx1-lw-us.apache.org (ASF Mail Server at mx1-lw-us.apache.org) with ESMTPS id 4D7CD5F485
+	for <announce-archive@httpd.apache.org>; Thu, 21 Jul 2016 13:11:36 +0000 (UTC)
+Received: from IND01-MA1-obe.outbound.protection.outlook.com ([65.55.90.137]) by SNT004-OMC3S50.hotmail.com over TLS secured channel with Microsoft SMTPSVC(7.5.7601.23008);
+	 Thu, 21 Jul 2016 06:11:29 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version;
+ bh=yF03y4xveTvcu3d5mk3rcsuRUd1rBGmJXK/8lNC+ABk=;
+ b=Wyh7T4nfyS+PvzUcWWIu98tjQIFcAUMtAx2aJTKJoW5EpWZw/joJf94EpbF89LrxlJTRc6yOH1WakTZw7Wk+siT2FeI1rAlyrrisfR02ZZMJEu9/xOk7bbqaD6xGIQ+jMQy3B2jk3Wz8vAwFsMoZGNKiOloAZEUcpbVmrBk0pefIUsbqHWIKXBIsT4iKLf9BmFbS+fNeqdcQotaJonVuiaMubFtklP7Yqg0qO+OfcKXRB+AsMOwLJqG4NLu9Pg6nWHN0yIvyMyPKg/TZHS1vwZ0daU3qfYMp253i5oyAqXNNGHfE0FLX/H7TTpCZIcGP2ofFJfgfN7X+n3Kxz0PTYw==
+Received: from MA1IND01FT005.eop-IND01.prod.protection.outlook.com
+ (10.152.200.51) by MA1IND01HT005.eop-IND01.prod.protection.outlook.com
+ (10.152.200.107) with Microsoft SMTP Server (TLS) id 15.1.539.16; Thu, 21 Jul
+ 2016 13:10:52 +0000
+Received: from MA1PR01MB0358.INDPRD01.PROD.OUTLOOK.COM (10.152.200.59) by
+ MA1IND01FT005.mail.protection.outlook.com (10.152.200.143) with Microsoft
+ SMTP Server (TLS) id 15.1.539.16 via Frontend Transport; Thu, 21 Jul 2016
+ 13:10:42 +0000
+Received: from MA1PR01MB0358.INDPRD01.PROD.OUTLOOK.COM ([10.164.120.146]) by
+ MA1PR01MB0358.INDPRD01.PROD.OUTLOOK.COM ([10.164.120.146]) with mapi id
+ 15.01.0544.014; Thu, 21 Jul 2016 13:10:39 +0000
+From: Abhinav Kumar Singh <mahibestseoservices@outlook.com>
+To: "dharmendra@allininfosystems.com" <dharmendra@allininfosystems.com>
+Subject: Web Designing Services at Lowest Prices!!
+Thread-Topic: Web Designing Services at Lowest Prices!!
+Thread-Index: AQHR41FCwkF3NC26wkSVLcBw1DGtJA==
+Date: Thu, 21 Jul 2016 13:10:39 +0000
+Message-ID: <MA1PR01MB0358399730CE567D48579755A6090@MA1PR01MB0358.INDPRD01.PROD.OUTLOOK.COM>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: spf=softfail (sender IP is 10.152.200.59)
+ smtp.mailfrom=outlook.com; allininfosystems.com; dkim=none (message not
+ signed) header.d=none;allininfosystems.com; dmarc=fail action=none
+ header.from=outlook.com;
+received-spf: SoftFail (protection.outlook.com: domain of transitioning
+ outlook.com discourages use of 10.152.200.59 as permitted sender)
+x-tmn: [iEjQr/ItT7ZO/AG01qx9dOxKZdRUydFj]
+x-eopattributedmessage: 0
+x-forefront-antispam-report: CIP:10.152.200.59;IPV:NLI;CTRY:;EFV:NLI;SFV:NSPM;SFS:(10019020)(98900003);DIR:OUT;SFP:1102;SCL:1;SRVR:MA1IND01HT005;H:MA1PR01MB0358.INDPRD01.PROD.OUTLOOK.COM;FPR:;SPF:None;LANG:en;
+x-microsoft-exchange-diagnostics: 1;MA1IND01HT005;7:ugpzq7eT3Fg6dH9UQF0B0CIDtHdi7vuFqcBsi4elrL2z4qmXyqJflWdgb7bIVgYHjhYnzj6jdAQQ4S7LL8NKix6oukUvxPzGU/vcjbix1TgzGaP6Sy71yrMcPnHEEkO2VJdmqN51B72e80tYONiO2VyoGwzTNap0U5b91D4j5F0/WT475zvWfa3gt66ToGYwN3NaM6UspFvNJDngSonYksRHTonLpTzgXWLtM0svZdDiRfYtjPLfUv4g3cwowIlt
+x-ms-office365-filtering-correlation-id: 26ad3c5c-09ee-4656-4c8f-08d3b1686976
+x-microsoft-antispam: UriScan:;BCL:0;PCL:0;RULEID:(1601124038)(5061506196)(5061507196)(1603103041)(1603101187)(1601125047);SRVR:MA1IND01HT005;
+x-exchange-antispam-report-cfa-test: BCL:0;PCL:0;RULEID:(432015012)(82015046);SRVR:MA1IND01HT005;BCL:0;PCL:0;RULEID:;SRVR:MA1IND01HT005;
+x-forefront-prvs: 0010D93EFE
+spamdiagnosticoutput: 1:99
+spamdiagnosticmetadata: NSPM
+Content-Type: multipart/alternative;
+	boundary="_000_MA1PR01MB0358399730CE567D48579755A6090MA1PR01MB0358INDP_"
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Jul 2016 13:10:39.1536
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Internet
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA1IND01HT005
+X-OriginalArrivalTime: 21 Jul 2016 13:11:29.0342 (UTC) FILETIME=[64CC45E0:01D1E351]
+
+--_000_MA1PR01MB0358399730CE567D48579755A6090MA1PR01MB0358INDP_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+I sincerely hope you are doing well.
+
+We are an India based Web Design company with a primary focus on SEO based =
+Website Design & Development (Magento, HTML, WordPress, , PHP and Yahoo Sto=
+re development).
+
+We have a dedicated team of 250 professional designers, developers and SEO =
+specialists; especially for Graphic designing and SEO.
+
+We can assure you of getting quality works. Most firms overseas have achiev=
+ed a significant amount of savings by outsourcing either part of, or their =
+entire work to us in India.
+
+We would like you to give us an opportunity to work with your company and A=
+MAZE you with our service.
+
+Please let us know in case you are interested.
+
+Warm Regards,
+
+Abhinav Kumar Singh!
+
+Note: We are not spammers and are against spamming of any kind. If you are =
+not interested then you can reply with a simple \"NO\",We will never contac=
+t you again.
+
+
+
+
+--_000_MA1PR01MB0358399730CE567D48579755A6090MA1PR01MB0358INDP_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<style type=3D"text/css" style=3D"display:none;"><!-- P {margin-top:0;margi=
+n-bottom:0;} --></style>
+</head>
+<body dir=3D"ltr">
+<div id=3D"divtagdefaultwrapper" style=3D"font-size:12pt;color:#000000;back=
+ground-color:#FFFFFF;font-family:Calibri,Arial,Helvetica,sans-serif;">
+<p><span id=3D"ms-rterangepaste-start"></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">Hello,<o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">&nbsp;<o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">I sincerely hope you =
+are doing well.<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">&nbsp;<o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">We are an India based=
+ Web Design company with a
+ primary focus on SEO based&nbsp;Website&nbsp;Design &amp;&nbsp;Development=
+&nbsp;(Magento, HTML, WordPress, , PHP and Yahoo Store&nbsp;development).<o=
+:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">&nbsp;<o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">We have a dedicated t=
+eam of 250 professional designers,
+ developers and SEO specialists; especially for Graphic&nbsp;designing&nbsp=
+;and SEO.<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">&nbsp;<o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">We can assure you of =
+getting quality works. Most
+ firms overseas have achieved a significant amount of savings by outsourcin=
+g either part of, or their entire work to us in India.<o:p></o:p></span></p=
+>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">&nbsp;<o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">We would like you to =
+give us an opportunity to
+ work with your company and AMAZE you with our service.<o:p></o:p></span></=
+p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">&nbsp;<o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">Please let us know in=
+ case you are interested.<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">&nbsp;<o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">Warm Regards,<o:p></o=
+:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">&nbsp;<o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"font-size:13.5pt;mso-ascii-font-family:=0A=
+Calibri;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-hansi-font-=
+family:Calibri;=0A=
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:#0D0D0D;mso-themecol=
+or:text1;=0A=
+mso-themetint:242">Abhinav Kumar Singh</span><span style=3D"mso-ascii-font-=
+family:=0A=
+Calibri;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-hansi-font-=
+family:Calibri;=0A=
+mso-bidi-font-family:&quot;Times New Roman&quot;;color:#0D0D0D;mso-themecol=
+or:text1;=0A=
+mso-themetint:242">!<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">&nbsp;<o:p></o:p></sp=
+an></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom: 0.0001pt; background-image: =
+initial; background-attachment: initial; background-size: initial; backgrou=
+nd-origin: initial; background-clip: initial; background-position: initial;=
+ background-repeat: initial;">
+<span style=3D"mso-ascii-font-family:Calibri;mso-fareast-font-family:=0A=
+&quot;Times New Roman&quot;;mso-hansi-font-family:Calibri;mso-bidi-font-fam=
+ily:&quot;Times New Roman&quot;;=0A=
+color:#0D0D0D;mso-themecolor:text1;mso-themetint:242">Note: We are not spam=
+mers and are against spamming
+ of any kind. If you are not interested then you can reply with a simple \&=
+quot;NO\&quot;,We will never contact you again.<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:#0D0D0D;mso-themecolor:text1;ms=
+o-themetint:=0A=
+242">&nbsp;</span></p>
+<p class=3D"MsoNormal"><span style=3D"color:#0D0D0D;mso-themecolor:text1;ms=
+o-themetint:=0A=
+242">&nbsp;</span></p>
+<span id=3D"ms-rterangepaste-end"></span><br>
+<p></p>
+</div>
+</body>
+</html>
+
+--_000_MA1PR01MB0358399730CE567D48579755A6090MA1PR01MB0358INDP_--
+
