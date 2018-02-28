@@ -9,36 +9,28 @@
 # Displays a progress bar that indicates the amount of completion of the algorithm
 # Displays the first few individuals of the current generation
 
-# pygame required (pip install pygame)
-
+import sys
 import time
 import random
-import pygame
-from pygame.color import *
-from pygame.locals import *
-
-import sys
 import os.path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-# imports from aimacode files
+from tkinter import *
+from tkinter import ttk
+
 import search
 from utils import argmax
 
-pygame.init()
-display_width = 800
-display_height = 600
+LARGE_FONT = ('Verdana', 12)
+EXTRA_LARGE_FONT = ('Consolas', 36, 'bold')
 
-# defining colors
-black = (0, 0, 0)
-white = (255, 255, 255)
-p_blue = (4, 37, 51)
-light_p_blue = (12, 57, 76)
+canvas_width = 800
+canvas_height = 600
 
-# defining mandatory pygame variables
-screen = pygame.display.set_mode((display_width, display_height))
-pygame.display.set_caption('Genetic Algorithm')
-clock = pygame.time.Clock()
+black = '#000000'
+white = '#ffffff'
+p_blue = '#042533'
+lp_blue = '#0c394c'
 
 # genetic algorithm variables
 # feel free to play around with these
@@ -47,12 +39,6 @@ max_population = 100 # number of samples in each population
 mutation_rate = 0.1 # probability of mutation
 f_thres = len(target) # fitness threshold
 ngen = 1200 # max number of generations to run the genetic algorithm
-
-# selector values to select the ga variables in the home screen
-max_population_selector = None
-mutation_rate_selector = None
-f_thres_selector = None
-ngen_selector = None
 
 generation = 0 # counter to keep track of generation number
 
@@ -69,139 +55,22 @@ gene_pool.extend(u_case)
 gene_pool.extend(l_case)
 gene_pool.append(' ')
 
-# helper function that returns surface and coordinates of text box
-def text_objects(text, font, color):
-	text_surface = font.render(text, True, color)
-	return text_surface, text_surface.get_rect()
-
-# helper function to create a button
-def button(msg, x, y, w, h, i_color, a_color, action=None):
-	# gets mouse position
-	mouse = pygame.mouse.get_pos()
-	# gets mouse click position
-	click = pygame.mouse.get_pressed()
-
-	if x + w > mouse[0] > x and y + h > mouse[1] > y:
-		pygame.draw.rect(screen, a_color, (x, y, w, h))
-		if click[0] == 1 and action != None:
-			action()
-	else:
-		pygame.draw.rect(screen, i_color, (x, y, w, h))
-
-	# defining text box area and font properties
-	small_text = pygame.font.SysFont('Consolas', 16)
-	m_text_surface, m_text_rect = text_objects(msg, small_text, white)
-	m_text_rect.center = ((x + (w / 2)), (y + (h / 2)))
-	screen.blit(m_text_surface, m_text_rect)
-
-
-# The three following helper functions help the user to select the values of the ga variables on the home screen
-# These functions can be combined into one by not using global variables. To be done in a future patch
-def f_max_population_selector(msg, x, y, w, h, i_color, a_color):
-	# (apologies for using global variables)
-	global max_population_selector
+# callbacks to update global variables from the slider values
+def update_max_population(slider_value):
 	global max_population
+	max_population = slider_value
 
-	mouse = pygame.mouse.get_pos()
-	click = pygame.mouse.get_pressed()
-	# draws outer rectangle
-	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
-	if x + w > mouse[0] > x and y + h > mouse[1] > y:
-		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
-		if click[0] == 1:
-			max_population_selector = mouse[0] - x
-
-	if max_population and not max_population_selector:
-		pygame.draw.rect(screen, a_color, (x, y, int(w * (max_population - 2) / 1000), h))
-	elif max_population_selector:
-		pygame.draw.rect(screen, a_color, (x, y, max_population_selector, h))
-		max_population = int(1000 * max_population_selector / w) + 2
-
-	# defining text box area and font properties
-	small_text = pygame.font.Font('freesansbold.ttf', 14)
-	m_text_surface, m_text_rect = text_objects(msg + ' ' + str(max_population), small_text, i_color)
-	m_text_rect.center = ((x + (w / 2)), (y + (h / 2) - 14))
-	screen.blit(m_text_surface, m_text_rect)
-
-def f_mutation_rate_selector(msg, x, y, w, h, i_color, a_color):
-	global mutation_rate_selector
+def update_mutation_rate(slider_value):
 	global mutation_rate
-	mouse = pygame.mouse.get_pos()
-	click = pygame.mouse.get_pressed()
-	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
-	if x + w > mouse[0] > x and y + h > mouse[1] > y:
-		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
-		if click[0] == 1:
-			mutation_rate_selector = mouse[0] - x
+	mutation_rate = slider_value
 
-	if mutation_rate and not mutation_rate_selector:
-		pygame.draw.rect(screen, a_color, (x, y, w * mutation_rate / 1, h))
-	elif mutation_rate_selector:
-		pygame.draw.rect(screen, a_color, (x, y, mutation_rate_selector, h))
-		mutation_rate = 1 * mutation_rate_selector / w
-
-	# defining text box area and font properties
-	small_text = pygame.font.Font('freesansbold.ttf', 14)
-	m_text_surface, m_text_rect = text_objects(msg + ' ' + str(mutation_rate), small_text, i_color)
-	m_text_rect.center = ((x + (w / 2)), (y + (h / 2) - 14))
-	screen.blit(m_text_surface, m_text_rect)
-
-def f_fthres_selector(msg, x, y, w, h, i_color, a_color):
-	global f_thres_selector
+def update_f_thres(slider_value):
 	global f_thres
-	f_thres = len(target)
-	mouse = pygame.mouse.get_pos()
-	click = pygame.mouse.get_pressed()
-	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
-	if x + w > mouse[0] > x and y + h > mouse[1] > y:
-		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
-		if click[0] == 1:
-			f_thres_selector = mouse[0] - x
+	f_thres = slider_value
 
-	if f_thres and not f_thres_selector:
-		pygame.draw.rect(screen, a_color, (x, y, int(w * f_thres / len(target)), h))
-	elif f_thres_selector:
-		pygame.draw.rect(screen, a_color, (x, y, f_thres_selector, h))
-		f_thres = int(len(target) * f_thres_selector / w)
-
-	# defining text box area and font properties
-	small_text = pygame.font.Font('freesansbold.ttf', 14)
-	m_text_surface, m_text_rect = text_objects(msg + ' ' + str(f_thres), small_text, i_color)
-	m_text_rect.center = ((x + (w / 2)), (y + (h / 2) - 14))
-	screen.blit(m_text_surface, m_text_rect)
-
-def f_ngen_selector(msg, x, y, w, h, i_color, a_color):
-	global ngen_selector
+def update_ngen(slider_value):
 	global ngen
-	mouse = pygame.mouse.get_pos()
-	click = pygame.mouse.get_pressed()
-	pygame.draw.rect(screen, i_color, (x, y, w, h), 2)
-	if x + w > mouse[0] > x and y + h > mouse[1] > y:
-		pygame.draw.rect(screen, a_color, (x, y, mouse[0] - x, h))
-		if click[0] == 1:
-			ngen_selector = mouse[0] - x
-
-	if ngen and not ngen_selector:
-		pygame.draw.rect(screen, a_color, (x, y, int(w * ngen / 5000), h))
-	elif ngen_selector:
-		pygame.draw.rect(screen, a_color, (x, y, ngen_selector, h))
-		ngen = int(5000 * ngen_selector / w)
-
-	# defining text box area and font properties
-	small_text = pygame.font.Font('freesansbold.ttf', 14)
-	m_text_surface, m_text_rect = text_objects(msg + ' ' + str(ngen), small_text, i_color)
-	m_text_rect.center = ((x + (w / 2)), (y + (h /2) - 14))
-	screen.blit(m_text_surface, m_text_rect)
-
-def change_color(color):
-	if color == white:
-		return black
-	return white
-
-# function to quit the game
-def quitgame():
-	pygame.quit()
-	quit()
+	ngen = slider_value
 
 # fitness function
 def fitness_fn(_list):
@@ -214,138 +83,90 @@ def fitness_fn(_list):
 			fitness += 1
 	return fitness
 
-# function to display the home screen
-# start typing on the home screen to change the target value
-# click on the sliders to change the values of the other parameters
-# click go to run the genetic algorithm with the defined parameters and click exit to close the program
-def game_intro():
-	framecount = 0
-	intro = True
+# function to bring a new frame on top
+def raise_frame(frame, init=False, update_target=False, target_entry=None, f_thres_slider=None):
+	frame.tkraise()
 	global target
-	name = 'Genetic Algorithm'
-	cursor_color = black
-	while intro:
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				intro = False
-				quitgame()
-			# accepts keypresses from the user, and if it is an alphabet, it will be appended to the variable 'name'
-			# to accept punctuation marks, replace the first if statement with `if event.unicode:`
-			# also change the gene pool if you do this, or the genetic algorithm will not be able to converge
-			elif event.type == KEYDOWN:
-				if event.unicode.isalpha() or event.unicode == ' ':
-					name += event.unicode
-		# checks if the backspace key is held down
-		_keys = pygame.key.get_pressed()
-		if _keys[K_BACKSPACE]:
-			name = name[:-1]
+	if update_target and target_entry is not None:
+		target = target_entry.get()
+		f_thres_slider.config(to=len(target))
+	if init:
+		population = search.init_population(max_population, gene_pool, len(target))
+		genetic_algorithm_stepwise(population)
 
-		# target variable changes only when the length of `name` if greater than 0
-		if len(name) > 0:
-			target = name
+# defining root and child frames
+root = Tk()
+f1 = Frame(root)
+f2 = Frame(root)
 
-		# clear the screen
-		screen.fill(white)
-		# defining text box area and font properties
-		large_text = pygame.font.SysFont('Consolas', 60, bold=True)
-		m_text_surface, m_text_rect = text_objects(name, large_text, p_blue)
-		m_text_rect.center = ((display_width/2), (display_height * 0.2))
-		screen.blit(m_text_surface, m_text_rect)
+# pack frames on top of one another
+for frame in (f1, f2):
+	frame.grid(row=0, column=0, sticky='news')
 
-		# draws cursor next to text box
-		if framecount % 7 == 0:
-			cursor_color = change_color(cursor_color)
-		pygame.draw.rect(screen, cursor_color, (m_text_rect[0] + m_text_rect[2], m_text_rect[1], 2, m_text_rect[3]))
+# Home Screen (f1) widgets
+target_entry = Entry(f1, font=('Consolas 46 bold'), exportselection=0, foreground=p_blue, justify=CENTER)
+target_entry.insert(0, target)
+target_entry.pack(expand=YES, side=TOP, fill=X, padx=50)
+target_entry.focus_force()
 
-		# function calls to create the `GO` and `EXIT` buttons
-		button('GO', 100, 450, 100, 50, p_blue, light_p_blue, main)
-		button('EXIT', 600, 450, 100, 50, p_blue, light_p_blue, quitgame)
+max_population_slider = Scale(f1, from_=3, to=1000, orient=HORIZONTAL, label='Max population', command=lambda value: update_max_population(int(value)))
+max_population_slider.set(max_population)
+max_population_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 
-		# functions to create the sliders
-		f_max_population_selector('Max population size', display_width*0.1, display_height*0.35, display_width*0.8, 10, p_blue, light_p_blue)
-		f_mutation_rate_selector('Mutation rate', display_width*0.1, display_height*0.45, display_width*0.8, 10, p_blue, light_p_blue)
-		f_fthres_selector('Fitness threshold', display_width*0.1, display_height*0.55, display_width*0.8, 10, p_blue, light_p_blue)
-		f_ngen_selector('Max number of generations', display_width*0.1, display_height*0.65, display_width*0.8, 10, p_blue, light_p_blue)
+mutation_rate_slider = Scale(f1, from_=0, to=1, orient=HORIZONTAL, label='Mutation rate', resolution=0.0001, command=lambda value: update_mutation_rate(float(value)))
+mutation_rate_slider.set(mutation_rate)
+mutation_rate_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 
-		pygame.display.update()
-		framecount += 1
-		clock.tick(15)
+f_thres_slider = Scale(f1, from_=0, to=len(target), orient=HORIZONTAL, label='Fitness threshold', command=lambda value: update_f_thres(int(value)))
+f_thres_slider.set(f_thres)
+f_thres_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 
-def game_loop(population, fitness_fn, gene_pool=[0, 1], f_thres=None, ngen=1200, pmut=0.1):
-	global generation
-	generation = 0
-	running = True
-	finished = False
-	while running:
-		for event in pygame.event.get():
-			# defining functions to execute on keypresses
-			if event.type == pygame.QUIT:
-				running = False
-			elif event.type == KEYDOWN and event.key == K_ESCAPE:
-				running = False
-			elif event.type == KEYDOWN and event.key == K_p:
-				pygame.image.save(screen, 'genetic_algorithm_phrase_gen.png') # screenshot
+ngen_slider = Scale(f1, from_=1, to=5000, orient=HORIZONTAL, label='Max number of generations', command=lambda value: update_ngen(int(value)))
+ngen_slider.set(ngen)
+ngen_slider.pack(expand=YES, side=TOP, fill=X, padx=40)
 
-		# set finished to True if we exceed the maximum number of generations
-		if generation >= ngen:
-			finished = True
+button = ttk.Button(f1, text='RUN', command=lambda: raise_frame(f2, init=True, update_target=True, target_entry=target_entry, f_thres_slider=f_thres_slider)).pack(side=BOTTOM, pady=50)
 
-		if not finished:
-			screen.fill(THECOLORS['white'])
-			generation += 1
-			# generating new population after selecting, recombining and mutating the existing population
-			population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, pmut) for i in range(len(population))]
-			# genome with the highest fitness in the current generation
-			current_best = ''.join(argmax(population, key=fitness_fn))
+# f2 widgets
+canvas = Canvas(f2, width=canvas_width, height=canvas_height)
+canvas.pack(expand=YES, fill=BOTH, padx=20, pady=15)
+button = ttk.Button(f2, text='EXIT', command=lambda: raise_frame(f1)).pack(side=BOTTOM, pady=15)
 
-			# checks for completion
-			fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
-			if fittest_individual:
-				finished = True
-				# return fittest_individual
+# function to run the genetic algorithm and update text on the canvas
+def genetic_algorithm_stepwise(population):
+	root.title('Genetic Algorithm')
+	for generation in range(ngen):
+		# generating new population after selecting, recombining and mutating the existing population
+		population = [search.mutate(search.recombine(*search.select(2, population, fitness_fn)), gene_pool, mutation_rate) for i in range(len(population))]
+		# genome with the highest fitness in the current generation
+		current_best = ''.join(argmax(population, key=fitness_fn))
+		# collecting first few examples from the current population
+		members = [''.join(x) for x in population][:48]
 
-			# displays current best on top of the screen
-			large_text = pygame.font.SysFont('Consolas', 80, bold=True)
-			m_text_surface, m_text_rect = text_objects(current_best, large_text, p_blue)
-			m_text_rect.center = ((display_width/2), (display_height * 0.1))
-			screen.blit(m_text_surface, m_text_rect)
-			
-			# collecting first few examples from the current population
-			members = [''.join(x) for x in population][:48]
-			small_text = pygame.font.SysFont('Consolas', 20)
-			# displaying a part of the population on the screen
-			for i in range(len(members) // 3):
-				m_text_surface1, m_text_rect1 = text_objects(members[3*i], small_text, light_p_blue)
-				m_text_surface2, m_text_rect2 = text_objects(members[3*i+1], small_text, light_p_blue)
-				m_text_surface3, m_text_rect3 = text_objects(members[3*i+2], small_text, light_p_blue)
-				m_text_rect1.center = ((display_width * .175), (display_height * 0.25 + (25 * i)))
-				m_text_rect3.center = ((display_width * .500), (display_height * 0.25 + (25 * i)))
-				m_text_rect2.center = ((display_width * .825), (display_height * 0.25 + (25 * i)))
-				screen.blit(m_text_surface1, m_text_rect1)
-				screen.blit(m_text_surface2, m_text_rect2)
-				screen.blit(m_text_surface3, m_text_rect3)
+		# clear the canvas
+		canvas.delete('all')
+		# displays current best on top of the screen
+		canvas.create_text(canvas_width / 2, 40, fill=p_blue, font='Consolas 46 bold', text=current_best)
 
-			# displays blue bar that indicates current maximum fitness compared to maximum possible fitness
-			scaling_factor = fitness_fn(current_best) / len(target)
-			pygame.draw.rect(screen, p_blue, (m_text_rect[0], m_text_rect[1] + 85, m_text_rect[2], 10), 2)
-			pygame.draw.rect(screen, (12 - 12 * scaling_factor, 57 - 57 *scaling_factor, 76 - 76 * scaling_factor), (m_text_rect[0], m_text_rect[1] + 85, m_text_rect[2] * scaling_factor, 10))
+		# displaying a part of the population on the screen
+		for i in range(len(members) // 3):
+			canvas.create_text((canvas_width * .175), (canvas_height * .25 + (25 * i)), fill=lp_blue, font='Consolas 16', text=members[3 * i])
+			canvas.create_text((canvas_width * .500), (canvas_height * .25 + (25 * i)), fill=lp_blue, font='Consolas 16', text=members[3 * i + 1])
+			canvas.create_text((canvas_width * .825), (canvas_height * .25 + (25 * i)), fill=lp_blue, font='Consolas 16', text=members[3 * i + 2])
 
-			# displays current generation number
-			g_text_surface, g_text_rect = text_objects(f'Generation {generation}', pygame.font.SysFont('Consolas', 20, bold=True), light_p_blue)
-			g_text_rect.center = ((display_width * 0.5), (display_height * 0.95))
-			screen.blit(g_text_surface, g_text_rect)
+		# displays current generation number
+		canvas.create_text((canvas_width * .5), (canvas_height * 0.95), fill=p_blue, font='Consolas 18 bold', text=f'Generation {generation}')
 
-		else:
-			button('NEXT', display_width * 0.9, display_height * 0.920, display_width * 0.070, display_height * 0.05, p_blue, light_p_blue, game_intro)
+		# displays blue bar that indicates current maximum fitness compared to maximum possible fitness
+		scaling_factor = fitness_fn(current_best) / len(target)
+		canvas.create_rectangle(canvas_width * 0.1, 90, canvas_width * 0.9, 100, outline=p_blue)
+		canvas.create_rectangle(canvas_width * 0.1, 90, canvas_width * 0.1 + scaling_factor * canvas_width * 0.8, 100, fill=lp_blue)
+		canvas.update()
 
-		# updates the screen
-		pygame.display.update()
-		clock.tick(60)
+		# checks for completion
+		fittest_individual = search.fitness_threshold(fitness_fn, f_thres, population)
+		if fittest_individual:
+			break
 
-def main():
-	population = search.init_population(max_population, gene_pool, len(target))
-	solution = game_loop(population, fitness_fn, gene_pool=gene_pool, f_thres=f_thres, pmut=mutation_rate, ngen=ngen)
-
-if __name__ == '__main__':
-	game_intro()
-	pygame.quit()
+raise_frame(f1)
+root.mainloop()

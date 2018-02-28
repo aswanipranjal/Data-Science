@@ -7,7 +7,7 @@ functions."""
 from utils import (
     is_in, argmin, argmax, argmax_random_tie, probability, weighted_sampler,
     memoize, print_table, open_data, Stack, FIFOQueue, PriorityQueue, name,
-    distance
+    distance, vector_add
 )
 
 from collections import defaultdict
@@ -16,6 +16,7 @@ import random
 import sys
 import bisect
 from operator import itemgetter
+
 
 infinity = float('inf')
 
@@ -144,7 +145,7 @@ class SimpleProblemSolvingAgentProgram:
     """Abstract framework for a problem-solving agent. [Figure 3.1]"""
 
     def __init__(self, initial_state=None):
-        """State is an sbstract representation of the state
+        """State is an abstract representation of the state
         of the world, and seq is the list of actions required
         to get to a particular state from the initial state(root)."""
         self.state = initial_state
@@ -201,9 +202,9 @@ def graph_search(problem, frontier):
         node = frontier.pop()
         if problem.goal_test(node.state):
             return node
-        explored.add(tuple(node.state))
+        explored.add(node.state)
         frontier.extend(child for child in node.expand(problem)
-                        if tuple(child.state) not in explored and
+                        if child.state not in explored and
                         child not in frontier)
     return None
 
@@ -233,9 +234,9 @@ def breadth_first_search(problem):
     explored = set()
     while frontier:
         node = frontier.pop()
-        explored.add(tuple(node.state))
+        explored.add(node.state)
         for child in node.expand(problem):
-            if tuple(child.state) not in explored and child not in frontier:
+            if child.state not in explored and child not in frontier:
                 if problem.goal_test(child.state):
                     return child
                 frontier.append(child)
@@ -261,9 +262,9 @@ def best_first_graph_search(problem, f):
         node = frontier.pop()
         if problem.goal_test(node.state):
             return node
-        explored.add(tuple(node.state))
+        explored.add(node.state)
         for child in node.expand(problem):
-            if tuple(child.state) not in explored and child not in frontier:
+            if child.state not in explored and child not in frontier:
                 frontier.append(child)
             elif child in frontier:
                 incumbent = frontier[child]
@@ -401,6 +402,108 @@ def astar_search(problem, h=None):
     return best_first_graph_search(problem, lambda n: n.path_cost + h(n))
 
 # ______________________________________________________________________________
+# A* heuristics 
+
+class EightPuzzle(Problem):
+
+    """The problem of sliding tiles numbered from 1 to 8 on a 3x3 board,
+    where one of the squares is a blank. A state is represented as a 3x3 list,
+    where element at index i,j represents the tile number (0 if it's an empty square)."""
+ 
+    def __init__(self, initial, goal=None):
+        if goal:
+            self.goal = goal
+        else:
+            self.goal = [ [0,1,2], 
+                          [3,4,5], 
+                          [6,7,8] ]
+        Problem.__init__(self, initial, goal)
+    
+    def find_blank_square(self, state):
+        """Return the index of the blank square in a given state"""
+        for row in len(state):
+            for column in len(row):
+                if state[row][column] == 0:
+                    index_blank_square = (row, column)
+        return index_blank_square
+    
+    def actions(self, state):
+        """Return the actions that can be executed in the given state.
+        The result would be a list, since there are only four possible actions
+        in any given state of the environment."""
+       
+        possible_actions = list()
+        index_blank_square = self.find_blank_square(state)
+
+        if index_blank_square(0) == 0:
+            possible_actions += ['DOWN']
+        elif index_blank_square(0) == 1:
+            possible_actions += ['UP', 'DOWN']
+        elif index_blank_square(0) == 2:
+            possible_actions += ['UP']
+        
+        if index_blank_square(1) == 0:
+            possible_actions += ['RIGHT']
+        elif index_blank_square(1) == 1:
+            possible_actions += ['LEFT', 'RIGHT']
+        elif index_blank_square(1) == 2:
+            possible_actions += ['LEFT']
+
+        return possible_actions
+
+    def result(self, state, action):
+        """Given state and action, return a new state that is the result of the action.
+        Action is assumed to be a valid action in the state."""
+
+        blank_square = self.find_blank_square(state)
+        new_state = [row[:] for row in state]
+
+        if action=='UP':
+            new_state[blank_square(0)][blank_square(1)] = new_state[blank_square(0)-1][blank_square(1)]
+            new_state[blank_square(0)-1][blank_square(1)] = 0
+        elif action=='LEFT':
+            new_state[blank_square(0)][blank_square(1)] = new_state[blank_square(0)][blank_square(1)-1]
+            new_state[blank_square(0)][blank_square(1)-1] = 0
+        elif action=='DOWN':
+            new_state[blank_square(0)][blank_square(1)] = new_state[blank_square(0)+1][blank_square(1)]
+            new_state[blank_square(0)+1][blank_square(1)] = 0
+        elif action=='RIGHT':
+            new_state[blank_square(0)][blank_square(1)] = new_state[blank_square(0)][blank_square(1)+1]
+            new_state[blank_square(0)][blank_square(1)+1] = 0
+        else:
+            print("Invalid Action!")
+        return new_state
+
+    def goal_test(self, state):
+        """Given a state, return True if state is a goal state or False, otherwise"""
+        for row in len(state):
+            for column in len(row):
+                if state[row][col] != self.goal[row][column]:
+                    return False
+        return True
+
+    def checkSolvability(self, state):
+        inversion = 0
+        for i in range(len(state)):
+               for j in range(i, len(state)):
+                    if (state[i] > state[j] and state[j] != 0):
+                                    inversion += 1
+        check = True
+        if inversion%2 != 0:
+                check = False
+        print(check)
+    
+    def h(self, state):
+        """Return the heuristic value for a given state. Heuristic function used is 
+        h(n) = number of misplaced tiles."""
+        num_misplaced_tiles = 0
+        for row in len(state):
+            for column in len(row):
+                if state[row][col] != self.goal[row][column]:
+                    num_misplaced_tiles += 1
+        return num_misplaced_tiles
+
+# ______________________________________________________________________________
 # Other search algorithms
 
 
@@ -473,6 +576,23 @@ def simulated_annealing(problem, schedule=exp_schedule()):
         if delta_e > 0 or probability(math.exp(delta_e / T)):
             current = next
 
+def simulated_annealing_full(problem, schedule=exp_schedule()):
+    """ This version returns all the states encountered in reaching 
+    the goal state."""
+    states = []
+    current = Node(problem.initial)
+    for t in range(sys.maxsize):
+        states.append(current.state)
+        T = schedule(t)
+        if T == 0:
+            return states
+        neighbors = current.expand(problem)
+        if not neighbors:
+            return current.state
+        next = random.choice(neighbors)
+        delta_e = problem.value(next.state) - problem.value(current.state)
+        if delta_e > 0 or probability(math.exp(delta_e / T)):
+            current = next
 
 def and_or_graph_search(problem):
     """[Figure 4.11]Used when the environment is nondeterministic and completely observable.
@@ -509,39 +629,37 @@ def and_or_graph_search(problem):
     # body of and or search
     return or_search(problem.initial, problem, [])
 
+# Pre-defined actions for PeakFindingProblem
+directions4 = { 'W':(-1, 0), 'N':(0, 1), 'E':(1, 0), 'S':(0, -1) }
+directions8 = dict(directions4) 
+directions8.update({'NW':(-1, 1), 'NE':(1, 1), 'SE':(1, -1), 'SW':(-1, -1) })
 
 class PeakFindingProblem(Problem):
     """Problem of finding the highest peak in a limited grid"""
 
-    def __init__(self, initial, grid):
+    def __init__(self, initial, grid, defined_actions=directions4):
         """The grid is a 2 dimensional array/list whose state is specified by tuple of indices"""
         Problem.__init__(self, initial)
         self.grid = grid
+        self.defined_actions = defined_actions
         self.n = len(grid)
         assert self.n > 0
         self.m = len(grid[0])
         assert self.m > 0
 
     def actions(self, state):
-        """Allows movement in only 4 directions"""
-        # TODO: Add flag to allow diagonal motion
+        """Returns the list of actions which are allowed to be taken from the given state"""
         allowed_actions = []
-        if state[0] > 0:
-            allowed_actions.append('N')
-        if state[0] < self.n - 1:
-            allowed_actions.append('S')
-        if state[1] > 0:
-            allowed_actions.append('W')
-        if state[1] < self.m - 1:
-            allowed_actions.append('E')
+        for action in self.defined_actions:
+            next_state = vector_add(state, self.defined_actions[action])
+            if next_state[0] >= 0 and next_state[1] >= 0 and next_state[0] <= self.n - 1 and next_state[1] <= self.m - 1:
+                allowed_actions.append(action)
+
         return allowed_actions
 
     def result(self, state, action):
         """Moves in the direction specified by action"""
-        x, y = state
-        x = x + (1 if action == 'S' else (-1 if action == 'N' else 0))
-        y = y + (1 if action == 'E' else (-1 if action == 'W' else 0))
-        return (x, y)
+        return vector_add(state, self.defined_actions[action])
 
     def value(self, state):
         """Value of a state is the value it is the index to"""
@@ -766,7 +884,7 @@ def recombine_uniform(x, y):
         return ''.join(result)
     except:
         return result
-
+        
 
 def mutate(x, gene_pool, pmut):
     if random.uniform(0, 1) >= pmut:
@@ -789,7 +907,7 @@ def mutate(x, gene_pool, pmut):
 
 class Graph:
 
-    """A graph connects nodes (verticies) by edges (links).  Each edge can also
+    """A graph connects nodes (vertices) by edges (links).  Each edge can also
     have a length associated with it.  The constructor call is something like:
         g = Graph({'A': {'B': 1, 'C': 2})
     this makes a graph with 3 nodes, A, B, and C, with an edge of length 1 from
@@ -1343,3 +1461,4 @@ def compare_graph_searchers():
                                 GraphProblem('Q', 'WA', australia_map)],
                       header=['Searcher', 'romania_map(Arad, Bucharest)',
                               'romania_map(Oradea, Neamt)', 'australia_map'])
+
