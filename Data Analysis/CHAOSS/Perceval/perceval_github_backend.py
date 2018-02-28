@@ -15,4 +15,4 @@ for item in repo.fetch():
 		kind = 'Pull Request'
 	else:
 		kind = 'Issue'
-	print(f'{item['data']['number']} : {kind}')
+	print(item['data']['number'], ':', kind)
