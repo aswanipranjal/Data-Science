@@ -5,7 +5,7 @@ def simple_firstn(n):
 		num += 1
 	return nums
 
-# using the generator pattern
+# using the generator pattern for an iterator
 class firstn(object):
 
 	def __init__(self, n):
@@ -24,3 +24,11 @@ class firstn(object):
 			return cur
 		else:
 			raise StopIteration()
+			return
+
+# using generator functions
+def firstn(n):
+	num = 0
+	while num < n:
+		yield num
+		num += 1		
