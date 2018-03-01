@@ -262,9 +262,9 @@ def best_first_graph_search(problem, f):
         node = frontier.pop()
         if problem.goal_test(node.state):
             return node
-        explored.add(tuple(node.state))
+        explored.add(node.state)
         for child in node.expand(problem):
-            if tuple(child.state) not in explored and child not in frontier:
+            if child.state not in explored and child not in frontier:
                 frontier.append(child)
             elif child in frontier:
                 incumbent = frontier[child]
@@ -411,42 +411,43 @@ class EightPuzzle(Problem):
     where element at index i,j represents the tile number (0 if it's an empty square)."""
  
     def __init__(self, initial, goal=None):
-        if goal is not None:
+        if goal:
             self.goal = goal
-        elif goal is None:
-            self.goal = [1, 2, 3, 4, 5, 6, 7, 8, 0]
+        else:
+            self.goal = [ [0,1,2], 
+                          [3,4,5], 
+                          [6,7,8] ]
         Problem.__init__(self, initial, goal)
     
     def find_blank_square(self, state):
         """Return the index of the blank square in a given state"""
-        return state.index(0)
+        for row in len(state):
+            for column in len(row):
+                if state[row][column] == 0:
+                    index_blank_square = (row, column)
+        return index_blank_square
     
     def actions(self, state):
         """Return the actions that can be executed in the given state.
         The result would be a list, since there are only four possible actions
         in any given state of the environment."""
        
-        possible_actions = []
+        possible_actions = list()
         index_blank_square = self.find_blank_square(state)
 
-        if index_blank_square == 0:
-            possible_actions = ['DOWN', 'RIGHT']
-        elif index_blank_square == 1:
-            possible_actions = ['LEFT', 'DOWN', 'RIGHT']
-        elif index_blank_square == 2:
-            possible_actions = ['LEFT', 'DOWN']
-        elif index_blank_square == 3:
-            possible_actions = ['UP', 'RIGHT', 'DOWN']
-        elif index_blank_square == 4:
-            possible_actions = ['UP', 'DOWN', 'LEFT', 'RIGHT']
-        elif index_blank_square == 5:
-            possible_actions = ['LEFT', 'UP', 'DOWN']
-        elif index_blank_square == 6:
-            possible_actions = ['UP', 'RIGHT']
-        elif index_blank_square == 7:
-            possible_actions = ['UP', 'LEFT', 'RIGHT']
-        elif index_blank_square == 8:
-            possible_actions = ['LEFT', 'UP']
+        if index_blank_square(0) == 0:
+            possible_actions += ['DOWN']
+        elif index_blank_square(0) == 1:
+            possible_actions += ['UP', 'DOWN']
+        elif index_blank_square(0) == 2:
+            possible_actions += ['UP']
+        
+        if index_blank_square(1) == 0:
+            possible_actions += ['RIGHT']
+        elif index_blank_square(1) == 1:
+            possible_actions += ['LEFT', 'RIGHT']
+        elif index_blank_square(1) == 2:
+            possible_actions += ['LEFT']
 
         return possible_actions
 
@@ -454,28 +455,32 @@ class EightPuzzle(Problem):
         """Given state and action, return a new state that is the result of the action.
         Action is assumed to be a valid action in the state."""
 
-        # ix is the index of the blank square
-        ix = self.find_blank_square(state)
-        new_state = [None] * len(state)
+        blank_square = self.find_blank_square(state)
+        new_state = [row[:] for row in state]
 
-        if action == 'UP':
-            new_state[ix], new_state[ix - 3] = new_state[ix - 3], 0
-        elif action == 'DOWN':
-            new_state[ix], new_state[ix + 3] = new_state[ix + 3], 0
-        elif action == 'LEFT':
-            new_state[ix], new_state[ix - 1] = new_state[ix - 1], 0
-        elif action == 'RIGHT':
-            new_state[ix], new_state[ix + 1] = new_state[ix + 1], 0
+        if action=='UP':
+            new_state[blank_square(0)][blank_square(1)] = new_state[blank_square(0)-1][blank_square(1)]
+            new_state[blank_square(0)-1][blank_square(1)] = 0
+        elif action=='LEFT':
+            new_state[blank_square(0)][blank_square(1)] = new_state[blank_square(0)][blank_square(1)-1]
+            new_state[blank_square(0)][blank_square(1)-1] = 0
+        elif action=='DOWN':
+            new_state[blank_square(0)][blank_square(1)] = new_state[blank_square(0)+1][blank_square(1)]
+            new_state[blank_square(0)+1][blank_square(1)] = 0
+        elif action=='RIGHT':
+            new_state[blank_square(0)][blank_square(1)] = new_state[blank_square(0)][blank_square(1)+1]
+            new_state[blank_square(0)][blank_square(1)+1] = 0
         else:
-            print('Invalid Action')
-
+            print("Invalid Action!")
         return new_state
 
     def goal_test(self, state):
         """Given a state, return True if state is a goal state or False, otherwise"""
-        if state == self.goal:
-            return True
-        return False
+        for row in len(state):
+            for column in len(row):
+                if state[row][col] != self.goal[row][column]:
+                    return False
+        return True
 
     def checkSolvability(self, state):
         inversion = 0
@@ -484,19 +489,18 @@ class EightPuzzle(Problem):
                     if (state[i] > state[j] and state[j] != 0):
                                     inversion += 1
         check = True
-        if inversion % 2 != 0:
+        if inversion%2 != 0:
                 check = False
         print(check)
     
-    def h(self, node):
+    def h(self, state):
         """Return the heuristic value for a given state. Heuristic function used is 
         h(n) = number of misplaced tiles."""
         num_misplaced_tiles = 0
-
-        for i in range(len(node.state)):
-            if node.state[i] != self.goal[i]:
-                num_misplaced_tiles += 1
-
+        for row in len(state):
+            for column in len(row):
+                if state[row][col] != self.goal[row][column]:
+                    num_misplaced_tiles += 1
         return num_misplaced_tiles
 
 # ______________________________________________________________________________
