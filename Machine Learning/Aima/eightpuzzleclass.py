@@ -48,7 +48,7 @@ class Problem(object):
         and related algorithms try to maximize this value."""
         raise NotImplementedError
 
-        
+
 class EightPuzzle(Problem):
 
     """The problem of sliding tiles numbered from 1 to 8 on a 3x3 board,
@@ -115,11 +115,9 @@ class EightPuzzle(Problem):
 
     def goal_test(self, state):
         """Given a state, return True if state is a goal state or False, otherwise"""
-        for row in range(len(state)):
-            for column in range(len(state[0])):
-                if state[row][column] != self.goal[row][column]:
-                    return False
-        return True
+        if state == self.goal:
+            return True
+        return False
 
     def checkSolvability(self, state):
         inversion = 0
