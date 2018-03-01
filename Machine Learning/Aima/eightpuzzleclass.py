@@ -71,22 +71,27 @@ class EightPuzzle(Problem):
         The result would be a list, since there are only four possible actions
         in any given state of the environment."""
        
-        possible_actions = list()
+        possible_actions = []
         index_blank_square = self.find_blank_square(state)
 
-        if index_blank_square(0) == 0:
-            possible_actions += ['DOWN']
-        elif index_blank_square(0) == 1:
-            possible_actions += ['UP', 'DOWN']
-        elif index_blank_square(0) == 2:
-            possible_actions += ['UP']
-        
-        if index_blank_square(1) == 0:
-            possible_actions += ['RIGHT']
-        elif index_blank_square(1) == 1:
-            possible_actions += ['LEFT', 'RIGHT']
-        elif index_blank_square(1) == 2:
-            possible_actions += ['LEFT']
+        if index_blank_square == 0:
+            possible_actions = ['DOWN', 'RIGHT']
+        elif index_blank_square == 1:
+            possible_actions = ['LEFT', 'DOWN', 'RIGHT']
+        elif index_blank_square == 2:
+            possible_actions = ['LEFT', 'DOWN']
+        elif index_blank_square == 3:
+            possible_actions = ['UP', 'RIGHT', 'DOWN']
+        elif index_blank_square == 4:
+            possible_actions = ['UP', 'DOWN', 'LEFT', 'RIGHT']
+        elif index_blank_square == 5:
+            possible_actions = ['LEFT', 'UP', 'DOWN']
+        elif index_blank_square == 6:
+            possible_actions = ['UP', 'RIGHT']
+        elif index_blank_square == 7:
+            possible_actions = ['UP', 'LEFT', 'RIGHT']
+        elif index_blank_square == 8:
+            possible_actions = ['LEFT', 'UP']
 
         return possible_actions
 
