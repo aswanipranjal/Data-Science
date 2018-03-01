@@ -421,8 +421,8 @@ class EightPuzzle(Problem):
     
     def find_blank_square(self, state):
         """Return the index of the blank square in a given state"""
-        for row in len(state):
-            for column in len(row):
+        for row in range(len(state)):
+            for column in range(len(state[0])):
                 if state[row][column] == 0:
                     index_blank_square = (row, column)
         return index_blank_square
@@ -476,8 +476,9 @@ class EightPuzzle(Problem):
 
     def goal_test(self, state):
         """Given a state, return True if state is a goal state or False, otherwise"""
-        for row in len(state):
-            for column in len(row):
+        for row in range(len(state)):
+            print(row)
+            for column in range(len(row)):
                 if state[row][col] != self.goal[row][column]:
                     return False
         return True
