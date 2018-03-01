@@ -488,13 +488,13 @@ class EightPuzzle(Problem):
                 check = False
         print(check)
     
-    def h(self, state):
+    def h(self, node):
         """Return the heuristic value for a given state. Heuristic function used is 
         h(n) = number of misplaced tiles."""
         num_misplaced_tiles = 0
 
-        for i in range(len(state)):
-            if state[i] != self.goal[i]:
+        for i in range(len(node.state)):
+            if node.state[i] != self.goal[i]:
                 num_misplaced_tiles += 1
 
         return num_misplaced_tiles
