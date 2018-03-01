@@ -476,6 +476,7 @@ class EightPuzzle(Problem):
 
     def goal_test(self, state):
         """Given a state, return True if state is a goal state or False, otherwise"""
+        print(state)
         for row in range(len(state)):
             print(row)
             for column in range(len(state[0])):
