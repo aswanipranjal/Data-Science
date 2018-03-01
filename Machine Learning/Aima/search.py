@@ -478,7 +478,7 @@ class EightPuzzle(Problem):
         """Given a state, return True if state is a goal state or False, otherwise"""
         for row in range(len(state)):
             print(row)
-            for column in range(len(row)):
+            for column in range(len(state[0])):
                 if state[row][col] != self.goal[row][column]:
                     return False
         return True
