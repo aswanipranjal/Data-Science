@@ -99,23 +99,21 @@ class EightPuzzle(Problem):
         """Given state and action, return a new state that is the result of the action.
         Action is assumed to be a valid action in the state."""
 
-        blank_square = self.find_blank_square(state)
-        new_state = [row[:] for row in state]
+        # ix is the index of the blank square
+        ix = self.find_blank_square(state)
+        new_state = [None] * len(state)
 
-        if action=='UP':
-            new_state[blank_square(0)][blank_square(1)] = new_state[blank_square(0)-1][blank_square(1)]
-            new_state[blank_square(0)-1][blank_square(1)] = 0
-        elif action=='LEFT':
-            new_state[blank_square(0)][blank_square(1)] = new_state[blank_square(0)][blank_square(1)-1]
-            new_state[blank_square(0)][blank_square(1)-1] = 0
-        elif action=='DOWN':
-            new_state[blank_square(0)][blank_square(1)] = new_state[blank_square(0)+1][blank_square(1)]
-            new_state[blank_square(0)+1][blank_square(1)] = 0
-        elif action=='RIGHT':
-            new_state[blank_square(0)][blank_square(1)] = new_state[blank_square(0)][blank_square(1)+1]
-            new_state[blank_square(0)][blank_square(1)+1] = 0
+        if action == 'UP':
+            new_state[ix], new_state[ix - 3] = new_state[ix - 3], 0
+        elif action == 'DOWN':
+            new_state[ix], new_state[ix + 3] = new_state[ix + 3], 0
+        elif action == 'LEFT':
+            new_state[ix], new_state[ix - 1] = new_state[ix - 1], 0
+        elif action == 'RIGHT':
+            new_state[ix], new_state[ix + 1] = new_state[ix + 1], 0
         else:
-            print("Invalid Action!")
+            print('Invalid Action')
+
         return new_state
 
     def goal_test(self, state):
