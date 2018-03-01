@@ -126,7 +126,7 @@ class EightPuzzle(Problem):
                     if (state[i] > state[j] and state[j] != 0):
                                     inversion += 1
         check = True
-        if inversion%2 != 0:
+        if inversion % 2 != 0:
                 check = False
         print(check)
     
