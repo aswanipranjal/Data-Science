@@ -479,7 +479,7 @@ class EightPuzzle(Problem):
         for row in range(len(state)):
             print(row)
             for column in range(len(state[0])):
-                if state[row][col] != self.goal[row][column]:
+                if state[row][column] != self.goal[row][column]:
                     return False
         return True
 
