@@ -411,9 +411,9 @@ class EightPuzzle(Problem):
     where element at index i,j represents the tile number (0 if it's an empty square)."""
  
     def __init__(self, initial, goal=None):
-        if goal:
+        if goal is not None:
             self.goal = goal
-        else:
+        elif goal is None:
             self.goal = [ [0,1,2], 
                           [3,4,5], 
                           [6,7,8] ]
@@ -476,9 +476,7 @@ class EightPuzzle(Problem):
 
     def goal_test(self, state):
         """Given a state, return True if state is a goal state or False, otherwise"""
-        print(state)
         for row in range(len(state)):
-            print(row)
             for column in range(len(state[0])):
                 if state[row][column] != self.goal[row][column]:
                     return False
