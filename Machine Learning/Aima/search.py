@@ -469,7 +469,7 @@ class EightPuzzle(Problem):
         else:
             print('Invalid Action')
 
-        return tuple(new_state)
+        return new_state
 
     def goal_test(self, state):
         """Given a state, return True if state is a goal state or False, otherwise"""
@@ -494,7 +494,7 @@ class EightPuzzle(Problem):
         num_misplaced_tiles = 0
 
         for i in range(len(node.state)):
-            if node.state[i] != self.goal[i]:
+            if state[i] != self.goal[i]:
                 num_misplaced_tiles += 1
 
         return num_misplaced_tiles
