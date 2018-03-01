@@ -262,9 +262,9 @@ def best_first_graph_search(problem, f):
         node = frontier.pop()
         if problem.goal_test(node.state):
             return node
-        explored.add(node.state)
+        explored.add(tuple(node.state))
         for child in node.expand(problem):
-            if child.state not in explored and child not in frontier:
+            if tuple(child.state) not in explored and child not in frontier:
                 frontier.append(child)
             elif child in frontier:
                 incumbent = frontier[child]
@@ -494,7 +494,7 @@ class EightPuzzle(Problem):
         num_misplaced_tiles = 0
 
         for i in range(len(node.state)):
-            if state[i] != self.goal[i]:
+            if node.state[i] != self.goal[i]:
                 num_misplaced_tiles += 1
 
         return num_misplaced_tiles
