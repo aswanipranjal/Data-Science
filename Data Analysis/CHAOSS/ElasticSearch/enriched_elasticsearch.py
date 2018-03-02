@@ -17,3 +17,11 @@ s = Search(using=es, index=index)
 s.aggs.metric('commits', 'cardinality', field='hash')
 unique = s.count()
 print('Count of unique commits in index: ', unique)
+
+# ignoring commits touching no files
+s = Search(using=es, index=index)
+s = s.filter('range', files={'gt':0})
+s.aggs.metric('commits', 'cardinality', field='hash')
+unique_no_empty = s.count()
+print('Count of unique commits in index: ', unique_no_empty)
+
