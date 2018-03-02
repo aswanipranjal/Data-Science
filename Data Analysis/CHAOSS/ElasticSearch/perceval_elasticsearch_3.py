@@ -27,7 +27,7 @@ for commit in repo.fetch():
 		'commit_date': commit['data']['CommitDate'],
 		'files_no': len(commit['data']['files'])
 	}
-	print('.', end='')
+	print(f'{summary['commit']} : {summary['author']} : {summary['files_no']}')
 	es.index(index='commits', doc_type='summary', body=summary)
 
 print('\nCreated new index with commits')
