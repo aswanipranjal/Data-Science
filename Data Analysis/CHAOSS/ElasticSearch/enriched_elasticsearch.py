@@ -25,3 +25,10 @@ s.aggs.metric('commits', 'cardinality', field='hash')
 unique_no_empty = s.count()
 print('Count of unique commits in index: ', unique_no_empty)
 
+# counting number of unique commits, ignoring those touching no files, and newer than a certain date
+s = Search(using=es, index=index)
+s = s.filter('range', files={'gt':0})
+s = s.filter('range', author_date={'gt': datetime(2016, 7, 1)})
+s.aggs.metric('commits', 'cardinality', field='hash')
+unique_after = s.count()
+print('Count of unique commits in index, authored later than July 1st, 2016: ', unique_after)
