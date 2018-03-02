@@ -11,3 +11,9 @@ index = 'git'
 s = Search(using=es, index=index)
 total = s.count()
 print('Count of total number of commits in index: ', total)
+
+# counting number of unique commits
+s = Search(using=es, index=index)
+s.aggs.metric('commits', 'cardinality', field='hash')
+unique = s.count()
+print('Count of unique commits in index: ', unique)
