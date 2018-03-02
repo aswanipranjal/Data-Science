@@ -23,7 +23,7 @@ for commit in repo.fetch():
 		'hash': commit['data']['commit'],
 		'author': commit['data']['Author'],
 		'author_date': commit['data']['AuthorDate'],
-		'commit': commit['data']['Commit']
+		'commit': commit['data']['Commit'],
 		'commit_date': commit['data']['CommitDate'],
 		'files_no': len(commit['data']['files'])
 	}
