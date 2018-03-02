@@ -21,9 +21,9 @@ for commit in repo.fetch():
 	summary = {
 		'hash': commit['data']['commit'],
 		'author': commit['data']['Author'],
-		'author_date': commit['data']['AuthorDate'],
+		'author_date': datetime.datetime.strptime(commit['data']['AuthorDate'], "%a %b %d %H:%M:%S %Y %z"),
 		'commit': commit['data']['Commit'],
-		'commit_date': commit['data']['CommitDate'],
+		'commit_date': datetime.datetime.strptime(commit['data']['CommitDate'], "%a %b %d %H:%M:%S %Y %z"),
 		'files_no': len(commit['data']['files'])
 	}
 	print('.', end='')
