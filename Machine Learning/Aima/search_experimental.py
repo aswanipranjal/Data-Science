@@ -410,8 +410,7 @@ class EightPuzzle(Problem):
     where one of the squares is a blank. A state is represented as a 3x3 list,
     where element at index i,j represents the tile number (0 if it's an empty square)."""
  
-    # TODO: goal should be a keyword argument
-    def __init__(self, initial, goal):
+    def __init__(self, initial, goal=[1, 2, 3, 4, 5, 6, 7, 8, 0]):
         # self.goal = tuple([1, 2, 3, 4, 5, 6, 7, 8, 0])
         self.goal = tuple(goal)
         Problem.__init__(self, tuple(initial), tuple(goal))
