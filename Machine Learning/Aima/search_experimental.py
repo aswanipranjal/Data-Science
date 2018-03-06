@@ -424,28 +424,18 @@ class EightPuzzle(Problem):
         """Return the actions that can be executed in the given state.
         The result would be a list, since there are only four possible actions
         in any given state of the environment."""
-       
-        possible_actions = []
+        
+        possible_actions = ['UP', 'DOWN', 'LEFT', 'RIGHT']       
         index_blank_square = self.find_blank_square(state)
 
-        if index_blank_square == 0:
-            possible_actions = ['DOWN', 'RIGHT']
-        elif index_blank_square == 1:
-            possible_actions = ['LEFT', 'DOWN', 'RIGHT']
-        elif index_blank_square == 2:
-            possible_actions = ['LEFT', 'DOWN']
-        elif index_blank_square == 3:
-            possible_actions = ['UP', 'RIGHT', 'DOWN']
-        elif index_blank_square == 4:
-            possible_actions = ['UP', 'DOWN', 'LEFT', 'RIGHT']
-        elif index_blank_square == 5:
-            possible_actions = ['LEFT', 'UP', 'DOWN']
-        elif index_blank_square == 6:
-            possible_actions = ['UP', 'RIGHT']
-        elif index_blank_square == 7:
-            possible_actions = ['UP', 'LEFT', 'RIGHT']
-        elif index_blank_square == 8:
-            possible_actions = ['LEFT', 'UP']
+        if index_blank_square % 3 == 0:
+            possible_actions -= 'LEFT'
+        if index_blank_square < 3:
+            possible_actions -= 'UP'
+        if index_blank_square % 3 == 2:
+            possible_actions -= 'RIGHT'
+        if index_blank_square > 5:
+            possible_actions -= 'DOWN'
 
         return possible_actions
 
@@ -476,7 +466,7 @@ class EightPuzzle(Problem):
             return True
         return False
 
-    def checkSolvability(self, state):
+    def check_solvability(self, state):
         inversion = 0
         for i in range(len(state)):
                for j in range(i, len(state)):
