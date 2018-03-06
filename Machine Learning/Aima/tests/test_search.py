@@ -5,6 +5,7 @@ from search import *
 romania_problem = GraphProblem('Arad', 'Bucharest', romania_map)
 vacumm_world = GraphProblemStochastic('State_1', ['State_7', 'State_8'], vacumm_world)
 LRTA_problem = OnlineSearchProblem('State_3', 'State_5', one_dim_state_space)
+eight_puzzle = EightPuzzle([6, 3, 5, 1, 8, 4, 2, 0, 7])
 
 def test_find_min_edge():
     assert romania_problem.find_min_edge() == 70
@@ -64,6 +65,11 @@ def test_bidirectional_search():
 
 def test_astar_search():
     assert astar_search(romania_problem).solution() == ['Sibiu', 'Rimnicu', 'Pitesti', 'Bucharest']
+
+
+def test_find_blank_square():
+    assert puzzle.find_blank_square([6, 3, 5, 1, 8, 4, 2, 0, 7]) == 7
+    assert puzzle.find_blank_square([1, 2, 3, 4, 5, 6, 7, 8, 0]) == 8
 
 
 def test_recursive_best_first_search():
