@@ -81,7 +81,7 @@ def test_actions():
     assert eight_puzzle.actions([0, 1, 2, 3, 4, 5, 6, 7, 8]) == ['DOWN', 'RIGHT']
     assert eight_puzzle.actions([6, 3, 5, 1, 8, 4, 2, 0, 7]) == ['UP', 'LEFT', 'RIGHT']
     assert eight_puzzle.actions([3, 4, 1, 7, 6, 0, 2, 8, 5]) == ['UP', 'DOWN', 'LEFT']
-    assert eight_puzzle.acitons([1, 8, 4, 7, 2, 6, 3, 0, 5]) == ['UP', 'LEFT', 'RIGHT']
+    assert eight_puzzle.actions([1, 8, 4, 7, 2, 6, 3, 0, 5]) == ['UP', 'LEFT', 'RIGHT']
     assert eight_puzzle.actions([4, 8, 1, 6, 0, 2, 3, 5, 7]) == ['UP', 'DOWN', 'LEFT', 'RIGHT']
     assert eight_puzzle.actions([1, 0, 6, 8, 7, 5, 4, 2, 3]) == ['DOWN', 'LEFT', 'RIGHT']
     assert eight_puzzle.actions([1, 2, 3, 4, 5, 6, 7, 8, 0]) == ['UP', 'LEFT']
