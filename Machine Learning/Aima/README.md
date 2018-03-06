@@ -22,7 +22,33 @@ When complete, this project will have Python implementations for all the pseudoc
 ## Python 3.4 and up
 
 This code requires Python 3.4 or later, and does not run in Python 2. You can [install Python](https://www.python.org/downloads) or use a browser-based Python interpreter such as [repl.it](https://repl.it/languages/python3).
-You can run the code in an IDE, or from the command line with `python -i filename.py` where the `-i` option puts you in an interactive loop where you can run Python functions. See [jupyter.org](http://jupyter.org/) for instructions on setting up your own Jupyter notebook environment, or run the notebooks online with [try.jupiter.org](https://try.jupyter.org/). 
+You can run the code in an IDE, or from the command line with `python -i filename.py` where the `-i` option puts you in an interactive loop where you can run Python functions. See [jupyter.org](http://jupyter.org/) for instructions on setting up your own Jupyter notebook environment, or run the notebooks online with [try.jupiter.org](https://try.jupyter.org/).
+
+
+## Installation Guide
+
+To download the repository:
+
+`git clone https://github.com/aimacode/aima-python.git`
+
+You also need to fetch the datasets from the [`aima-data`](https://github.com/aimacode/aima-data) repository:
+
+```
+cd aima-python
+git submodule init
+git submodule update
+```
+
+Wait for the datasets to download, it may take a while. Once they are downloaded, you need to install `pytest`, so that you can run the test suite:
+
+`pip install pytest`
+
+Then to run the tests:
+
+`py.test`
+
+And you are good to go!
+
 
 # Index of Algorithms
 
@@ -30,19 +56,19 @@ Here is a table of algorithms, the figure, name of the algorithm in the book and
 
 | **Figure** | **Name (in 3<sup>rd</sup> edition)** | **Name (in repository)** | **File** | **Tests** | **Notebook**
 |:-------|:----------------------------------|:------------------------------|:--------------------------------|:-----|:---------|
-| 2      | Random-Vacuum-Agent               | `RandomVacuumAgent`           | [`agents.py`][agents]           | Done |          |
-| 2      | Model-Based-Vacuum-Agent          | `ModelBasedVacuumAgent`       | [`agents.py`][agents]           | Done |          |
+| 2      | Random-Vacuum-Agent               | `RandomVacuumAgent`           | [`agents.py`][agents]           | Done | Included |
+| 2      | Model-Based-Vacuum-Agent          | `ModelBasedVacuumAgent`       | [`agents.py`][agents]           | Done | Included |
 | 2.1    | Environment                       | `Environment`                 | [`agents.py`][agents]           | Done | Included |
 | 2.1    | Agent                             | `Agent`                       | [`agents.py`][agents]           | Done | Included |
-| 2.3    | Table-Driven-Vacuum-Agent         | `TableDrivenVacuumAgent`      | [`agents.py`][agents]           |      |          |
-| 2.7    | Table-Driven-Agent                | `TableDrivenAgent`            | [`agents.py`][agents]           |      |          |
-| 2.8    | Reflex-Vacuum-Agent               | `ReflexVacuumAgent`           | [`agents.py`][agents]           | Done |          |
-| 2.10   | Simple-Reflex-Agent               | `SimpleReflexAgent`           | [`agents.py`][agents]           |      |          |
-| 2.12   | Model-Based-Reflex-Agent          | `ReflexAgentWithState`        | [`agents.py`][agents]           |      |          |
-| 3      | Problem                           | `Problem`                     | [`search.py`][search]           | Done |          |
-| 3      | Node                              | `Node`                        | [`search.py`][search]           | Done |          |
-| 3      | Queue                             | `Queue`                       | [`utils.py`][utils]             | Done |          |
-| 3.1    | Simple-Problem-Solving-Agent      | `SimpleProblemSolvingAgent`   | [`search.py`][search]           |      |          |
+| 2.3    | Table-Driven-Vacuum-Agent         | `TableDrivenVacuumAgent`      | [`agents.py`][agents]           | Done | Included |
+| 2.7    | Table-Driven-Agent                | `TableDrivenAgent`            | [`agents.py`][agents]           | Done | Included |
+| 2.8    | Reflex-Vacuum-Agent               | `ReflexVacuumAgent`           | [`agents.py`][agents]           | Done | Included |
+| 2.10   | Simple-Reflex-Agent               | `SimpleReflexAgent`           | [`agents.py`][agents]           |      | Included |
+| 2.12   | Model-Based-Reflex-Agent          | `ReflexAgentWithState`        | [`agents.py`][agents]           |      | Included |
+| 3      | Problem                           | `Problem`                     | [`search.py`][search]           | Done | Included |
+| 3      | Node                              | `Node`                        | [`search.py`][search]           | Done | Included |
+| 3      | Queue                             | `Queue`                       | [`utils.py`][utils]             | Done | No Need  |
+| 3.1    | Simple-Problem-Solving-Agent      | `SimpleProblemSolvingAgent`   | [`search.py`][search]           | Done | Included |
 | 3.2    | Romania                           | `romania`                     | [`search.py`][search]           | Done | Included |
 | 3.7    | Tree-Search                       | `tree_search`                 | [`search.py`][search]           | Done |          |
 | 3.7    | Graph-Search                      | `graph_search`                | [`search.py`][search]           | Done |          |
@@ -50,10 +76,10 @@ Here is a table of algorithms, the figure, name of the algorithm in the book and
 | 3.14   | Uniform-Cost-Search               | `uniform_cost_search`         | [`search.py`][search]           | Done | Included |
 | 3.17   | Depth-Limited-Search              | `depth_limited_search`        | [`search.py`][search]           | Done |          |
 | 3.18   | Iterative-Deepening-Search        | `iterative_deepening_search`  | [`search.py`][search]           | Done |          |
-| 3.22   | Best-First-Search                 | `best_first_graph_search`     | [`search.py`][search]           | Done |          |
+| 3.22   | Best-First-Search                 | `best_first_graph_search`     | [`search.py`][search]           | Done | Included |
 | 3.24   | A\*-Search                        | `astar_search`                | [`search.py`][search]           | Done | Included |
 | 3.26   | Recursive-Best-First-Search       | `recursive_best_first_search` | [`search.py`][search]           | Done |          |
-| 4.2    | Hill-Climbing                     | `hill_climbing`               | [`search.py`][search]           | Done |          |
+| 4.2    | Hill-Climbing                     | `hill_climbing`               | [`search.py`][search]           | Done | Included |
 | 4.5    | Simulated-Annealing               | `simulated_annealing`         | [`search.py`][search]           | Done |          |
 | 4.8    | Genetic-Algorithm                 | `genetic_algorithm`           | [`search.py`][search]           | Done | Included |
 | 4.11   | And-Or-Graph-Search               | `and_or_graph_search`         | [`search.py`][search]           | Done |          |
@@ -68,10 +94,10 @@ Here is a table of algorithms, the figure, name of the algorithm in the book and
 | 6.11   | Tree-CSP-Solver                   | `tree_csp_solver`             | [`csp.py`][csp]                 | Done | Included |
 | 7      | KB                                | `KB`                          | [`logic.py`][logic]             | Done | Included |
 | 7.1    | KB-Agent                          | `KB_Agent`                    | [`logic.py`][logic]             | Done |          |
-| 7.7    | Propositional Logic Sentence      | `Expr`                        | [`logic.py`][logic]             | Done |          |
-| 7.10   | TT-Entails                        | `tt_entails`                  | [`logic.py`][logic]             | Done |          |
+| 7.7    | Propositional Logic Sentence      | `Expr`                        | [`utils.py`][utils]             | Done | Included |
+| 7.10   | TT-Entails                        | `tt_entails`                  | [`logic.py`][logic]             | Done | Included |
 | 7.12   | PL-Resolution                     | `pl_resolution`               | [`logic.py`][logic]             | Done | Included |
-| 7.14   | Convert to CNF                    | `to_cnf`                      | [`logic.py`][logic]             | Done |          |
+| 7.14   | Convert to CNF                    | `to_cnf`                      | [`logic.py`][logic]             | Done | Included |
 | 7.15   | PL-FC-Entails?                    | `pl_fc_resolution`            | [`logic.py`][logic]             | Done |          |
 | 7.17   | DPLL-Satisfiable?                 | `dpll_satisfiable`            | [`logic.py`][logic]             | Done |          |
 | 7.18   | WalkSAT                           | `WalkSAT`                     | [`logic.py`][logic]             | Done |          |
@@ -105,18 +131,18 @@ Here is a table of algorithms, the figure, name of the algorithm in the book and
 | 15.17  | Particle-Filtering                | `particle_filtering`          | [`probability.py`][probability] | Done |          |
 | 16.9   | Information-Gathering-Agent       |                               |                                 |      |          |
 | 17.4   | Value-Iteration                   | `value_iteration`             | [`mdp.py`][mdp]                 | Done | Included |
-| 17.7   | Policy-Iteration                  | `policy_iteration`            | [`mdp.py`][mdp]                 | Done |          |
+| 17.7   | Policy-Iteration                  | `policy_iteration`            | [`mdp.py`][mdp]                 | Done | Included |
 | 17.9   | POMDP-Value-Iteration             |                               |                                 |      |          |
 | 18.5   | Decision-Tree-Learning            | `DecisionTreeLearner`         | [`learning.py`][learning]       | Done | Included |
 | 18.8   | Cross-Validation                  | `cross_validation`            | [`learning.py`][learning]       |      |          |
 | 18.11  | Decision-List-Learning            | `DecisionListLearner`         | [`learning.py`][learning]\*     |      |          |
 | 18.24  | Back-Prop-Learning                | `BackPropagationLearner`      | [`learning.py`][learning]       | Done | Included |
-| 18.34  | AdaBoost                          | `AdaBoost`                    | [`learning.py`][learning]       |      |          |
+| 18.34  | AdaBoost                          | `AdaBoost`                    | [`learning.py`][learning]       | Done | Included |
 | 19.2   | Current-Best-Learning             | `current_best_learning`       | [`knowledge.py`](knowledge.py)  | Done | Included |
 | 19.3   | Version-Space-Learning            | `version_space_learning`      | [`knowledge.py`](knowledge.py)  | Done | Included |
 | 19.8   | Minimal-Consistent-Det            | `minimal_consistent_det`      | [`knowledge.py`](knowledge.py)  | Done |          |
 | 19.12  | FOIL                              | `FOIL_container`              | [`knowledge.py`](knowledge.py)  | Done |          |
-| 21.2   | Passive-ADP-Agent                 | `PassiveADPAgent`             | [`rl.py`][rl]                   | Done |          |
+| 21.2   | Passive-ADP-Agent                 | `PassiveADPAgent`             | [`rl.py`][rl]                   | Done | Included |
 | 21.4   | Passive-TD-Agent                  | `PassiveTDAgent`              | [`rl.py`][rl]                   | Done | Included |
 | 21.8   | Q-Learning-Agent                  | `QLearningAgent`              | [`rl.py`][rl]                   | Done | Included |
 | 22.1   | HITS                              | `HITS`                        | [`nlp.py`][nlp]                 | Done | Included |
