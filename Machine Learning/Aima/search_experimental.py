@@ -259,12 +259,12 @@ def best_first_graph_search(problem, f):
     frontier.append(node)
     explored = set()
     while frontier:
-        print(f'Frontier: {frontier}')                                                 # debug
+        print(f'Frontier: {frontier}')                                                  # debug
         node = frontier.pop()
         if problem.goal_test(node.state):
             return node
         explored.add(node.state)
-        print(f'Explored: {explored}')
+        print(f'Explored: {explored}')                                                  # debug
         for child in node.expand(problem):
             if child.state not in explored and child not in frontier:
                 frontier.append(child)
