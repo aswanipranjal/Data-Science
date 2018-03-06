@@ -406,9 +406,9 @@ def astar_search(problem, h=None):
 
 class EightPuzzle(Problem):
 
-    """The problem of sliding tiles numbered from 1 to 8 on a 3x3 board,
+    ''' The problem of sliding tiles numbered from 1 to 8 on a 3x3 board,
     where one of the squares is a blank. A state is represented as a 3x3 list,
-    where element at index i,j represents the tile number (0 if it's an empty square)."""
+    where element at index i,j represents the tile number (0 if it's an empty square) '''
  
     def __init__(self, initial, goal=[1, 2, 3, 4, 5, 6, 7, 8, 0]):
         ''' Define goal state and initialize a problem '''
@@ -484,7 +484,7 @@ class EightPuzzle(Problem):
     def h(self, node):
         ''' Return the heuristic value for a given state. Default heuristic function used is 
         h(n) = number of misplaced tiles '''
-        
+
         num_misplaced_tiles = 0
 
         for i in range(len(node.state)):
