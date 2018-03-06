@@ -105,6 +105,9 @@ def test_goal_test():
     assert eight_puzzle.goal_test([3, 4, 1, 7, 6, 0, 2, 8, 5]) == False
     assert eight_puzzle.goal_test([4, 8, 1, 6, 0, 2, 3, 5, 7]) == False
     assert eight_puzzle.goal_test([1, 2, 3, 4, 5, 6, 7, 8, 0]) == True
+    assert eight_puzzle2.goal_test([3, 4, 1, 7, 6, 0, 2, 8, 5]) == False
+    assert eight_puzzle2.goal_test([1, 2, 3, 4, 5, 6, 7, 8, 0]) == False
+    assert eight_puzzle2.goal_test([0, 1, 2, 3, 4, 5, 6, 7, 8]) == True
 
 
 def test_recursive_best_first_search():
