@@ -87,6 +87,10 @@ def test_actions():
     assert eight_puzzle.actions([1, 2, 3, 4, 5, 6, 7, 8, 0]) == ['UP', 'LEFT']
 
 
+def test_result():
+    assert eight_puzzle.result([0, 1, 2, 3, 4, 5, 6, 7, 8], 'DOWN') == (3, 1, 2, 0, 4, 5, 6, 7, 8)
+
+
 def test_recursive_best_first_search():
     assert recursive_best_first_search(
         romania_problem).solution() == ['Sibiu', 'Rimnicu', 'Pitesti', 'Bucharest']
