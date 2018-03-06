@@ -68,8 +68,8 @@ def test_astar_search():
 
 
 def test_find_blank_square():
-    assert puzzle.find_blank_square([6, 3, 5, 1, 8, 4, 2, 0, 7]) == 7
-    assert puzzle.find_blank_square([1, 2, 3, 4, 5, 6, 7, 8, 0]) == 8
+    assert eight_puzzle.find_blank_square([6, 3, 5, 1, 8, 4, 2, 0, 7]) == 7
+    assert eight_puzzle.find_blank_square([1, 2, 3, 4, 5, 6, 7, 8, 0]) == 8
 
 
 def test_recursive_best_first_search():
