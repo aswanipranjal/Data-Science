@@ -5,8 +5,8 @@ from search import *
 romania_problem = GraphProblem('Arad', 'Bucharest', romania_map)
 vacumm_world = GraphProblemStochastic('State_1', ['State_7', 'State_8'], vacumm_world)
 LRTA_problem = OnlineSearchProblem('State_3', 'State_5', one_dim_state_space)
-eight_puzzle = EightPuzzle([6, 3, 5, 1, 8, 4, 2, 0, 7])
-eight_puzzle2 = EightPuzzle([1, 0, 6, 8, 7, 5, 4, 2, 3], [0, 1, 2, 3, 4, 5, 6, 7, 8])
+eight_puzzle = EightPuzzle([2, 4, 3, 1, 5, 6, 7, 8, 0])
+eight_puzzle2 = EightPuzzle([1, 0, 6, 8, 7, 5, 4, ], [0, 1, 2, 3, 4, 5, 6, 7, 8])
 
 def test_find_min_edge():
     assert romania_problem.find_min_edge() == 70
@@ -66,6 +66,7 @@ def test_bidirectional_search():
 
 def test_astar_search():
     assert astar_search(romania_problem).solution() == ['Sibiu', 'Rimnicu', 'Pitesti', 'Bucharest']
+    assert astar_search(eight_puzzle)
 
 
 def test_find_blank_square():
