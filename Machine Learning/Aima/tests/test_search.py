@@ -73,6 +73,7 @@ def test_find_blank_square():
     assert eight_puzzle.find_blank_square([3, 4, 1, 7, 6, 0, 2, 8, 5]) == 5
     assert eight_puzzle.find_blank_square([1, 8, 4, 7, 2, 6, 3, 0, 5]) == 7
     assert eight_puzzle.find_blank_square([4, 8, 1, 6, 0, 2, 3, 5, 7]) == 4
+    assert eight_puzzle.find_blank_square([1, 0, 6, 8, 7, 5, 4, 2, 3]) == 1
     assert eight_puzzle.find_blank_square([1, 2, 3, 4, 5, 6, 7, 8, 0]) == 8
 
 
