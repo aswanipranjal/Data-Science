@@ -89,6 +89,12 @@ def test_actions():
 
 def test_result():
     assert eight_puzzle.result([0, 1, 2, 3, 4, 5, 6, 7, 8], 'DOWN') == (3, 1, 2, 0, 4, 5, 6, 7, 8)
+    assert eight_puzzle.result([6, 3, 5, 1, 8, 4, 2, 0, 7], 'LEFT') == (6, 3, 5, 1, 8, 4, 0, 2, 7)
+    assert eight_puzzle.result([3, 4, 1, 7, 6, 0, 2, 8, 5], 'UP') == (3, 4, 0, 7, 6, 1, 2, 8, 5)
+    assert eight_puzzle.result([1, 8, 4, 7, 2, 6, 3, 0, 5], 'RIGHT') == (1, 8, 4, 7, 2, 6, 3, 5, 0)
+    assert eight_puzzle.result([4, 8, 1, 6, 0, 2, 3, 5, 7], 'LEFT') == (4, 8, 1, 0, 6, 2, 3, 5, 7)
+    assert eight_puzzle.result([1, 0, 6, 8, 7, 5, 4, 2, 3], 'DOWN') == (1, 7, 6, 8, 0, 5, 4, 2, 3)
+    assert eight_puzzle.result([1, 2, 3, 4, 5, 6, 7, 8, 0], 'UP') == (1, 2, 3, 4, 5, 0, 7, 8, 6)
 
 
 def test_recursive_best_first_search():
