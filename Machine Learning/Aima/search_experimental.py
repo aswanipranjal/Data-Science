@@ -414,7 +414,7 @@ class EightPuzzle(Problem):
     def __init__(self, initial, goal):
         # self.goal = tuple([1, 2, 3, 4, 5, 6, 7, 8, 0])
         self.goal = tuple(goal)
-        Problem.__init__(self, initial, tuple(goal))
+        Problem.__init__(self, tuple(initial), tuple(goal))
     
     def find_blank_square(self, state):
         """Return the index of the blank square in a given state"""
