@@ -473,12 +473,13 @@ class EightPuzzle(Problem):
 
         inversion = 0
         for i in range(len(state)):
-               for j in range(i, len(state)):
-                    if (state[i] > state[j] and state[j] != 0):
-                                    inversion += 1
+            for j in range(i, len(state)):
+                if (state[i] > state[j] and state[j] != 0):
+                    inversion += 1
         check = True
+
         if inversion % 2 != 0:
-                check = False
+            check = False
         print(check)
     
     def h(self, node):
