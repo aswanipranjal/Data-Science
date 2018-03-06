@@ -429,13 +429,13 @@ class EightPuzzle(Problem):
         index_blank_square = self.find_blank_square(state)
 
         if index_blank_square % 3 == 0:
-            possible_actions -= 'LEFT'
+            possible_actions.remove('LEFT')
         if index_blank_square < 3:
-            possible_actions -= 'UP'
+            possible_actions.remove('UP')
         if index_blank_square % 3 == 2:
-            possible_actions -= 'RIGHT'
+            possible_actions.remove('RIGHT')
         if index_blank_square > 5:
-            possible_actions -= 'DOWN'
+            possible_actions.remove('DOWN')
 
         return possible_actions
 
