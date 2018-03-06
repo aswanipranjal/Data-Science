@@ -98,6 +98,14 @@ def test_result():
     assert eight_puzzle.result([4, 8, 1, 6, 0, 2, 3, 5, 7], 'RIGHT') == (4, 8, 1, 6, 2, 0, 3, 5, 7)
 
 
+def test_goal_test():
+    assert eight_puzzle.goal_test([0, 1, 2, 3, 4, 5, 6, 7, 8]) == False
+    assert eight_puzzle.goal_test([6, 3, 5, 1, 8, 4, 2, 0, 7]) == False
+    assert eight_puzzle.goal_test([3, 4, 1, 7, 6, 0, 2, 8, 5]) == False
+    assert eight_puzzle.goal_test([4, 8, 1, 6, 0, 2, 3, 5, 7]) == False
+    assert eight_puzzle.goal_test([1, 2, 3, 4, 5, 6, 7, 8, 0]) == True
+
+
 def test_recursive_best_first_search():
     assert recursive_best_first_search(
         romania_problem).solution() == ['Sibiu', 'Rimnicu', 'Pitesti', 'Bucharest']
