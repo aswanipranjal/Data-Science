@@ -455,7 +455,7 @@ class EightPuzzle(Problem):
 
         # ix is the index of the blank square
         ix = self.find_blank_square(state)
-        new_state = tuple([None]) * len(state)
+        new_state = [None] * len(state)
 
         if action == 'UP':
             new_state[ix], new_state[ix - 3] = new_state[ix - 3], 0
@@ -468,7 +468,7 @@ class EightPuzzle(Problem):
         else:
             print('Invalid Action')
 
-        return new_state
+        return tuple(new_state)
 
     def goal_test(self, state):
         """Given a state, return True if state is a goal state or False, otherwise"""
