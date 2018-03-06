@@ -455,7 +455,7 @@ class EightPuzzle(Problem):
 
         # ix is the index of the blank square
         ix = self.find_blank_square(state)
-        new_state = state
+        new_state = list(state)
 
         if action == 'UP':
             new_state[ix], new_state[ix - 3] = new_state[ix - 3], 0
