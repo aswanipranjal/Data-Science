@@ -426,17 +426,17 @@ class EightPuzzle(Problem):
         The result would be a list, since there are only four possible actions
         in any given state of the environment '''
         
-        possible_actions = [(0, 1), (0, -1), (-1, 0), (1, 0)]       
+        possible_actions = ['UP', 'DOWN', 'LEFT', 'RIGHT']       
         index_blank_square = self.find_blank_square(state)
 
         if index_blank_square % 3 == 0:
-            possible_actions.remove((-1, 0))
+            possible_actions.remove('LEFT')
         if index_blank_square < 3:
-            possible_actions.remove((0, 1))
+            possible_actions.remove('UP')
         if index_blank_square % 3 == 2:
-            possible_actions.remove((1, 0))
+            possible_actions.remove('RIGHT')
         if index_blank_square > 5:
-            possible_actions.remove((0, -1))
+            possible_actions.remove('DOWN')
 
         return possible_actions
 
@@ -448,13 +448,13 @@ class EightPuzzle(Problem):
         ix = self.find_blank_square(state)
         new_state = list(state)
 
-        if action == (0, 1):
+        if action == 'UP':
             new_state[ix], new_state[ix - 3] = new_state[ix - 3], 0
-        elif action == (0, -1):
+        elif action == 'DOWN':
             new_state[ix], new_state[ix + 3] = new_state[ix + 3], 0
-        elif action == (-1, 0):
+        elif action == 'LEFT':
             new_state[ix], new_state[ix - 1] = new_state[ix - 1], 0
-        elif action == (1, 0):
+        elif action == 'RIGHT':
             new_state[ix], new_state[ix + 1] = new_state[ix + 1], 0
         else:
             print('Invalid Action')
@@ -462,12 +462,15 @@ class EightPuzzle(Problem):
         return tuple(new_state)
 
     def goal_test(self, state):
-        """Given a state, return True if state is a goal state or False, otherwise"""
+        ''' Given a state, return True if state is a goal state or False, otherwise '''
+
         if tuple(state) == self.goal:
             return True
         return False
 
     def check_solvability(self, state):
+        ''' Checks if the given state is solvable '''
+
         inversion = 0
         for i in range(len(state)):
                for j in range(i, len(state)):
@@ -479,8 +482,9 @@ class EightPuzzle(Problem):
         print(check)
     
     def h(self, node):
-        """Return the heuristic value for a given state. Heuristic function used is 
-        h(n) = number of misplaced tiles."""
+        ''' Return the heuristic value for a given state. Default heuristic function used is 
+        h(n) = number of misplaced tiles '''
+        
         num_misplaced_tiles = 0
 
         for i in range(len(node.state)):
