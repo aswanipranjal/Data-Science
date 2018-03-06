@@ -66,10 +66,6 @@ def test_astar_search():
     assert astar_search(romania_problem).solution() == ['Sibiu', 'Rimnicu', 'Pitesti', 'Bucharest']
 
 
-def test_whatever():
-    assert 1 == 1
-
-
 def test_recursive_best_first_search():
     assert recursive_best_first_search(
         romania_problem).solution() == ['Sibiu', 'Rimnicu', 'Pitesti', 'Bucharest']
