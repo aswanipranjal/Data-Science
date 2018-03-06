@@ -411,48 +411,50 @@ class EightPuzzle(Problem):
     where element at index i,j represents the tile number (0 if it's an empty square)."""
  
     def __init__(self, initial, goal=[1, 2, 3, 4, 5, 6, 7, 8, 0]):
-        # self.goal = tuple([1, 2, 3, 4, 5, 6, 7, 8, 0])
+        ''' Define goal state and initialize a problem '''
+
         self.goal = tuple(goal)
         Problem.__init__(self, tuple(initial), tuple(goal))
     
     def find_blank_square(self, state):
-        """Return the index of the blank square in a given state"""
+        '''Return the index of the blank square in a given state'''
+
         return state.index(0)
     
     def actions(self, state):
-        """Return the actions that can be executed in the given state.
+        ''' Return the actions that can be executed in the given state.
         The result would be a list, since there are only four possible actions
-        in any given state of the environment."""
+        in any given state of the environment '''
         
-        possible_actions = ['UP', 'DOWN', 'LEFT', 'RIGHT']       
+        possible_actions = [(0, 1), (0, -1), (-1, 0), (1, 0)]       
         index_blank_square = self.find_blank_square(state)
 
         if index_blank_square % 3 == 0:
-            possible_actions.remove('LEFT')
+            possible_actions.remove((-1, 0))
         if index_blank_square < 3:
-            possible_actions.remove('UP')
+            possible_actions.remove((0, 1))
         if index_blank_square % 3 == 2:
-            possible_actions.remove('RIGHT')
+            possible_actions.remove((1, 0))
         if index_blank_square > 5:
-            possible_actions.remove('DOWN')
+            possible_actions.remove((0, -1))
 
         return possible_actions
 
     def result(self, state, action):
-        """Given state and action, return a new state that is the result of the action.
-        Action is assumed to be a valid action in the state."""
+        ''' Given state and action, return a new state that is the result of the action.
+        Action is assumed to be a valid action in the state '''
 
         # ix is the index of the blank square
         ix = self.find_blank_square(state)
         new_state = list(state)
 
-        if action == 'UP':
+        if action == (0, 1):
             new_state[ix], new_state[ix - 3] = new_state[ix - 3], 0
-        elif action == 'DOWN':
+        elif action == (0, -1):
             new_state[ix], new_state[ix + 3] = new_state[ix + 3], 0
-        elif action == 'LEFT':
+        elif action == (-1, 0):
             new_state[ix], new_state[ix - 1] = new_state[ix - 1], 0
-        elif action == 'RIGHT':
+        elif action == (1, 0):
             new_state[ix], new_state[ix + 1] = new_state[ix + 1], 0
         else:
             print('Invalid Action')
