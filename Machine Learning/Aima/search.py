@@ -1153,7 +1153,7 @@ class NQueensProblem(Problem):
     def result(self, state, row):
         """Place the next queen at the given row."""
         col = state.index(None)
-        new = state[:]
+        new = list(state[:])
         new[col] = row
         return tuple(new)
 
