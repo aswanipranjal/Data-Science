@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib.ticker as plticker
+import numpy as np
 
 H = np.array([[1, 2, 3, 4],
               [5, 6, 7, 8],
