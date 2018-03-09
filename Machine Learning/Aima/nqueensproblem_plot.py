@@ -10,8 +10,8 @@ def plot_NQP(node):
 
 	fig = plt.figure(figsize=(6, 3.2))
 	ax = fig.add_subplot(111)
-	ax.set_title('colorMap')
-	plt.imshow(board, interpolation='nearest')
+	ax.set_title(f'{n} Queens')
+	plt.imshow(board, cmap='Oranges', interpolation='nearest')
 	ax.set_aspect('equal')
 	cax = fig.add_axes([0.12, 0.1, 0.78, 0.8])
 	cax.get_xaxis().set_visible(False)
