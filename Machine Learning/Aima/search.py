@@ -1139,6 +1139,7 @@ class NQueensProblem(Problem):
     def __init__(self, N):
         self.N = N
         self.initial = [None] * N
+        Problem.__init__(self, tuple(self.initial))
 
     def actions(self, state):
         """In the leftmost empty column, try all non-conflicting rows."""
