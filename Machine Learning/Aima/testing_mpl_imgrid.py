@@ -38,4 +38,4 @@ for j in range(ny):
         x=myInterval/2.+float(i)*myInterval
         ax.text(x,y,'{:d}'.format(i+j*nx),color='w',ha='center',va='center')
 
-fig.savefig('Imagegrid.png', my_dpi)
+fig.savefig('Imagegrid.png', dpi=my_dpi)
