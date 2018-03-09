@@ -7,5 +7,5 @@ def plot_NQP(node):
 	solution = list(node.state)
 	for i in range(n):
 		board[i][solution[i]] = 1
-	plt.imshow(board, cmap='Oranges', interpolation='nearest')
+	plt.imshow(board, interpolation='nearest')
 	plt.show()
