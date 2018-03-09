@@ -8,7 +8,7 @@ def plot_NQP(node):
 	for i in range(n):
 		board[i][solution[i]] = True
 
-	fig = plt.figure(figsize=(10, 10))
+	fig = plt.figure(figsize=(7, 7))
 	ax = fig.add_subplot(111)
 	ax.set_title(f'{n} Queens')
 	plt.imshow(board, cmap='Oranges', interpolation='nearest')
