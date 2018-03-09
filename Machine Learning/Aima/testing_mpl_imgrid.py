@@ -9,7 +9,7 @@ H = np.array([[1, 2, 3, 4],
 my_dpi=300.
 
 # Set up figure
-fig=plt.figure(figsize=(float(H.size[0])/my_dpi,float(H.size[1])/my_dpi),dpi=my_dpi)
+fig=plt.figure(figsize=(float(4)/my_dpi,float(4)/my_dpi),dpi=my_dpi)
 ax=fig.add_subplot(111)
 
 # Remove whitespace from around the H
