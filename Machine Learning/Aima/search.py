@@ -1155,7 +1155,7 @@ class NQueensProblem(Problem):
         col = state.index(None)
         new = state[:]
         new[col] = row
-        return new
+        return tuple(new)
 
     def conflicted(self, state, row, col):
         """Would placing a queen at (row, col) conflict with anything?"""
