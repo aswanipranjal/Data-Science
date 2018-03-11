@@ -692,15 +692,20 @@ def WalkSAT(clauses, p=0.5, max_flips=10000):
 
 class HybridWumpusAgent(agents.Agent):
     '''An agent for the wumpus world that does logical inference. [Figure 7.20]'''
-    def __init__(self):
+    def __init__(self, height, width):
         # raise NotImplementedError
         # KB = KB_AgentProgram()
         self.KB = PropKB()
         self.t = 0
+        self.height = height
+        self.width = width
         self.plan = []
 
     def program(self, percept):
         KB.tell(make_percept_sentence(percept, t))
+        safe = {[x, y] : KB.ask(OK[x][y][t] == True)}
+        if KB.ask(glitter[t]) == True:
+            plan = [Grab] + plan_route(current, {[1, 1]}, safe) + [Climb]
 
     def make_percept_sentence(self, percept, t):
         raise NotImplementedError
