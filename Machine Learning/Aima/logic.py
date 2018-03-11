@@ -706,6 +706,19 @@ class HybridWumpusAgent(agents.Agent):
         safe = {[x, y] : KB.ask(OK[x][y][t] == True)}
         if KB.ask(glitter[t]) == True:
             plan = [Grab] + plan_route(current, {[1, 1]}, safe) + [Climb]
+        if plan == []:
+            unvisited = {[x, y] : KB.ask(L[x][y][t`] == False) for t` <= t}
+            plan = plan_route(current, unvisited & safe, safe)
+        if plan == [] and KB.ask(HaveArrow[t]) == True:
+            possible_wumpus = {[x, y] : KB.ask(~W[x][y]) == False}
+            plan = plan_shot(current, possible_wumpus, safe)
+        if plan == []:
+            not_unsafe = {[x, y] : KB.ask(~OK[x][y][t]) == False}
+            plan = plan_route(current, {[1, 1]}, safe) + [Climb]
+        action = plan.pop()
+        KB.tell(make_action_sentence(action, t))
+        self.t += 1
+        return action
 
     def make_percept_sentence(self, percept, t):
         raise NotImplementedError
