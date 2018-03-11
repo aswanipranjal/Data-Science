@@ -695,6 +695,7 @@ class HybridWumpusAgent(agents.Agent):
 
     def __init__(self):
         raise NotImplementedError
+        # KB = KB_AgentProgram()
 
 
 def plan_route(current, goals, allowed):
