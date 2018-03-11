@@ -1,6 +1,6 @@
-,0,1,2,3,total
-0,grimoirelab-perceval,3,7,261,271
-1,grimoirelab-kingarthur,1,5,27,33
-2,grimoirelab-sortinghat,3,6,52,61
-3,grimoirelab-mordred,0,9,107,116
-4,grimoirelab-manuscripts,1,2,7,10
+,name,issues,pull_requests,commits,total
+0,grimoirelab-perceval,3,7,260,270
+1,grimoirelab-kingarthur,1,9,27,37
+2,grimoirelab-sortinghat,4,6,52,62
+3,grimoirelab-mordred,1,9,107,117
+4,grimoirelab-manuscripts,7,3,7,17
