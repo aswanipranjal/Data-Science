@@ -694,8 +694,9 @@ class HybridWumpusAgent(agents.Agent):
     """An agent for the wumpus world that does logical inference. [Figure 7.20]"""
 
     def __init__(self):
-        raise NotImplementedError
+        # raise NotImplementedError
         # KB = KB_AgentProgram()
+        
 
 
 def plan_route(current, goals, allowed):
