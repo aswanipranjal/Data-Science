@@ -705,6 +705,9 @@ class HybridWumpusAgent(agents.Agent):
     def make_percept_sentence(self, percept, t):
         raise NotImplementedError
 
+    def make_action_sentence(self, action, t):
+        raise NotImplementedError
+
 
 def plan_route(current, goals, allowed):
     raise NotImplementedError
