@@ -253,6 +253,24 @@ T: Go
 
 '''
 
+'''
+Re-statement of the tiger pomdp problem
+s0: tiger-left
+s1: tiger-right
+T = {
+    's0': {
+        'listen': [(1.0, 's0'), (0.0, 's1')],
+        'left': [(0.7, 's0'), (0.3, 's1')],
+        'right': [(0.3, 's0'), (0.7, 's1')]
+    },
+    's1': {
+        'listen': [(0.0, 's0'), (1.0, 's1')],
+        'left': [(0.7, 's0'), (0.3, 's1')],
+        'right': [(0.3, 's0'), (0.7, 's1')]
+    }
+}
+'''
+
 
     def get_belief_state(self, belief, action, evidence, alpha):
         new_belief_state = alpha * P(evidence | state`) * sum(P(state` | state, action) * belief[state])
