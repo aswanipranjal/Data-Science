@@ -404,7 +404,7 @@ def test_nqueens_csp():
     assert 5 not in assignment
     assert 6 not in assignment
 
-    for n in range(5, 8):
+    for n in range(5, 9):
         csp = NQueensCSP(n)
         solution = min_conflicts(csp)
         assert not solution or sorted(solution.values()) == list(range(n))
