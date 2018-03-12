@@ -353,6 +353,42 @@ def test_min_conflicts():
     assert min_conflicts(australia_impossible, 1000) is None
 
 
+def test_nqueens_csp():
+    csp = NQueensCSP(8)
+
+    assignment = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
+    csp.assign(6, 6, assignment)
+    assert len(assignment) == 6
+    csp.assign(7, 7, assignment)
+    assert len(assignment) == 7
+    csp.assign(8, 8, assignment)
+    assert len(assignment) == 8
+    assert assignment[6] = 6
+    assert assignment[7] = 7
+    assert assignment[8] = 8
+    assert csp.nconflicts(3, 2, assignment) == 1
+    assert csp.nconflicts(3, 4, assignment) == 3
+    assert csp.nconflicts(1, 5, assignment) == 2
+    assert csp.nconflicts(2, 0, assignment) == 3
+    assert csp.nconflicts(4, 4, assignment) == 0
+
+    assignment = {0: 0, 1: 1, 2: 4, 3: 1, 4: 6, 5: 7, 6: 6, 7: 2, 8: 3}
+    csp.assign(6, 6, assignment)
+    assert len(assignment) == 6
+    csp.assign(7, 2, assignment)
+    assert len(assignment) == 7
+    csp.assign(8, 3, assignment)
+    assert len(assignment) == 8
+    assert assignment[6] = 6
+    assert assignment[7] = 2
+    assert assignment[8] = 3
+    assert csp.nconflicts(1, 1, assignment) == 0
+    assert csp.nconflicts(7, 7, assignment) == 2
+    assert csp.nconflicts(3, 4, assignment) == 3
+    assert csp.nconflicts(8, 4, assignment) == 1
+    assert csp.nconflicts(4, 2, assignment) == 2
+
+
 def test_universal_dict():
     d = UniversalDict(42)
     assert d['life'] == 42
