@@ -345,6 +345,8 @@ def test_backtracking_search():
 def test_min_conflicts():
     assert min_conflicts(australia)
     assert min_conflicts(france)
+    assert min_conflicts(NQueensCSP(5))
+    assert min_conflicts(NQueensCSP(6))
 
     tests = [(usa, None)] * 3
     assert failure_test(min_conflicts, tests) >= 1/3
@@ -371,6 +373,12 @@ def test_nqueens_csp():
     assert csp.nconflicts(1, 5, assignment) == 2
     assert csp.nconflicts(2, 0, assignment) == 3
     assert csp.nconflicts(4, 4, assignment) == 0
+    csp.unassign(assignment, 1)
+    csp.unassign(assignment, 2)
+    csp.unassign(assignment, 3)
+    assert 1 not in assignment
+    assert 2 not in assignment
+    assert 3 not in assignment
 
     assignment = {0: 0, 1: 1, 2: 4, 3: 1, 4: 6, 5: 7, 6: 6, 7: 2, 8: 3}
     csp.assign(6, 6, assignment)
@@ -387,6 +395,17 @@ def test_nqueens_csp():
     assert csp.nconflicts(3, 4, assignment) == 3
     assert csp.nconflicts(8, 4, assignment) == 1
     assert csp.nconflicts(4, 2, assignment) == 2
+    csp.unassign(assignment, 4)
+    csp.unassign(assignment, 5)
+    csp.unassign(assignment, 6)
+    assert 4 not in assignment
+    assert 5 not in assignment
+    assert 6 not in assignment
+
+    for n in range(5, 8):
+        csp = NQueensCSP(n)
+        solution = min_conflicts(csp)
+        assert sorted(solution.values()) == list(range(n))
 
 
 def test_universal_dict():
