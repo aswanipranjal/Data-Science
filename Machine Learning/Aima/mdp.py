@@ -229,6 +229,30 @@ a = 'right', 'left', 'up', 'down'
 Let a = 'right'
 s` = {(1, 1):0.1, (2, 1):0.8, (1, 2):0.1}
 '''
+'''
+belief state for tiger pomdp:
+gamma = 0.95
+reward = [0, 1]
+states = [0, 1]
+actions = [Stay, Go, Ask]
+evidence = [hearLeft, hearRight]
+T: Ask
+    0 1
+0: [1 0]
+1: [0 1]
+
+T: Stay
+     0   1
+0: [0.8 0.2]
+1: [0.2 0.8]
+
+T: Go
+     0   1
+0: [0.2 0.8]
+1: [0.8 0.2]
+
+T: 
+'''
 
 
     def get_belief_state(self, belief, action, evidence, alpha):
