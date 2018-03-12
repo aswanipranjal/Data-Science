@@ -381,6 +381,7 @@ def test_nqueens_csp():
     assert 2 not in assignment
     assert 3 not in assignment
 
+    assignment = {}
     assignment = {0: 0, 1: 1, 2: 4, 3: 1, 4: 6}
     csp.assign(5, 7, assignment)
     assert len(assignment) == 6
@@ -391,11 +392,11 @@ def test_nqueens_csp():
     assert assignment[5] == 7
     assert assignment[6] == 6
     assert assignment[7] == 2
-    assert csp.nconflicts(1, 1, assignment) == 1
-    assert csp.nconflicts(7, 7, assignment) == 7
+    assignment = {0: 0, 1: 1, 2: 4, 3: 1, 4: 6, 5: 7, 6: 6, 7: 2}
+    assert csp.nconflicts(7, 7, assignment) == 4
     assert csp.nconflicts(3, 4, assignment) == 0
     assert csp.nconflicts(2, 6, assignment) == 2
-    assert csp.nconflicts(5, 5, assignment) == 6
+    assert csp.nconflicts(5, 5, assignment) == 3
     csp.unassign(4, assignment)
     csp.unassign(5, assignment)
     csp.unassign(6, assignment)
