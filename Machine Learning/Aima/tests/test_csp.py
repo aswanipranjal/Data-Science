@@ -345,8 +345,6 @@ def test_backtracking_search():
 def test_min_conflicts():
     assert min_conflicts(australia)
     assert min_conflicts(france)
-    assert min_conflicts(NQueensCSP(5))
-    assert min_conflicts(NQueensCSP(6))
 
     tests = [(usa, None)] * 3
     assert failure_test(min_conflicts, tests) >= 1/3
