@@ -351,8 +351,8 @@ def test_min_conflicts():
 
     australia_impossible = MapColoringCSP(list('RG'), 'SA: WA NT Q NSW V; NT: WA Q; NSW: Q V; T: ')
     assert min_conflicts(australia_impossible, 1000) is None
-    assert min_conflicts(NQueensCSP(2)) is None
-    assert min_conflicts(NQueensCSP(3)) is None
+    assert min_conflicts(NQueensCSP(2), 1000) is None
+    assert min_conflicts(NQueensCSP(3), 1000) is None
 
 
 def test_nqueens_csp():
