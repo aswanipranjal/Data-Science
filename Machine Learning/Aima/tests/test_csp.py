@@ -362,11 +362,11 @@ def test_nqueens_csp():
 
     assignment = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
     csp.assign(6, 6, assignment)
-    assert len(assignment) == 6
-    csp.assign(7, 7, assignment)
     assert len(assignment) == 7
-    csp.assign(8, 8, assignment)
+    csp.assign(7, 7, assignment)
     assert len(assignment) == 8
+    csp.assign(8, 8, assignment)
+    assert len(assignment) == 9
     assert assignment[6] == 6
     assert assignment[7] == 7
     assert assignment[8] == 8
@@ -384,11 +384,11 @@ def test_nqueens_csp():
 
     assignment = {0: 0, 1: 1, 2: 4, 3: 1, 4: 6, 5: 7}
     csp.assign(6, 6, assignment)
-    assert len(assignment) == 6
-    csp.assign(7, 2, assignment)
     assert len(assignment) == 7
-    csp.assign(8, 3, assignment)
+    csp.assign(7, 2, assignment)
     assert len(assignment) == 8
+    csp.assign(8, 3, assignment)
+    assert len(assignment) == 9
     assert assignment[6] == 6
     assert assignment[7] == 2
     assert assignment[8] == 3
