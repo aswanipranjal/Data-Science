@@ -163,140 +163,140 @@ class GridMDP(MDP):
         return self.to_grid({s: chars[a] for (s, a) in policy.items()})
 
 
-class POMDP(MDP):
+# class POMDP(MDP):
     
-    def __init__(self, init, actlist, terminals, transitions={}, sensor=None, reward=None, states=None, gamma=.9):
-        if not (0 < gamma <= 1):
-            raise ValueError('An MDP must have 0 < gamma <= 1')
+#     def __init__(self, init, actlist, terminals, transitions={}, sensor=None, reward=None, states=None, gamma=.9):
+#         if not (0 < gamma <= 1):
+#             raise ValueError('An MDP must have 0 < gamma <= 1')
 
-        if states:
-            self.states = states
-        else:
-            self.states = self.get_states_from_transitions(transitions)
+#         if states:
+#             self.states = states
+#         else:
+#             self.states = self.get_states_from_transitions(transitions)
 
-        self.init = init
-        self.terminals = self.terminals
-        self.transitions = transitions
-        if self.transitions == {}:
-            print('Warning: Transition table is empty.')
-        self.gamma = gamma
-        if reward:
-            self.reward = reward
-        else:
-            self.reward = {s : 0 for s in self.states}
+#         self.init = init
+#         self.terminals = self.terminals
+#         self.transitions = transitions
+#         if self.transitions == {}:
+#             print('Warning: Transition table is empty.')
+#         self.gamma = gamma
+#         if reward:
+#             self.reward = reward
+#         else:
+#             self.reward = {s : 0 for s in self.states}
 
-    def R(self, state):
-        return self.reward[state]
+#     def R(self, state):
+#         return self.reward[state]
 
-    def S(self, state):
-        # The sensor model specifies the probability of perceiving evidence e in state s
-        return self.sensor[state]
+#     def S(self, state):
+#         # The sensor model specifies the probability of perceiving evidence e in state s
+#         return self.sensor[state]
 
-    def T(self, state, action):
-        if self.transitions == {}:
-            raise ValueError('Transition model is missing.')
-        else:
-            self.transitions[state][action]
+#     def T(self, state, action):
+#         if self.transitions == {}:
+#             raise ValueError('Transition model is missing.')
+#         else:
+#             self.transitions[state][action]
 
-    def actions(self, state):
-        if state in self.terminals:
-            return [None]
-        else:
-            return self.actlist
+#     def actions(self, state):
+#         if state in self.terminals:
+#             return [None]
+#         else:
+#             return self.actlist
 
-    def get_states_from_transitions(self, transitions):
-        if isinstance(transitions, dict):
-            s1 = set(transitions.keys())
-            s2 = set([tr[1] for actions in transitions.values() for effects in actions.values() for tr in effects])
-            return s1.union(s2)
-        else:
-            print('Could not retrieve states from transitions')
-            return None
-'''
-belief_state for grid mdp:
-b = [_, _, _, 0]
-    [_, 0, _, 0]
-    [_, _, _, _]
-sum(b) = 1
-b = [1/9, 1/9, 1/9,   0]
-    [1/9,   0, 1/9,   0]
-    [1/9, 1/9, 1/9, 1/9]
-Let s = (1, 1)
-b(s) = 1/9
-P(s` | s, a)
-s = (1, 1)
-a = 'right', 'left', 'up', 'down'
-Let a = 'right'
-s` = {(1, 1):0.1, (2, 1):0.8, (1, 2):0.1}
-'''
-'''
-belief state for tiger pomdp:
-gamma = 0.95
-reward = [0, 1]
-states = [0, 1]
-actions = [Stay, Go, Ask]
-evidence = [hearLeft, hearRight]
-T: Ask
-    0 1
-0: [1 0]
-1: [0 1]
+#     def get_states_from_transitions(self, transitions):
+#         if isinstance(transitions, dict):
+#             s1 = set(transitions.keys())
+#             s2 = set([tr[1] for actions in transitions.values() for effects in actions.values() for tr in effects])
+#             return s1.union(s2)
+#         else:
+#             print('Could not retrieve states from transitions')
+#             return None
+# '''
+# belief_state for grid mdp:
+# b = [_, _, _, 0]
+#     [_, 0, _, 0]
+#     [_, _, _, _]
+# sum(b) = 1
+# b = [1/9, 1/9, 1/9,   0]
+#     [1/9,   0, 1/9,   0]
+#     [1/9, 1/9, 1/9, 1/9]
+# Let s = (1, 1)
+# b(s) = 1/9
+# P(s` | s, a)
+# s = (1, 1)
+# a = 'right', 'left', 'up', 'down'
+# Let a = 'right'
+# s` = {(1, 1):0.1, (2, 1):0.8, (1, 2):0.1}
+# '''
+# '''
+# belief state for tiger pomdp:
+# gamma = 0.95
+# reward = [0, 1]
+# states = [0, 1]
+# actions = [Stay, Go, Ask]
+# evidence = [hearLeft, hearRight]
+# T: Ask
+#     0 1
+# 0: [1 0]
+# 1: [0 1]
 
-T: Stay
-     0   1
-0: [0.8 0.2]
-1: [0.2 0.8]
+# T: Stay
+#      0   1
+# 0: [0.8 0.2]
+# 1: [0.2 0.8]
 
-T: Go
-     0   1
-0: [0.2 0.8]
-1: [0.8 0.2]
+# T: Go
+#      0   1
+# 0: [0.2 0.8]
+# 1: [0.8 0.2]
 
-'''
+# '''
 
-'''
-Re-statement of the tiger pomdp problem
-s0: tiger-left
-s1: tiger-right
-T = {
-    's0': {
-        'listen': [(1.0, 's0'), (0.0, 's1')],
-        'left': [(0.7, 's0'), (0.3, 's1')],
-        'right': [(0.3, 's0'), (0.7, 's1')]
-    },
-    's1': {
-        'listen': [(0.0, 's0'), (1.0, 's1')],
-        'left': [(0.7, 's0'), (0.3, 's1')],
-        'right': [(0.3, 's0'), (0.7, 's1')]
-    }
-}
-O = {
-    's0': {
-        'listen': [(0.85, 'TL'), (0.15, 'TR')],
-        'left': [(0.5, 'TL'), (0.5, 'TR')],
-        'right': [(0.5, 'TL'), (0.5, 'TR')]
-    },
-    's1': {
-        'listen': [(0.15, 'TR'), (0.85, 'TR')],
-        'left': [(0.5, 'TL'), (0.5, 'TR')],
-        'right': [(0.5, 'TL'), (0.5, 'TR')]
-    }
-}
-R = ['s0': -10, 's1': 10]
-'''
+# '''
+# Re-statement of the tiger pomdp problem
+# s0: tiger-left
+# s1: tiger-right
+# T = {
+#     's0': {
+#         'listen': [(1.0, 's0'), (0.0, 's1')],
+#         'left': [(0.7, 's0'), (0.3, 's1')],
+#         'right': [(0.3, 's0'), (0.7, 's1')]
+#     },
+#     's1': {
+#         'listen': [(0.0, 's0'), (1.0, 's1')],
+#         'left': [(0.7, 's0'), (0.3, 's1')],
+#         'right': [(0.3, 's0'), (0.7, 's1')]
+#     }
+# }
+# O = {
+#     's0': {
+#         'listen': [(0.85, 'TL'), (0.15, 'TR')],
+#         'left': [(0.5, 'TL'), (0.5, 'TR')],
+#         'right': [(0.5, 'TL'), (0.5, 'TR')]
+#     },
+#     's1': {
+#         'listen': [(0.15, 'TR'), (0.85, 'TR')],
+#         'left': [(0.5, 'TL'), (0.5, 'TR')],
+#         'right': [(0.5, 'TL'), (0.5, 'TR')]
+#     }
+# }
+# R = ['s0': -10, 's1': 10]
+# '''
 
 
-    def get_belief_state(self, belief, action, evidence, alpha):
-        new_belief_state = alpha * P(evidence | state`) * sum(P(state` | state, action) * belief[state])
-        return new_belief_state
+#     def get_belief_state(self, belief, action, evidence, alpha):
+#         new_belief_state = alpha * P(evidence | state`) * sum(P(state` | state, action) * belief[state])
+#         return new_belief_state
 
-def pomdp_value_iteration(pomdp, epsilon=0.001):
-    '''Solving a POMDP by value iteration.'''
-    U1 = # To initialize
-    R, T, S, gamma = pomdp.R, pomdp.T, pomdp.S, pomdp.gamma
-    while True:
-        U = U1.copy()
-        U1 = # The set of all plans consisting of an action and, for eachpossible next percept, a plan U with utility vectors computed according to equation (17.13)
-        U1 = remove_dominated_plans(U1)
+# def pomdp_value_iteration(pomdp, epsilon=0.001):
+#     '''Solving a POMDP by value iteration.'''
+#     U1 = # To initialize
+#     R, T, S, gamma = pomdp.R, pomdp.T, pomdp.S, pomdp.gamma
+#     while True:
+#         U = U1.copy()
+#         U1 = # The set of all plans consisting of an action and, for eachpossible next percept, a plan U with utility vectors computed according to equation (17.13)
+#         U1 = remove_dominated_plans(U1)
 
 # ______________________________________________________________________________
 
