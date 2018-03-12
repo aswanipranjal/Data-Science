@@ -165,7 +165,7 @@ class GridMDP(MDP):
 
 class POMDP(MDP):
     
-    def __init__(self, init, actlist, terminals, transitions={}, sensor={}, reward=None, states=None, gamma=.9):
+    def __init__(self, init, actlist, terminals, transitions={}, sensor=None, reward=None, states=None, gamma=.9):
         if not (0 < gamma <= 1):
             raise ValueError('An MDP must have 0 < gamma <= 1')
 
@@ -188,6 +188,10 @@ class POMDP(MDP):
     def R(self, state):
         return self.reward[state]
 
+    def S(self, state):
+        # The sensor model specifies the probability of perceiving evidence e in state s
+        return self.sensor[state]
+
     def T(self, state, action):
         if self.transitions == {}:
             raise ValueError('Transition model is missing.')
@@ -209,6 +213,18 @@ class POMDP(MDP):
             print('Could not retrieve states from transitions')
             return None
 
+    def get_belief_state(self, belief, action, evidence, alpha):
+        new_belief_state = alpha * P(evidence | state`) * sum(P(state` | state, action) * belief[state])
+        return new_belief_state
+
+def pomdp_value_iteration(pomdp, epsilon=0.001):
+    '''Solving a POMDP by value iteration.'''
+    U1 = # To initialize
+    R, T, S, gamma = pomdp.R, pomdp.T, pomdp.S, pomdp.gamma
+    while True:
+        U = U1.copy()
+        U1 = # The set of all plans consisting of an action and, for eachpossible next percept, a plan U with utility vectors computed according to equation (17.13)
+        U1 = remove_dominated_plans(U1)
 
 # ______________________________________________________________________________
 
