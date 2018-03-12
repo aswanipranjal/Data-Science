@@ -185,6 +185,30 @@ class POMDP(MDP):
         else:
             self.reward = {s : 0 for s in self.states}
 
+    def R(self, state):
+        return self.reward[state]
+
+    def T(self, state, action):
+        if self.transitions == {}:
+            raise ValueError('Transition model is missing.')
+        else:
+            self.transitions[state][action]
+
+    def actions(self, state):
+        if state in self.terminals:
+            return [None]
+        else:
+            return self.actlist
+
+    def get_states_from_transitions(self, transitions):
+        if isinstance(transitions, dict):
+            s1 = set(transitions.keys())
+            s2 = set([tr[1] for actions in transitions.values() for effects in actions.values() for tr in effects])
+            return s1.union(s2)
+        else:
+            print('Could not retrieve states from transitions')
+            return None
+
 
 # ______________________________________________________________________________
 
