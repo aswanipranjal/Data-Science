@@ -212,6 +212,24 @@ class POMDP(MDP):
         else:
             print('Could not retrieve states from transitions')
             return None
+'''
+belief_state for grid mdp:
+b = [_, _, _, 0]
+    [_, 0, _, 0]
+    [_, _, _, _]
+sum(b) = 1
+b = [1/9, 1/9, 1/9,   0]
+    [1/9,   0, 1/9,   0]
+    [1/9, 1/9, 1/9, 1/9]
+Let s = (1, 1)
+b(s) = 1/9
+P(s` | s, a)
+s = (1, 1)
+a = 'right', 'left', 'up', 'down'
+Let a = 'right'
+s` = {(1, 1):0.1, (2, 1):0.8, (1, 2):0.1}
+'''
+
 
     def get_belief_state(self, belief, action, evidence, alpha):
         new_belief_state = alpha * P(evidence | state`) * sum(P(state` | state, action) * belief[state])
