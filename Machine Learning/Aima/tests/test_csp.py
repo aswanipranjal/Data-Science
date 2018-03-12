@@ -360,7 +360,7 @@ def test_min_conflicts():
 def test_nqueens_csp():
     csp = NQueensCSP(8)
 
-    assignment = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
+    assignment = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
     csp.assign(6, 6, assignment)
     assert len(assignment) == 6
     csp.assign(7, 7, assignment)
@@ -382,7 +382,7 @@ def test_nqueens_csp():
     assert 2 not in assignment
     assert 3 not in assignment
 
-    assignment = {0: 0, 1: 1, 2: 4, 3: 1, 4: 6, 5: 7, 6: 6, 7: 2, 8: 3}
+    assignment = {0: 0, 1: 1, 2: 4, 3: 1, 4: 6, 5: 7}
     csp.assign(6, 6, assignment)
     assert len(assignment) == 6
     csp.assign(7, 2, assignment)
