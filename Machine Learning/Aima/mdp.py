@@ -162,6 +162,30 @@ class GridMDP(MDP):
             (1, 0): '>', (0, 1): '^', (-1, 0): '<', (0, -1): 'v', None: '.'}
         return self.to_grid({s: chars[a] for (s, a) in policy.items()})
 
+
+class POMDP(MDP):
+    
+    def __init__(self, init, actlist, terminals, transitions={}, sensor={}, reward=None, states=None, gamma=.9):
+        if not (0 < gamma <= 1):
+            raise ValueError('An MDP must have 0 < gamma <= 1')
+
+        if states:
+            self.states = states
+        else:
+            self.states = self.get_states_from_transitions(transitions)
+
+        self.init = init
+        self.terminals = self.terminals
+        self.transitions = transitions
+        if self.transitions == {}:
+            print('Warning: Transition table is empty.')
+        self.gamma = gamma
+        if reward:
+            self.reward = reward
+        else:
+            self.reward = {s : 0 for s in self.states}
+
+
 # ______________________________________________________________________________
 
 
