@@ -18,8 +18,9 @@
 	add visualization of NQueensProblem to utils.py
 	rewrite EightPuzzle section,
 	add tests for NQueensProblem
-7. 		Add min_conflicts section to csp.ipynb and solve NQueensCSP using min_conflicts.
-   Add tests for NQueensCSP
+7. [[Add min_conflicts section to csp.ipynb and solve NQueensCSP using min_conflicts.]]
+   [[Add tests for NQueensCSP]]
+   [[Add tests for min_conflicts]]
    Add `min_conflicts` to README.md
    Move visualization code to utils.py
 8. Add section for SATplan to logic.ipynb
