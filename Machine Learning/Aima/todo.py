@@ -17,7 +17,7 @@
 	[[rewrite NQueensProblem section, ]]
 	[[add visualization of NQueensProblem to utils.py]]
 	[[rewrite EightPuzzle section,]]
-	add tests for NQueensProblem
+	[[add tests for NQueensProblem]]
 8. Add section for SATplan to logic.ipynb
 9. POMDP (very difficult)
 10. POMDP value iteration
