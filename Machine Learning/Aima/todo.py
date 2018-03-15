@@ -1,5 +1,4 @@
 '''
-1. Fix merge conflicts in logic.ipynb (if any)
 2. Convert %psource to psource in logic.ipynb
 3.a Add section for `KB_Agent` in logic.ipynb
   b Add section for `FOL-FC-Ask` in logic.ipynb
