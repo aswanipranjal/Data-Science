@@ -23,3 +23,5 @@
 11. HybridWumpusAgent (if incomplete)
 12. DLS, IDS, RBFS
 '''
+
+Change outputs of Hill-Climbing
