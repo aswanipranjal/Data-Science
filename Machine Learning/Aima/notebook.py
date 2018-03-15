@@ -7,6 +7,7 @@ from learning import DataSet
 from IPython.display import HTML, display
 from collections import Counter, defaultdict
 
+from PIL import Image
 import matplotlib.pyplot as plt
 import numpy as np
 
