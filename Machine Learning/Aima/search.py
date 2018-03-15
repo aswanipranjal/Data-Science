@@ -109,10 +109,10 @@ class Node:
 
     def child_node(self, problem, action):
         """[Figure 3.10]"""
-        next = problem.result(self.state, action)
-        return Node(next, self, action,
+        next_node = problem.result(self.state, action)
+        return Node(next_node, self, action,
                     problem.path_cost(self.path_cost, self.state,
-                                      action, next))
+                                      action, next_node))
 
     def solution(self):
         """Return the sequence of actions to go from the root to this node."""
@@ -163,7 +163,7 @@ class SimpleProblemSolvingAgentProgram:
                 return None
         return self.seq.pop(0)
 
-    def update_state(self, percept):
+    def update_state(self, state, percept):
         raise NotImplementedError
 
     def formulate_goal(self, state):
@@ -182,7 +182,7 @@ class SimpleProblemSolvingAgentProgram:
 def tree_search(problem, frontier):
     """Search through the successors of a problem to find a goal.
     The argument frontier should be an empty queue.
-    Don't worry about repeated paths to a state. [Figure 3.7]"""
+    Repeats infinites in case of loops. [Figure 3.7]"""
     frontier.append(Node(problem.initial))
     while frontier:
         node = frontier.pop()
@@ -195,6 +195,7 @@ def tree_search(problem, frontier):
 def graph_search(problem, frontier):
     """Search through the successors of a problem to find a goal.
     The argument frontier should be an empty queue.
+    Does not get trapped by loops.
     If two paths reach a state, only use the first one. [Figure 3.7]"""
     frontier.append(Node(problem.initial))
     explored = set()
@@ -225,7 +226,11 @@ def depth_first_graph_search(problem):
 
 
 def breadth_first_search(problem):
-    """[Figure 3.11]"""
+    """[Figure 3.11]
+	Note that this function can be implemented in a 
+	single line as below:
+	return graph_search(problem, FIFOQueue())
+    """
     node = Node(problem.initial)
     if problem.goal_test(node.state):
         return node
@@ -406,25 +411,25 @@ def astar_search(problem, h=None):
 
 class EightPuzzle(Problem):
 
-    ''' The problem of sliding tiles numbered from 1 to 8 on a 3x3 board,
+    """ The problem of sliding tiles numbered from 1 to 8 on a 3x3 board,
     where one of the squares is a blank. A state is represented as a 3x3 list,
-    where element at index i,j represents the tile number (0 if it's an empty square) '''
+    where element at index i,j represents the tile number (0 if it's an empty square) """
  
     def __init__(self, initial, goal=(1, 2, 3, 4, 5, 6, 7, 8, 0)):
-        ''' Define goal state and initialize a problem '''
+        """ Define goal state and initialize a problem """
 
         self.goal = goal
         Problem.__init__(self, initial, goal)
     
     def find_blank_square(self, state):
-        '''Return the index of the blank square in a given state'''
+        """Return the index of the blank square in a given state"""
 
         return state.index(0)
     
     def actions(self, state):
-        ''' Return the actions that can be executed in the given state.
+        """ Return the actions that can be executed in the given state.
         The result would be a list, since there are only four possible actions
-        in any given state of the environment '''
+        in any given state of the environment """
         
         possible_actions = ['UP', 'DOWN', 'LEFT', 'RIGHT']       
         index_blank_square = self.find_blank_square(state)
@@ -441,8 +446,8 @@ class EightPuzzle(Problem):
         return possible_actions
 
     def result(self, state, action):
-        ''' Given state and action, return a new state that is the result of the action.
-        Action is assumed to be a valid action in the state '''
+        """ Given state and action, return a new state that is the result of the action.
+        Action is assumed to be a valid action in the state """
 
         # blank is the index of the blank square
         blank = self.find_blank_square(state)
@@ -455,12 +460,12 @@ class EightPuzzle(Problem):
         return tuple(new_state)
 
     def goal_test(self, state):
-        ''' Given a state, return True if state is a goal state or False, otherwise '''
+        """ Given a state, return True if state is a goal state or False, otherwise """
 
         return state == self.goal
 
     def check_solvability(self, state):
-        ''' Checks if the given state is solvable '''
+        """ Checks if the given state is solvable """
 
         inversion = 0
         for i in range(len(state)):
@@ -471,8 +476,8 @@ class EightPuzzle(Problem):
         return (inversion % 2 == 0)
     
     def h(self, node):
-        ''' Return the heuristic value for a given state. Default heuristic function used is 
-        h(n) = number of misplaced tiles '''
+        """ Return the heuristic value for a given state. Default heuristic function used is 
+        h(n) = number of misplaced tiles """
 
         return sum(s != g for (s, g) in zip(node.state, self.goal))
 
@@ -544,10 +549,10 @@ def simulated_annealing(problem, schedule=exp_schedule()):
         neighbors = current.expand(problem)
         if not neighbors:
             return current.state
-        next = random.choice(neighbors)
-        delta_e = problem.value(next.state) - problem.value(current.state)
+        next_choice = random.choice(neighbors)
+        delta_e = problem.value(next_choice.state) - problem.value(current.state)
         if delta_e > 0 or probability(math.exp(delta_e / T)):
-            current = next
+            current = next_choice
 
 def simulated_annealing_full(problem, schedule=exp_schedule()):
     """ This version returns all the states encountered in reaching 
@@ -562,10 +567,10 @@ def simulated_annealing_full(problem, schedule=exp_schedule()):
         neighbors = current.expand(problem)
         if not neighbors:
             return current.state
-        next = random.choice(neighbors)
-        delta_e = problem.value(next.state) - problem.value(current.state)
+        next_choice = random.choice(neighbors)
+        delta_e = problem.value(next_choice.state) - problem.value(current.state)
         if delta_e > 0 or probability(math.exp(delta_e / T)):
-            current = next
+            current = next_choice
 
 def and_or_graph_search(problem):
     """[Figure 4.11]Used when the environment is nondeterministic and completely observable.
@@ -703,10 +708,10 @@ class OnlineSearchProblem(Problem):
         self.graph = graph
 
     def actions(self, state):
-        return self.graph.dict[state].keys()
+        return self.graph.graph_dict[state].keys()
 
     def output(self, state, action):
-        return self.graph.dict[state][action]
+        return self.graph.graph_dict[state][action]
 
     def h(self, state):
         """Returns least possible cost to reach a goal for the given state."""
@@ -893,16 +898,16 @@ class Graph:
     length of the link from A to B.  'Lengths' can actually be any object at
     all, and nodes can be any hashable object."""
 
-    def __init__(self, dict=None, directed=True):
-        self.dict = dict or {}
+    def __init__(self, graph_dict=None, directed=True):
+        self.graph_dict = graph_dict or {}
         self.directed = directed
         if not directed:
             self.make_undirected()
 
     def make_undirected(self):
         """Make a digraph into an undirected graph by adding symmetric edges."""
-        for a in list(self.dict.keys()):
-            for (b, dist) in self.dict[a].items():
+        for a in list(self.graph_dict.keys()):
+            for (b, dist) in self.graph_dict[a].items():
                 self.connect1(b, a, dist)
 
     def connect(self, A, B, distance=1):
@@ -914,13 +919,13 @@ class Graph:
 
     def connect1(self, A, B, distance):
         """Add a link from A to B of given distance, in one direction only."""
-        self.dict.setdefault(A, {})[B] = distance
+        self.graph_dict.setdefault(A, {})[B] = distance
 
     def get(self, a, b=None):
         """Return a link distance or a dict of {node: distance} entries.
         .get(a,b) returns the distance or None;
         .get(a) returns a dict of {node: distance} entries, possibly {}."""
-        links = self.dict.setdefault(a, {})
+        links = self.graph_dict.setdefault(a, {})
         if b is None:
             return links
         else:
@@ -928,12 +933,15 @@ class Graph:
 
     def nodes(self):
         """Return a list of nodes in the graph."""
-        return list(self.dict.keys())
+        s1 = set([k for k in self.graph_dict.keys()])
+        s2 = set([k2 for v in self.graph_dict.values() for k2, v2 in v.items()])
+        nodes = s1.union(s2)
+        return list(nodes)
 
 
-def UndirectedGraph(dict=None):
+def UndirectedGraph(graph_dict=None):
     """Build a Graph where every edge (including future ones) goes both ways."""
-    return Graph(dict=dict, directed=False)
+    return Graph(graph_dict = graph_dict, directed=False)
 
 
 def RandomGraph(nodes=list(range(10)), min_links=2, width=400, height=300,
@@ -1070,7 +1078,7 @@ class GraphProblem(Problem):
     def find_min_edge(self):
         """Find minimum value of edges."""
         m = infinity
-        for d in self.graph.dict.values():
+        for d in self.graph.graph_dict.values():
             local_min = min(d.values())
             m = min(m, local_min)
 
@@ -1115,7 +1123,7 @@ class NQueensProblem(Problem):
     row r, and a value of None means that the c-th column has not been
     filled in yet.  We fill in columns left to right.
     >>> depth_first_tree_search(NQueensProblem(8))
-    <Node [7, 3, 0, 2, 5, 1, 6, 4]>
+    <Node (7, 3, 0, 2, 5, 1, 6, 4)>
     """
 
     def __init__(self, N):
@@ -1157,20 +1165,6 @@ class NQueensProblem(Problem):
             return False
         return not any(self.conflicted(state, state[col], col)
                        for col in range(len(state)))
-
-    def h(self, node):
-        """Return number of conflicting queens for a given node"""
-        num_conflicts = 0
-        print(node.state) # debug
-        print(f'Enumerated {enumerate(node.state)}')
-        for (r1, c1) in enumerate(node.state):
-            print('r1, c1', r1, c1)
-            for (r2, c2) in enumerate(node.state):
-                print('\tr2, c2', r2, c2)
-                if (r1, c1) != (r2, c2):
-                    num_conflicts += self.conflict(r1, c1, r2, c2)
-
-        return num_conflicts
 
 # ______________________________________________________________________________
 # Inverse Boggle: Search for a high-scoring Boggle board. A good domain for
