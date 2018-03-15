@@ -1158,6 +1158,20 @@ class NQueensProblem(Problem):
         return not any(self.conflicted(state, state[col], col)
                        for col in range(len(state)))
 
+    def h(self, node):
+        """Return number of conflicting queens for a given node"""
+        num_conflicts = 0
+        print(node.state) # debug
+        print(f'Enumerated {enumerate(node.state)}')
+        for (r1, c1) in enumerate(node.state):
+            print('r1, c1', r1, c1)
+            for (r2, c2) in enumerate(node.state):
+                print('\tr2, c2', r2, c2)
+                if (r1, c1) != (r2, c2):
+                    num_conflicts += self.conflict(r1, c1, r2, c2)
+
+        return num_conflicts
+
 # ______________________________________________________________________________
 # Inverse Boggle: Search for a high-scoring Boggle board. A good domain for
 # iterative-repair and related search techniques, as suggested by Justin Boyan.
