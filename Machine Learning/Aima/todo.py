@@ -12,10 +12,11 @@
 				fix spelling of entailment in line 225 `test_logic.py`
 				Add space to line 235 in test_logic.py
 5. Add Simulated Annealing to search.ipynb
-6. One PR: Fix NQueensProblem, 
-	rewrite NQueensProblem section, 
-	add visualization of NQueensProblem to utils.py
-	rewrite EightPuzzle section,
+6. One PR: 
+	[[Fix NQueensProblem, ]]
+	[[rewrite NQueensProblem section, ]]
+	[[add visualization of NQueensProblem to utils.py]]
+	[[rewrite EightPuzzle section,]]
 	add tests for NQueensProblem
 8. Add section for SATplan to logic.ipynb
 9. POMDP (very difficult)
@@ -23,5 +24,3 @@
 11. HybridWumpusAgent (if incomplete)
 12. DLS, IDS, RBFS
 '''
-
-Change outputs of Hill-Climbing
