@@ -1159,12 +1159,16 @@ class NQueensProblem(Problem):
                        for col in range(len(state)))
 
     def h(self, node):
-        """Returns number of conflicting queens for a given node"""
+        """Return number of conflicting queens for a given node"""
         num_conflicts = 0
-        for (row1, col1) in enumerate(node.state):
-            for (row2, col2) in enumerate(node.state):
-                if (row1, col1) != (row2, col2):
-                    num_conflicts += int(self.conflict(row1, col1, row2, col2))
+        print(node.state) # debug
+        print(f'Enumerated {enumerate(node.state)}')
+        for (r1, c1) in enumerate(node.state):
+            print('r1, c1', r1, c1)
+            for (r2, c2) in enumerate(node.state):
+                print('\tr2, c2', r2, c2)
+                if (r1, c1) != (r2, c2):
+                    num_conflicts += self.conflict(r1, c1, r2, c2)
 
         return num_conflicts
 
