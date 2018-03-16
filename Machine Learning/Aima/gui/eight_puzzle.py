@@ -35,4 +35,14 @@ class EightPuzzleApp(tk.Tk):
 			frame.grid(row=0, column=0, sticky='nsew')
 
 		self.show_frame(HomePage)
-		
+
+	def placeholder_function(self):
+		""" Placeholder function """
+
+		print('Not supported yet!')
+
+	def exit(self):
+		""" Function to exit """
+
+		if tkinter.messagebox.askokcancel('Exit?', 'All changes will be lost'):
+			quit()
