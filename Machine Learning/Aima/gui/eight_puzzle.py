@@ -12,6 +12,9 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from search import astar_search, EightPuzzle
 import utils
 
+grayef = '#efefef'
+
+
 class EightPuzzleApp(tk.Tk):
 
 	def __init__(self, *args, **kwargs):
@@ -46,3 +49,22 @@ class EightPuzzleApp(tk.Tk):
 
 		if tkinter.messagebox.askokcancel('Exit?', 'All changes will be lost'):
 			quit()
+
+	def show_frame(self, controller):
+		""" Function to change frames """
+
+		frame = self.frames[controller]
+		frame.tkraise()
+
+
+class HomePage(tk.Frame):
+
+	def __init__(self, parent, controller):
+		""" HomePage constructor """
+
+		tk.Frame.__init__(self, parent)
+		self.controller = controller
+		frame1 = tk.Frame(self)
+		frame1.pack(side=tk.TOP)
+
+		label = ttk.Label(frame1, text='Eight Puzzle', font=('Helvetica', 18, 'bold'), background=grayef)
