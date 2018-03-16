@@ -3,6 +3,7 @@ import tkinter as tk
 import tkinter.messagebox
 from tkinter import ttk
 
+import numpy as np
 from functools import partial
 
 import sys
@@ -72,3 +73,24 @@ class HomePage(tk.Frame):
 
 		button = ttk.Button(self, text='Generate', command=lambda: controller.show_frame(EightPuzzlePage))
 		button.pack(pady=10, padx=10, side=tk.TOP, ipadx=20, ipady=10)
+
+
+
+class EightPuzzlePage(tk.Frame):
+
+	def __init__(self, parent, controller):
+		""" EightPuzzle constructor """
+
+		tk.Frame.__init__(self, parent)
+		self.grid_rowconfigure(0, weight=1)
+		self.grid_columnconfigure(0, weight=1)
+		self.frame = tk.Frame(self)
+		self.frame.pack()
+		self.controller = controller
+
+	def create_buttons(self):
+		""" Creates interactive cells to build EightPuzzle """
+
+		_height = self.controller.shared_data['n'].get()
+		_width = self.controller.shared_data['n'].get()
+		self.goal = [1, 2, 3, 4, 5, 6, 7, 8, 0]
