@@ -110,6 +110,9 @@ class EightPuzzlePage(tk.Frame):
 				else:
 					self.zero = (i, j)
 
+	def move(self, i, j):
+		self.buttons[i][j].destroy()
+
 	def placeholder_function(self):
 		""" Placeholder function """
 
