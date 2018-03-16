@@ -23,7 +23,7 @@ class EightPuzzleApp(tk.Tk):
 		tk.Tk.__init__(self, *args, **kwargs)
 		tk.Tk.wm_title(self, 'Eight Puzzle')
 		self.shared_data = {
-			'n': 8
+			'n': tk.IntVar()
 		}
 		self.shared_data['n'].set(8)
 		self.container = tk.Frame(self)
@@ -111,4 +111,3 @@ if __name__ == '__main__':
 	app = EightPuzzleApp()
 	app.geometry('600x600')
 	app.mainloop()
-	
