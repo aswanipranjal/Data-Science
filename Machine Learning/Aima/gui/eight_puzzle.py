@@ -105,3 +105,10 @@ class EightPuzzlePage(tk.Frame):
 		""" Placeholder function """
 
 		print('Not supported yet!')
+
+
+if __name__ == '__main__':
+	app = EightPuzzleApp()
+	app.geometry('600x600')
+	app.mainloop()
+	
