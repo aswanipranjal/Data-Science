@@ -68,3 +68,7 @@ class HomePage(tk.Frame):
 		frame1.pack(side=tk.TOP)
 
 		label = ttk.Label(frame1, text='Eight Puzzle', font=('Helvetica', 18, 'bold'), background=grayef)
+		label.pack(pady=75, padx=50, side=tk.TOP)
+
+		button = ttk.Button(self, text='Generate', command=lambda: controller.show_frame(EightPuzzlePage))
+		button.pack(pady=10, padx=10, side=tk.TOP, ipadx=20, ipady=10)
