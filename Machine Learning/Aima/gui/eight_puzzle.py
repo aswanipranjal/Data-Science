@@ -25,7 +25,7 @@ class EightPuzzleApp(tk.Tk):
 		self.shared_data = {
 			'n': tk.IntVar()
 		}
-		self.shared_data['n'].set(8)
+		self.shared_data['n'].set(3)
 		self.container = tk.Frame(self)
 		self.container.pack(side='top', fill='both', expand=True)
 		self.container.grid_rowconfigure(0, weight=1)
