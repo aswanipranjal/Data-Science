@@ -91,6 +91,17 @@ class EightPuzzlePage(tk.Frame):
 	def create_buttons(self):
 		""" Creates interactive cells to build EightPuzzle """
 
-		_height = self.controller.shared_data['n'].get()
-		_width = self.controller.shared_data['n'].get()
-		self.goal = [1, 2, 3, 4, 5, 6, 7, 8, 0]
+		_n = self.controller.shared_data['n'].get()
+		self.goal = np.array([1, 2, 3, 4, 5, 6, 7, 8, 0])
+		self.buttons = [[None] * _n] * _n
+		self.grid = self.goal.reshape((3, 3))
+
+		for i in range(_n):
+			for j  in range(_n):
+				self.buttons[i][j] = ttk.Button(self.frame, text=f'{grid[i][j]}', width=100, command=placeholder_function)
+				self.buttons[i][j].grid(row=i, column=j, ipady=20)
+
+	def placeholder_function(self):
+		""" Placeholder function """
+
+		print('Not supported yet!')
