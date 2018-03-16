@@ -111,7 +111,8 @@ class EightPuzzlePage(tk.Frame):
 					self.zero = (i, j)
 
 	def move(self, i, j):
-		self.buttons[i][j].destroy()
+		print('In move')
+		self.buttons[i][j].grid(row=100, column=100, ipady=80)
 
 	def placeholder_function(self):
 		""" Placeholder function """
