@@ -10,6 +10,7 @@ grid = state.reshape((3, 3))
 buttons = [[None]*3]*3
 
 def remove_button(i, j):
+	print(f'i: {i}, j: {j}')
 	buttons[i][j].grid_forget()
 
 for i in range(3):
