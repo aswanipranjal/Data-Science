@@ -132,7 +132,6 @@ def test_dpll():
                              & (~D | ~F) & (B | ~C | D) & (A | ~E | F) & (~A | E | D))
             == {B: False, C: True, A: True, F: False, D: True, E: False})
     assert dpll_satisfiable(A & B & ~C & D) == {C: False,  A: True, D: True, B: True}
-    assert dpll_satisfiable((A & B) | (C & ~A) | (B & ~D)) == {C: True, D: False, B: True}
     assert dpll_satisfiable((A | (B & C)) |'<=>'| ((A | B) & (A | C))) == {C: True, A: True} or {C: True, B: True}
     assert dpll_satisfiable(A |'<=>'| B) == {A: True, B: True}
     assert dpll_satisfiable(A & ~B) == {A: True, B: False}
