@@ -59,6 +59,8 @@ class EightPuzzleApp(tk.Tk):
 	def show_frame(self, controller):
 		""" Function to change frames """
 
+		build_page = self.get_page(EightPuzzlePage)
+		build_page.create_buttons()
 		frame = self.frames[controller]
 		frame.tkraise()
 
