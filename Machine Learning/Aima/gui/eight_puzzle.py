@@ -40,6 +40,11 @@ class EightPuzzleApp(tk.Tk):
 
 		self.show_frame(HomePage)
 
+	def get_page(self, page_class):
+		""" Returns pages from stored frames """
+
+		return self.frames[page_class]
+
 	def placeholder_function(self):
 		""" Placeholder function """
 
@@ -73,7 +78,6 @@ class HomePage(tk.Frame):
 
 		button = ttk.Button(self, text='Generate', command=lambda: controller.show_frame(EightPuzzlePage))
 		button.pack(pady=10, padx=10, side=tk.TOP, ipadx=20, ipady=10)
-
 
 
 class EightPuzzlePage(tk.Frame):
