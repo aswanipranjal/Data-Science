@@ -133,7 +133,7 @@ def test_dpll():
             == {B: False, C: True, A: True, F: False, D: True, E: False})
     assert dpll_satisfiable(A & B & ~C & D) == {C: False,  A: True, D: True, B: True}
     assert dpll_satisfiable((A & B) | (C & ~A) | (B & ~D)) == {C: True, D: False, B: True}
-    assert dpll_satisfiable((A | (B & C)) |'<=>'| ((A | B) & (A | C))) == {C: True, A: True}
+    assert dpll_satisfiable((A | (B & C)) |'<=>'| ((A | B) & (A | C))) == {C: True, A: True} or {C: True, B: True}
     assert dpll_satisfiable((A |'<=>'| B) |'==>'| (C & ~A)) == {C: True, A: True, B: False}
     assert dpll_satisfiable(A |'<=>'| B) == {A: True, B: True}
     assert dpll_satisfiable(A & ~B) == {A: True, B: False}
@@ -161,7 +161,7 @@ def test_unify():
     assert unify(x, 3, {}) == {x: 3}
     assert unify(x & 4 & y, 6 & y & 4, {}) == {x: 6, y: 4}
     assert unify(expr('A(x)'), expr('A(B)')) == {x: B}
-    assert unify(expr('American(x) & Weapon(B)'), expr('American(A) & Weapon(y)')) == {x: A, B: y}
+    assert unify(expr('American(x) & Weapon(B)'), expr('American(A) & Weapon(y)')) == {x: A, y: B}
 
 
 def test_pl_fc_entails():
