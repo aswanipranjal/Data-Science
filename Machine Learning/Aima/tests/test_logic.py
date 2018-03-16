@@ -161,7 +161,7 @@ def test_unify():
     assert unify(x, 3, {}) == {x: 3}
     assert unify(x & 4 & y, 6 & y & 4, {}) == {x: 6, y: 4}
     assert unify(expr('A(x)'), expr('A(B)')) == {x: B}
-    assert unify(expr('American(x) & Weapon(missile)'), expr('American(West) & Weapon(y)')) == {x: West, missile: y}
+    assert unify(expr('American(x) & Weapon(B)'), expr('American(A) & Weapon(y)')) == {x: A, B: y}
 
 
 def test_pl_fc_entails():
