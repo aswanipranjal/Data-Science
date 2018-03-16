@@ -104,8 +104,8 @@ class EightPuzzlePage(tk.Frame):
 
 		for i in range(_n):
 			for j  in range(_n):
-				self.buttons[i][j] = ttk.Button(self.frame, text=f'{self.grid[i][j]}', width=25, command=self.placeholder_function)
-				self.buttons[i][j].grid(row=i, column=j, ipady=20)
+				self.buttons[i][j] = ttk.Button(self.frame, text=f'{self.grid[i][j]}', width=30, command=self.placeholder_function)
+				self.buttons[i][j].grid(row=i, column=j, ipady=80)
 
 	def placeholder_function(self):
 		""" Placeholder function """
@@ -115,5 +115,5 @@ class EightPuzzlePage(tk.Frame):
 
 if __name__ == '__main__':
 	app = EightPuzzleApp()
-	app.geometry('600x600')
+	app.geometry('600x570')
 	app.mainloop()
