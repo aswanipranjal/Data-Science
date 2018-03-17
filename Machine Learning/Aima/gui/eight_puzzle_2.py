@@ -49,7 +49,7 @@ def solve_steps():
 		state = puzzle.result(state, move)
 		create_buttons()
 		root.update()
-		root.after(1000, time.sleep(5))
+		root.after(1, time.sleep(1))
 
 def exchange(index):
 	zero_ix = list(state).index(0)
