@@ -45,6 +45,7 @@ def solve_steps():
 		state = puzzle.result(state, move)
 		create_buttons()
 		root.update()
+		time.delay(10)
 
 def exchange(index):
 	zero_ix = list(state).index(0)
