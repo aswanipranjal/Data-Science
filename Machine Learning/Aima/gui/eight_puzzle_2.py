@@ -14,7 +14,9 @@ b = [None]*9
 
 def exchange(index):
 	zero_ix = list(state).index(0)
-	b[zero_ix] = b[index]
+	# b[zero_ix] = b[index]
+	b[zero_ix] = Button(root, text=f'{state[index]}', width=30, command=partial(exchange, index))
+	b[zero_ix].grid(row=index//3, column=index%3, ipady=80)
 	b[index].grid_forget()
 
 
