@@ -28,6 +28,8 @@ def exchange(index):
 	zero_i, zero_j = zero_ix//3, zero_ix%3
 	i_diff = state_i - zero_i
 	j_diff = state_j - zero_j
+	print('i_diff: ', i_diff)
+	print('j_diff: ', j_diff)
 	if i_diff > 0:
 		current_action = 'DOWN'
 	elif i_diff < 0:
