@@ -32,7 +32,6 @@ def scramble():
 			state = list(puzzle.result(state, move))
 			puzzle = EightPuzzle(tuple(state))
 			create_buttons()
-			time.sleep(300)
 
 def solve():
 	return astar_search(puzzle).solution()
@@ -89,6 +88,8 @@ def create_buttons():
 	scramble_btn.grid(row=3, column=0, columnspan=2, ipady=10)
 
 def init():
+	global state
+	state = [1, 2, 3, 4, 5, 6, 7, 8, 0]
 	scramble()
 	solution = solve()
 	print(solution)
