@@ -85,6 +85,8 @@ def create_buttons():
 	b[8].grid(row=2, column=2, ipady=40)
 	scramble_btn = Button(root, text='Scramble', font=('Helvetica', 30, 'bold'), width=8, command=partial(init))
 	scramble_btn.grid(row=3, column=0, ipady=10)
+	solve_btn = Button(root, text='Solve', font=('Helvetica', 30, 'bold'), width=8, command=partial(solve_steps))
+	solve_btn.grid(row=3, column=2, ipady=10)
 
 def init():
 	global state
