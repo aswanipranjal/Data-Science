@@ -13,8 +13,8 @@ import utils
 
 root = Tk()
 
-# state = [1, 2, 3, 4, 5, 6, 7, 8, 0]
-state = [4, 6, 8, 2, 3, 1, 5, 7, 0]
+state = [1, 2, 3, 4, 5, 6, 7, 8, 0]
+# state = [4, 6, 8, 2, 3, 1, 5, 7, 0]
 puzzle = EightPuzzle(tuple(state))
 
 b = [None]*9
@@ -25,6 +25,11 @@ for _ in range(20):
 	scramble.append(random.choice(possible_actions))
 
 print(scramble)
+
+for move in scramble:
+	new_state = list(puzzle.result(state, move))
+	if puzzle.check_solvability(new_state):
+		puzzle = EightPuzzle(new_state)
 
 def exchange(index):
 	# state = list(state)
