@@ -21,7 +21,7 @@ b = [None]*9
 
 possible_actions = ['UP', 'DOWN', 'LEFT', 'RIGHT']
 scramble = []
-for _ in range(20):
+for _ in range(50):
 	scramble.append(random.choice(possible_actions))
 
 print(scramble)
