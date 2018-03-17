@@ -7,6 +7,7 @@ import numpy as np
 
 import sys
 import os.path
+import thread
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from search import astar_search, EightPuzzle
@@ -34,7 +35,9 @@ def scramble():
 			create_buttons()
 
 def solve():
-	return astar_search(puzzle).solution()
+	solution = astar_search(puzzle).solution()
+	print(solution)
+	return solution
 
 def exchange(index):
 	zero_ix = list(state).index(0)
@@ -92,8 +95,10 @@ def init():
 	state = [1, 2, 3, 4, 5, 6, 7, 8, 0]
 	scramble()
 	create_buttons()
-	solution = solve()
-	print(solution)
+	try:
+		thread.start_new_thread(solve)
+	# solution = solve()
+	# print(solution)
 
 init()
 root.mainloop()
