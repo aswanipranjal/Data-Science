@@ -22,22 +22,33 @@ def exchange(index):
 	print('Index: ', index)
 	print('Puzzle State: ', state)
 	zero_ix = list(state).index(0)
-	new_state = state.copy()
-	new_state[zero_ix], new_state[index] = state[index], state[zero_ix]
 	print('Zero: ', zero_ix)
+	actions = puzzle.actions(state)
 	state_i, state_j = index//3, index%3
 	zero_i, zero_j = zero_ix//3, zero_ix%3
+	i_diff = state_i - zero_i
+	j_diff = state_j - zero_j
+	if i_diff > 0:
+		current_action = 'UP'
+	elif i_diff < 0:
+		current_action = 'DOWN'
 
+	if j_diff > 0:
+		current_action = 'RIGHT'
+	elif j_diff < 0:
+		current_action = 'LEFT'
+
+	if current_action in actions:
 	# b[zero_ix] = b[index]
-	b[zero_ix].grid_forget()
-	b[zero_ix] = Button(root, text=f'{state[index]}', width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, zero_ix))
-	b[zero_ix].grid(row=zero_ix//3, column=zero_ix%3, ipady=40)
-	b[index].grid_forget()
-	b[index] = Button(root, text=None, width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, index))
-	b[index].grid(row=index//3, column=index%3, ipady=40)
-	state[zero_ix], state[index] = state[index], state[zero_ix]
-	# state = tuple(state)
-	print('New state: ', state, '\n')
+		b[zero_ix].grid_forget()
+		b[zero_ix] = Button(root, text=f'{state[index]}', width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, zero_ix))
+		b[zero_ix].grid(row=zero_ix//3, column=zero_ix%3, ipady=40)
+		b[index].grid_forget()
+		b[index] = Button(root, text=None, width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, index))
+		b[index].grid(row=index//3, column=index%3, ipady=40)
+		state[zero_ix], state[index] = state[index], state[zero_ix]
+		# state = tuple(state)
+		print('New state: ', state, '\n')
 
 
 b[0] = Button(root, text=f'{state[0]}' if state[0] != 0 else None, width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, 0))
