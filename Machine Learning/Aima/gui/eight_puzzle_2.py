@@ -52,6 +52,9 @@ def solve_steps():
 		root.after(1, time.sleep(1))
 
 def exchange(index):
+	global state
+	global solution
+	global puzzle
 	zero_ix = list(state).index(0)
 	actions = puzzle.actions(state)
 	current_action = ''
