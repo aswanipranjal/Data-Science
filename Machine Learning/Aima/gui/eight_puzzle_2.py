@@ -46,10 +46,13 @@ def solve_steps():
 		
 	for move in solution:
 		def do():
+			global puzzle
+			global solution
+			global state
 			state = puzzle.result(state, move)
 			create_buttons()
 			root.update()
-		root.after(10000, do)
+		root.after(1000, do)
 
 def exchange(index):
 	zero_ix = list(state).index(0)
