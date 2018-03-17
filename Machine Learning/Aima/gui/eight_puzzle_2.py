@@ -6,7 +6,7 @@ import numpy as np
 
 root = Tk()
 
-state = np.array([1, 2, 3, 4, 5, 6, 7, 8, 0])
+state = np.array([1, 2, 3, 4, 5, 6, 0, 7, 8])
 grid = state.reshape((3, 3))
 b = [None]*9
 # zero = list(state).index(0)
@@ -15,13 +15,13 @@ b = [None]*9
 def exchange(index):
 	zero_ix = list(state).index(0)
 	# b[zero_ix] = b[index]
-	state[zero_ix], state[index] = state[index], state[zero_ix]
 	b[zero_ix].grid_forget()
 	b[zero_ix] = ttk.Button(root, text=f'{state[index]}', width=30, command=partial(exchange, index))
 	b[zero_ix].grid(row=zero_ix//3, column=zero_ix%3, ipady=80)
 	b[index].grid_forget()
 	b[index] = ttk.Button(root, text=None, width=30, command=partial(exchange, zero_ix))
 	b[index].grid(row=index//3, column=index%3, ipady=80)
+	state[zero_ix], state[index] = state[index], state[zero_ix]
 
 
 b[0] = ttk.Button(root, text=f'{state[0]}' if state[0] != 0 else None, width=30, command=partial(exchange, 0))
