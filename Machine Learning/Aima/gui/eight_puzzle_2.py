@@ -40,7 +40,7 @@ def solve_steps():
 	global puzzle
 	global solution
 	global state
-	def execute():
+	def execute(move):
 		global puzzle
 		global solution
 		global state
@@ -48,7 +48,7 @@ def solve_steps():
 		create_buttons()
 		root.update()
 	for move in solution:
-		root.after(100, execute)
+		root.after(1000, partial(execute, move))
 
 def exchange(index):
 	zero_ix = list(state).index(0)
