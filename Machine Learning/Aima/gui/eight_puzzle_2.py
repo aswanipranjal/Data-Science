@@ -14,7 +14,6 @@ import utils
 root = Tk()
 
 state = [1, 2, 3, 4, 5, 6, 7, 8, 0]
-# state = [4, 6, 8, 2, 3, 1, 5, 7, 0]
 puzzle = EightPuzzle(tuple(state))
 
 b = [None]*9
@@ -29,7 +28,7 @@ print(scramble)
 for move in scramble:
 	if move in puzzle.actions(state):
 		state = list(puzzle.result(state, move))
-		puzzle = EightPuzzle(state)
+		puzzle = EightPuzzle(tuple(state))
 
 def exchange(index):
 	# state = list(state)
