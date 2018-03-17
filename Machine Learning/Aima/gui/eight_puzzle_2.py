@@ -30,6 +30,8 @@ for move in scramble:
 		state = list(puzzle.result(state, move))
 		puzzle = EightPuzzle(tuple(state))
 
+print(astar_search(puzzle).solution())
+
 def exchange(index):
 	# state = list(state)
 	print('Index: ', index)
