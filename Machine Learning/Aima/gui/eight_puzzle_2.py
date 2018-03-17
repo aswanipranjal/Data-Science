@@ -28,7 +28,7 @@ print(scramble)
 
 for move in scramble:
 	if move in puzzle.actions(state):
-		state = puzzle.result(state, move)
+		state = list(puzzle.result(state, move))
 		puzzle = EightPuzzle(state)
 
 def exchange(index):
