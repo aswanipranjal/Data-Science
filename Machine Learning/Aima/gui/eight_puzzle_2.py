@@ -8,6 +8,12 @@ root = Tk()
 
 state = np.array([1, 2,  3, 4, 5, 6, 7, 8, 0])
 grid = state.reshape((3, 3))
+zero = state.index(0)
+zero_g = grid.index(0)
+print(zero)
+print(zero_g)
+
+def exchange()
 
 button00 = ttk.Button(root, text=f'{grid[0][0]}' if grid[0][0] != 0 else None, width=30, command=lambda: button00.grid_forget())
 button00.grid(row=0, column=0, ipady=80)
