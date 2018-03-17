@@ -29,7 +29,8 @@ def scramble():
 			state = list(puzzle.result(state, move))
 			puzzle = EightPuzzle(tuple(state))
 
-print(astar_search(puzzle).solution())
+def solve():
+	return astar_search(puzzle).solution()
 
 def exchange(index):
 	zero_ix = list(state).index(0)
