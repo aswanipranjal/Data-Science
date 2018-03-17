@@ -29,9 +29,9 @@ def exchange(index):
 	i_diff = state_i - zero_i
 	j_diff = state_j - zero_j
 	if i_diff > 0:
-		current_action = 'UP'
-	elif i_diff < 0:
 		current_action = 'DOWN'
+	elif i_diff < 0:
+		current_action = 'UP'
 
 	if j_diff > 0:
 		current_action = 'RIGHT'
