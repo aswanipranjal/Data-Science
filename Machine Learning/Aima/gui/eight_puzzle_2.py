@@ -1,7 +1,6 @@
 from tkinter import *
 from functools import partial
 
-import time
 import random
 import numpy as np
 
@@ -45,7 +44,6 @@ def solve_steps():
 		state = puzzle.result(state, move)
 		create_buttons()
 		root.update()
-		time.sleep(50)
 
 def exchange(index):
 	zero_ix = list(state).index(0)
