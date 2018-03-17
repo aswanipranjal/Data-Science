@@ -91,4 +91,5 @@ def init():
 	print(solution)
 	create_buttons()
 
+init()
 root.mainloop()
