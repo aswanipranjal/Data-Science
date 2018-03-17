@@ -23,7 +23,7 @@ def scramble():
 	global puzzle
 	possible_actions = ['UP', 'DOWN', 'LEFT', 'RIGHT']
 	scramble = []
-	for _ in range(100):
+	for _ in range(60):
 		scramble.append(random.choice(possible_actions))
 
 	for move in scramble:
