@@ -24,6 +24,8 @@ scramble = []
 for _ in range(20):
 	scramble.append(random.choice(possible_actions))
 
+print(scramble)
+
 def exchange(index):
 	# state = list(state)
 	print('Index: ', index)
