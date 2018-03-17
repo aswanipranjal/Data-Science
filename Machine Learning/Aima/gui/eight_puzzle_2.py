@@ -19,6 +19,7 @@ puzzle = EightPuzzle(tuple(state))
 b = [None]*9
 
 def scramble():
+	global state
 	global puzzle
 	possible_actions = ['UP', 'DOWN', 'LEFT', 'RIGHT']
 	scramble = []
