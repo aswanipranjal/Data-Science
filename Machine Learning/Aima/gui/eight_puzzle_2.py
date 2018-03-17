@@ -12,12 +12,9 @@ import utils
 
 root = Tk()
 
-state = np.array([1, 2, 3, 4, 5, 6, 7, 8, 0])
+state = (1, 2, 3, 4, 5, 6, 7, 8, 0)
 
-# grid = state.reshape((3, 3))
 b = [None]*9
-# zero = list(state).index(0)
-# print(zero)
 
 def exchange(index):
 	print('Index: ', index)
