@@ -40,11 +40,14 @@ def solve_steps():
 	global puzzle
 	global solution
 	global state
+	def execute():
+		global puzzle
+		global solution
+		global state
+		state = puzzle.result(state, move)
+		create_buttons()
+		root.update()
 	for move in solution:
-		def execute():
-			state = puzzle.result(state, move)
-			create_buttons()
-			root.update()
 		root.after(100, execute)
 
 def exchange(index):
