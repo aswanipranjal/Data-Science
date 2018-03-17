@@ -41,6 +41,9 @@ def exchange(index):
 	elif j_diff == -1:
 		current_action += 'LEFT'
 
+	if abs(i_diff) + abs(j_diff) != 1:
+		current_action = ''
+
 	print('current_action: ', current_action)
 	print('actions: ', actions)
 	if current_action in actions:
