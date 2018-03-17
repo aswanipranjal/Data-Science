@@ -32,8 +32,7 @@ def exchange(index):
 		current_action = 'DOWN'
 	elif i_diff < 0:
 		current_action = 'UP'
-
-	if j_diff > 0:
+	elif j_diff > 0:
 		current_action = 'RIGHT'
 	elif j_diff < 0:
 		current_action = 'LEFT'
