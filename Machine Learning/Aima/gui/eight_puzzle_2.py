@@ -37,13 +37,12 @@ def scramble():
 def solve():
 	return astar_search(puzzle).solution()
 
-# def nothing():
-	
-
 def solve_steps():
 	global puzzle
 	global solution
 	global state
+	solution = solve()
+	print(solution)
 		
 	for move in solution:
 		state = puzzle.result(state, move)
@@ -116,8 +115,6 @@ def init():
 	scramble()
 	create_buttons()
 	create_static_buttons()
-	solution = solve()
-	print(solution)
 
 init()
 root.mainloop()
