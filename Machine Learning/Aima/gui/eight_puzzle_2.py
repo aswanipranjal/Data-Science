@@ -48,7 +48,7 @@ def solve_steps():
 		state = puzzle.result(state, move)
 		create_buttons()
 		root.update()
-		root.after(1, time.sleep(1))
+		root.after(1, time.sleep(0.5))
 
 def exchange(index):
 	global state
