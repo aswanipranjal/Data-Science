@@ -14,7 +14,7 @@
 5. Add Simulated Annealing to search.ipynb
 6. APPEND
 7. ANGELIC-SEARCH
-8. Add section for SATplan to logic.ipynb
+8. [Add section for SATplan to logic.ipynb] - somebody else did this already
 9. POMDP (very difficult)
 10. POMDP value iteration
 11. HybridWumpusAgent (if incomplete)
