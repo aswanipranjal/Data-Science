@@ -31,14 +31,14 @@ def exchange(index):
 	j_diff = state_j - zero_j
 	print('i_diff: ', i_diff)
 	print('j_diff: ', j_diff)
-	if i_diff > 0:
+	if i_diff == 1:
 		current_action += 'DOWN'
-	elif i_diff < 0:
+	elif i_diff == -1:
 		current_action += 'UP'
 	
-	if j_diff > 0:
+	if j_diff == 1:
 		current_action += 'RIGHT'
-	elif j_diff < 0:
+	elif j_diff == -1:
 		current_action += 'LEFT'
 
 	print('current_action: ', current_action)
