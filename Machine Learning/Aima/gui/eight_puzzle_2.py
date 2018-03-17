@@ -91,9 +91,9 @@ def init():
 	global state
 	state = [1, 2, 3, 4, 5, 6, 7, 8, 0]
 	scramble()
+	create_buttons()
 	solution = solve()
 	print(solution)
-	create_buttons()
 
 init()
 root.mainloop()
