@@ -23,8 +23,6 @@ scramble = []
 for _ in range(50):
 	scramble.append(random.choice(possible_actions))
 
-print(scramble)
-
 for move in scramble:
 	if move in puzzle.actions(state):
 		state = list(puzzle.result(state, move))
@@ -33,17 +31,11 @@ for move in scramble:
 print(astar_search(puzzle).solution())
 
 def exchange(index):
-	# state = list(state)
-	print('Index: ', index)
-	print('Puzzle State: ', state)
 	zero_ix = list(state).index(0)
-	print('Zero: ', zero_ix)
 	actions = puzzle.actions(state)
 	current_action = ''
 	i_diff = index//3 - zero_ix//3
 	j_diff = index%3 - zero_ix%3
-	print('i_diff: ', i_diff)
-	print('j_diff: ', j_diff)
 	if i_diff == 1:
 		current_action += 'DOWN'
 	elif i_diff == -1:
@@ -57,10 +49,7 @@ def exchange(index):
 	if abs(i_diff) + abs(j_diff) != 1:
 		current_action = ''
 
-	print('current_action: ', current_action)
-	print('actions: ', actions)
 	if current_action in actions:
-	# b[zero_ix] = b[index]
 		b[zero_ix].grid_forget()
 		b[zero_ix] = Button(root, text=f'{state[index]}', width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, zero_ix))
 		b[zero_ix].grid(row=zero_ix//3, column=zero_ix%3, ipady=40)
@@ -68,8 +57,6 @@ def exchange(index):
 		b[index] = Button(root, text=None, width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, index))
 		b[index].grid(row=index//3, column=index%3, ipady=40)
 		state[zero_ix], state[index] = state[index], state[zero_ix]
-		# state = tuple(state)
-		print('New state: ', state, '\n')
 
 
 b[0] = Button(root, text=f'{state[0]}' if state[0] != 0 else None, width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, 0))
