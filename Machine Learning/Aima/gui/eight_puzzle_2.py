@@ -38,6 +38,8 @@ def exchange(index):
 	elif j_diff < 0:
 		current_action = 'LEFT'
 
+	print('current_action: ', current_action)
+	print('actions: ', actions)
 	if current_action in actions:
 	# b[zero_ix] = b[index]
 		b[zero_ix].grid_forget()
