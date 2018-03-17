@@ -97,6 +97,8 @@ def init():
 	create_buttons()
 	try:
 		thread.start_new_thread(solve)
+	except:
+		print('Unable to start new thread')
 	# solution = solve()
 	# print(solution)
 
