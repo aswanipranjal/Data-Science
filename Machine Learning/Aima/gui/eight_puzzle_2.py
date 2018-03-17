@@ -36,6 +36,9 @@ def scramble():
 def solve():
 	return astar_search(puzzle).solution()
 
+def solve_steps():
+	pass
+
 def exchange(index):
 	zero_ix = list(state).index(0)
 	actions = puzzle.actions(state)
