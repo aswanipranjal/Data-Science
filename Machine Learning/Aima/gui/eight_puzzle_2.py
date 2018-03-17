@@ -51,9 +51,6 @@ def solve_steps():
 		root.after(1, time.sleep(1))
 
 def exchange(index):
-	global state
-	global solution
-	global puzzle
 	zero_ix = list(state).index(0)
 	actions = puzzle.actions(state)
 	current_action = ''
@@ -80,7 +77,6 @@ def exchange(index):
 		b[index] = Button(root, text=None, width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, index))
 		b[index].grid(row=index//3, column=index%3, ipady=40)
 		state[zero_ix], state[index] = state[index], state[zero_ix]
-		puzzle = EightPuzzle(tuple(state))
 
 def create_buttons():
 	b[0] = Button(root, text=f'{state[0]}' if state[0] != 0 else None, width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, 0))
