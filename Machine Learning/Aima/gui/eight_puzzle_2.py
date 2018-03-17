@@ -15,9 +15,12 @@ b = [None]*9
 def exchange(index):
 	zero_ix = list(state).index(0)
 	# b[zero_ix] = b[index]
-	b[zero_ix] = ttk.Button(root, text=f'Hi', width=30, command=partial(exchange, index))
+	b[zero_ix].grid_forget()
+	b[zero_ix] = ttk.Button(root, text=f'{state[index]}', width=30, command=partial(exchange, index))
 	b[zero_ix].grid(row=zero_ix//3, column=zero_ix%3, ipady=80)
 	b[index].grid_forget()
+	b[index] = ttk.Button(root, text=None, width=30, command=partial(exchange, zero_ix))
+	b[index].grid(row=index//3, column=index%3, ipady=80)
 
 
 b[0] = ttk.Button(root, text=f'{state[0]}' if state[0] != 0 else None, width=30, command=partial(exchange, 0))
