@@ -35,9 +35,7 @@ def scramble():
 			create_buttons()
 
 def solve():
-	solution = astar_search(puzzle).solution()
-	print(solution)
-	return solution
+	return astar_search(puzzle).solution()
 
 def exchange(index):
 	zero_ix = list(state).index(0)
@@ -95,12 +93,8 @@ def init():
 	state = [1, 2, 3, 4, 5, 6, 7, 8, 0]
 	scramble()
 	create_buttons()
-	try:
-		thread.start_new_thread(solve)
-	except:
-		print('Unable to start new thread')
-	# solution = solve()
-	# print(solution)
+	solution = solve()
+	print(solution)
 
 init()
 root.mainloop()
