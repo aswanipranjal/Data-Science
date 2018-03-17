@@ -19,10 +19,10 @@ def exchange(index):
 	print('Zero: ', zero_ix)
 	# b[zero_ix] = b[index]
 	b[zero_ix].grid_forget()
-	b[zero_ix] = ttk.Button(root, text=f'{state[index]}', width=30, command=partial(exchange, index))
+	b[zero_ix] = ttk.Button(root, text=f'{state[index]}', width=30, command=partial(exchange, zero_ix))
 	b[zero_ix].grid(row=zero_ix//3, column=zero_ix%3, ipady=80)
 	b[index].grid_forget()
-	b[index] = ttk.Button(root, text=None, width=30, command=partial(exchange, zero_ix))
+	b[index] = ttk.Button(root, text=None, width=30, command=partial(exchange, index))
 	b[index].grid(row=index//3, column=index%3, ipady=80)
 	state[zero_ix], state[index] = state[index], state[zero_ix]
 	print('New state: ', state, '\n')
