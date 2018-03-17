@@ -30,6 +30,7 @@ def scramble():
 		if move in puzzle.actions(state):
 			state = list(puzzle.result(state, move))
 			puzzle = EightPuzzle(tuple(state))
+			create_buttons()
 
 def solve():
 	return astar_search(puzzle).solution()
