@@ -98,6 +98,8 @@ def create_buttons():
 	b[7].grid(row=2, column=1, ipady=40)
 	b[8] = Button(root, text=f'{state[8]}' if state[8] != 0 else None, width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, 8))
 	b[8].grid(row=2, column=2, ipady=40)
+
+def create_static_buttons()
 	scramble_btn = Button(root, text='Scramble', font=('Helvetica', 30, 'bold'), width=8, command=partial(init))
 	scramble_btn.grid(row=3, column=0, ipady=10)
 	solve_btn = Button(root, text='Solve', font=('Helvetica', 30, 'bold'), width=8, command=partial(solve_steps))
@@ -109,6 +111,7 @@ def init():
 	state = [1, 2, 3, 4, 5, 6, 7, 8, 0]
 	scramble()
 	create_buttons()
+	create_static_buttons()
 	solution = solve()
 	print(solution)
 
