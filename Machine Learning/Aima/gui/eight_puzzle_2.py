@@ -3,6 +3,13 @@ from functools import partial
 
 import numpy as np
 
+import sys
+import os.path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from search import astar_search, EightPuzzle
+import utils
+
 root = Tk()
 
 state = np.array([1, 2, 3, 4, 5, 6, 0, 7, 8])
