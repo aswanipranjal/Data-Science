@@ -20,9 +20,14 @@ b = [None]*9
 def exchange(index):
 	# state = list(state)
 	print('Index: ', index)
-	print('State: ', state)
+	print('Puzzle State: ', state)
 	zero_ix = list(state).index(0)
+	new_state = state.copy()
+	new_state[zero_ix], new_state[index] = state[index], state[zero_ix]
 	print('Zero: ', zero_ix)
+	state_i, state_j = index//3, index%3
+	zero_i, zero_j = zero_ix//3, zero_ix%3
+
 	# b[zero_ix] = b[index]
 	b[zero_ix].grid_forget()
 	b[zero_ix] = Button(root, text=f'{state[index]}', width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, zero_ix))
@@ -31,7 +36,6 @@ def exchange(index):
 	b[index] = Button(root, text=None, width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, index))
 	b[index].grid(row=index//3, column=index%3, ipady=40)
 	state[zero_ix], state[index] = state[index], state[zero_ix]
-	puzzle.state = state
 	# state = tuple(state)
 	print('New state: ', state, '\n')
 
