@@ -1,6 +1,7 @@
 from tkinter import *
 from functools import partial
 
+import time
 import random
 import numpy as np
 
@@ -45,14 +46,10 @@ def solve_steps():
 	global state
 		
 	for move in solution:
-		def do():
-			global puzzle
-			global solution
-			global state
-			state = puzzle.result(state, move)
-			create_buttons()
-			root.update()
-		root.after(1000, do)
+		state = puzzle.result(state, move)
+		create_buttons()
+		root.update()
+		root.after(1000, time.sleep(5))
 
 def exchange(index):
 	zero_ix = list(state).index(0)
