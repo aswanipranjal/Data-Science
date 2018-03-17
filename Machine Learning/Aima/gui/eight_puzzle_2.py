@@ -1,6 +1,7 @@
 from tkinter import *
 from functools import partial
 
+import random
 import numpy as np
 
 import sys
@@ -17,6 +18,11 @@ state = [4, 6, 8, 2, 3, 1, 5, 7, 0]
 puzzle = EightPuzzle(tuple(state))
 
 b = [None]*9
+
+possible_actions = ['UP', 'DOWN', 'LEFT', 'RIGHT']
+scramble = []
+for _ in range(20):
+	scramble.append(random.choice(possible_actions))
 
 def exchange(index):
 	# state = list(state)
