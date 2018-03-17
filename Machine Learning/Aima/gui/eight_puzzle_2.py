@@ -84,8 +84,8 @@ def create_buttons():
 	b[7].grid(row=2, column=1, ipady=40)
 	b[8] = Button(root, text=f'{state[8]}' if state[8] != 0 else None, width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, 8))
 	b[8].grid(row=2, column=2, ipady=40)
-	scramble_btn = Button(root, text='Scramble', font=('Helvetica', 40, 'bold'), width=6, command=partial(init))
-	scramble_btn.grid(row=3, column=0, columnspan=2, ipady=10)
+	scramble_btn = Button(root, text='Scramble', font=('Helvetica', 30, 'bold'), width=8, command=partial(init))
+	scramble_btn.grid(row=3, column=0, ipady=10)
 
 def init():
 	global state
