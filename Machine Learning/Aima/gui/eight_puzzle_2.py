@@ -1,6 +1,7 @@
 from tkinter import *
 from functools import partial
 
+import time
 import random
 import numpy as np
 
@@ -31,6 +32,7 @@ def scramble():
 			state = list(puzzle.result(state, move))
 			puzzle = EightPuzzle(tuple(state))
 			create_buttons()
+			time.sleep(300)
 
 def solve():
 	return astar_search(puzzle).solution()
