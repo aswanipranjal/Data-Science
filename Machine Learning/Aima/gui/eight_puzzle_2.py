@@ -32,14 +32,14 @@ def exchange(index):
 	print('i_diff: ', i_diff)
 	print('j_diff: ', j_diff)
 	if i_diff > 0:
-		current_action.join('DOWN')
+		current_action += 'DOWN'
 	elif i_diff < 0:
-		current_action.join('UP')
+		current_action += 'UP'
 	
 	if j_diff > 0:
-		current_action.join('RIGHT')
+		current_action += 'RIGHT'
 	elif j_diff < 0:
-		current_action.join('LEFT')
+		current_action += 'LEFT'
 
 	print('current_action: ', current_action)
 	print('actions: ', actions)
