@@ -36,7 +36,7 @@ def scramble():
 def solve():
 	return astar_search(puzzle).solution()
 
-def nothing():
+# def nothing():
 	
 
 def solve_steps():
@@ -45,10 +45,11 @@ def solve_steps():
 	global state
 		
 	for move in solution:
-		state = puzzle.result(state, move)
-		create_buttons()
-		root.update()
-		root.after(10000, nothing)
+		def do():
+			state = puzzle.result(state, move)
+			create_buttons()
+			root.update()
+		root.after(10000, do)
 
 def exchange(index):
 	zero_ix = list(state).index(0)
