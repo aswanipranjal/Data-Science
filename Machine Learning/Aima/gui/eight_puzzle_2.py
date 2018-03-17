@@ -16,6 +16,7 @@ root = Tk()
 
 state = [1, 2, 3, 4, 5, 6, 7, 8, 0]
 puzzle = EightPuzzle(tuple(state))
+solution = None
 
 b = [None]*9
 
@@ -37,7 +38,13 @@ def solve():
 	return astar_search(puzzle).solution()
 
 def solve_steps():
-	pass
+	global puzzle
+	global solution
+	global state
+	for move in solution:
+		state = puzzle.result(state, move)
+		create_buttons()
+		root.update()
 
 def exchange(index):
 	zero_ix = list(state).index(0)
@@ -93,6 +100,7 @@ def create_buttons():
 
 def init():
 	global state
+	global solution
 	state = [1, 2, 3, 4, 5, 6, 7, 8, 0]
 	scramble()
 	create_buttons()
