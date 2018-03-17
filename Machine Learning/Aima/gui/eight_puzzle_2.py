@@ -18,15 +18,16 @@ puzzle = EightPuzzle(tuple(state))
 
 b = [None]*9
 
-possible_actions = ['UP', 'DOWN', 'LEFT', 'RIGHT']
-scramble = []
-for _ in range(50):
-	scramble.append(random.choice(possible_actions))
+def scramble():
+	possible_actions = ['UP', 'DOWN', 'LEFT', 'RIGHT']
+	scramble = []
+	for _ in range(100):
+		scramble.append(random.choice(possible_actions))
 
-for move in scramble:
-	if move in puzzle.actions(state):
-		state = list(puzzle.result(state, move))
-		puzzle = EightPuzzle(tuple(state))
+	for move in scramble:
+		if move in puzzle.actions(state):
+			state = list(puzzle.result(state, move))
+			puzzle = EightPuzzle(tuple(state))
 
 print(astar_search(puzzle).solution())
 
