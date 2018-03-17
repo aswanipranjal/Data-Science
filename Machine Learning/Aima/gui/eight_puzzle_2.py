@@ -17,6 +17,7 @@ state = (1, 2, 3, 4, 5, 6, 7, 8, 0)
 b = [None]*9
 
 def exchange(index):
+	state = list(state)
 	print('Index: ', index)
 	print('State: ', state)
 	zero_ix = list(state).index(0)
@@ -29,6 +30,7 @@ def exchange(index):
 	b[index] = Button(root, text=None, width=6, font=('Helvetica', 40, 'bold'), command=partial(exchange, index))
 	b[index].grid(row=index//3, column=index%3, ipady=40)
 	state[zero_ix], state[index] = state[index], state[zero_ix]
+	state = tuple(state)
 	print('New state: ', state, '\n')
 
 
