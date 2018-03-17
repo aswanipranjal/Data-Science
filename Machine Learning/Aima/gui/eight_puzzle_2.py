@@ -24,6 +24,7 @@ def exchange(index):
 	zero_ix = list(state).index(0)
 	print('Zero: ', zero_ix)
 	actions = puzzle.actions(state)
+	current_action = ''
 	state_i, state_j = index//3, index%3
 	zero_i, zero_j = zero_ix//3, zero_ix%3
 	i_diff = state_i - zero_i
@@ -31,13 +32,14 @@ def exchange(index):
 	print('i_diff: ', i_diff)
 	print('j_diff: ', j_diff)
 	if i_diff > 0:
-		current_action = 'DOWN'
+		current_action.join('DOWN')
 	elif i_diff < 0:
-		current_action = 'UP'
-	elif j_diff > 0:
-		current_action = 'RIGHT'
+		current_action.join('UP')
+	
+	if j_diff > 0:
+		current_action.join('RIGHT')
 	elif j_diff < 0:
-		current_action = 'LEFT'
+		current_action.join('LEFT')
 
 	print('current_action: ', current_action)
 	print('actions: ', actions)
