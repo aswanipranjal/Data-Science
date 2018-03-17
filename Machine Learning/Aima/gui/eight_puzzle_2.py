@@ -36,4 +36,4 @@ b[7] = ttk.Button(root, text=f'{state[7]}' if state[7] != 0 else None, width=30,
 b[7].grid(row=2, column=1, ipady=80)
 b[8] = ttk.Button(root, text=f'{state[8]}' if state[8] != 0 else None, width=30, command=partial(exchange, 8))
 b[8].grid(row=2, column=2, ipady=80)
-root.mainloop(8
+root.mainloop()
