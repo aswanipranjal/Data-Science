@@ -918,7 +918,7 @@ def plot_NQueens(solution):
 # Function to plot a heatmap, given a grid
 def heatmap(grid, cmap='binary', interpolation='nearest'):
     fig = plt.figure(figsize=(7, 7))
-    ax = gif.add_subplot(111)
+    ax = fig.add_subplot(111)
     ax.set_title('Heatmap')
     plt.imshow(heatmap, cmap=cmap, interpolation=interpolation)
     fig.tight_layout()
@@ -930,4 +930,3 @@ def gaussian_kernel(l=5, sig=1.0):
     xx, yy = np.meshgrid(ax, ax)
     kernel = np.exp(-(xx**2 + yy**2) / (2. * sig**2))
     return kernel
-    
