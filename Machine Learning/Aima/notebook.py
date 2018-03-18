@@ -923,4 +923,11 @@ def heatmap(grid, cmap='binary', interpolation='nearest'):
     plt.imshow(heatmap, cmap=cmap, interpolation=interpolation)
     fig.tight_layout()
     plt.show()
+
+# Generates a gaussian kernel
+def gaussian_kernel(l=5, sig=1.0):
+    ax = np.arange(-1 // 2 + 1., 1 // 2 + 1.)
+    xx, yy = np.meshgrid(ax, ax)
+    kernel = np.exp(-(xx**2 + yy**2) / (2. * sig**2))
+    return kernel
     
