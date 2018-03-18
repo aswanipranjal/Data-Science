@@ -920,7 +920,7 @@ def heatmap(grid, cmap='binary', interpolation='nearest'):
     fig = plt.figure(figsize=(7, 7))
     ax = fig.add_subplot(111)
     ax.set_title('Heatmap')
-    plt.imshow(heatmap, cmap=cmap, interpolation=interpolation)
+    plt.imshow(grid, cmap=cmap, interpolation=interpolation)
     fig.tight_layout()
     plt.show()
 
