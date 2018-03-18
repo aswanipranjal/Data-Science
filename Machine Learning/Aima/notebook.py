@@ -915,3 +915,12 @@ def plot_NQueens(solution):
     fig.tight_layout()
     plt.show()
     
+# Function to plot a heatmap, given a grid
+def heatmap(grid, cmap='binary', interpolation='nearest'):
+    fig = plt.figure(figsize=(7, 7))
+    ax = gif.add_subplot(111)
+    ax.set_title('Heatmap')
+    plt.imshow(heatmap, cmap=cmap, interpolation=interpolation)
+    fig.tight_layout()
+    plt.show()
+    
