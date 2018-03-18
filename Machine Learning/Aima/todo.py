@@ -1,8 +1,8 @@
 '''
 2. Convert %psource to psource in logic.ipynb
-3.a Add section for `KB_Agent` in logic.ipynb
-  b Add section for `FOL-FC-Ask` in logic.ipynb
-  c Add section for `FOL-BC-Ask` in logic.ipynb
+Stale --> 3.a Add section for `KB_Agent` in logic.ipynb
+  			b Add section for `FOL-FC-Ask` in logic.ipynb
+  			c Add section for `FOL-BC-Ask` in logic.ipynb
 4. Write tests for [[dpll, ]]
 				[[dpll_satisfiable, ]]
 				[[WalkSAT, ]]
