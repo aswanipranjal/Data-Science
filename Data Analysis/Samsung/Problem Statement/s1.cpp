@@ -185,7 +185,7 @@ void preKMP(string pattern, int f[]) {
     }
 }
  
-bool KMP(string& pattern, string& target) {
+bool KMP(string pattern, string target) {
 	transform(pattern.begin(), pattern.end(), pattern.begin(), ::tolower);
 	transform(target.begin(), target.end(), target.begin(), ::tolower);
     int m = pattern.length();
@@ -215,12 +215,19 @@ bool KMP(string& pattern, string& target) {
 }
 
 bool is_concept_present(vector<string> v, string s) {
+	// cout << "hello\n";
 	bool flag = false; 
-	for(size_t i = 0; i < v.size(); ++i) {
-		flag = KMP(v[i], s);
+	// cout <<  v.size() << endl;
+	// print_vec(v);
+	vector<string>::iterator it1;
+	for(it1 = v.begin(); it1 != v.end(); ++it1) {
+		// cout << *it1 << endl << "-------\n";
+		flag = KMP(*it1, s);
+		cout << *it1 << endl;// << " - ";// << (*it1).length() << "\n....\n";
+		if(*it1 == string("email")) cout << flag << endl;
 		if(flag) break;
 	}
-
+	cout << endl;
 	return flag;
 }
 
@@ -228,7 +235,11 @@ vector<string> concepts_that_are_present(string s) {
 	map<string, vector<string> >::iterator it;
 	vector<string> res;
 	for(it = concepts.begin(); it != concepts.end(); ++it) {
-		if(is_concept_present(it->second, s)) res.push_back(it->first);
+		// cout << it->first << endl;
+		if(is_concept_present(it->second, s)){ 
+					// cout << it->first << endl;
+					res.push_back(it->first);
+				}
 	}
 
 	return res;
@@ -236,8 +247,9 @@ vector<string> concepts_that_are_present(string s) {
 
 bool is_placeholder_present(vector<string> v, string s) {
 	bool flag = false; 
-	for(size_t i = 0; i < v.size(); ++i) {
-		flag = KMP(v[i], s);
+	vector<string>::iterator it1;
+	for(it1 = v.begin(); it1 != v.end(); ++it1) {
+		flag = KMP(*it1, s);
 		if(flag) break;
 	}
 
@@ -310,13 +322,15 @@ int main() {
 	string input_str = "Send an email to Amitabh and Shah rukh ";
 	vector<string> v_c = concepts_that_are_present(input_str);
 	vector<string> v_p = placeholders_that_are_present(input_str);
-	print_vec(v_c);
-	print_vec(v_p);
 	find_grammar_scores_concept(v_c);
 	find_grammar_scores_placeholder(v_p);
-
-	cout << command() << endl;
-
+// //////////////////
+	// print_vec(v_c);
+	// print_vec(v_p);
+////////////////
+	// cout << command() << endl;
+////////////////
+// ////////////////////
 	// map<string, pair<set<string>, set<string> > >::iterator it;
 	// for (it = grammar.begin(); it != grammar.end(); ++it) {
 	// 	cout << it->first << " \nc\n--\n";
@@ -325,12 +339,21 @@ int main() {
 	// 	print_set(it->second.second);
 	// }
 
-	map<string, int>::iterator it;
-	string s;
-	for(it = counters.begin(); it != counters.end(); ++it) {
-		cout << it->first << "\t" << it->second <<  endl;
-	}
-	
+	// map<string, vector<string> >::iterator it;
+	// for (it = concepts.begin(); it != concepts.end(); ++it) {
+	// 	cout << it->first << " \nc\n--\n";
+	// 	print_vec(it->second);
+		// cout << "p\n--\n";
+		// print_set(it->second.second);
+	// }
+/////////////////////////////
 
+	// map<string, int>::iterator it;
+	// string s;
+	// for(it = counters.begin(); it != counters.end(); ++it) {
+	// 	cout << it->first << "\t" << it->second <<  endl;
+	// }
+	
+///////////////////////////////////
 	return 0;
 }
