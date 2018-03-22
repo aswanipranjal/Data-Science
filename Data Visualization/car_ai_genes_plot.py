@@ -9,7 +9,7 @@ fig = plt.figure()
 ax2 = fig.add_subplot(1, 1, 1)
 
 def animate(i):
-	graph_data = open('C:\\Users\\Aman Deep Singh\\Documents\\Unity-2\\Car AI GA\\Assets\\Data\\data.txt', 'r').read()
+	graph_data = open('C:\\Users\\Aman Deep Singh\\Documents\\Unity-2\\Car AI GA\\Assets\\Data\\datamine.txt', 'r').read()
 	lines = graph_data.split('\n')
 	xs = []
 	msas = []
